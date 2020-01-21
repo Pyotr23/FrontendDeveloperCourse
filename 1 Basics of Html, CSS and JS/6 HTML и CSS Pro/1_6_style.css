@@ -1,0 +1,245 @@
+.page {
+    font-family: 'Cormorant Garamond';
+    background-color: #FEFEFE;
+  }
+  
+  .header {
+    height: 95px;
+    display: flex;
+  }
+  
+  .header__link[lang="ru"]::before{
+    content: "Привет, меня зовут ";
+  }
+  
+  .header__link[lang="en"]::before{
+    content: "Hello, my name is ";
+  }
+  
+  .header__link[lang="fr"]::before{
+    content: "Bonjour, je suis ";
+  }
+  
+  .header__link {
+    margin: auto;
+    font-size: 28px;
+    text-decoration: none;
+    color: #10191E;
+  }
+  
+  .header__link::after{
+    content: "!";
+  }
+  
+  .beginner__title{
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .beginner__project {
+    width: 636px;
+    height: 430px;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .beginner__project_first-code {
+    background-image: url(https://code.s3.yandex.net/web-code/album.png);
+  }
+  
+  .beginner__hover-link{
+    background-color: rgba(0, 0, 255, .5);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 40px;
+    opacity: 0;
+  }
+  
+  .beginner__hover-link:hover{
+    opacity: 1;
+  }
+  
+  .beginner__project_design-principles {
+    background-image: url(https://code.s3.yandex.net/web-code/design.png);
+  }
+  
+  .beginner__project-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+  }
+  
+  .intern__title{
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .intern__column {
+    width: 636px;
+    height: 557px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+  }
+  
+  .intern__column_single-item {
+    background-image: url(https://pictures.s3.yandex.net/coming_soon_3.png);
+  }
+  
+  .intern__project-container {
+    display: flex;  
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+  }
+  
+  .intern__project-block_one-project {
+    width: 636px;
+    height: 240px;
+    background-image: url(https://pictures.s3.yandex.net/coming_soon_4.png);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .intern__project {
+    width: 306px;
+    height: 290px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .intern__project_first-project {
+    background-image: url(https://pictures.s3.yandex.net/coming_soon_5.png);
+  }
+  
+  .intern__hover-link{
+    background-color: rgba(0, 0, 255, .5);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 24px;
+    opacity: 0;
+  }
+  
+  .intern__hover-link:hover{
+    opacity: 1;
+  }
+  
+  .intern__project_second-project {
+    background-image: url(https://pictures.s3.yandex.net/coming_soon_6.png);
+  }
+  
+  .intern__project-block_two-projects {
+    display: flex;
+  }
+  
+  .intern__column_multi-item {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  
+  .intern__project-block {
+    justify-content: space-between;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    height: 75px;
+    align-items: center;
+  }
+  
+  .pro__title{
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .pro__project-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  
+  .pro__project {
+    width: 306px;
+    height: 290px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .pro__hover-link{
+    background-color: rgba(0, 0, 255, .5);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 24px;
+    opacity: 0;
+  }
+  
+  .pro__hover-link:hover{
+    opacity: 1;
+  }
+  
+  .pro__project_first-project {
+    background-image: url(https://pictures.s3.yandex.net/coming_soon_9.png);
+    order: 3;
+    align-self: center;
+  }
+  
+  .pro__project_second-project {
+    background-image: url(https://pictures.s3.yandex.net/coming_soon_8.png);
+    order: 2;
+    align-self: center;
+    flex-basis: 636px;
+  }
+  
+  .pro__project_third-project {
+    background-image: url(https://pictures.s3.yandex.net/coming_soon_7.png);
+    order: 1;
+    align-self: center;
+  }
+  
+  .footer {
+    height: 95px;
+    display: flex;
+  }
+  
+  .footer__logo {
+    width: 145px;
+    height: 25px;
+    background-image: url(https://pictures.s3.yandex.net/logo_black.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+  }
+  
+  .main {
+    max-width: 1330px;
+    margin: auto;
+  }
+  
+  .menu__link {
+    margin-right: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #10191E;
+  }

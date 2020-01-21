@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://pictures.s3.yandex.net/favicon.png">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="1_6_style.css">
+  <title>Портфолио</title>
+  <meta name="description" content="портфолио Петра на Яндекс Практикуме">
+  <meta name="keywords" content="html, css">
+  <meta name="author" content="Pyotr Kolesnikov">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a href="#" class="header__link" lang="en">Pyotr Kolesnikov</a>
+    </header>
+
+    <nav class="menu">
+      <a href="#beginner-block" class="menu__link" >Введение в профессию</a>
+      <a href="#intern-block" class="menu__link">HTML & CSS Intern</a>
+      <a href="#pro-block" class="menu__link">HTML & CSS Pro</a>
+    </nav>
+
+    <main class="main">
+
+      <section class="beginner" id="beginner-block">
+        <h2 class="beginner__title">Введение в профессию</h2>
+        <div class="beginner__project-container">
+          <div class="beginner__project beginner__project_first-code">
+            <a class="beginner__hover-link">Первый код</a>
+          </div>
+          <div class="beginner__project beginner__project_design-principles">
+            <a class="beginner__hover-link">4 принципа вёрстки</a>
+          </div>
+        </div>
+        
+      </section>
+
+      <section class="intern" id="intern-block">
+        <h2 class="intern__title">HTML & CSS Intern</h2>
+        <div class="intern__project-container">
+          <div class="intern__column intern__column_multi-item">
+            <div class="intern__project-block intern__project-block_two-projects">
+              <div class="intern__project intern__project_first-project">
+                <a class="intern__hover-link">идея</a>
+              </div>
+              <div class="intern__project intern__project_second-project">
+                <a class="intern__hover-link">мысль</a>
+              </div>
+            </div>
+            <div class="intern__project-block intern__project-block_one-project">
+              <a class="intern__hover-link">сомнение</a>
+            </div>
+          </div>
+          <div class="intern__column intern__column_single-item">
+            <a class="intern__hover-link">задача</a>
+          </div>
+        </div>        
+      </section>
+
+      <section class="pro" id="pro-block">
+        <h2 class="pro__title">HTML & CSS Pro</h2>
+        <div class="pro__project-container">
+          <div class="pro__project pro__project_first-project">
+            <a class="pro__hover-link">цель</a>
+          </div>
+          <div class="pro__project pro__project_second-project">
+            <a class="pro__hover-link">вдохновение</a>
+          </div>
+          <div class="pro__project pro__project_third-project">
+            <a class="pro__hover-link">расчёт</a>
+          </div>
+        </div>        
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer__logo"></div>
+    </footer>
+  </div>
+  </body>
+</html>
