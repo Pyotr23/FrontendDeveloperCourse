@@ -1,25 +1,80 @@
+div{
+    border: 1px solid red;    
+}
+
 .page {
     min-width: 1100px;
-    /* мы ещё не умеем делать мобильную версию сайта, */
-    /* поэтому выше установлена минимальная ширина страницы */
     max-width: 1600px;
-    /* выше установили ограничение по максимальной ширине */
     margin: 0 auto;
-    /* выше для экранов больше 1600px отцентрировали весь контент */
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .header {
     height: 100vh;
     min-height: 600px;
-    max-height: 756px;
-    /* выше установили ограничения для секции */
+    max-height: 756px;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* ниже мы привели пример двух селекторов, чтобы вы вспомнили запись элемента */
+.logo{
+    position: absolute;
+    z-index: 1;
+    width: 183px;
+    height: 32px;    
+}
+
+.header__logo_place-header{
+    top: 30px;
+    left: 64px;
+    background-image: url("../images/logo.svg");
+    background-position: center;
+    background-size: cover;    
+}
+
+.header__title{    
+    width: 730px;
+    margin-left: 64px;      
+    font-size: 102px;
+    font-weight: bold;  
+    line-height: 96px;     
+}
+
+.header__subtitle{
+    position: absolute;
+    z-index: 1;
+    width: 388px;
+    bottom: 30px;
+    left: 64px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.header__link{
+    text-decoration: none;
+}
+
+.header__main-illustration{
+    position: absolute;
+    width: 765px;
+    height: 608px;
+    bottom: 0;
+    right: 0;
+    background-image: url("../images/two_again.png");
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+}
+
 .header__square-pic {
+    position: absolute;
+    right: 0;
+    top: 64px;
     height: 568px;
     width: 568px;
+    background-color: #2f80ed;
 }
 
 /* и элемента с модификатором вида ключ-значение */
