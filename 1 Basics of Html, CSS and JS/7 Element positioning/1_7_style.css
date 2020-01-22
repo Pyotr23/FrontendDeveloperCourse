@@ -1,0 +1,209 @@
+/* свойства, установленные для всей видимой
+в браузере части страницы */
+.page {
+    background-color: #161819; /* страница имеет тёмный фон */
+    color: white;              /* цвет текста - белый */
+    font-family: 'Lora';         /* шрифт, кроме оговорённых отдельно случаев, —  'Lora' */
+    padding: 120px 0;            /* внутренние отступы сверху и снизу по 120 пикселей, справа и слева нулевые */
+  
+    /* эта магия делает наши шрифты красивыми,
+    разберёмся в отдельном курсе */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -ms-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern";
+  }
+  
+  /* контент всей веб-страницы занимает 40 процентов
+  ширины окна просмотра, располагается по центру */
+  .content__container {
+    width: 40%;
+    margin: auto;
+  }
+  
+  /* общее свойство заголовков — всей страницы, глав,
+  разделов и подразделов — особый шрифт */
+  .content__title {
+    font-family: 'Playfair Display';
+  }
+  
+  /* свойства заголовка всей страницы */
+  .content__title_main-item {
+    color: #ff6666;
+    font-size: 55px;
+    line-height: 70px;
+    margin-bottom: 60px;
+  }
+  
+  /* свойства названий глав и разделов */
+  .content__title_sub-item {
+    color: #ff6666;
+    font-size: 55px;
+    line-height: 70px;
+    margin: 120px 0 60px;
+    width: 50%;
+  }
+  
+  /* свойства заголовков подразделов */
+  .content__title_method-name {
+    font-size: 40px;
+    line-height: 50px;
+    margin: 60px 0 20px;
+  }
+  
+  /* свойства текста обычного абзаца */
+  .content__text {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 60px;
+  }
+  
+  /* свойства текста цитат */
+  .content__quote {
+    font-family: 'Lora';
+    font-size: 34px;
+    line-height: 42px;
+    padding: 40px;
+    margin-bottom: 60px;
+    border-top: 2px solid #ff6666;
+    border-bottom: 2px solid #ff6666;
+    position: relative;
+    top: 5px;
+    left: 60px;
+  }
+  
+  /* свойства текста с указанием источника цитаты */
+  .content__quote-origin {
+    display: block;
+    color: #a6a6a6;
+    text-align: right;
+    font-size: 22px;
+    margin-top: 52px;
+    margin-right: -40px;
+  }
+  
+  /* далее следуют правила для меню и его пунктов;
+  нам предстоит прописать их по мере изучения позиционирования */
+  .menu__item {
+    position: fixed;
+    z-index: 1;
+  }
+  
+  .menu__item:hover .menu__picture{
+    display: block;
+  }
+  
+  .menu__item_landscape {
+    top: 40px;
+    left: 40px; 
+  }
+  
+  .menu__item_portrait {
+    top: 40px;
+    right: 40px; 
+  }
+  
+  .menu__item_viewpoint {
+    bottom: 40px;
+    left: 40px; 
+  }
+  
+  .menu__item_expression {
+    bottom: 40px;
+    right: 40px; 
+  }
+  
+  /* общие свойства всех ссылок меню на другие разделы сайта */
+  .menu__link {
+    color: #a6a6a6;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'PTMono';
+    text-transform: uppercase;
+  }
+  
+  /* изменение цвета ссылки на другой раздел сайта по наведении указателя мыши */
+  .menu__link:hover {
+    color: #ff6666;
+  }
+  
+  /* общие свойства всех иллюстраций, всплывающих рядом с соответствующим
+  пунктом меню: при бездействии пользователя они скрыты */
+  .menu__picture {
+    display: none;
+    width: 300px;
+    position: absolute;
+  }
+  
+  /* далее следуют правила для всплывающих иллюстраций;
+  нам предстоит прописать их в процессе прохождения этого курса */
+  .menu__picture_landscape {
+    top: 40px;
+    left: 40px;
+  }
+  
+  .menu__picture_portrait {
+    top: 40px;
+    right: 40px;
+  }
+  
+  .menu__picture_viewpoint {
+    bottom: 40px;
+    left: 40px;
+  }
+  
+  .menu__picture_expression {
+    bottom: 40px;
+    right: 40px;
+  }
+  
+  /* общие свойства контейнеров с обычными иллюстрациями в тексте */
+  .content__image {
+    margin: 60px 0;
+    position: relative;
+  }
+  
+  /* общие свойства иллюстраций в тексте */
+  .content__image-item {
+    width: 100%;
+  }
+  
+  /* общие свойства "покрывал" для иллюстраций при бездействии пользователя */
+  .content__image-cover {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* изменения свойств "покрывала" при наведении мыши на иллюстрации в тексте */
+  .content__image-cover:hover {
+    opacity: 1;
+  }
+  
+  /* свойства подписей с названиями иллюстраций */
+  .content__image-name {
+    font-size: 14px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  /* свойства контейнера с информацией об авторах и авторских правах */
+  .content__item_copyright {
+    margin-top: 40px;
+    font-size: 22px;
+    line-height: 30px;
+    color: #a6a6a6;
+  }
+  
+  /* свойства текста строки с информацией об авторе */
+  .content__text_copyright {
+    font-size: 16px;
+    line-height: 24px;
+  }
