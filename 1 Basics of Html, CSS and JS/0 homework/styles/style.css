@@ -1,4 +1,4 @@
-div{
+div, section{
     border: 1px solid red;    
 }
 
@@ -80,11 +80,13 @@ div{
 .description{
     display: flex;
     justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .two-columns{
-    margin-top: 100px;
-    margin-bottom: 100px;
+    /* margin-top: 100px;
+    margin-bottom: 100px; */
     width: 80%; 
     display: flex;
     justify-content: space-between;   
@@ -116,6 +118,106 @@ div{
 
 .two-columns__span-accent{
     font-weight: bold;
+}
+
+.digits{
+    margin-top: -100px;
+    padding-top: 100px;
+    padding-bottom: 100px
+}
+
+.title{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.section-title{    
+    width: 60%;   
+    line-height: 69px;
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.section-subtitle{
+    width: 60%;    
+    line-height: 34px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.table{
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.table__cell{
+    width: 250px;    
+    margin-top: 60px;
+}
+
+.table__heading{
+    margin-bottom: 20px;
+    line-height: 1.15;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.table__text{
+    line-height: 1.2;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.table__text_margin-bottom{
+    margin-bottom: 20px;
+}
+
+.feinman{
+    height: 790px;
+    padding-top: 100px; 
+    position: relative;   
+}
+
+.feinman__title{
+    width: 648px;    
+    line-height: 1.15;
+    font-size: 120px;
+    font-weight: bold;    
+    margin-bottom: 70px;
+}
+
+.feinman__subtitle{
+    line-height: 51px;
+    font-size: 36px;
+    font-weight: normal; 
+    display: table;    
+}
+
+.feinman__link{
+    position: absolute;
+    top: 50%;
+    right: 48px;
+    line-height: 51px;
+    font-size: 36px;
+    font-weight: normal; 
+}
+
+.feinman__link_decoration{
+    text-decoration: none;
+    color: black;
+}
+
+.feinman__portrait{
+    width: 867px;
+    height: 637px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
 }
 
 /* и элемента с модификатором вида ключ-значение */
