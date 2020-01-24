@@ -126,12 +126,9 @@ div, section{
     padding-bottom: 100px
 }
 
-.title{
+.section-title{  
     text-align: center;
-    margin: 0 auto;
-}
-
-.section-title{    
+    margin: 0 auto;  
     width: 60%;   
     line-height: 69px;
     font-size: 60px;
@@ -140,6 +137,8 @@ div, section{
 }
 
 .section-subtitle{
+    text-align: center;
+    margin: 0 auto;
     width: 60%;    
     line-height: 34px;
     font-size: 24px;
@@ -183,6 +182,8 @@ div, section{
 }
 
 .feinman__title{
+    text-align: center;
+    margin: 0 auto;
     width: 648px;    
     line-height: 1.15;
     font-size: 120px;
@@ -191,6 +192,8 @@ div, section{
 }
 
 .feinman__subtitle{
+    text-align: center;
+    margin: 0 auto;
     line-height: 51px;
     font-size: 36px;
     font-weight: normal; 
@@ -220,10 +223,41 @@ div, section{
     z-index: -1;
 }
 
-/* и элемента с модификатором вида ключ-значение */
-.table__cell_theme_dark {
+.kaufman{
+    background-color: black;
+    color: white;
+    position: relative;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    z-index: -1;
+}
+
+.section-subtitle_theme-dark{
+    margin-top: 90px;
+}
+
+.table__cell_theme-dark{
+    width: 200px;
+}
+
+.kaufman__triangle{  
+    position: absolute;        
+    width: 877px;
+    height: 877px;   
+    top: 0;    
+    right: -210px; 
+    z-index: -1;    
+    overflow: hidden; 
+    background-image: url("../images/triangle.svg");
+    background-size: cover;
+    background-position: center; 
+}
+
+
+
+/* .table__cell_theme_dark {
     width: 200px;
     color: white;
     margin-right: 0;
     margin-top: 80px;
-}
+} */
