@@ -1,5 +1,6 @@
-p{
+p, ul{
     margin: 0;
+    padding: 0;
 }
 
 .page {
@@ -31,9 +32,6 @@ p{
 .logo_place-header{
     top: 30px;
     left: 64px;
-    background-image: url("../images/logo.svg");
-    background-position: center;
-    background-size: cover;    
 }
 
 .header__title{    
@@ -116,10 +114,6 @@ p{
     line-height: 34px;
     font-size: 24px;
     font-weight: normal;
-}
-
-.two-columns__paragraph_second{
-    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -185,7 +179,12 @@ p{
 .feinman{
     height: 790px;
     padding-top: 100px; 
-    position: relative;   
+    position: relative;  
+    background-image: url("../images/feinman.png");    
+    background-position: bottom left;
+    background-size: 867px 637px; 
+    background-repeat: no-repeat;
+    background-color: #f2f2f2;
 }
 
 .feinman__title{
@@ -214,29 +213,18 @@ p{
     line-height: 51px;
     font-size: 36px;
     font-weight: normal; 
-}
-
-.feinman__link_decoration{
     text-decoration: none;
     color: black;
 }
 
-.feinman__portrait{
-    width: 867px;
-    height: 637px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-}
-
 .kaufman{
-    background-color: black;
+    background-color: #1f1f1f;
     color: white;
     position: relative;
     padding-top: 90px;
     padding-bottom: 90px;
     z-index: -1;
+    overflow: hidden;
 }
 
 .section-subtitle_theme-dark{
@@ -253,15 +241,14 @@ p{
     height: 877px;   
     top: 0;    
     right: -210px; 
-    z-index: -1;    
-    overflow: hidden; 
+    z-index: -1;     
     background-image: url("../images/triangle.svg");
     background-size: cover;
     background-position: center; 
 }
 
 .footer{
-    background-color: black;
+    background-color: #1f1f1f;
     color: white;    
     padding-top: 60px;
     padding-bottom: 40px;
@@ -289,9 +276,6 @@ p{
 
 .logo_place-footer{ 
     position: static;   
-    background-image: url("../images/logo_white.svg");
-    background-position: center;
-    background-size: cover;       
 }
 
 .footer__author{
@@ -315,11 +299,10 @@ p{
     font-size: 18px;
     font-weight: normal;
     margin-bottom: 16px;
-}
-
-.footer__column-links_empty{
-    color: black;
-    margin: 0;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .footer__column-links_style{

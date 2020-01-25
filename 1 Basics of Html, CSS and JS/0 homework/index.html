@@ -1,265 +1,267 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
+    <!-- Огромное спасибо за ревью! Я не ожидал, что при таком огромном количестве студентов, будет быстрый и подробный
+    ответ. Вы не только указали на необходимые правки, но и высказали пожелания, поделились опытом. 
+    Потрясён профессионализмом! -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/normalize.css">
-    <!--Отлично: Вы подключили normalize.css -->
     <link rel="stylesheet" href="styles/style.css">
     <title>Научиться учиться</title>
 </head>
 <body>
-    <div class="page">
+    <ul class="page">
         <header class="header">
-            <div class="logo logo_place-header">                
+            <div class="logo logo_place-header"> 
+                <img src="images/logo.svg" alt="Логотип Яндекс Практикума.">              
             </div>
-            <div class="header__title">                
+            <h1 class="header__title">                
                 Научиться учиться                
-            </div>
-            <div class="header__subtitle">
+            </h1>
+            <article class="header__subtitle">
                 Какие современные и эффективные подходы к обучению вы можете использовать в своей жизни?
                 <a class="header__link" href="#">Узнать &rarr;</a>
-            </div>
+            </article>
             <div class="header__main-illustration">                
             </div>
             <div class="header__square-pic">                
             </div>
         </header>
         <main class="content">
-            <section class="description">                          
+            <section class="description" id="description-block">                          
                 <div class="two-columns">
                     <div class="two-columns__brief">
                         Главные проблемы в обучении
                     </div>
-                    <div class="two-columns__main-text">
-                        <div class="two-columns__paragraph">
+                    <figure class="two-columns__main-text">
+                        <p class="two-columns__paragraph">
                             Ни в школе, ни в институте нас не учат тому, как правильно изучать материал. 
                             Мы готовимся к экзаменам и учим билеты. Мы тренируемся решать однообразные задачи, 
                             чтобы лучше сдать тест, но часто в итоге это не дает нам реального знания. 
                             Зубрежка быстро выветривается и не приносит пользы.
-                        </div>
-                        <div class="two-columns__paragraph two-columns__paragraph_second">
-                           <!--Нужно исправить: Не используйте числительные в именах классов-->
+                        </p>
+                        <p class="two-columns__paragraph">
+                           <!-- DONE Нужно исправить: Не используйте числительные в именах классов-->
                             <span class="two-columns__span-accent">Вывод:</span> учиться тоже нужно уметь, но почему-то этому мало где учат. 
                             Что с этим делать?
-                        </div>
-                        <!-- Нужно исправить: 
+                        </p>
+                        <!-- DONE Нужно исправить: 
                               Модификатора two-columns__paragraph_second нет в брифе, он не нужен. Можно всем two-columns__paragraph задать нижний марджин и это будет единообразно без модификатора.                   
                         -->
-                        <div class="two-columns__paragraph">
+                        <p class="two-columns__paragraph">
                             Конкретные техники и упражнения помогают изменить подход к обучению, 
                             сделать его эффективным и захватывающим. Эти же техники применяются на примере обучения в Практикуме.
-                        </div>
-                    </div>
+                        </p>
+                    </figure>
                 </div>                 
             </section>
             
-            <section class="digits">
-                <div class="section-title">
+            <section class="digits" id="digits-block">
+                <h2 class="section-title">
                     Цифры и факты
-                </div>
-                 <!-- Нужно исправить: 
+                </h2>
+                 <!-- DONE Нужно исправить: 
                         Здесь нужно использовать заголовок. Ниже по коду ошибка повторяется.  
                   -->
-                <div class="section-subtitle">
+                <h3 class="section-subtitle">
                     Про учёбу и мозг
-                </div>
-                <!-- Нужно исправить: 
+                </h3>
+                <!-- DONE Нужно исправить: 
                         Здесь находится текст и поэтому нужно использовать тег параграфа.  
                   -->
-                <div class="table">
-                    <div class="table__cell">
-                       <!-- Можно лучше: 
+                <ul class="table">
+                    <figure class="table__cell">
+                       <!-- DONE Можно лучше: 
                              Для перечисляемых элементов с одинаковым смыслом, разметкой и стилизацией подходит список - ul                 
                         -->
-                        <div class="table__heading">
+                        <p class="table__heading">
                             86 миллиардов
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Число нейтронов в мозге человека
-                        </div>
-                        <!-- Нужно исправить: 
+                        </p>
+                        <!-- DONE Нужно исправить: 
                               table__heading и table__text тоже текстовые блоки и должны быть не дивами, а параграфами. Ниже по коду ошибка повторяется.    
                         -->
-                    </div>
-                    <div class="table__cell">
-                        <div class="table__heading">
+                    </figure>
+                    <figure class="table__cell">
+                        <p class="table__heading">
                             2,1 миллиарда                            
-                        </div>
+                        </p>
                         <div class="table__text table__text_margin-bottom">
                             Число нуждающихся в повышении квалификации
                         </div>
-                        <div class="table__text">
+                        <p class="table__text">
                             Всемирный Банк, 2017
-                        </div>
-                    </div>
-                    <div class="table__cell">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell">
+                        <p class="table__heading">
                             1000 терабайт
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Объём памяти человека
-                        </div>
-                    </div>
-                    <div class="table__cell">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell">
+                        <p class="table__heading">
                             500 триллионов
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Число ответственных за обучение нервных синапсов у взрослого человека
-                        </div>
-                    </div>
-                    <div class="table__cell">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell">
+                        <p class="table__heading">
                             420 миллионов
-                        </div>
-                        <div class="table__text table__text_margin-bottom">
+                        </p>
+                        <p class="table__text table__text_margin-bottom">
                             Число взрослых людей моложе 25 лет, не имеющих образования для трудоустройства
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Всемирный Банк, 2017
-                        </div>
-                    </div>
-                    <div class="table__cell">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell">
+                        <p class="table__heading">
                             17-20 лет
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Пик обучаемости
-                        </div>
-                    </div>
-                    <div class="table__cell">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell">
+                        <p class="table__heading">
                             1885 год
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Открытие кривой забывания
-                        </div>
-                    </div>
-                    <div class="table__cell">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell">
+                        <p class="table__heading">
                             1889 год
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Открытие условного рефлекса
-                        </div>
-                    </div>
-                </div>
+                        </p>
+                    </figure>
+                </ul>
             </section>
 
-            <section class="feinman">
-                <div class="feinman__title">
+            <section class="feinman" id="feinman-block">
+                <h2 class="feinman__title">
                     Метод Фейнмана
-                </div>
-                <div class="feinman__subtitle">
+                </h2>
+                <h3 class="feinman__subtitle">
                     Выучить и не забыть.
-                </div>
-                <div class="feinman__link">
-                    <a href="#" class="feinman__link_decoration">Подробнее &rarr;</a>
-                </div>
-                <!-- Нужно исправить: 
+                </h3>
+                <!-- DONE Нужно исправить: 
                        Ссылке не нужна обёртка из дива. Класс feinman__link должен быть у ссылки. К тому же, модификатор используется неправильно.    
                 -->
-                <div class="feinman__portrait">
-                    <img src="images/feinman.png" alt="Ричард Фейнман">
-                </div>
-                <!-- Нужно исправить: 
+                <a href="#" class="feinman__link">
+                    Подробнее &rarr;
+                </a>                
+                <!-- DONE Нужно исправить: 
                        По брифу изображение должно быть фоновым   
                 -->
             </section>
             
             <section class="kaufman">  
-              <!-- Нужно исправить: 
+              <!-- DONE Нужно исправить: 
                      Цвет фона должен быть темно-серый, а не черный.    
                 -->              
-                <div class="section-title">
+                <h2 class="section-title">
                     Принципы обучения
-                </div>                    
-                <div class="section-subtitle section-subtitle_theme-dark">
+                </h2>                    
+                <h3 class="section-subtitle section-subtitle_theme-dark">
                     от Джоша Кауфмана
-                </div> 
-                <div class="table">
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                </h3> 
+                <ul class="table">
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             1
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Выберите привлекательный проект.
-                        </div>
-                    </div>
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             2                           
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Сосредоточьтесь на каком-то одном навыке.
-                        </div>                       
-                    </div>
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                        </p>                       
+                    </figure>
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             3
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Определите целевой уровень мастерства.
-                        </div>
-                    </div>
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             4
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Разбейте навык на элементы.
-                        </div>
-                    </div>
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                        </p>
+                    </figure>                    
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             5
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Приготовьте всё необходимое для занятий.
-                        </div>                       
-                    </div>
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                        </p>                       
+                    </figure>
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             6
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Устраните препятствия для занятий.
-                        </div>
-                    </div>
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             7
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Выделите специальное время для занятий.
-                        </div>
-                    </div>
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             8
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Создайте быстрые петли обратной связи.
-                        </div>
-                    </div>
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             9
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Занимайтесь по расписанию, короткими интенсивными интервалами.
-                        </div>
-                    </div>
-                    <div class="table__cell table__cell_theme-dark">
-                        <div class="table__heading">
+                        </p>
+                    </figure>
+                    <figure class="table__cell table__cell_theme-dark">
+                        <p class="table__heading">
                             10
-                        </div>
-                        <div class="table__text">
+                        </p>
+                        <p class="table__text">
                             Уделяйте внимание количеству и скорости.
-                        </div>
-                    </div>
-                </div>
+                        </p>
+                    </figure>
+                </ul>
                 <div class="kaufman__triangle">                    
                 </div>
             </section>
@@ -267,9 +269,10 @@
         <footer class="footer">
             <div class="footer__columns">
                 <div class="footer__column_content-copyright">
-                    <div class="logo logo_place-footer">                        
+                    <div class="logo logo_place-footer">  
+                        <img src="images/logo_white.svg" alt="Логотип Яндекс Практикума.">                       
                     </div>
-                    <!-- Нужно исправить: 
+                    <!-- DONE Нужно исправить: 
                           Как и в шапке, логотип должен быть вставлен через тег img.    
                     -->
                     <div class="footer__author">
@@ -277,62 +280,52 @@
                     </div>
                 </div>
                 <div class="footer__column_content-info">
-                    <div class="footer__column-heading">
+                    <h4 class="footer__column-heading">
                         О Практикуме
-                    </div>
-                    <div class="footer__column-links">
-                        <p>Главная</p>
-                        <p>Концепция</p>
-                        <p>Наставники</p>
-                    </div>
-                    <!-- Нужно исправить: 
+                    </h4>
+                    <nav class="footer__column-links">                        
+                        <a class="footer__column-links_style" href="#description-block">Главная</a>                        
+                        <a class="footer__column-links_style" href="#digits-block">Концепция</a>                        
+                        <a class="footer__column-links_style" href="#feinman-block">Наставники</a>                                               
+                    </nav>
+                    <!-- DONE Нужно исправить: 
                           Это меню и в ём должны быть ссылки.     
                     -->
-                    <!-- Можно лучше: 
+                    <!-- DONE Можно лучше: 
                            Для перечисляемых элементов с одинаковым смыслом, разметкой и стилизацией подходит список - ul. А для навигации есть замечательный тег - nav.                 
                     -->
-                    <div class="footer__column-links footer__column-links_empty">
-                        <p>К</p>
-                        <p>П</p>
-                        <p>О</p>
-                    </div>
-                    <!-- Нужно исправить: 
+                    
+                    <!-- DONE Нужно исправить: 
                           В брифе не предусмотрено такой колонки, её нужно удалить.    
                     -->
                 </div>
                 <div class="footer__column_content-social">
-                    <div class="footer__column-heading">
+                    <h4 class="footer__column-heading">
                         Соцсети
-                    </div>
-                    <div class="footer__column-links">
-                        <p>
-                           <!-- Можно лучше: 
+                    </h4>
+                    <ul class="footer__column-links">
+                           <!-- DONE Можно лучше: 
                                   Параграф это лишяя обёртка для ссылки. Тут также может быть список.               
                                   -->
-                            <a class="footer__column-links_style" href="https://www.facebook.com">
-                                <img class="footer__social-icons" src="images/facebook_white.svg">
-                                <!-- Нужно исправить: 
-                                      У картинок всегда должен быть alt, без этого нельяз пройти валидацию https://validator.w3.org/nu/.                  
+                        <a class="footer__column-links_style" href="https://www.facebook.com">
+                            <img class="footer__social-icons" src="images/facebook_white.svg" alt="Иконка Facebook.">
+                            Facebook
+                            <!-- DONE Нужно исправить: 
+                                    У картинок всегда должен быть alt, без этого нельяз пройти валидацию https://validator.w3.org/nu/.                  
+                            -->
+                                <!-- DONE Можно лучше: 
+                                    Альтернативный текст это очень хорошо, но его можно сделать более осмысленным https://habr.com/ru/post/341810/              
                                 -->
-                                 <!-- Можно лучше: 
-                                       Альтернативный текст это очень хорошо, но его можно сделать более осмысленным https://habr.com/ru/post/341810/              
-                                  -->
-                            </a>                                                    
-                            <a class="footer__column-links_style" href="https://www.facebook.com">Facebook</a>
-                        </p>
-                        <p>
-                            <a class="footer__column-links_style" href="https://www.vk.com">
-                                <img class="footer__social-icons" src="images/vk_white.svg">
-                            </a>    
-                            <a class="footer__column-links_style" href="https://www.vk.com">ВКонтакте</a>
-                        </p>
-                        <p>
-                            <a class="footer__column-links_style" href="https://www.instagram.com">
-                                <img class="footer__social-icons" src="images/instagram_white.svg">
-                            </a>    
-                            <a class="footer__column-links_style" href="https://www.instagram.com">Instagram</a>
-                        </p>                        
-                    </div>                    
+                        </a>                            
+                        <a class="footer__column-links_style" href="https://www.vk.com">                            
+                            <img class="footer__social-icons" src="images/vk_white.svg" alt="Иконка ВКонтакте.">
+                            ВКонтакте
+                        </a>                     
+                        <a class="footer__column-links_style" href="https://www.instagram.com">
+                            <img class="footer__social-icons" src="images/instagram_white.svg" alt="Иконка Instagram.">
+                            Instagram
+                        </a>                                                  
+                    </ul>                    
                 </div>
             </div>
         </footer>
@@ -353,18 +346,18 @@
    
    Что надо исправить помимо замечаний в коде:
     
-    1. Текстовый контент должен быть в теге p или h. У вас очень много текста внутри div, просмотрите весь проект и поправьте.
-    2. На сайте должен присутствовать главный заголовок h1
-    3. Не используйте числительные в именах классах. Вы должны стремиться сделать универсальные классы
+    1. DONE Текстовый контент должен быть в теге p или h. У вас очень много текста внутри div, просмотрите весь проект и поправьте.
+    2. DONE На сайте должен присутствовать главный заголовок h1
+    3. DONE Не используйте числительные в именах классах. Вы должны стремиться сделать универсальные классы
        В реальном проекте вас могут попросить через некоторое время добавить еще 10 новых элементов или изменить порядок текущих, если
        вы не используете универсальные имена классов, то вам придется каждый раз менять порядок числительных
-    4. Однотипные повторяющиеся элементы (навигация; теги, которые воспринимаются перечислением) нужно реализовывать списком - http://htmlbook.ru/html/ul
-    5. Вместо черного фона у блоков нужно использовать темно-серый, он описан в брифе. 
-    6. .kaufman__triangle выпадает за пределы страницы и поэтому на сайте есть горизонтвльный скролл. Необходимо использовать overflow: hidden для         родителя. 
+    4. DONE Однотипные повторяющиеся элементы (навигация; теги, которые воспринимаются перечислением) нужно реализовывать списком - http://htmlbook.ru/html/ul
+    5. DONE Вместо черного фона у блоков нужно использовать темно-серый, он описан в брифе. 
+    6. DONE .kaufman__triangle выпадает за пределы страницы и поэтому на сайте есть горизонтвльный скролл. Необходимо использовать overflow: hidden для         родителя. 
     
    Можно лучше: 
                             
-    1. Использовать более семантичные теги: article, figure, nav.
+    1. DONE Использовать более семантичные теги: article, figure, nav.
                             
     Комментарии "можно лучше" носят рекомендательный характер, их выполнение остается на Ваше усмотрение.
     Комментарии "надо исправить" являются обязательными, только при выполнении всех "надо исправить" работа будет зачтена.
