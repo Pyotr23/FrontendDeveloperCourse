@@ -1,4 +1,4 @@
-p, ul, figure{
+p, ul{
     margin: 0;
     padding: 0;
 }
@@ -55,6 +55,7 @@ p, ul, figure{
 
 .header__link{
     text-decoration: none;
+    color: #2f80ed;
 }
 
 .header__main-illustration{
@@ -143,7 +144,7 @@ p, ul, figure{
     width: 60%;    
     line-height: 34px;
     font-size: 24px;
-    font-weight: normal;
+    font-weight: normal;    
 }
 
 .table{
@@ -152,6 +153,7 @@ p, ul, figure{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    list-style-type: none;
 }
 
 .table__cell{
@@ -279,7 +281,7 @@ p, ul, figure{
 }
 
 .footer__author{
-    color: black;
+    color: white;
     line-height: 25px;
     font-size: 18px;
     font-weight: normal;

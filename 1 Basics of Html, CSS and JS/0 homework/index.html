@@ -16,23 +16,23 @@
     <title>Научиться учиться</title>
 </head>
 <body>
-    <ul class="page">
-        <header class="header">
-            <div class="logo logo_place-header"> 
-                <img src="images/logo.svg" alt="Логотип Яндекс Практикума.">              
-            </div>
+    <div class="page">
+        <header class="header">            
+            <img class="logo logo_place-header" src="images/logo.svg" alt="Логотип Яндекс Практикума.">  
             <h1 class="header__title">                
                 Научиться учиться                
             </h1>
-            <article class="header__subtitle">
+            <div class="header__subtitle">
                 Какие современные и эффективные подходы к обучению вы можете использовать в своей жизни?
                 <a class="header__link" href="#">Узнать &rarr;</a>
-                <!--Нужно исправить: 
+                <!-- DONE Нужно исправить: 
                     Ссылке не задан цвет.
                 -->
-            </article>
-            <!--Нужно исправить: 
-                Использование семантичных тегов, как article, это очень здорово. Но article это тег для переиспользования на странице https://developer.mozilla.org/ru/docs/Web/HTML/Element/article . Такой кусок с подзаголовком вряд ли можно переиспользовать. 
+            </div>
+            <!-- DONE Нужно исправить: 
+                Использование семантичных тегов, как article, это очень здорово. Но article это тег для переиспользования на 
+                странице https://developer.mozilla.org/ru/docs/Web/HTML/Element/article . 
+                Такой кусок с подзаголовком вряд ли можно переиспользовать. 
             -->
             <div class="header__main-illustration">                
             </div>
@@ -45,8 +45,8 @@
                     <div class="two-columns__brief">
                         Главные проблемы в обучении
                     </div>
-                    <figure class="two-columns__main-text">
-                       <!--Нужно исправить: 
+                    <div class="two-columns__main-text">
+                       <!-- DONE Нужно исправить: 
                             Тег figure тоже использован неправильно. Это тег для картинки и подписи к ней. https://developer.mozilla.org/ru/docs/Web/HTML/Element/figure Здесь есть только текст, но нет самой иллюстрации. К тому же у figure есть марджины, которых не должно быть по макету. 
                         -->
                         <p class="two-columns__paragraph">
@@ -63,7 +63,7 @@
                             Конкретные техники и упражнения помогают изменить подход к обучению, 
                             сделать его эффективным и захватывающим. Эти же техники применяются на примере обучения в Практикуме.
                         </p>
-                    </figure>
+                    </div>
                 </div>                 
             </section>
             
@@ -71,19 +71,19 @@
                 <h2 class="section-title">
                     Цифры и факты
                 </h2>
-                <h3 class="section-subtitle">
+                <p class="section-subtitle">
                     Про учёбу и мозг
-                </h3>
-                <!-- Можно лучше: 
+                </p>
+                <!-- DONE Можно лучше: 
                     Подзаголовки не рекомендуется делать элементами h.(лучше подойдет <p>)
                     Подробности: https://www.w3.org/TR/html52/common-idioms-without-dedicated-elements.html#subheadings-subtitles-alternative-titles-and-taglines
                 -->
                 <ul class="table">
-                    <figure class="table__cell">
+                    <li class="table__cell">
                        <!-- DONE Можно лучше: 
                              Для перечисляемых элементов с одинаковым смыслом, разметкой и стилизацией подходит список - ul                 
                         -->
-                        <!--Нужно исправить: 
+                        <!-- DONE Нужно исправить: 
                             Тоже неправильно использован figure. И развалилась сетка, теперь пункты по три в ряд, а должны быть по четыре.  
                         -->
                         <p class="table__heading">
@@ -92,8 +92,8 @@
                         <p class="table__text">
                             Число нейтронов в мозге человека
                         </p>
-                    </figure>
-                    <figure class="table__cell">
+                    </li>
+                    <li class="table__cell">
                         <p class="table__heading">
                             2,1 миллиарда                            
                         </p>
@@ -103,24 +103,24 @@
                         <p class="table__text">
                             Всемирный Банк, 2017
                         </p>
-                    </figure>
-                    <figure class="table__cell">
+                    </li>
+                    <li class="table__cell">
                         <p class="table__heading">
                             1000 терабайт
                         </p>
                         <p class="table__text">
                             Объём памяти человека
                         </p>
-                    </figure>
-                    <figure class="table__cell">
+                    </li>
+                    <li class="table__cell">
                         <p class="table__heading">
                             500 триллионов
                         </p>
                         <p class="table__text">
                             Число ответственных за обучение нервных синапсов у взрослого человека
                         </p>
-                    </figure>
-                    <figure class="table__cell">
+                    </li>
+                    <li class="table__cell">
                         <p class="table__heading">
                             420 миллионов
                         </p>
@@ -130,31 +130,31 @@
                         <p class="table__text">
                             Всемирный Банк, 2017
                         </p>
-                    </figure>
-                    <figure class="table__cell">
+                    </li>
+                    <li class="table__cell">
                         <p class="table__heading">
                             17-20 лет
                         </p>
                         <p class="table__text">
                             Пик обучаемости
                         </p>
-                    </figure>
-                    <figure class="table__cell">
+                    </li>
+                    <li class="table__cell">
                         <p class="table__heading">
                             1885 год
                         </p>
                         <p class="table__text">
                             Открытие кривой забывания
                         </p>
-                    </figure>
-                    <figure class="table__cell">
+                    </li>
+                    <li class="table__cell">
                         <p class="table__heading">
                             1889 год
                         </p>
                         <p class="table__text">
                             Открытие условного рефлекса
                         </p>
-                    </figure>
+                    </li>
                 </ul>
             </section>
 
@@ -178,8 +178,8 @@
                     от Джоша Кауфмана
                 </h3> 
                 <ul class="table">
-                    <figure class="table__cell table__cell_theme-dark">
-                       <!--Нужно исправить: 
+                    <li class="table__cell table__cell_theme-dark">
+                       <!-- DONE Нужно исправить: 
                             Тоже сломалась сетка из-за использования figure.
                         --> 
                         <p class="table__heading">
@@ -188,79 +188,79 @@
                         <p class="table__text">
                             Выберите привлекательный проект.
                         </p>
-                    </figure>
-                    <figure class="table__cell table__cell_theme-dark">
+                    </li>
+                    <li class="table__cell table__cell_theme-dark">
                         <p class="table__heading">
                             2                           
                         </p>
                         <p class="table__text">
                             Сосредоточьтесь на каком-то одном навыке.
                         </p>                       
-                    </figure>
-                    <figure class="table__cell table__cell_theme-dark">
+                    </li>
+                    <li class="table__cell table__cell_theme-dark">
                         <p class="table__heading">
                             3
                         </p>
                         <p class="table__text">
                             Определите целевой уровень мастерства.
                         </p>
-                    </figure>
-                    <figure class="table__cell table__cell_theme-dark">
+                    </li>
+                    <li class="table__cell table__cell_theme-dark">
                         <p class="table__heading">
                             4
                         </p>
                         <p class="table__text">
                             Разбейте навык на элементы.
                         </p>
-                    </figure>                    
-                    <figure class="table__cell table__cell_theme-dark">
+                    </li>                    
+                    <li class="table__cell table__cell_theme-dark">
                         <p class="table__heading">
                             5
                         </p>
                         <p class="table__text">
                             Приготовьте всё необходимое для занятий.
                         </p>                       
-                    </figure>
-                    <figure class="table__cell table__cell_theme-dark">
+                    </li>
+                    <li class="table__cell table__cell_theme-dark">
                         <p class="table__heading">
                             6
                         </p>
                         <p class="table__text">
                             Устраните препятствия для занятий.
                         </p>
-                    </figure>
-                    <figure class="table__cell table__cell_theme-dark">
+                    </li>
+                    <li class="table__cell table__cell_theme-dark">
                         <p class="table__heading">
                             7
                         </p>
                         <p class="table__text">
                             Выделите специальное время для занятий.
                         </p>
-                    </figure>
-                    <figure class="table__cell table__cell_theme-dark">
+                    </li>
+                    <li class="table__cell table__cell_theme-dark">
                         <p class="table__heading">
                             8
                         </p>
                         <p class="table__text">
                             Создайте быстрые петли обратной связи.
                         </p>
-                    </figure>
-                    <figure class="table__cell table__cell_theme-dark">
+                    </li>
+                    <li class="table__cell table__cell_theme-dark">
                         <p class="table__heading">
                             9
                         </p>
                         <p class="table__text">
                             Занимайтесь по расписанию, короткими интенсивными интервалами.
                         </p>
-                    </figure>
-                    <figure class="table__cell table__cell_theme-dark">
+                    </li>
+                    <li class="table__cell table__cell_theme-dark">
                         <p class="table__heading">
                             10
                         </p>
                         <p class="table__text">
                             Уделяйте внимание количеству и скорости.
                         </p>
-                    </figure>
+                    </li>
                 </ul>
                 <div class="kaufman__triangle">                    
                 </div>
@@ -268,17 +268,15 @@
         </main>
         <footer class="footer">
             <div class="footer__columns">
-                <div class="footer__column_content-copyright">
-                    <div class="logo logo_place-footer">  
-                        <img src="images/logo_white.svg" alt="Логотип Яндекс Практикума.">                       
-                    </div>
-                    <!--  Можно лучше: 
+                <div class="footer__column_content-copyright">                      
+                    <img class="logo logo_place-footer" src="images/logo_white.svg" alt="Логотип Яндекс Практикума.">                    
+                    <!-- DONE Можно лучше: 
                            Картинкам не нужны обёртки из дива.               
                     -->
-                    <div class="footer__author">
+                    <p class="footer__author">
                         &copy; 2020. Pyotr Kolesnikov
-                    </div>
-                    <!--Нужно исправить: 
+                    </p>
+                    <!-- DONE Нужно исправить: 
                           Это тоже должен быть параграф. К тому же цвет черный, а должен быть белый. 
                       --> 
                 </div>
