@@ -85,20 +85,20 @@ p, ul, figure{
 }
 
 .description{
-    display: flex;
-    justify-content: center;    
-    padding-bottom: 100px;    
-    padding-top: 100px;    
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 100px auto 100px;          
 }
 
 .two-columns{    
-    width: 80%; 
-    display: flex;
-    justify-content: space-between;   
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 175px auto 80%;
 }
 
 .two-columns__brief{
-    width: 175px;
+    grid-column: 1;
     line-height: 1.2;
     font-size: 18px;
     color: #2f80ed;
@@ -106,15 +106,17 @@ p, ul, figure{
 }
 
 .two-columns__main-text{
-    width: 80%;
+    display: grid;
+    grid-column: 3;
     min-width: 784px;
+    grid-template-rows: 3;
+    grid-row-gap: 30px;
 }
 
-.two-columns__paragraph{
+.two-columns__paragraph{    
     line-height: 34px;
     font-size: 24px;
-    font-weight: normal;
-    margin-bottom: 30px;
+    font-weight: normal;    
 }
 
 .two-columns__span-accent{
