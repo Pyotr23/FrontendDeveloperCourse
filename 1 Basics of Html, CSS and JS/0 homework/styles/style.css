@@ -1,6 +1,10 @@
-p, ul, figure{
+p, ul, h2{
     margin: 0;
     padding: 0;
+}
+
+ul{
+    list-style-type: none;
 }
 
 .page {
@@ -55,6 +59,7 @@ p, ul, figure{
 
 .header__link{
     text-decoration: none;
+    color: #2f80ed;
 }
 
 .header__main-illustration{
@@ -145,7 +150,7 @@ p, ul, figure{
     width: 60%;    
     line-height: 34px;
     font-size: 24px;
-    font-weight: normal;
+    font-weight: normal;    
 }
 
 .table{
@@ -153,7 +158,7 @@ p, ul, figure{
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between;    
 }
 
 .table__cell{
@@ -281,7 +286,7 @@ p, ul, figure{
 }
 
 .footer__author{
-    color: black;
+    color: white;
     line-height: 25px;
     font-size: 18px;
     font-weight: normal;
@@ -300,9 +305,7 @@ p, ul, figure{
     line-height: 30px;
     font-size: 18px;
     font-weight: normal;
-    margin-bottom: 16px;
-    text-decoration: none;
-    color: white;
+    margin-bottom: 16px;    
     display: flex;
     flex-direction: column;
 }
@@ -310,6 +313,8 @@ p, ul, figure{
 .footer__column-links_style{
     text-decoration: none;
     color: white;
+    margin: 0;   
+    display: inline; 
 }
 
 .footer__social-icons{    
