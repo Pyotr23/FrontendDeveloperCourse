@@ -156,14 +156,16 @@ ul{
 .table{
     width: 1100px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;    
+    padding-top: 60px;
+    display: grid;    
+    justify-content: space-between; 
+    grid-template-rows: auto auto;
+    grid-template-columns: repeat(4, 250px); 
+    grid-row-gap: 60px;
 }
 
 .table__cell{
-    width: 250px;    
-    margin-top: 60px;
+        
 }
 
 .table__heading{
@@ -238,8 +240,10 @@ ul{
     margin-top: 90px;
 }
 
-.table__cell_theme-dark{
-    width: 200px;
+.table_theme_dark{    
+    padding-top: 80px;
+    grid-template-columns: repeat(5, 200px);
+    row-gap: 80px;
 }
 
 .kaufman__triangle{  
