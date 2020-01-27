@@ -1,6 +1,10 @@
-p, ul{
+p, ul, h2{
     margin: 0;
     padding: 0;
+}
+
+ul{
+    list-style-type: none;
 }
 
 .page {
@@ -152,8 +156,7 @@ p, ul{
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    list-style-type: none;
+    justify-content: space-between;    
 }
 
 .table__cell{
@@ -300,9 +303,7 @@ p, ul{
     line-height: 30px;
     font-size: 18px;
     font-weight: normal;
-    margin-bottom: 16px;
-    text-decoration: none;
-    color: white;
+    margin-bottom: 16px;    
     display: flex;
     flex-direction: column;
 }
@@ -310,6 +311,8 @@ p, ul{
 .footer__column-links_style{
     text-decoration: none;
     color: white;
+    margin: 0;   
+    display: inline; 
 }
 
 .footer__social-icons{    

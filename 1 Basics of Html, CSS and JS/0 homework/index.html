@@ -42,9 +42,9 @@
         <main class="content">
             <section class="description" id="description-block">                          
                 <div class="two-columns">
-                    <div class="two-columns__brief">
+                    <h2 class="two-columns__brief">
                         Главные проблемы в обучении
-                    </div>
+                    </h2>
                     <div class="two-columns__main-text">
                        <!-- DONE Нужно исправить: 
                             Тег figure тоже использован неправильно. Это тег для картинки и подписи к ней. https://developer.mozilla.org/ru/docs/Web/HTML/Element/figure Здесь есть только текст, но нет самой иллюстрации. К тому же у figure есть марджины, которых не должно быть по макету. 
@@ -285,13 +285,14 @@
                         О Практикуме
                     </h4>
                     <nav class="footer__column-links">                        
-                        <a class="footer__column-links_style" href="#description-block">Главная</a>           <!--Нужно исправить: 
+                        <a class="footer__column-links footer__column-links_style" href="#description-block">Главная</a>           
+                        <!-- DONE Нужно исправить: 
                               Неправильно использован модификатор, это не самостоятельный класс, он всегда должен быть рядом с классом, который модифицирует.
                         -->             
-                        <a class="footer__column-links_style" href="#digits-block">Концепция</a>                        
-                        <a class="footer__column-links_style" href="#feinman-block">Наставники</a>                                               
+                        <a class="footer__column-links footer__column-links_style" href="#digits-block">Концепция</a>                        
+                        <a class="footer__column-links footer__column-links_style" href="#feinman-block">Наставники</a>                                               
                     </nav>
-                    <!--  Можно лучше: 
+                    <!-- DONE Можно лучше: 
                            Для перечисляемых элементов с одинаковым смыслом, разметкой и стилизацией подходит список - ul. А для навигации есть замечательный тег - nav.  
                            
                            2 итерация: не исправлео               
@@ -301,24 +302,32 @@
                     <h4 class="footer__column-heading">
                         Соцсети
                     </h4>
-                    <ul class="footer__column-links">
-                           <!-- Нужно исправить: 
+                    <nav class="footer__column-links">
+                        <ul>
+                            <li>
+                                <a class="footer__column-links footer__column-links_style" href="https://www.facebook.com">
+                                    <img class="footer__social-icons" src="images/facebook_white.svg" alt="Иконка Facebook.">
+                                    Facebook
+                                </a>  
+                            </li>
+                            <li>
+                                <a class="footer__column-links footer__column-links_style" href="https://www.vk.com">                            
+                                    <img class="footer__social-icons" src="images/vk_white.svg" alt="Иконка ВКонтакте.">
+                                    ВКонтакте
+                                </a>  
+                            </li>
+                            <li>
+                                <a class="footer__column-links footer__column-links_style" href="https://www.instagram.com">
+                                    <img class="footer__social-icons" src="images/instagram_white.svg" alt="Иконка Instagram.">
+                                    Instagram
+                                </a>  
+                            </li>
+                        </ul>
+                           <!-- DONE Нужно исправить: 
                                   В ul обязательно должны быть li.
                                   https://developer.mozilla.org/ru/docs/Web/HTML/Element/ul             
-                                  -->
-                        <a class="footer__column-links_style" href="https://www.facebook.com">
-                            <img class="footer__social-icons" src="images/facebook_white.svg" alt="Иконка Facebook.">
-                            Facebook
-                        </a>                            
-                        <a class="footer__column-links_style" href="https://www.vk.com">                            
-                            <img class="footer__social-icons" src="images/vk_white.svg" alt="Иконка ВКонтакте.">
-                            ВКонтакте
-                        </a>                     
-                        <a class="footer__column-links_style" href="https://www.instagram.com">
-                            <img class="footer__social-icons" src="images/instagram_white.svg" alt="Иконка Instagram.">
-                            Instagram
-                        </a>                                                  
-                    </ul>                    
+                                  -->                                                                        
+                    </nav>                    
                 </div>
             </div>
         </footer>
@@ -341,13 +350,13 @@
     
     1. DONE Однотипные повторяющиеся элементы (навигация; теги, которые воспринимаются перечислением) нужно реализовывать списком - http://htmlbook.ru/html/ul
     
-      2 итерация: у списка всегда должны быть элементы списка - li
+     DONE 2 итерация: у списка всегда должны быть элементы списка - li
       
-    2. После исправления появилось много семантичных тегов, но которые используются неправильно. Внимательнее читайте спецификации к тегам, если нпонятно как использовать тот или иной тег, всегда можно уточнить у наставника или в чате.  
+    2. DONE После исправления появилось много семантичных тегов, но которые используются неправильно. Внимательнее читайте спецификации к тегам, если нпонятно как использовать тот или иной тег, всегда можно уточнить у наставника или в чате.  
     
-    3. Появились ошибки валидации https://validator.w3.org
+    3. DONE Появились ошибки валидации https://validator.w3.org
     
-    4. Развалилась сетка в блоках с таблицами. 
+    4. DONE Развалилась сетка в блоках с таблицами. 
     
    Можно лучше: 
                             
