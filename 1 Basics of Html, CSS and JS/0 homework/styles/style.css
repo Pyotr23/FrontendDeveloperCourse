@@ -308,7 +308,7 @@ ul{
     flex-direction: column;
 }
 
-.footer__column-links_style{
+.footer__column-link{
     text-decoration: none;
     color: white;
     margin: 0;   
