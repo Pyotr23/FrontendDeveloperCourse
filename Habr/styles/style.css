@@ -1,0 +1,31 @@
+div{
+    border: 1px solid red;
+}
+
+svg{
+    fill: currentColor;
+}
+
+.tm-panel{
+    height: 48px;
+    background-color: #303b44;
+}
+
+.header{
+    min-width: 1024px;
+    max-width: 1164px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.logo-container{
+    display: inline-flex;      
+}
+
+.logo{
+    color: white;
+    background-color: transparent;
+}
