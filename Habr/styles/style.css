@@ -1,5 +1,9 @@
+body{
+    font-family: "-apple-system",BlinkMacSystemFont,Arial,sans-serif;
+}
+
 div{
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 svg{
@@ -8,6 +12,7 @@ svg{
 
 .tm-panel{
     height: 48px;
+    line-height: 48px;
     background-color: #303b44;
 }
 
@@ -28,4 +33,14 @@ svg{
 .logo{
     color: white;
     background-color: transparent;
+}
+
+.button_author-link{
+    padding: 2px 8px;
+    border: 1px solid #6e767c;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 3px;
+    margin: 0 10px;
 }
