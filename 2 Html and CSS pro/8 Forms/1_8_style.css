@@ -1,9 +1,57 @@
+@font-face{
+  src: url('https://pictures.s3.yandex.net/fonts/Ibmplexserif.woff2') format('woff2'),
+    url('https://pictures.s3.yandex.net/fonts/Ibmplexserif.woff') format('woff'),
+    url('https://pictures.s3.yandex.net/fonts/Ibmplexserif.ttf') format('truetype ');
+  font-family: 'IBM Plex Serif';
+  font-weight: normal;
+}
+
+@font-face{
+  src: url('https://pictures.s3.yandex.net/fonts/Ibmplexserifsemibold.woff2') format('woff2'),
+    url('https://pictures.s3.yandex.net/fonts/Ibmplexserifsemibold.woff') format('woff'),
+    url('https://pictures.s3.yandex.net/fonts/Ibmplexserifsemibold.ttf') format('truetype ');    
+  font-family: 'IBM Plex Serif';
+  font-weight: bold;
+}
+
+@font-face{
+  src: url('https://pictures.s3.yandex.net/fonts/ubuntu.woff2') format('woff2'),    
+    url('https://pictures.s3.yandex.net/fonts/ubuntu.woff') format('woff'),
+    url('https://pictures.s3.yandex.net/fonts/ubuntu.ttf') format('truetype');
+  font-family: 'Ubuntu';
+  font-weight: normal;
+}
+
+@font-face{
+  src: url('https://pictures.s3.yandex.net/fonts/ubuntubold.woff2') format('woff2'),    
+    url('https://pictures.s3.yandex.net/fonts/ubuntubold.woff') format('woff'),
+    url('https://pictures.s3.yandex.net/fonts/ubuntubold.ttf') format('truetype');
+  font-family: 'Ubuntu';
+  font-weight: bold;
+}
+
+@font-face{
+  src: url('https://pictures.s3.yandex.net/fonts/istokregular.woff2') format('woff2'),
+    url('https://pictures.s3.yandex.net/fonts/istokregular.woff') format('woff'),
+    url('https://pictures.s3.yandex.net/fonts/istokregular.ttf') format('truetype ');
+  font-family: 'Istok Web';
+  font-weight: normal;
+}
+
+@font-face{
+  src: url('https://pictures.s3.yandex.net/fonts/istokbold.woff2') format('woff2'),
+    url('https://pictures.s3.yandex.net/fonts/istokbold.woff') format('woff'),
+    url('https://pictures.s3.yandex.net/fonts/istokbold.ttf') format('truetype ');
+  font-family: 'Istok Web';
+  font-weight: bold;
+}
+
 /*
  * Сглаживание шрифтов для всей страницы, подробнее об этом —
  * в уроках про адаптацию страницы под различные устройства
  */
 
- .page {
+.page {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -103,6 +151,7 @@
   width: 240px;
   margin: auto;
   padding-bottom: 50px;
+  border: 0;
 }
 
 /* Линия-разделитель между fieldset'ами */
@@ -115,14 +164,13 @@
 /* Общие стили для всех лейблов */
 
 .form__label {
-
+  display: block;
   margin: 35px auto 0;
   font-size: 20px;
   line-height: 30px;
 }
 
 /* Общие стили для всех полей ввода */
-/*
 .form__item {
   border: 0;
   width: 100%;
@@ -134,81 +182,102 @@
   font-size: 14px;
   font-family: inherit;
 }
-*/
 
 /* Замена цвета внешней линии при фокусе поля ввода */
+.form__item:focus{
+  outline-color: #fff6c5
+}
 
 /* Стилизуем плейсхолдеры */
+.form__item::placeholder{
+  font-size: 14px;
+  font-family: 'Alegreya Sans';
+  line-height: 20px;
+  color: #bcbcc4;
+}
+
+.form__item::-webkit-input-placeholder{
+  font-size: 14px;
+  font-family: 'Alegreya Sans';
+  line-height: 20px;
+  color: #bcbcc4;
+}
+
+.form__item::-moz-placeholder{
+  font-size: 14px;
+  font-family: 'Alegreya Sans';
+  line-height: 20px;
+  color: #bcbcc4;
+}
+
+.form__item::-ms-input-placeholder{
+  font-size: 14px;
+  font-family: 'Alegreya Sans';
+  line-height: 20px;
+  color: #bcbcc4;
+}
 
 /* Поля ввода */
 
-/* Селектор класса поля ввода основного текста {
+.form__item_main-text{
   background: #fff;
   height: 150px;
   font-size: 14px;
   padding: 6px 6px 4px;
   border: 1px solid #bcbcc4;
 }
-*/
 
-/* Селектор поля ввода с типом "число" {
+
+.form__item[type="date"]{
   background-color: white;
   color: black;
   border: 1px solid #bcbcc4;
   padding: 0 4px;
 }
-*/
 
-/* Селектор поля ввода с типом "дата" {
+.form__item[type="number"] {
   background-color: white;
   color: black;
   border: 1px solid #bcbcc4;
   padding: 0 4px;
   font-family: 'Alegreya Sans', sans-serif;
 }
-*/
 
-/* Селектор поля ввода с типом "цвет" {
+.form__item[type="color"]{
   height: 30px;
   width: 48px;
   border-bottom: 0;
   padding: 0;
 }
-*/
 
-/* Селектор поля ввода с типом "диапазон" {
+.form__item[type="range"]{
   width: 144px;
 }
-*/
 
 /* Поле выпадающего списка с классом form_item */
-/* select.form__item {
+ select.form__item {
   background-color: white;
   color: black;
   border: 1px solid #bcbcc4;
 }
-*/
 
-/* Селектор поля единичного выбора {
+.form__item[type="radio"]{
   display: inline-block;
   width: 16px;
   height: 16px;
 }
-*/
 
-/* Селектор поля единичного выбора со значением атрибута value "row" {
+.form__item[type="radio"][value="row"]{
   margin-left: 25px;
 }
-*/
 
-/* Селектор поля множественного выбора {
+.form__item[type="checkbox"]{
   display: inline-block;
   width: 16px;
   height: 16px;
   vertical-align: middle;
   margin: 0;
 }
-*/
 
 .form__descriptor {
   font-size: 14px;
@@ -227,7 +296,7 @@
 }
 
 /* Общие стили для всех кнопок */
-/* .form__button {
+.form__button {
   width: 50%;
   height: 40px;
   font-size: 14px;
@@ -243,24 +312,24 @@
 .form__button:hover {
   opacity: .7;
 }
-*/
 
 /* Замена цвета внешней линии при фокусе кнопки */
+.form__button:focus{
+  outline-color: #fff6c5
+}
 
-/* Селектор кнопки отправки данных {
+.form__button[type="submit"]{
   background-color: #000;
 }
-*/
 
-/* Селектор кнопки сброса формы {
+.form__button[type="reset"]{
   background-color: #ea3a3a;
 }
-*/
 
 /* Стили страницы */
 
 .content {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Ubuntu', serif;
   width: 90%;
   margin: 0 auto;
   padding-top: 60px;
