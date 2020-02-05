@@ -1,3 +1,12 @@
+@keyframes rotate{
+    0% {
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(345deg);
+    }
+}
+
 p, ul, h2{
     margin: 0;
     padding: 0;
@@ -24,6 +33,7 @@ ul{
     align-items: center;    
     position: relative;
     background-color: #f2f2f2;
+    overflow: hidden;
 }
 
 .logo{
@@ -57,6 +67,14 @@ ul{
     line-height: 25px;
 }
 
+.link{    
+    transition: opacity 0.2s linear;
+}
+
+.link:hover{
+    opacity: 0.6;
+}
+
 .header__link{
     text-decoration: none;
     color: #2f80ed;
@@ -80,7 +98,9 @@ ul{
     top: 64px;
     height: 568px;
     width: 568px;
-    background-color: #2f80ed;    
+    background-color: #2f80ed;  
+    /* НЕ ЗАБЫТЬ ВКЛЮЧИТЬ ВРАЩЕНИЕ!!!!! */
+    /* animation: rotate 20s linear infinite; */
 }
 
 .content{
