@@ -48,49 +48,109 @@
                 </div>                 
             </section>
 
-            <section class="technics" style="border: 1px solid red">
-                <h2 class="section-title" style="border: 1px solid red">
+            <section class="technics">
+                <h2 class="section-title">
                     Техники обучения
                 </h2>
-                <p class="section-subtitle" style="border: 1px solid red">
+                <p class="section-subtitle">
                     Пять практик от Барбары Оукли
                 </p>
-                <ul class="cards" style="border: 1px solid red">
-                    <!-- <li class="table__cell">
-                        <p class="table__heading">
-                            86 миллиардов
-                        </p>
-                        <p class="table__text">
-                            Число нейтронов в мозге человека
-                        </p>
-                    </li> -->
+                <ul class="cards">                   
                     <li class="cards__item">
-                        <div class="cards__image">
-
-                        </div>
-                        <div class="cards__title">
-
-                        </div>
-                        <div class="cards__description">
-                            
-                        </div>
+                        <img class="cards__image" src="images/attention.png" alt="Руки, держащие книгу в белой обложке">                        
+                        <h3 class="cards__title">
+                            Два вида внимания
+                        </h3>
+                        <p class="cards__description">
+                            Глубокие знания возникают, если чередовать сфокусированное и рассеянное мышление.
+                        </p>
                     </li> 
-                    <li class="cards-item">
-                        
+                    <li class="cards__item">
+                        <img class="cards__image" src="images/recall.png" alt="Мраморная статуя мальчика с флейтой">                        
+                        <h3 class="cards__title">
+                            Recall
+                        </h3>
+                        <p class="cards__description">
+                            Вспоминайте изученное - это позволит соединить разрозненные порции памяти.
+                        </p>
                     </li>  
-                    <li class="cards-item">
-                        
+                    <li class="cards__item">
+                        <img class="cards__image" src="images/interliving.png" alt="Вестибюль станции Всемирного торгового центра">                        
+                        <h3 class="cards__title">
+                            Интерливинг
+                        </h3>
+                        <p class="cards__description">
+                            Изучайте несколько навыков одновременно, они обогощают друг друга.
+                        </p>
                     </li>  
-                    <li class="cards-item">
-                        
+                    <li class="cards__item">
+                        <img class="cards__image" src="images/question.png" alt="Мужчина, стоящий во внутреннем дворе светлого здания">                        
+                        <h3 class="cards__title">
+                            Вопросы
+                        </h3>
+                        <p class="cards__description">
+                            Слушая преподавателя, придумывайте хороший вопрос, который вас действительно волнует.
+                        </p>
                     </li>  
-                    <li class="cards-item">
-                        
+                    <li class="cards__item">
+                        <img class="cards__image" src="images/competence.png" alt="Стопка из семи книг на ладони">                        
+                        <h3 class="cards__title">
+                            Иллюзия компетентности
+                        </h3>
+                        <p class="cards__description">
+                            Повторите про себя, запишите, расскажите другу: вам только кажется, что вы владеете новой темой.
+                        </p>
                     </li>                     
                 </ul>
 
             </section>
-            
+
+            <section class="video" style="border: 1px solid red">
+                <h2 class="section-title">
+                    Видео на TED
+                </h2>
+                <p class="section-subtitle">
+                    Для тех, кто любит прокрастинировать
+                </p>
+                <div class="video__iframes">
+                        <iframe class="video__frame" id="ytplayer" type="text/html" frameborder="0" allowfullscreen
+                            src="https://www.youtube.com/embed/5MgBikgcWnY">
+                        </iframe>
+                        <iframe class="video__frame" id="ytplayer" type="text/html" frameborder="0" allowfullscreen
+                            src="https://www.youtube.com/embed/arj7oStGLkU"></iframe>
+                </div>
+            </section>
+
+            <section class="oakley">                          
+                <div class="two-columns">
+                    <h2 class="two-columns__brief">
+                        История Барбары Оакли.
+                    </h2>
+                    <div class="two-columns__main-text">
+                        <p class="two-columns__paragraph">
+                            С детства Барбаре не давалась математика. Она считала себя законченным гуманитарием, 
+                            причём далеко не самым умным. В армии она изучала русский язык, чтобы получить надбавку, 
+                            да так успешно, что её выдвинули в командиры. Но для продвижения по службе нужно было 
+                            сдавать математику. И тогда Барбара придумала свой подход к точным наукам. Оказалось, 
+                            если вам что-то «плохо даётся», ваши добытые трудом знания гораздо глубже, чем у тех, 
+                            кому всё ясно с первого взгляда.
+                        </p>                        
+                    </div>
+                </div>                 
+            </section>           
+
+            <section class="feinman" id="feinman-block">
+                <h2 class="feinman__title">
+                    Метод Фейнмана
+                </h2>
+                <h3 class="feinman__subtitle">
+                    Выучить и не забыть.
+                </h3>
+                <a href="#" class="link feinman__link">
+                    Подробнее &rarr;
+                </a>                
+            </section>
+
             <section class="digits" id="digits-block">
                 <h2 class="section-title">
                     Цифры и факты
@@ -170,18 +230,6 @@
                         </p>
                     </li>
                 </ul>
-            </section>
-
-            <section class="feinman" id="feinman-block">
-                <h2 class="feinman__title">
-                    Метод Фейнмана
-                </h2>
-                <h3 class="feinman__subtitle">
-                    Выучить и не забыть.
-                </h3>
-                <a href="#" class="feinman__link">
-                    Подробнее &rarr;
-                </a>                
             </section>
             
             <section class="kaufman">               

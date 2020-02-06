@@ -113,7 +113,6 @@ ul{
 .description{
     display: flex;
     justify-content: center;    
-    /* padding-bottom: 100px;     */
     padding-top: 100px;    
 }
 
@@ -157,22 +156,65 @@ ul{
 
 .cards{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 240px);
+    justify-content: center;
     width: 80%;
     margin: 0 auto;
     padding-top: 60px;
     column-gap: 100px;
-    row-gap: 60px;
-    height: 200px;
+    row-gap: 60px;    
 }
 
 .cards__item{    
-    height: 60px;    
+    width: 240px;   
+    text-align: center;
 }
 
-.digits{
-    margin-top: -100px;
+.cards__image{
+    width: 160px;
+    height: 160px;  
+    border-radius: 50%;  
+}
+
+.cards__title{
+    margin-top: 43px;
+    line-height: 1.15;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cards__description{
+    margin-top: 16px;
+    line-height: 23px;
+    font-size: 18px;
+    font-weight: normal;    
+}
+
+.video{
+    padding-top: 100px;
+}
+
+.video__iframes{
+    width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    transform: translate(0, 50px);
+}
+
+.video__frame{
+    width: 515px;
+    height: 316px;
+}
+
+.oakley{
+    display: flex;
+    justify-content: center;    
+    padding-top: 100px;  
+    background-color: #f2f2f2;  
+}
+
+.digits{    
     padding-top: 100px;
     padding-bottom: 100px;    
 }
@@ -228,7 +270,7 @@ ul{
 
 .feinman{
     height: 790px;
-    padding-top: 100px; 
+    padding-top: 80px; 
     position: relative;  
     background-image: url("../images/feinman.png");    
     background-position: bottom left;
