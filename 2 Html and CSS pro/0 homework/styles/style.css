@@ -1,9 +1,18 @@
-@keyframes rotate{
+@keyframes rotate-square{
     0% {
         transform: rotate(-15deg);
     }
     100% {
         transform: rotate(345deg);
+    }
+}
+
+@keyframes rotate-triangle{
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
@@ -99,9 +108,8 @@ ul{
     top: 64px;
     height: 568px;
     width: 568px;
-    background-color: #2f80ed;  
-    /* НЕ ЗАБЫТЬ ВКЛЮЧИТЬ ВРАЩЕНИЕ!!!!! */
-    /* animation: rotate 20s linear infinite; */
+    background-color: #2f80ed;      
+    animation: rotate-square 20s linear infinite;
 }
 
 .content{
@@ -401,6 +409,24 @@ ul{
     background-image: url("../images/triangle.svg");
     background-size: cover;
     background-position: center; 
+    animation: rotate-triangle 20s linear infinite;
+}
+
+.resources{
+    padding-top: 100px;
+}
+
+.resources__logo-zone{
+    margin: 80px auto 217px;
+    width: 1100px;
+    height: 38px;
+    display: flex;
+}
+
+.resources__logo{
+    width: 270px; 
+    display: flex;
+    justify-content: center;   
 }
 
 .footer{
