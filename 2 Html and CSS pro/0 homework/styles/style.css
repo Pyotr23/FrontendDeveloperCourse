@@ -18,8 +18,7 @@
 
 p, ul, h2, li, div, h3, blockquote{
     margin: 0;
-    padding: 0;  
-    border: 1px solid red;  
+    padding: 0;        
 }    
 
 ul{
@@ -160,13 +159,15 @@ ul{
 
 .technics{
     padding-top: 100px;  
+    width: 80%;
+    margin: 0 auto;
 }
 
 .cards{
     display: grid;
     grid-template-columns: repeat(3, 240px);
     justify-content: center;
-    width: 80%;
+    width: 920зч;
     margin: 0 auto;
     padding-top: 60px;
     column-gap: 100px;
@@ -392,7 +393,7 @@ ul{
 }
 
 .section-subtitle_theme-dark{
-    margin-top: 90px;
+    margin-bottom: 80px;
 }
 
 .table__cell_theme-dark{
