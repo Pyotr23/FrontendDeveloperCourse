@@ -15,10 +15,10 @@
         <h1 class="header__title">
             Научиться учиться
         </h1>
-        <div class="header__subtitle">
+        <p class="header__subtitle">
             Какие современные и эффективные подходы к обучению вы можете использовать в своей жизни?
-            <a class="link header__link" href="#">Узнать &rarr;</a>
-        </div>
+            <a class="link header__link" href="#">Узнать &#8594;</a>
+        </p>
         <div class="header__main-illustration">
         </div>
         <div class="header__square-pic">
@@ -376,15 +376,15 @@
     </main>
     <footer class="footer">
         <div class="footer__columns">
-            <!--Нужно исправить: Модификатор footer__column_content-copyright не может существовать в отрыве от footer__column -->
-            <div class="footer__column_content-copyright">
+            <!-- DONE Нужно исправить: Модификатор footer__column_content-copyright не может существовать в отрыве от footer__column -->
+            <div class="footer__column footer__column_content-copyright">
                 <img class="logo logo_place-footer" src="images/logo_white.svg" alt="Логотип Яндекс Практикума.">
                 <p class="footer__author">
                     © 2020. Pyotr Kolesnikov
                 </p>
             </div>
-            <!--Нужно исправить: Модификатор footer__column_content-info не может существовать в отрыве от footer__column -->
-            <div class="footer__column_content-info">
+            <!-- DONE Нужно исправить: Модификатор footer__column_content-info не может существовать в отрыве от footer__column -->
+            <div class="footer__column footer__column_content-info">
                 <h4 class="footer__column-heading">
                     О Практикуме
                 </h4>
@@ -402,8 +402,8 @@
                     </ul>
                 </nav>
             </div>
-            <!--Нужно исправить: Модификатор footer__column_content-social не может существовать в отрыве от footer__column -->
-            <div class="footer__column_content-social">
+            <!-- DONE Нужно исправить: Модификатор footer__column_content-social не может существовать в отрыве от footer__column -->
+            <div class="footer__column footer__column_content-social">
                 <h4 class="footer__column-heading">
                     Соцсети
                 </h4>
@@ -451,10 +451,12 @@
   Нужно исправить:
 
 
-    1. Стилистически текст header__link не соовтествует брифу, внимательно перечитайте задание
-    2. Не задавайте крупным блокам, таким как kaufman отрицательный z-index, это делает содержимое блока недоступным.
-    3. Текстовый контент должен быть в теге p или h. У вас встречается текст внутри div, просмотрите весь проект и поправьте
-    4. Еще раз пересмотрите материал по БЭМ наименованию.
+    1. DONE (Максим Иванов резрешил ничего не изменять. Я не нашёл ошибки в стиле header-link) 
+    Стилистически текст header__link не соовтествует брифу, внимательно перечитайте задание
+    2. DONE Не задавайте крупным блокам, таким как kaufman отрицательный z-index, это делает содержимое блока недоступным.
+    3. DONE (в одном месте нашёл текст внутри div)Текстовый контент должен быть в теге p или h. 
+    У вас встречается текст внутри div, просмотрите весь проект и поправьте
+    4. DONE Еще раз пересмотрите материал по БЭМ наименованию.
        Например, если в задании сказано "Блок footer, элемент column-heading", то запись должан выглядеть так:
        footer__column-heading
        В случае если "Блок footer, элемент column, модификатор content со значением copyright"
