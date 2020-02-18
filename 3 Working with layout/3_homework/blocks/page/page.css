@@ -1,6 +1,11 @@
-@import url('https://rsms.me/inter/inter.css');
+/* @font-face {
+    src: url('https://rsms.me/inter/inter.css');
+    font-family: 'Inter';
+} */
+
 @import url('../../vendor/normalize.css');
 @import url('../header/header.css');
+@import url('../intro/intro.css');
 
 .page{
     min-width: 1280px;
