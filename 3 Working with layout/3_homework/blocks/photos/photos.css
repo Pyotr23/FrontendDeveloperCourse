@@ -1,0 +1,8 @@
+.photos {
+    margin: 92px auto 0;
+    width: 1184px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 188px);
+    gap: 16px;
+}
