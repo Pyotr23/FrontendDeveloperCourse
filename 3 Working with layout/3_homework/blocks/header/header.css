@@ -1,14 +1,11 @@
-@import url('../header/__info/header__info.css');
-@import url('../header/__languages/header__languages.css');
-@import url('../header/__language/header__language.css');
 @import url('../header/__title/header__title.css');
 @import url('../header/__subtitle/header__subtitle.css');
+@import url('../header/__figure/header__figure.css');
 @import url('../header/__image/header__image.css');
 @import url('../header/__image-caption/header__image-caption.css');
 
 .header{    
-    margin: 0 auto;  
-    padding-top: 30px;  
+    margin: 0 auto;        
     display: flex;
     flex-direction: column;
     align-items: center;

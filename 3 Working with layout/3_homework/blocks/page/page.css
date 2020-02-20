@@ -4,6 +4,8 @@
 } */
 @import url('../../fonts/InterWeb/inter.css');
 @import url('../../vendor/normalize.css');
+@import url('../page/__inline-frame/page__inline-frame.css');
+@import url('../facade/facade.css');
 @import url('../header/header.css');
 @import url('../intro/intro.css');
 @import url('../photos/photos.css');
