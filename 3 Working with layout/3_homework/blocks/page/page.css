@@ -7,6 +7,10 @@
 @import url('../header/header.css');
 @import url('../intro/intro.css');
 @import url('../photos/photos.css');
+@import url('../places/places.css');
+@import url('../section-title/section-title.css');
+@import url('../video/video.css');
+@import url('../section-subtitle/section-subtitle.css');
 
 .page{
     min-width: 1280px;

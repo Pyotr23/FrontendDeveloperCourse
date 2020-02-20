@@ -1,0 +1,11 @@
+@import url('../title/_line-height_large/section-title_line-height_large.css');
+
+.section-title{
+    margin-top: 102px;
+    width: 800px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 72px;
+    line-height: 65px;
+    text-align: center;
+}
