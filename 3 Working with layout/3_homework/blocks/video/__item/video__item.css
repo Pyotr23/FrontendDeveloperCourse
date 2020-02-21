@@ -1,6 +1,8 @@
 @import url('../__item/_kamchatka/video__item_kamchatka.css');
+@import url('../__item/_observatory/video__item_observatory.css');
 
 .video__item{
     width: 583px;
     height: 323px;
-}
+    position: relative;    
+}    

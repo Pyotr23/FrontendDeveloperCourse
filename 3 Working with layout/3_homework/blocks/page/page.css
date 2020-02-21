@@ -14,6 +14,7 @@
 @import url('../section-title/_line-height_large/section-title_line-height_large.css');
 @import url('../video/video.css');
 @import url('../section-subtitle/section-subtitle.css');
+@import url('../additional/additional.css');
 
 .page{
     min-width: 1280px;

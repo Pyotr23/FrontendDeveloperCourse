@@ -1,0 +1,11 @@
+.additional__item-header{
+    position: absolute;
+    margin: 0;
+    top: 30px;
+    left: 18px;
+    width: 248px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 27px;
+    line-height: 29px;
+}
