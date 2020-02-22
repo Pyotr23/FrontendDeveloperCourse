@@ -12,8 +12,8 @@
                 <div class="facade">
                     <img class="facade__logo" src="images/__logo.svg">
                     <div class="facade__languages">
-                        <span class="facade__language facade__language_current">Ru</span>
-                        <span class="facade__language">En</span>
+                        <a class="link facade__language facade__language_current" href="#">Ru</a>
+                        <a class="link facade__language" href="#">En</a>
                     </div>
                 </div>
                 <header class="header">                    
@@ -95,7 +95,9 @@
                                 <h2 class="places__title">Кольский</h2>   
                                 <p class="places__website">
                                     <span class="places__url-heading">URL</span>
-                                    <a class="link places__url" href="https://nationalgeographic.com">National Geographic</a>                                
+                                    <a class="link places__url" href="https://yourshot.nationalgeographic.com/photos/?keywords=kolskiy">
+                                        National Geographic
+                                    </a>                                
                                 </p>   
                                 <img src="images/kolsky.jpg" alt="Скалистый, заснеженный берег Кольского полуострова">  
                                 <div>
@@ -115,7 +117,7 @@
                                 <h2 class="places__title">Алтай</h2>   
                                 <p class="places__website">
                                     <span class="places__url-heading">URL</span>
-                                    <a class="link places__url" href="https://facebook.com">Facebook</a>                                
+                                    <a class="link places__url" href="https://www.facebook.com/vera.bashmakova/posts/10156011613718822">Facebook</a>                                
                                 </p>   
                                 <img src="images/altay.jpg" alt="На фоне леса ноутбук на подоконнике">  
                                 <div>
@@ -135,7 +137,7 @@
                                 <h2 class="places__title">Зимний Байкал</h2>   
                                 <p class="places__website">
                                     <span class="places__url-heading">URL</span>
-                                    <a class="places__url" href="https://vk.com/baikalmile">https://vk.com/baikalmile</a>                                
+                                    <a class="link places__url" href="https://vk.com/baikalmile">https://vk.com/baikalmile</a>                                
                                 </p>   
                                 <img src="images/baikal.jpg" alt="Потрескавший лёд озера">  
                                 <div>
@@ -154,7 +156,7 @@
                                 <h2 class="places__title">Карелия</h2>   
                                 <p class="places__website">
                                     <span class="places__url-heading">URL</span>
-                                    <a class="places__url" href="http://vodlozero.ru/">http://vodlozero.ru/</a>                                
+                                    <a class="link places__url" href="http://vodlozero.ru/">http://vodlozero.ru/</a>                                
                                 </p>   
                                 <img src="images/karelya.jpg" alt="Изгиб реки между лесистыми берегами">  
                                 <div>
@@ -175,26 +177,24 @@
                             Видео от студии Stereotactic о местах в России, где ведутся фундаментальные исследования
                         </p>                        
                         <div class="video__container">
-                            <div class="video__item video__item_kamchatka">
-                                <div class="video__shadow">
-                                </div>
-                                <img class="video__icon" src="images/icon-play.svg">
+                            <a class="video__item" href="https://vimeo.com/81106671">
+                                <img class="video__item-bg" src="images/kamchatka.jpg" alt="Вид с моря на берег с сопкой вдали">            
+                                <img class="video__icon" src="images/icon-play.svg" alt="Иконка начала проигрывания видео">
                                 <div class="video__info">
                                     <p class="video__duration">6:30</p>
                                     <p class="video__title">Colors of Kamchatka</p>
                                     <p class="video__director">Director: Pavel Karykhalin</p>
                                 </div>
-                            </div>
-                            <div class="video__item video__item_observatory">
-                                <div class="video__shadow">
-                                </div>
-                                <img class="video__icon" src="images/icon-play.svg">
+                            </a>
+                            <a class="video__item" href="https://vimeo.com/290675450">
+                                <img class="video__item-bg" src="images/observatory.jpg" alt="Обсерватория на фоне звёздного неба"> 
+                                <img class="video__icon" src="images/icon-play.svg" alt="Иконка начала проигрывания видео">
                                 <div class="video__info">
                                     <p class="video__duration">24:45</p>
                                     <p class="video__title">Обсерватория | Observatory</p>
                                     <p class="video__director">Director: Alexander Khudokon</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </section>
                     <section class="additional">
@@ -227,7 +227,7 @@
                                     которое было тут при древнем поселении на реке Угра.</figcaption>                                                                                          
                             </figure>
                         </div>
-                    </section>
+                    </section>                    
                 </main>   
             </div>                       
         </div>            
