@@ -1,26 +1,7 @@
-/* @font-face {
-    src: url('https://rsms.me/inter/inter.css');
-    font-family: 'Inter';
-} */
-@import url('../../fonts/InterWeb/inter.css');
-@import url('../../vendor/normalize.css');
 @import url('../page/__inline-frame/page__inline-frame.css');
-@import url('../facade/facade.css');
-@import url('../header/header.css');
-@import url('../intro/intro.css');
-@import url('../photos/photos.css');
-@import url('../places/places.css');
-@import url('../section-title/section-title.css');
-@import url('../section-title/_line-height_large/section-title_line-height_large.css');
-@import url('../video/video.css');
-@import url('../section-subtitle/section-subtitle.css');
-@import url('../additional/additional.css');
 
 .page{
     min-width: 1280px;
     max-width: 1440px;
-    margin: 0 auto;
-    font-family: Inter, sans-serif;
-    background-color: #2f2c2a;
-    color: white;
+    margin: 0 auto;    
 }
