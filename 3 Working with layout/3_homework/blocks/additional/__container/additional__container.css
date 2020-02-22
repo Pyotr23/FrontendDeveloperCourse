@@ -1,5 +1,7 @@
 .additional__container{
-    margin-top: 72px;
+    margin-top: 72px 0 0;
+    list-style-type: none;    
+    padding: 0;
     display: flex;
     justify-content: space-between;
 }

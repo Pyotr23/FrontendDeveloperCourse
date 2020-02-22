@@ -19,7 +19,7 @@
                 <header class="header">                    
                     <h1 class="header__title">Путешествия по России</h1>
                     <p class="header__subtitle">Настоящая страна не в выпусках новостей, а здесь</p>   
-                    <figure class="header__figure">
+                    <il class="header__figure">
                         <img class="header__image" src="images/title.jpg" 
                         alt="Женщина, лежащая спиной, на боковой полке плацкарта. Цистерны в окне.">
                         <figcaption class="header__image-caption">Ваша полка - верхняя</figcaption>
@@ -200,34 +200,75 @@
                     <section class="additional">
                         <h2 class="section-title">А также</h2>
                         <p class="section-subtitle">места, рекомендованные нашими фотографами</p>
-                        <div class="additional__container">
-                            <figure class="additional__item">
+                        <ul class="additional__container">
+                            <li class="additional__item">
                                 <img class="additional__item-photo" src="images/bay.jpg" alt="Новороссийская бухта с высоты птичьего полёта">
                                 <h3 class="additional__item-header">Новороссийская бухта</h3>
-                                <figcaption class="additional__item-text">Главный торговый порт не курорт, но море здесь лазурное, и толпы кораблей на рейде. 
-                                    Залюбуешься.</figcaption>                                                                                          
-                            </figure>
-                            <figure class="additional__item">
+                                <p class="additional__item-text">Главный торговый порт не курорт, но море здесь лазурное, и толпы кораблей на рейде. 
+                                    Залюбуешься.</p>                                                                                          
+                            </li>
+                            <li class="additional__item">
                                 <img class="additional__item-photo" src="images/arakyl.jpg" alt="Лесистый горный склон">
                                 <h3 class="additional__item-header">Аракульский шихан</h3>
-                                <figcaption class="additional__item-text">Даже для Южного Урала, где красиво везде, это пейзаж выдающийся. 
-                                    И там отсутствует несносная мошкá.</figcaption>                                                                                          
-                            </figure>
-                            <figure class="additional__item">
+                                <p class="additional__item-text">Даже для Южного Урала, где красиво везде, это пейзаж выдающийся. 
+                                    И там отсутствует несносная мошкá.</p>                                                                                          
+                            </li>
+                            <li class="additional__item">
                                 <img class="additional__item-photo" src="images/cherepovets.jpg" 
                                     alt="Исписанные граффити опоры моста">
                                 <h3 class="additional__item-header">Череповец</h3>
-                                <figcaption class="additional__item-text">Громадный металлургический комбинат на водном пути с Волги в Балтийское море. 
-                                    В нём есть своя красота.</figcaption>                                                                                          
-                            </figure>
-                            <figure class="additional__item">                                
+                                <p class="additional__item-text">Громадный металлургический комбинат на водном пути с Волги в Балтийское море. 
+                                    В нём есть своя красота.</p>                                                                                          
+                            </li>
+                            <li class="additional__item">                                
                                 <img class="additional__item-photo" src="images/nikola-lenivets.jpg" alt="Излучина Угры в тумане">
                                 <h3 class="additional__item-header">Никола-Ленивец</h3>
-                                <figcaption class="additional__item-text">Оцените ответ современных художников идолам капища, 
-                                    которое было тут при древнем поселении на реке Угра.</figcaption>                                                                                          
-                            </figure>
-                        </div>
-                    </section>                    
+                                <p class="additional__item-text">Оцените ответ современных художников идолам капища, 
+                                    которое было тут при древнем поселении на реке Угра.</p>                                                                                          
+                            </il>
+                        </ul>
+                    </section>    
+                    <section class="comments">
+                        <h2 class="section-title">Фотографы, снимающие Россию</h2>
+                        <p class="section-subtitle">Природа и люди вдохновили их работы, 
+                            удостоенные наград на международных конкурсах</p>
+                        <ul class="comments__container">
+                            <li class="comments__item">
+                                <img class="comments__image" src="images/lyagushkin.jpg">
+                                <blockquote class="comments__quote">
+                                    «Если вам кажется, что в России ничего не происходит, то просто выгляньте “наружу”…»
+                                </blockquote>
+                                <b class="comments__author">Виктор Лягушкин</b>
+                            </li>
+                            <li class="comments__item">
+                                <img class="comments__image" src="images/hafizov.jpg">
+                                <blockquote class="comments__quote">
+                                    «Если в город едут туристы — неважно за чем они туда едут: за шамбалой или фрески Рублева искать, 
+                                    или на родину Тарковского — туристы обеспечивают любой город молодёжью, рабочими местами и 
+                                    в конечном счёте наполняют его жизнью.»
+                                </blockquote>
+                                <b class="comments__author">Иван Хафизов</b>
+                            </li>
+                            <li class="comments__item">
+                                <img class="comments__image" src="images/maksimishin.jpg">
+                                <blockquote class="comments__quote">
+                                    «Ты приезжаешь, и люди рассказывают тебе, как им плохо. А когда ты покажешь, как им плохо, 
+                                    то ты сволочь и всё очернил.»
+                                </blockquote>
+                                <b class="comments__author">Сергей Максимишин</b>
+                            </li>
+                        </ul>
+                    </section>  
+                    <section class="cover">
+                        <a class="cover__container" href="https://stampsy.com/na-elektrichkakh-do-baikala">   
+                            <h2 class="cover__title">
+                                До Байкала «на собаках»
+                            </h2>   
+                            <p class="cover__subtitle">
+                                По мотивам учебной темы о Транссибе и iframes — путешествие от столицы до Байкала на электричках.
+                            </p>                      
+                        </a>
+                    </section>              
                 </main>   
             </div>                       
         </div>            

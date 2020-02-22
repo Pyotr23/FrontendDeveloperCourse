@@ -1,11 +1,10 @@
-@import url('../__item/_kamchatka/video__item_kamchatka.css');
-@import url('../__item/_observatory/video__item_observatory.css');
-
 .video__item{
     width: 583px;    
     position: relative;  
     cursor: pointer; 
-    display: block;    
+    display: block;  
+    color: white;
+    text-decoration: none;  
 }   
 
 .video__item:hover::before{
