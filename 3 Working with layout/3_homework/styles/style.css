@@ -13,6 +13,7 @@
 @import url('../blocks/comments/comments.css');
 @import url('../blocks/cover/cover.css');
 @import url('../blocks/emblem/emblem.css');
+@import url('../blocks/barentsburg/barentsburg.css');
 
 body{
     font-family: Inter, sans-serif;
