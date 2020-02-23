@@ -13,25 +13,23 @@
            
             <!-- DONE Надо исправить: Этот элемент - лишняя обертка. Ее можно удалить без вреда для верстки. Старайтесь избегать лишних элементов в разметке. -->
             <header class="header">                     
-                <div class="header__info">
+                <!-- <div class="header__info"> -->
                     <!-- Надо исправить: Этот элемент - лишняя обертка. Ее можно удалить без вреда для верстки. Старайтесь избегать лишних элементов в разметке. -->
 
                     <img class="header__logo" src="images/header/logo.svg" alt="Очертания страны с надписью Россия">
                     <!-- Отлично! логотип загружен в векторном формате -->
 
-                    <div class="header__languages">
+                    <!-- <div class="header__languages"> -->
                         <a class="link header__language header__language_current" href="#">Ru</a>
                         <!-- Отлично! Выбранный язык реализован с помощью модификатора -->
-
-                        <span> </span>
-                        <!-- Надо исправить: удалите пустой <span> -->
-
+                        
+                        <!-- DONE Надо исправить: удалите пустой <span> -->
                         <a class="link header__language" href="#">En</a>
-                    </div>
-                </div>  
-                
+                    <!-- </div> -->
+                <!-- </div>   -->
+            </header>    
                 <!-- Надо исправить: оставьте в теге header  только логотип и языки -->
-
+            <section class="lead">
                 <h1 class="header__title">Путешествия по России</h1>
                 <!-- Отлично! правильно выделен заголовок страницы и обозначен тегом h1 --> 
                 <p class="header__subtitle">Настоящая страна не в выпусках новостей, а здесь</p>   
@@ -43,7 +41,7 @@
                     <figcaption class="header__image-caption">Ваша полка - верхняя</figcaption>
                 </figure> 
                 <!-- Отлично! Вы используете в работе семантический тег figure -->                  
-            </header>                  
+            </section>              
             <main class="intro">
                 <h2 class="intro__title">Чего мы там не видели?</h2>
                 <p class="intro__subtitle">Зачем путешествовать по своему дому</p>

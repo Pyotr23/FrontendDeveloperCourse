@@ -1,7 +1,6 @@
 @import url('../__language/_current/header__language_current.css');
 
-.header__language{
-    display: inline-block;
+.header__language{    
     margin-right: 18px;    
     font-style: normal;
     font-weight: normal;
