@@ -1,7 +1,4 @@
-@import url('../page/__inline-frame/page__inline-frame.css');
-
 .page{
-    min-width: 1280px;
-    max-width: 1440px;
+    width: 1184px;    
     margin: 0 auto;    
 }
