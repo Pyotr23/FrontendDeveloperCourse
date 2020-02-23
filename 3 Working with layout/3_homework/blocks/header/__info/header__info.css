@@ -1,0 +1,5 @@
+.header__info{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between; 
+}
