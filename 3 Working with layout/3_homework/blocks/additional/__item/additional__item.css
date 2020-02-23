@@ -5,7 +5,7 @@
     margin: 0;  
 }
 
-.additional__item:hover::before{
+.additional__item::before{
     position: absolute;
     content: '';
     top: 0;
