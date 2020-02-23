@@ -13,32 +13,26 @@
            
             <!-- DONE Надо исправить: Этот элемент - лишняя обертка. Ее можно удалить без вреда для верстки. Старайтесь избегать лишних элементов в разметке. -->
             <header class="header">                     
-                <!-- <div class="header__info"> -->
-                    <!-- Надо исправить: Этот элемент - лишняя обертка. Ее можно удалить без вреда для верстки. Старайтесь избегать лишних элементов в разметке. -->
-
-                    <img class="header__logo" src="images/header/logo.svg" alt="Очертания страны с надписью Россия">
-                    <!-- Отлично! логотип загружен в векторном формате -->
-
-                    <!-- <div class="header__languages"> -->
-                        <a class="link header__language header__language_current" href="#">Ru</a>
-                        <!-- Отлично! Выбранный язык реализован с помощью модификатора -->
-                        
-                        <!-- DONE Надо исправить: удалите пустой <span> -->
-                        <a class="link header__language" href="#">En</a>
-                    <!-- </div> -->
-                <!-- </div>   -->
+                
+                <!-- DONE Надо исправить: Этот элемент - лишняя обертка. Ее можно удалить без вреда для верстки. Старайтесь избегать лишних элементов в разметке. -->
+                <img class="header__logo" src="images/header/logo.svg" alt="Очертания страны с надписью Россия">
+                <!-- Отлично! логотип загружен в векторном формате -->
+                <a class="link header__language header__language_current" href="#">Ru</a>
+                <!-- Отлично! Выбранный язык реализован с помощью модификатора -->                
+                <!-- DONE Надо исправить: удалите пустой <span> -->
+                <a class="link header__language" href="#">En</a>                  
             </header>    
-                <!-- Надо исправить: оставьте в теге header  только логотип и языки -->
+                <!-- DONE Надо исправить: оставьте в теге header  только логотип и языки -->
             <section class="lead">
-                <h1 class="header__title">Путешествия по России</h1>
+                <h1 class="lead__title">Путешествия по России</h1>
                 <!-- Отлично! правильно выделен заголовок страницы и обозначен тегом h1 --> 
-                <p class="header__subtitle">Настоящая страна не в выпусках новостей, а здесь</p>   
+                <p class="lead__subtitle">Настоящая страна не в выпусках новостей, а здесь</p>   
                 <!-- Отлично! подзаголовок сделан с помощью параграфа -->
 
-                <figure class="header__figure">
-                    <img class="header__image" src="images/header/title.jpg" 
+                <figure class="lead__figure">
+                    <img class="lead__image" src="images/header/title.jpg" 
                     alt="Женщина, лежащая спиной, на боковой полке плацкарта. Цистерны в окне.">
-                    <figcaption class="header__image-caption">Ваша полка - верхняя</figcaption>
+                    <figcaption class="lead__image-caption">Ваша полка - верхняя</figcaption>
                 </figure> 
                 <!-- Отлично! Вы используете в работе семантический тег figure -->                  
             </section>              
@@ -346,8 +340,9 @@
                     </p>
                     <div class="barentsburg__url">
                         <p class="barentsburg__url-heading">URL</p>
-                        <a class="link barentsburg__link" href="#">
-                            <!-- Надо исправить: добавьте ссылку из макета в href -->
+                        <a class="link barentsburg__link" 
+                            href="https://meduza.io/feature/2016/03/02/umeret-ili-roditsya-zdes-prakticheski-nevozmozhno">
+                            <!-- DONE Надо исправить: добавьте ссылку из макета в href -->
                             Умереть или родиться здесь практически невозможно
                         </a>
                     </div>
