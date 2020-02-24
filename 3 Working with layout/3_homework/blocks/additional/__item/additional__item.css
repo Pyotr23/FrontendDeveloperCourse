@@ -1,8 +1,19 @@
+@import url('../__item/_item-bg/_arakyl/additional__item_item-bg_arakyl.css');
+@import url('../__item/_item-bg/_bay/additional__item_item-bg_bay.css');
+@import url('../__item/_item-bg/_cherepovets/additional__item_item-bg_cherepovets.css');
+@import url('../__item/_item-bg/_nikola-lenivets/additional__item_item-bg_nikola-lenivets.css');
+
 .additional__item{
-    width: 284px;
-    height: 330px;    
-    position: relative;  
-    margin: 0;  
+    width: 248px;
+    height: 270px; 
+    padding: 30px 18px;   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;     
+    margin: 0; 
+    background-size: cover; 
+    border-radius: 6px;
+    position: relative;
 }
 
 .additional__item::before{
@@ -13,5 +24,5 @@
     bottom: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.5);
-    border-radius: 6px;
+    border-radius: 6px;    
 }

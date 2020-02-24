@@ -1,11 +1,8 @@
-.additional__item-text{
-    position: absolute;
-    margin: 0;
-    bottom: 30px;
-    right: 18px;
-    width: 248px;
+.additional__item-text{    
+    margin: 0;    
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 20px;
+    z-index: 1;
 }

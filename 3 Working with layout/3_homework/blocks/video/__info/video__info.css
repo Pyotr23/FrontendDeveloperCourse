@@ -1,4 +1,4 @@
 .video__info{
     z-index: 1;
-    width: 322px;    
+    max-width: 322px;    
 }
