@@ -1,6 +1,4 @@
 .video__info{
-    position: absolute;
-    width: 322px;
-    left: 30px;
-    bottom: 30px;
+    z-index: 1;
+    width: 322px;    
 }

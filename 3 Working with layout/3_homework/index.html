@@ -88,7 +88,7 @@
                 <img class="photos__item" src="images/photos/__item10.jpg" alt="Равнина перед вулканом">
                 <img class="photos__item" src="images/photos/__item11.jpg" alt="Скалистый берег реки">
                 <img class="photos__item" src="images/photos/__item12.jpg" alt="Вид сверху на горы в тумане">
-                <!-- Надо исправить: на адаптиве у изображений будет изменяться размер. необходимо добавить класс для изображений. стилизация по БЭМ доступна только через класс -->
+                <!-- DONE Надо исправить: на адаптиве у изображений будет изменяться размер. необходимо добавить класс для изображений. стилизация по БЭМ доступна только через класс -->
             </section>
             <section class="places">
                 <ul class="places__list">
@@ -96,11 +96,12 @@
                         <h2 class="places__title">Куршская коса</h2>   
                         <p class="places__website">
                             <span class="places__url-heading">URL</span>
-                            <a class="link places__url" href="https://park-kosa.ru">park-kosa.ru</a>                       <!-- Можно лучше: для внешних ссылок можно добавить атрибут target="_blank" --> 
+                            <a class="link places__url" href="https://park-kosa.ru" target="_blank">park-kosa.ru</a>                      
+                            <!-- DONE Можно лучше: для внешних ссылок можно добавить атрибут target="_blank" --> 
                         </p>   
                         <img src="images/places/kosa.jpg" alt="Коряги в воде около берега">  
-                        <div>
-                            <!-- Можно лучше: добавьте класс для div -->
+                        <div class="places__description">
+                            <!-- DONE Можно лучше: добавьте класс для div -->
                             <p class="places__text">
                                 Здесь, посреди лесов и песчаных дюн, вы сможете увидеть два водных горизонта — 
                                 спокойного Куршского залива с одной стороны и подёрнутого рябью волн 
@@ -119,7 +120,8 @@
                         <h2 class="places__title">Кольский</h2>   
                         <p class="places__website">
                             <span class="places__url-heading">URL</span>
-                            <a class="link places__url" href="https://yourshot.nationalgeographic.com/photos/?keywords=kolskiy">
+                            <a class="link places__url" href="https://yourshot.nationalgeographic.com/photos/?keywords=kolskiy"
+                                target="_blank">
                                 National Geographic
                             </a>                                
                         </p>   
@@ -141,7 +143,7 @@
                         <h2 class="places__title">Алтай</h2>   
                         <p class="places__website">
                             <span class="places__url-heading">URL</span>
-                            <a class="link places__url" href="https://www.facebook.com/vera.bashmakova/posts/10156011613718822">Facebook</a>                                
+                            <a class="link places__url" href="https://www.facebook.com/vera.bashmakova/posts/10156011613718822" target="_blank">Facebook</a>                                
                         </p>   
                         <img src="images/places/altay.jpg" alt="На фоне леса ноутбук на подоконнике">  
                         <div>
@@ -161,7 +163,7 @@
                         <h2 class="places__title">Зимний Байкал</h2>   
                         <p class="places__website">
                             <span class="places__url-heading">URL</span>
-                            <a class="link places__url" href="https://vk.com/baikalmile">https://vk.com/baikalmile</a>                                
+                            <a class="link places__url" href="https://vk.com/baikalmile" target="_blank">https://vk.com/baikalmile</a>                                
                         </p>   
                         <img src="images/places/baikal.jpg" alt="Потрескавший лёд озера">  
                         <div>
@@ -180,7 +182,7 @@
                         <h2 class="places__title">Карелия</h2>   
                         <p class="places__website">
                             <span class="places__url-heading">URL</span>
-                            <a class="link places__url" href="http://vodlozero.ru/">http://vodlozero.ru/</a>                                
+                            <a class="link places__url" href="http://vodlozero.ru/" target="_blank">http://vodlozero.ru/</a>                                
                         </p>   
                         <img src="images/places/karelya.jpg" alt="Изгиб реки между лесистыми берегами">  
                         <div>
@@ -201,10 +203,8 @@
                     Видео от студии Stereotactic о местах в России, где ведутся фундаментальные исследования
                 </p>                        
                 <div class="video__container">
-                    <a class="video__item" href="https://vimeo.com/81106671">
-                        <img class="video__item-bg" src="images/video/kamchatka.jpg" 
-                            alt="Вид с моря на берег с сопкой вдали">  
-                        <!-- Можно лучше: загрузите фон с помощью фонового изображения css -->
+                    <a class="video__item video__item_item-bg_kamchatka" href="https://vimeo.com/81106671" target="_blank">                        
+                        <!-- DONE Можно лучше: загрузите фон с помощью фонового изображения css -->
                         <img class="video__icon" src="images/video/icon-play.svg" alt="Иконка начала проигрывания видео">
                         <div class="video__info">
                             <p class="video__duration">6:30</p>
@@ -212,8 +212,7 @@
                             <p class="video__director">Director: Pavel Karykhalin</p>
                         </div>
                     </a>
-                    <a class="video__item" href="https://vimeo.com/290675450">
-                        <img class="video__item-bg" src="images/video/observatory.jpg" alt="Обсерватория на фоне звёздного неба"> 
+                    <a class="video__item video__item_item-bg_observatory" href="https://vimeo.com/290675450" target="_blank">                        
                         <img class="video__icon" src="images/video/icon-play.svg" alt="Иконка начала проигрывания видео">
                         <div class="video__info">
                             <p class="video__duration">24:45</p>
@@ -291,7 +290,7 @@
                 </ul>
             </section>  
             <section class="cover">
-                <a class="cover__container" href="https://stampsy.com/na-elektrichkakh-do-baikala">   
+                <a class="cover__container" href="https://stampsy.com/na-elektrichkakh-do-baikala" target="_blank">   
                     <h2 class="cover__title">
                         До Байкала «на собаках»
                     </h2>   
@@ -350,7 +349,7 @@
                     </p>
                     <div class="barentsburg__url">
                         <p class="barentsburg__url-heading">URL</p>
-                        <a class="link barentsburg__link" 
+                        <a class="link barentsburg__link" target="_blank"
                             href="https://meduza.io/feature/2016/03/02/umeret-ili-roditsya-zdes-prakticheski-nevozmozhno">
                             <!-- DONE Надо исправить: добавьте ссылку из макета в href -->
                             Умереть или родиться здесь практически невозможно
@@ -360,11 +359,11 @@
             </section>  
             <footer class="footer">
                 <div>
-                    <a class="link footer__service" href="https://yandex.ru/maps/">Карты</a>
-                    <a class="link footer__service" href="https://yandex.ru/pogoda/">Погода</a>
-                    <a class="link footer__service" href="https://rasp.yandex.ru/">Расписания</a>
-                    <a class="link footer__service" href="https://calendar.yandex.ru/">Календарь</a>
-                    <a class="link footer__service" href="https://travel.yandex.ru">Путешествия</a>
+                    <a class="link footer__service" href="https://yandex.ru/maps/" target="_blank">Карты</a>
+                    <a class="link footer__service" href="https://yandex.ru/pogoda/" target="_blank">Погода</a>
+                    <a class="link footer__service" href="https://rasp.yandex.ru/" target="_blank">Расписания</a>
+                    <a class="link footer__service" href="https://calendar.yandex.ru/" target="_blank">Календарь</a>
+                    <a class="link footer__service" href="https://travel.yandex.ru" target="_blank">Путешествия</a>
                 </div>
                 <!-- Надо исправить: по смыслу эти ссылки - навигация. Оберните их в список <nav>. используйте список nav > ul > li > a -->
 
