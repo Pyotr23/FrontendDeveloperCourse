@@ -1,7 +1,7 @@
 @import url('../../fonts/InterWeb/inter.css');
+@import url('../section-subtitle/__margin/section-subtitle__margin.css');
 
-.section-subtitle{
-    margin: 48px auto 0;
+.section-subtitle{    
     max-width: 640px;
     font-style: normal;
     font-weight: normal;

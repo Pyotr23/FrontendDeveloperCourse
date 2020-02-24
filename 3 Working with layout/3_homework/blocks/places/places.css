@@ -1,4 +1,5 @@
 @import url('../../fonts/InterWeb/inter.css');
+@import url('../places/__margin/places__margin.css');
 @import url('../places/__list/places__list.css');
 @import url('../places/__item/places__item.css');
 @import url('../places/__title/places__title.css');
@@ -7,8 +8,7 @@
 @import url('../places/__url/places__url.css');
 @import url('../places/__text/places__text.css');
 
-.places{
-    margin-top: 92px;
+.places{    
     display: flex;
     justify-content: center;
     font-family: Inter, Arial, sans-serif;

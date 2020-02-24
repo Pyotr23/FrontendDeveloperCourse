@@ -1,8 +1,8 @@
 @import url('../../fonts/InterWeb/inter.css');
+@import url('../section-title/__margin/section-title__margin.css');
 @import url('../section-title/_line-height_large/section-title_line-height_large.css');
 
-.section-title{
-    margin: 102px auto 0;
+.section-title{    
     max-width: 800px;
     font-style: normal;
     font-weight: 900;
