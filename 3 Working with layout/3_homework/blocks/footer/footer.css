@@ -1,10 +1,10 @@
 @import url('../../fonts/InterWeb/inter.css');
+@import url('../footer/__margin/footer__margin.css');
 @import url('../footer/__services/footer__services.css');
 @import url('../footer/__service/footer__service.css');
 @import url('../footer/__copyright/footer__copyright.css');
 
-.footer{
-    padding: 160px 0 48px;
+.footer{    
     display: flex;
     justify-content: space-between;
     align-items: center;
