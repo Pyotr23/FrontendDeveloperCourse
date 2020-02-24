@@ -1,4 +1,5 @@
 @import url('../../fonts/InterWeb/inter.css');
+@import url('../intro/__margin/intro__margin.css');
 @import url('../intro/__title/intro__title.css');
 @import url('../intro/__subtitle/intro__subtitle.css');
 @import url('../intro/__two-columns/intro__two-columns.css');
@@ -8,8 +9,7 @@
 @import url('../intro/__facts/intro__facts.css');
 @import url('../intro/__fact-name/intro__fact-name.css');
 
-.intro {
-    margin: 80px auto 0;
+.intro {    
     width: 984px;
     font-family: Inter, Arial, sans-serif;
 }

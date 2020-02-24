@@ -1,8 +1,8 @@
 @import url('../../fonts/InterWeb/inter.css');
+@import url('../photos/__margin/photos__margin.css');
 @import url('../photos/__item/photos__item.css');
 
-.photos {
-    margin: 92px auto 0;
+.photos {    
     width: 1184px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);

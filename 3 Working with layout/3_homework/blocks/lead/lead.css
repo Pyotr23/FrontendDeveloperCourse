@@ -1,4 +1,5 @@
 @import url('../../fonts/InterWeb/inter.css');
+@import url('../lead/__margin/lead__margin.css');
 @import url('../lead/__title/lead__title.css');
 @import url('../lead/__subtitle/lead__subtitle.css');
 @import url('../lead/__figure/lead__figure.css');
