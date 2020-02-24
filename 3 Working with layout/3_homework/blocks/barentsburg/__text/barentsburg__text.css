@@ -1,6 +1,6 @@
 .barentsburg__text{
     margin: 0 120px 0 0;
-    width: 380px;
+    max-width: 380px;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;

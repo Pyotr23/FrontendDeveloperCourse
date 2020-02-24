@@ -6,3 +6,7 @@
 @import url('../barentsburg/__url/barentsburg__url.css');
 @import url('../barentsburg/__url-heading/barentsburg__url-heading.css');
 @import url('../barentsburg/__link/barentsburg__link.css');
+
+.barentsburg {
+    font-family: Inter, Arial, sans-serif;
+}

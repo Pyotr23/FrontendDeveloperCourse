@@ -1,5 +1,10 @@
+@import url('../../fonts/InterWeb/inter.css');
 @import url('../emblem/__title/emblem__title.css');
 @import url('../emblem/__items/emblem__items.css');
 @import url('../emblem/__item/emblem__item.css');
 @import url('../emblem/__city/emblem__city.css');
 @import url('../emblem/__image/emblem__image.css');
+
+.emblem {
+    font-family: Inter, Arial, sans-serif;
+}
