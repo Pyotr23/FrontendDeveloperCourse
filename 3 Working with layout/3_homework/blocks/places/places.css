@@ -1,5 +1,5 @@
 @import url('../../fonts/InterWeb/inter.css');
-@import url('../places/__margin/places__margin.css');
+@import url('../places/_margin/places_margin.css');
 @import url('../places/__list/places__list.css');
 @import url('../places/__item/places__item.css');
 @import url('../places/__title/places__title.css');

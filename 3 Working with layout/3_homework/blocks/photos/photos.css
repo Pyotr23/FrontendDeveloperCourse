@@ -1,5 +1,5 @@
 @import url('../../fonts/InterWeb/inter.css');
-@import url('../photos/__margin/photos__margin.css');
+@import url('../photos/_margin/photos_margin.css');
 @import url('../photos/__item/photos__item.css');
 
 .photos {    
