@@ -4,7 +4,7 @@
 @import url('../__item/_item-bg/_nikola-lenivets/additional__item_item-bg_nikola-lenivets.css');
 
 .additional__item{
-    width: 248px;
+    max-width: 248px;
     height: 270px; 
     padding: 30px 18px;   
     display: flex;

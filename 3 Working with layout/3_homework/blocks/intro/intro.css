@@ -10,6 +10,6 @@
 @import url('../intro/__fact-name/intro__fact-name.css');
 
 .intro {    
-    width: 984px;
+    max-width: 984px;
     font-family: Inter, Arial, sans-serif;
 }

@@ -3,6 +3,7 @@
 @import url('../footer/__services/footer__services.css');
 @import url('../footer/__service/footer__service.css');
 @import url('../footer/__copyright/footer__copyright.css');
+@import url('../footer/__nav-menu/footer__nav-menu.css');
 
 .footer{    
     display: flex;
