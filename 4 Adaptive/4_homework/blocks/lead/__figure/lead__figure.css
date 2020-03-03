@@ -2,3 +2,15 @@
     margin: 78px 0 0;
     max-width: 984px;  
 }
+
+@media screen and (max-width: 768px){
+    .lead__figure{
+        
+    } 
+}
+
+@media screen and (max-width: 375px){
+    .lead__figure{
+        margin: 32px 0 0;        
+    }
+}

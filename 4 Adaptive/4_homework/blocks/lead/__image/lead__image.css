@@ -1,3 +1,10 @@
 .lead__image{
       
 }
+
+@media screen and (max-width: 768px){
+    .lead__image{
+        /* position: absolute;
+        width: 100vmin; */
+    } 
+}
