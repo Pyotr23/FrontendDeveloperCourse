@@ -1,0 +1,13 @@
+@import url('../../fonts/InterWeb/inter.css');
+@import url('../video/__container/video__container.css');
+@import url('../video/__item/video__item.css');
+@import url('../video/__icon/video__icon.css');
+@import url('../video/__info/video__info.css'); 
+@import url('../video/__director/video__director.css');
+@import url('../video/__title/video__title.css');
+@import url('../video/__duration/video__duration.css');
+@import url('../video/__shadow/video__shadow.css');
+
+.video {
+    font-family: Inter, Arial, sans-serif;
+}

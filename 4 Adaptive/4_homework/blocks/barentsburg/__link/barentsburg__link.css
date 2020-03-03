@@ -1,0 +1,10 @@
+.barentsburg__link{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 30px;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-underline-offset: 4px;
+    margin-top: 12px;
+}

@@ -1,0 +1,12 @@
+@import url('../../fonts/InterWeb/inter.css');
+@import url('../section-subtitle/_margin/section-subtitle_margin.css');
+
+.section-subtitle{    
+    max-width: 640px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 35px;
+    text-align: center;
+    font-family: Inter, Arial, sans-serif;
+}

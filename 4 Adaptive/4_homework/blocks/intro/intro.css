@@ -1,0 +1,15 @@
+@import url('../../fonts/InterWeb/inter.css');
+@import url('../intro/_margin/intro_margin.css');
+@import url('../intro/__title/intro__title.css');
+@import url('../intro/__subtitle/intro__subtitle.css');
+@import url('../intro/__two-columns/intro__two-columns.css');
+@import url('../intro/__main-text/intro__main-text.css');
+@import url('../intro/__text-attributes/intro__text-attributes.css');
+@import url('../intro/__attribute-name/intro__attribute-name.css');
+@import url('../intro/__facts/intro__facts.css');
+@import url('../intro/__fact-name/intro__fact-name.css');
+
+.intro {    
+    max-width: 984px;
+    font-family: Inter, Arial, sans-serif;
+}

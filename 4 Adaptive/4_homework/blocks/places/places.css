@@ -1,0 +1,15 @@
+@import url('../../fonts/InterWeb/inter.css');
+@import url('../places/_margin/places_margin.css');
+@import url('../places/__list/places__list.css');
+@import url('../places/__item/places__item.css');
+@import url('../places/__title/places__title.css');
+@import url('../places/__website/places__website.css');
+@import url('../places/__url-heading/places__url-heading.css');
+@import url('../places/__url/places__url.css');
+@import url('../places/__text/places__text.css');
+
+.places{    
+    display: flex;
+    justify-content: center;
+    font-family: Inter, Arial, sans-serif;
+}

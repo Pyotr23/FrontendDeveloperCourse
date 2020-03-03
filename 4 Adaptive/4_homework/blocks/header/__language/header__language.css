@@ -1,0 +1,13 @@
+@import url('../__language/_current/header__language_current.css');
+
+.header__language{    
+    margin-right: 18px;    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 23px;
+}
+
+.header__language:last-child{
+    margin-right: 0;
+}

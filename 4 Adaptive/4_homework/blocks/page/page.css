@@ -1,0 +1,6 @@
+@import url('../page/_margin/page_margin.css');
+
+.page{
+    width: 1184px; 
+    padding: 0 48px;         
+}

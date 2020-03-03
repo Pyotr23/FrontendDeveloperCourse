@@ -1,0 +1,13 @@
+@import url('../../fonts/InterWeb/inter.css');
+@import url('../section-title/_margin/section-title_margin.css');
+@import url('../section-title/_line-height_large/section-title_line-height_large.css');
+
+.section-title{    
+    max-width: 800px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 72px;
+    line-height: 65px;
+    text-align: center;
+    font-family: Inter, Arial, sans-serif;
+}

@@ -1,0 +1,9 @@
+@import url('../../fonts/InterWeb/inter.css');
+@import url('../header/__logo/header__logo.css');
+@import url('../header/__language/header__language.css');
+
+.header{               
+    display: flex;
+    align-items: center;
+    font-family: Inter, Arial, sans-serif;
+}    
