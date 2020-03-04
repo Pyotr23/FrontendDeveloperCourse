@@ -1,4 +1,10 @@
 .intro__two-columns{
-    margin-top: 35px;
+    margin-top: 48px;
     display: flex;
+}
+
+@media screen and (max-width: 375px){
+    .intro__two-columns{
+        margin-top: 32px;        
+    }
 }

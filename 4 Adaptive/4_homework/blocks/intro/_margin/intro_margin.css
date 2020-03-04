@@ -1,3 +1,15 @@
 .intro_margin{
     margin: 80px auto 0;
 }
+
+@media screen and (max-width: 768px){
+    .intro_margin{
+        margin: 80px 24px 0;      
+    } 
+}
+
+@media screen and (max-width: 375px){
+    .intro_margin{
+        margin: 64px 16px 0;
+    }
+}
