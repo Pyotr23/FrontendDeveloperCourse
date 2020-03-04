@@ -7,3 +7,15 @@
     align-items: center;
     font-family: Inter, Arial, sans-serif;
 }    
+
+@media screen and (max-width: 768px){
+    .header{
+        padding: 0 24px;
+    } 
+}
+
+@media screen and (max-width: 375px){
+    .header{
+        padding: 0 16px;
+    }
+}

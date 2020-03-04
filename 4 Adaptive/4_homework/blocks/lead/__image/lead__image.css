@@ -1,10 +1,9 @@
 .lead__image{
-      
+      max-width: 984px;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1024px){
     .lead__image{
-        /* position: absolute;
-        width: 100vmin; */
+        width: 100%;
     } 
 }

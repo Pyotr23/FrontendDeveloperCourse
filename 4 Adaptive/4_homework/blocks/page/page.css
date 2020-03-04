@@ -1,8 +1,8 @@
 @import url('../page/_margin/page_margin.css');
 
 .page{
-    min-width: 329px;
-    max-width: 90%; 
+    min-width: 320px;
+    width: 90%; 
     padding: 0 48px;         
 }
 
@@ -14,12 +14,7 @@
 
 @media screen and (max-width: 768px){
     .page{
-        padding: 0 24px;
-    } 
-}
-
-@media screen and (max-width: 375px){
-    .page{
-        padding: 0 16px;
-    } 
+        width: 100%;
+        padding: 0;
+    }    
 }
