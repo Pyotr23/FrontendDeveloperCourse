@@ -1,3 +1,15 @@
 .photos_margin{
-    margin: 92px auto 0;
+    margin: 102px auto 0;
+}
+
+@media screen and (max-width: 768px){
+    .photos_margin{
+        margin: 97px auto 0;        
+    }
+}
+
+@media screen and (max-width: 375px){
+    .photos_margin{
+        margin: 64px auto 0;   
+    }
 }
