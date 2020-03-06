@@ -1,7 +1,13 @@
 .places__website{
     margin: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     text-align: left;
     justify-content: flex-end;
+}
+
+@media screen and (min-width: 427px){
+    .places__website{
+        display: flex;    
+    }
 }

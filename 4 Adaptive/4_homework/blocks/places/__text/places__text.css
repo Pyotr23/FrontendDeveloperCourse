@@ -1,11 +1,31 @@
-.places__text{    
-    margin: 0 0 36px;
+.places__text{      
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 30px;
+    margin: 0 16px 24px;
+    font-size: 16px;
+    line-height: 27px;
 }
 
 .places__text:last-child{
     margin-bottom: 0;
+}
+
+@media screen and (min-width: 427px){
+    .places__text{        
+        margin: 0 0 24px;        
+    }
+}
+
+@media screen and (min-width: 770px){
+    .places__text{             
+        font-size: 18px;
+        line-height: 30px;
+        margin: 0 0 24px;
+    }
+}
+
+@media screen and (min-width: 1026px){
+    .places__text{           
+        margin: 0 0 36px;
+    }
 }

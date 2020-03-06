@@ -7,9 +7,11 @@
 @import url('../places/__url-heading/places__url-heading.css');
 @import url('../places/__url/places__url.css');
 @import url('../places/__text/places__text.css');
+@import url('../places/__image/places__image.css');
 
 .places{    
     display: flex;
     justify-content: center;
     font-family: Inter, Arial, sans-serif;
+    max-width: 100%;
 }

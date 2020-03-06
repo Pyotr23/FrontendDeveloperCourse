@@ -15,3 +15,11 @@
 @import url('../blocks/emblem/emblem.css');
 @import url('../blocks/barentsburg/barentsburg.css');
 @import url('../blocks/footer/footer.css');
+
+html{
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}

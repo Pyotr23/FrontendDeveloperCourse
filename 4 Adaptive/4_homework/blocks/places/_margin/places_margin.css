@@ -1,3 +1,15 @@
 .places_margin{
-    margin-top: 92px;
+    margin: 64px 0 0; 
+}
+
+@media screen and (min-width: 427px){
+    .places_margin{        
+        margin: 102px 24px 0;  
+    }
+}
+
+@media screen and (min-width: 1025px){
+    .places_margin{
+        margin: 92px auto 0;   
+    }
 }
