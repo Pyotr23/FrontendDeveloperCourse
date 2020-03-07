@@ -1,3 +1,15 @@
 .section-subtitle_margin{
-    margin: 48px auto 0;
+    margin: 16px auto 0;
+}
+
+@media screen and (min-width: 427px){
+    .section-subtitle_margin{        
+        margin: 24px auto 0;   
+    }
+}
+
+@media screen and (min-width: 770px){
+    .section-subtitle_margin{        
+        margin: 48px auto 0;     
+    }
 }

@@ -1,0 +1,15 @@
+.video_margin{
+    margin: 0 16px;
+}
+
+@media screen and (min-width: 427px){
+    .video_margin{        
+        margin: 0 24px;        
+    }
+}
+
+@media screen and (min-width: 770px){
+    .video_margin{        
+        margin: 0;        
+    }
+}

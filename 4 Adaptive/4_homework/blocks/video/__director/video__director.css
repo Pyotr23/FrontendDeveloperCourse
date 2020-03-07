@@ -1,7 +1,13 @@
 .video__director{
-    margin: 18px 0 0;
+    margin: 8px 0 0;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 15px;
+}
+
+@media screen and (min-width: 1022px){
+    .video__director{ 
+        margin: 18px 0 0;
+    }
 }

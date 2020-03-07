@@ -1,5 +1,24 @@
 .video__container{
-    margin-top: 72px;;
+    margin-top: 24px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+@media screen and (min-width: 427px){
+    .video__container{        
+        margin-top: 56px;         
+    }
+}
+
+@media screen and (min-width: 766px){
+    .video__container{        
+        flex-direction: row;    
+    }
+}
+
+@media screen and (min-width: 770px){
+    .video__container{        
+        margin-top: 72px;     
+    }
 }

@@ -2,12 +2,35 @@
 @import url('../section-title/_margin/section-title_margin.css');
 @import url('../section-title/_line-height_large/section-title_line-height_large.css');
 
-.section-title{    
-    max-width: 800px;
+.section-title{        
     font-style: normal;
     font-weight: 900;
-    font-size: 72px;
-    line-height: 65px;
+    font-size: 32px;
+    line-height: 35px;
     text-align: center;
     font-family: Inter, Arial, sans-serif;
+}
+
+@media screen and (min-width: 427px){
+    .section-title_margin{        
+        font-size: 42px;
+        line-height: 46px;  
+        max-width: 80%;      
+    }
+}
+
+@media screen and (min-width: 770px){
+    .section-title_margin{        
+        font-size: 42px;
+        line-height: 46px;  
+        max-width: 60%;      
+    }
+}
+
+@media screen and (min-width: 1022px){
+    .section-title_margin{        
+        font-size: 72px;
+        line-height: 78px;  
+        max-width: 710px;      
+    }
 }
