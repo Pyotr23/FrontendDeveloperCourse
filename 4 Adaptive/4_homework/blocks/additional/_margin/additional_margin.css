@@ -1,0 +1,9 @@
+.additional_margin{
+    margin: 0 16px;    
+}
+
+@media screen and (min-width: 427px){
+    .additional_margin{ 
+        margin: 0;
+    }
+}

@@ -1,0 +1,9 @@
+.comments_margin{
+    margin: 0 16px;
+}
+
+@media screen and (min-width: 427px){
+    .comments_margin{ 
+        margin: 0;
+    }
+}
