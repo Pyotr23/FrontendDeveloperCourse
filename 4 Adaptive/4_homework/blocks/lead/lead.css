@@ -12,9 +12,3 @@
     align-items: center;
     font-family: Inter, Arial, sans-serif;
 }
-
-@media screen and (max-width: 768px){
-    .lead{
-        padding: 0;
-    } 
-}

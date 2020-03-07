@@ -5,11 +5,10 @@
     font-style: normal;
     font-weight: normal;
     font-size: 13px;
-    line-height: 20px;
-    /* max-width: 300px; */
+    line-height: 20px;    
 }
 
-@media screen and (max-width: 375px){
+@media screen and (max-width: 427px){
     .intro__facts{
         margin: 32px 0 0;
         font-size: 12px;

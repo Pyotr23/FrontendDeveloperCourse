@@ -4,6 +4,7 @@
     flex-direction: column;
     text-align: left;
     justify-content: flex-end;
+    width: 100%;
 }
 
 @media screen and (min-width: 427px){

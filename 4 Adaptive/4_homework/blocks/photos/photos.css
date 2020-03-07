@@ -18,14 +18,12 @@
 
 @media screen and (max-width: 768px){
     .photos{
-        width: calc(100% - 2 * 24px);  
         gap: 16px;     
     }
 }
 
 @media screen and (max-width: 375px){
     .photos{
-        width: calc(100% - 2 * 16px); 
         gap: 15px;      
     }
 }

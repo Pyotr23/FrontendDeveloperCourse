@@ -1,15 +1,15 @@
 .photos_margin{
-    margin: 102px auto 0;
+    margin: 102px 0 0;
 }
 
 @media screen and (max-width: 768px){
     .photos_margin{
-        margin: 97px auto 0;        
+        margin: 97px 24px 0;        
     }
 }
 
-@media screen and (max-width: 375px){
+@media screen and (max-width: 427px){
     .photos_margin{
-        margin: 64px auto 0;   
+        margin: 64px 16px 0;   
     }
 }

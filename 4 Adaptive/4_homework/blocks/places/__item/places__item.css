@@ -11,21 +11,27 @@
 
 @media screen and (min-width: 427px){
     .places__item{
-        grid-template-columns: 340px 352px;        
+        grid-template-columns: 47% auto;        
         gap: 40px 28px;
     }
 }
 
 @media screen and (min-width: 770px){
     .places__item{
-        grid-template-columns: 440px 456px;        
+        grid-template-columns: 43% auto;        
         gap: 40px 32px;
     }
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1282px){
     .places__item{        
-        grid-template-columns: 460px 484px;
+        grid-template-columns: 36% auto;
         gap: 60px 40px;         
+    }
+}
+
+@media screen and (min-width: 1438px){
+    .places__item{        
+        grid-template-columns: 460px 484px;               
     }
 }

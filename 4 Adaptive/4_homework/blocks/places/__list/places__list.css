@@ -2,5 +2,11 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 100%;
+    max-width: 984px;
+}
+
+@media screen and (min-width: 427px) and (max-width: 768px){
+    .places__list{        
+        margin: 0 24px;  
+    }
 }
