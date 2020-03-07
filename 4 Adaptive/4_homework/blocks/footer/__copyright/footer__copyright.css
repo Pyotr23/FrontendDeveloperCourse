@@ -2,5 +2,12 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 20px;      
+    line-height: 20px;    
+    margin: 48px 0 0;    
+}
+
+@media screen and (min-width: 766px){
+    .footer__copyright{
+        margin: 0;
+    }    
 }

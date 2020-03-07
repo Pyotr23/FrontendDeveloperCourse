@@ -1,4 +1,12 @@
 .footer__services{
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 766px){
+    .footer__services{
+        flex-direction: row;
+    }    
 }
