@@ -1,3 +1,22 @@
 .cover_margin{
-    margin-top: 102px;
+    margin-top: 64px;
+}
+
+@media screen and (min-width: 373px){
+    .cover_margin{
+        margin-top: 48px;
+    }    
+}
+
+@media screen and (min-width: 766px){
+    .cover_margin{
+        margin-top: 102px;
+    }    
+}
+
+@media screen and (min-width: 770px) and (max-width: 1026px){
+    .cover_margin{
+        margin-right: -48px;
+        margin-left: -48px;
+    }    
 }
