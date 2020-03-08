@@ -2,7 +2,7 @@
 @import url('../__item/_item-bg/_observatory/video__item_item-bg_observatory.css');
 
 .video__item{    
-    min-height: calc(100vw * 2 / 3); 
+    height: calc(100vw * 2 / 3);     
     padding: 16px;    
     position: relative;  
     cursor: pointer; 
@@ -43,7 +43,7 @@
 
 @media screen and (min-width: 427px){
     .video__item{        
-        min-height: calc(100vw / 1.76); 
+        height: calc(100vw / 1.76); 
     }
 }
 
@@ -51,19 +51,19 @@
     .video__item{        
         margin-bottom: 0; 
         margin-right: 16px; 
-        min-height: calc(100vw / 1.76 / 2); 
+        height: calc(100vw / 1.76 / 2); 
     }
 }
 
 @media screen and (min-width: 1022px){
     .video__item{        
-        min-height: calc(100vw / 1.6 / 2); 
+        height: calc(100vw / 1.6 / 2); 
+        max-height: 323px;
     }
 }
 
 @media screen and (min-width: 1278px){
-    .video__item{        
-        min-height: calc(100vw / 1.8 / 2);
+    .video__item{              
         margin-right: 18px; 
     }
 }
