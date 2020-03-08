@@ -23,15 +23,16 @@
     }
 }
 
-@media screen and (min-width: 1282px){
+@media screen and (min-width: 1022px){
     .places__item{        
-        grid-template-columns: 36% auto;
+        grid-template-columns: 440px auto;  
         gap: 60px 40px;         
     }
 }
 
-@media screen and (min-width: 1438px){
+@media screen and (min-width: 1278px){
     .places__item{        
-        grid-template-columns: 460px 484px;               
+        grid-template-columns: 460px 484px;  
+        gap: 60px 40px;         
     }
 }

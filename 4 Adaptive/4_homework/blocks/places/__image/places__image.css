@@ -1,7 +1,6 @@
 .places__image{
     width: 100%;
-    object-fit: cover;
-    margin-bottom: 24px;
+    object-fit: cover;    
 }
 
 @media screen and (min-width: 426px){
