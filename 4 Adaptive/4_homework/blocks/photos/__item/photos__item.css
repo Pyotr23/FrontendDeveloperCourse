@@ -1,4 +1,17 @@
 .photos__item{    
     width: 100%;
     object-fit: cover;
+    display: block;
+}
+
+@media screen and (max-width: 373px){
+    .photos__item{   
+        min-height: 192px;       
+    }
+}
+
+@media screen and (max-width: 427px){
+    .photos__item{   
+        min-height: 232px;       
+    }
 }
