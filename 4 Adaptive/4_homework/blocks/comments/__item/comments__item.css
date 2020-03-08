@@ -16,6 +16,7 @@
     .comments__item{
         margin-top: 0;
         margin-right: 18px;
+        align-items: flex-start;
     }   
     
     .comments__item:last-child{        
