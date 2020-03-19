@@ -1,0 +1,8 @@
+.social-networks__item{
+    display: inline-block;
+    margin-right: 13px;
+}
+
+.social-networks__item:last-child{
+    margin-right: 0;
+}

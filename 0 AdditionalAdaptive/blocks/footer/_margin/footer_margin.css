@@ -1,0 +1,15 @@
+.footer_margin{
+    margin: 64px 16px 0;
+}
+
+@media screen and (min-width: 427px){
+    .footer_margin{
+        margin: 102px 24px 0;
+    }    
+}
+
+@media screen and (min-width: 766px){
+    .footer_margin{
+        margin: 160px 0 0;
+    }    
+}
