@@ -1,6 +1,7 @@
 @import url('../social-networks/__item/social-networks__item.css');
+@import url('../social-networks/__logo/social-networks__logo.css');
 
 .social-networks{    
-    margin: 0;
+    margin: auto 0;
     padding: 0;      
 }
