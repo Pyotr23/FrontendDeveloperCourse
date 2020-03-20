@@ -1,0 +1,15 @@
+.intro__button{
+    margin: 62px auto 0;
+    padding: 14px 30px;
+    background-color: #FFBB01;
+    font-family: 'Roboto', Arial, sans-serif;  
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    color: #1B2944;
+    text-decoration: none;
+    text-transform: uppercase;
+    max-width: 220px;    
+    border-radius: 5px 5px 10px 10px;
+    box-shadow: 0px 4px 0px #B68500;
+}
