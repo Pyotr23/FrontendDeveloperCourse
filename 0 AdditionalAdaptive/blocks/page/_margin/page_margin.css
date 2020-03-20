@@ -1,10 +1,11 @@
 .page_margin{
     padding: 30px 30px 16px; 
+    margin: 0 auto;
 }
 
-@media screen and (min-width: calc(944px - 2 * 30px)){
-    .page_margin{
-        margin: 36px auto 48px; 
+@media screen and (min-width: calc(944px + 2 * 30px)){
+    .page_margin{        
+        padding: 36px 30px 48px; 
     }
 }
 
