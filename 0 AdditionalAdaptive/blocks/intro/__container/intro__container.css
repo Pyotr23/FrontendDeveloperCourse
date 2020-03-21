@@ -3,3 +3,10 @@
     flex-direction: column;
     text-align: center;
 }
+
+@media screen and (min-width: 1278px){
+    .intro__container{
+        text-align: start;
+        max-width: 450px;
+    }
+}

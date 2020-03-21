@@ -1,6 +1,6 @@
 .social-networks__item{
     display: inline-block;
-    margin-right: 12px;
+    margin-right: 16px;
 }
 
 .social-networks__item:last-child{
