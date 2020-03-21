@@ -4,13 +4,13 @@
     border-width: 2px;
     border-color: white;
     margin: 0 auto;
-    width: fit-content; 
+    width: 41%;
+    max-width: 362px; 
     box-sizing: content-box;   
 }
 
-@media screen and (min-width: 1278px){
-    .intro__avatar{
-        width: 362px;
+@media screen and (min-width: 1022px){
+    .intro__avatar{        
         margin: 0;
         border-width: 10px;
     }
