@@ -1,0 +1,7 @@
+.features__container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 60px 0 0;
+    padding: 0;
+}

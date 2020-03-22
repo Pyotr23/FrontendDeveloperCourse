@@ -1,8 +1,14 @@
 .social-networks__item{
     display: inline-block;
-    margin-right: 16px;
+    margin-right: 12px;
 }
 
 .social-networks__item:last-child{
     margin-right: 0;
+}
+
+@media screen and (min-width: 423px){
+    .social-networks__item{
+        margin-right: 16px;
+    }
 }
