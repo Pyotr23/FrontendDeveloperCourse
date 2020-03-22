@@ -1,4 +1,4 @@
-.features__title{
+.title{
     font-family: 'Roboto', Arial, sans-serif;    
     font-weight: bold;
     font-size: 19px;
@@ -7,14 +7,14 @@
 }
 
 @media screen and (min-width: 510px){
-    .features__title{        
+    .title{        
         font-size: 28px;
         line-height: 32px;
     }
 }
 
 @media screen and (min-width: 766px){
-    .features__title{        
+    .title{        
         font-size: 36px;
         line-height: 42px;
     }
