@@ -1,4 +1,4 @@
-.feature__title{
+.subtitle{
     margin: 22px 0 0;
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: bold;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (min-width: 510px){
-    .feature__title{                
+    .subtitle{                
         font-size: 24px;
         line-height: 28px;
     }

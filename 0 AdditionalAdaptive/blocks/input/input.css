@@ -1,0 +1,13 @@
+@import url('../../fonts/Roboto/roboto.css');
+@import url('../input/input_margin/input_margin.css');
+@import url('../input/__placeholder/input__placeholder.css');
+
+.input{
+    display: flex;
+    align-items: center;
+    max-height: 64px;
+    max-width: 380px;
+    background-color: #F8F8F8;
+    box-shadow: inset 0px 3px 10px rgba(199, 199, 199, 0.25);
+    border-radius: 5px;
+}    

@@ -1,6 +1,5 @@
 @import url('../../fonts/Roboto/roboto.css');
 @import url('../feature/__image/feature__image.css');
-@import url('../feature/__title/feature__title.css');
 @import url('../feature/__description/feature__description.css');
 
 .feature{

@@ -1,0 +1,10 @@
+@import url('../../fonts/Roboto/roboto.css');
+@import url('../contacts-form/contacts-form_margin/contacts-form_margin.css');
+@import url('../contacts-form/contacts-form__text/contacts-form__text.css');
+
+.contacts-form{
+    padding: 40px 20px 48px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: -3px 6px #FFBB01;    
+}
