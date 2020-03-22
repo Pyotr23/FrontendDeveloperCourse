@@ -1,5 +1,5 @@
 .intro__button{
-    margin: 62px auto 0;
+    margin-top: 62px;
     min-width: 235px;  
     max-width: 300px;   
     padding: 14px 0;
@@ -27,6 +27,6 @@
 
 @media screen and (min-width: 1022px){
     .intro__button{
-        margin: 42px 0 0;                        
+        margin-top: 42px;                        
     }
 }

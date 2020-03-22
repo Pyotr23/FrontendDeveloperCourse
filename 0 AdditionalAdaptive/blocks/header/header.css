@@ -1,8 +1,11 @@
 @import url('../header/__logo/header__logo.css');
+@import url('../header/_margin/header_margin.css');
 
 .header{      
     display: flex; 
     text-align: center;
+    min-width: 320px;
+    max-width: 1000px; 
 }    
 
 /* @media screen and (max-width: 768px){

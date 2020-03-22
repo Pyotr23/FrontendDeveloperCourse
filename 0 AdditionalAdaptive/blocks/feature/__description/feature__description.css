@@ -5,3 +5,10 @@
     font-size: 14px;
     line-height: 28px;
 }
+
+@media screen and (min-width: 510px){
+    .feature__description{                
+        font-size: 16px; 
+        margin: 16px 0 0;       
+    }
+}

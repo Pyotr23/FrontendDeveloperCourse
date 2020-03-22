@@ -1,0 +1,10 @@
+.header_margin{
+    padding: 30px 30px 0; 
+    margin: 0 auto;
+}
+
+@media screen and (min-width: calc(944px + 2 * 30px)){
+    .header_margin{        
+        padding: 36px 30px 0; 
+    }
+}

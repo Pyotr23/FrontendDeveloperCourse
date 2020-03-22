@@ -4,12 +4,24 @@
 @import url('../feature/__description/feature__description.css');
 
 .feature{
-    margin: 0 0 36px;
+    margin: 0 0 36px 0;
     padding: 0;
     list-style: none;
-    max-width: 303px;
+    max-width: 300px;
 }
 
 .feature:last-child{
     margin: 0;
+}
+
+@media screen and (min-width: 510px){
+    .feature{                
+        margin: 0 0 54px 0;
+    }
+}
+
+@media screen and (min-width: 766px){
+    .feature{                
+        margin: 0 0 72px 0;
+    }
 }

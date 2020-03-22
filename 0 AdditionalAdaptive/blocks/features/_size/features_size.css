@@ -1,0 +1,12 @@
+.features_size{    
+    min-width: 320px;
+    max-width: 1000px; 
+    padding: 62px 30px 62px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 766px){
+    .features_size{                
+        padding: 62px 30px 30px;
+    }
+}
