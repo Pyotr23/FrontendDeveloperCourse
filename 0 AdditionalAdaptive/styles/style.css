@@ -7,6 +7,7 @@
 @import url('../blocks/intro/intro.css');
 @import url('../blocks/features/features.css');
 @import url('../blocks/feature/feature.css');
+@import url('../blocks/button/button.css');
 
 html{
     box-sizing: border-box;

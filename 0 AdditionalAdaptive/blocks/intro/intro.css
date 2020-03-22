@@ -4,7 +4,6 @@
 @import url('../intro/__title/intro__title.css');
 @import url('../intro/__name/intro__name.css');
 @import url('../intro/__abilities/intro__abilities.css');
-@import url('../intro/__button/intro__button.css');
 @import url('../intro/__container/intro__container.css');
 
 .intro{
