@@ -12,6 +12,7 @@
 @import url('../blocks/subtitle/subtitle.css');
 @import url('../blocks/contacts-form/contacts-form.css');
 @import url('../blocks/input/input.css');
+@import url('../blocks/contact/contact.css');
 
 html{
     box-sizing: border-box;

@@ -1,0 +1,10 @@
+@import url('../../fonts/Roboto/roboto.css');
+@import url('../contact/__value/contact__value.css');
+
+.contact{
+    margin-bottom: 36px;
+}
+
+.contact:last-child{
+    margin-bottom: 0;
+}

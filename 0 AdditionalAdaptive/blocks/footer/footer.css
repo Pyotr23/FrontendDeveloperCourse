@@ -1,5 +1,7 @@
 @import url('../../fonts/Roboto/roboto.css');
 @import url('../footer/_margin/footer_margin.css');
+@import url('../footer/__contacts-text/footer__contacts-text.css');
+@import url('../footer/__contacts-container/footer__contacts-container.css');
 
 .footer{ 
     font-family: 'Roboto', Arial, sans-serif;   
