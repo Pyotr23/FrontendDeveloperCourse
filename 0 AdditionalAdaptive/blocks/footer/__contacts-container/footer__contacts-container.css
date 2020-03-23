@@ -2,3 +2,9 @@
     display: flex;
     flex-direction: column;
 }
+
+/* @media screen and (min-width: 373px){
+    .footer__contacts-container{                
+        flex-direction: row;     
+    }
+} */

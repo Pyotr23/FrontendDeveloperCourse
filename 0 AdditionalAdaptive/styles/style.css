@@ -13,6 +13,7 @@
 @import url('../blocks/contacts-form/contacts-form.css');
 @import url('../blocks/input/input.css');
 @import url('../blocks/contact/contact.css');
+@import url('../blocks/social/social.css');
 
 html{
     box-sizing: border-box;

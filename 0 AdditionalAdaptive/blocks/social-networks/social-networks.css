@@ -1,5 +1,8 @@
 @import url('../social-networks/__item/social-networks__item.css');
 @import url('../social-networks/__logo/social-networks__logo.css');
+@import url('../social-networks/_place_footer/social-networks_place_footer.css');
+@import url('../social-networks/__logo/_place_footer/social-networks__logo_place_footer.css');
+@import url('../social-networks/__item/_place_footer/social-networks__item_place_footer.css');
 
 .social-networks{    
     margin: auto 0;

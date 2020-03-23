@@ -1,0 +1,7 @@
+@import url('../../fonts/Roboto/roboto.css');
+@import url('../social/__container/social__container.css');
+@import url('../social/__item/social__item.css');
+
+.social{
+    margin-top: 32px;
+}

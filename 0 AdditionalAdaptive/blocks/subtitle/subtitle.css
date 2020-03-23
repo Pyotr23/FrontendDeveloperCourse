@@ -1,4 +1,5 @@
-@import url('../subtitle/_place_footer/subtitle_place_footer.css');
+@import url('../subtitle/_place/_contact/subtitle_place_contact.css');
+@import url('../subtitle/_place/_social/subtitle_place_social.css');
 
 .subtitle{
     margin: 22px 0 0;

@@ -1,0 +1,16 @@
+.social__item{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 14px 0 0;   
+}
+
+.social__item:first-child{
+    margin: 0;
+}
+
+@media screen and (min-width: 373px){
+    .social__item{                
+        margin: 0;
+    }
+} 

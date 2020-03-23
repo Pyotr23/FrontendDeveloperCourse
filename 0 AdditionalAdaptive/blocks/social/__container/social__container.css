@@ -1,11 +1,15 @@
-.footer__contacts{
+.social__container{
     display: flex;
     flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 8px 0 0;
 }
 
 @media screen and (min-width: 373px){
-    .footer__contacts{                
+    .social__container{                
         flex-direction: row;  
         justify-content: space-around;   
+        align-items: flex-start;
     }
 } 
