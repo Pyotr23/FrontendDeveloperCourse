@@ -6,5 +6,20 @@
     padding: 40px 20px 48px;
     background-color: white;
     border-radius: 5px;
-    box-shadow: -3px 6px #FFBB01;    
+    box-shadow: -3px 6px #FFBB01; 
+    min-width: 220px; 
+    max-width: 460px;  
+}
+
+@media screen and (min-width: 480px){
+    .contacts-form{                
+        padding: 40px calc((100% - 420px) / 2 + 20px) 48px;           
+    }
+}
+
+
+@media screen and (min-width: 520px){
+    .contacts-form{                
+        padding: 40px 40px 48px;  
+    }
 }

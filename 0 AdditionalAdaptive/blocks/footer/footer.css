@@ -4,11 +4,10 @@
 @import url('../footer/__contacts-container/footer__contacts-container.css');
 @import url('../footer/__policy/footer__policy.css');
 @import url('../footer/__contacts/footer__contacts.css');
+@import url('../footer/__container/footer__container.css');
 
 .footer{ 
-    font-family: 'Roboto', Arial, sans-serif;   
-    display: flex;    
-    flex-direction: row;  
-    flex-wrap: wrap; 
-    justify-content: space-between;    
+    font-family: 'Roboto', Arial, sans-serif;       
+    min-width: 320px;
+    max-width: 1000px; 
 }

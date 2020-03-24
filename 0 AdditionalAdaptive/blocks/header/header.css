@@ -6,16 +6,4 @@
     text-align: center;
     min-width: 320px;
     max-width: 1000px; 
-}    
-
-/* @media screen and (max-width: 768px){
-    .header{
-        padding: 0 24px;
-    } 
-}
-
-@media screen and (max-width: 427px){
-    .header{
-        padding: 0 16px;
-    }
-} */
+} 

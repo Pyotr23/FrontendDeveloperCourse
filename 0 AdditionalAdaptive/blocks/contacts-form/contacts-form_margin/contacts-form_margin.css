@@ -1,4 +1,10 @@
 .contacts-form_margin{
     padding: 40px 20px 48px;
-    margin: 50px auto 0;
+    margin: 50px 0 0;
 }
+
+@media screen and (min-width: 1278px){
+    .contacts-form_margin{                
+        margin: 98px 0 0;
+    }
+} 

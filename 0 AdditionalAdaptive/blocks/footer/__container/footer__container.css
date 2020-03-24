@@ -1,0 +1,12 @@
+.footer__container{
+    display: flex;    
+    flex-direction: column;      
+    justify-content: space-between; 
+    align-items: center;
+}
+
+@media screen and (min-width: 1278px){
+    .footer__container{        
+        flex-direction: row;  
+    }
+}
