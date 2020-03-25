@@ -3,6 +3,7 @@
 .button{    
     margin-top: 62px;
     min-width: 235px;  
+    width: 100%;
     max-width: 300px;   
     padding: 14px 0;
     background-color: #FFBB01;

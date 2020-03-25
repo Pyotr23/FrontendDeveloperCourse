@@ -5,6 +5,6 @@
 
 @media screen and (min-width: calc(944px + 2 * 30px)){
     .footer_margin{        
-        padding: 52px 30px 0; 
+        padding: 50px 30px 48px; 
     }
 }

@@ -3,8 +3,20 @@
     margin: 50px 0 0;
 }
 
+@media screen and (min-width: 480px){
+    .contacts-form_margin{                
+        padding: 40px calc((100% - 420px) / 2 + 20px) 48px;           
+    }
+}
+
+@media screen and (min-width: 520px){
+    .contacts-form_margin{                
+        padding: 45px 40px 48px;  
+    }
+}
+
 @media screen and (min-width: 1278px){
     .contacts-form_margin{                
-        margin: 98px 0 0;
+        margin: 90px 0 0;
     }
 } 
