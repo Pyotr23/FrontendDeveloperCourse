@@ -8,3 +8,14 @@
 .contact:last-child{
     margin-bottom: 0;
 }
+
+@media screen and (min-width: 1278px){
+    .contact{                
+        margin-right: 126px;  
+        margin-bottom: 0;           
+    }
+
+    .contact:last-child {                
+        margin-right: 0;             
+    }
+} 

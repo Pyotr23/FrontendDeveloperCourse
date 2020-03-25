@@ -1,4 +1,15 @@
 .subtitle.subtitle_place_contact{
-    line-height: 21px;
     margin: 0;
+}
+
+@media screen and (max-width: 510px){
+    .subtitle.subtitle_place_contact{                
+        line-height: 21px;        
+    }
+}
+
+@media screen and (min-width: 1278px){
+    .subtitle.subtitle_place_contact{                
+        margin: 0 0 17px;      
+    }
 }

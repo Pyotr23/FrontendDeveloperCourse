@@ -3,9 +3,8 @@
     flex-direction: column;
 }
 
-@media screen and (min-width: 373px){
+@media screen and (min-width: 1278px){
     .footer__contacts{                
-        flex-direction: row;  
-        justify-content: space-around;   
+        flex-direction: row;             
     }
 } 

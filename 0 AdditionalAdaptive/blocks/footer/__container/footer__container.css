@@ -2,11 +2,12 @@
     display: flex;    
     flex-direction: column;      
     justify-content: space-between; 
-    align-items: center;
+    align-items: flex-start;  
 }
 
 @media screen and (min-width: 1278px){
-    .footer__container{        
-        flex-direction: row;  
+    .footer__container{      
+        margin-top: 90px;  
+        flex-direction: row;        
     }
 }

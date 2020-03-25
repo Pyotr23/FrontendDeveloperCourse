@@ -9,8 +9,14 @@
     margin: 0;
 }
 
-@media screen and (min-width: 373px){
+@media screen and (min-width: 423px){
     .social__item{                
+        margin: 0 0 0 50px;
+        font-size: 16px;
+        line-height: 19px;        
+    }
+
+    .social__item:first-child{
         margin: 0;
     }
 } 
