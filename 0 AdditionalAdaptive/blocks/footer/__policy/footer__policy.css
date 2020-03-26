@@ -5,3 +5,9 @@
     line-height: 18px;
     margin-top: 34px;
 }
+
+@media screen and (min-width: 373px){
+    .footer__policy{
+        text-align: center;
+    }
+}

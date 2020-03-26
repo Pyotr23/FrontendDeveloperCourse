@@ -1,3 +1,10 @@
 .subtitle.subtitle_place_social{
     margin: 0;
+    margin-left: calc((100% - 268px)/4);
+}
+
+@media screen and (min-width: 1278px){
+    .subtitle.subtitle_place_social{                
+        margin: 0;      
+    }
 }
