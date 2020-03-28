@@ -9,8 +9,20 @@
  * если n простое, и false — если нет.
 */
 
-function isPrime(n) {
-    // Напишите код здесь
+function isPrime(n) {  
+    if (!Number.isInteger(n))
+        return 'Входной параметр должен быть целым числом';  
+    if (n <= 1) 
+        return false;   
+    if (n === 2)
+        return true;
+    if (n % 2 == 0)
+        return false;
+    for (let i = 3; i < n; i += 2){
+        if (n % i == 0)
+            return false;
+    }
+    return true;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
