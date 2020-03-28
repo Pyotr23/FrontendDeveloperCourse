@@ -8,7 +8,13 @@
 */
 
 function uniq(arr) {
-    // Напишите код здесь
+    return Array.isArray(arr) 
+        ? arr.reduce(function(outputArray, item, index){
+            if (!outputArray.includes(item))
+                outputArray.push(item);
+            return outputArray;
+        }, [])
+        : "Входной параметр не является массивом.";
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
