@@ -7,7 +7,21 @@
 */
 
 function capitalize(str) {
-    // Напишите код здесь
+    if (typeof str !== 'string' )
+        return 'Входной параметр не является строкой.';
+    let isFirst = true;
+    return str.split('').map(function(char){        
+        if (isFirst && isLetter(char)){              
+            isFirst = !isFirst;
+            return char.toUpperCase();
+        }            
+        isFirst = !isLetter(char);                
+        return char;                
+        }).join('');   
+}
+
+function isLetter(char){
+    return char.toUpperCase() !== char.toLowerCase();
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
