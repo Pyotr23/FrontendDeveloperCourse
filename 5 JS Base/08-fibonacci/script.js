@@ -9,7 +9,22 @@
 */
 
 function fibonacci(n) {
-    // Напишите код здесь
+    if (!Number.isInteger(n) || n < 1)
+        return 'Входной параметр не является целым числом больше 0.';
+    let prev = 0; 
+    if (n == 1)
+        return prev;
+    let fibNumber = 1;
+    if (n == 2)
+        return fibNumber;
+    let count = 3;    
+    while (count <= n){
+        let temp = fibNumber;
+        fibNumber += prev;
+        prev = temp; 
+        count++;
+    }    
+    return fibNumber;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
