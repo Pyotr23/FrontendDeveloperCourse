@@ -7,8 +7,15 @@
  * 
 */
 
-function intersection(arr1, arr2) {
-    // Напишите код здесь
+function intersection(arr1, arr2) {    
+    const intersectionArray = [];
+    if (!Array.isArray(arr1) || !Array.isArray(arr2))
+        return intersectionArray;
+    arr1.forEach(function(item){
+        if (arr2.includes(item) && !intersectionArray.includes(item))
+            intersectionArray.push(item);
+    });
+    return intersectionArray;
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
