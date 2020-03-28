@@ -8,8 +8,20 @@
  * 
 */
 
-function anagram(str1, str2) {
-    // Напишите код здесь
+function anagram(str1, str2) {    
+    if (typeof str1 !== 'string' || typeof str2 !== 'string' || str1.length !== str2.length)
+        return false;
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+    if (str1 === str2)
+        return false;
+    str1 = sortString(str1);
+    str2 = sortString(str2);
+    return str1 === str2;
+}
+
+function sortString(string){
+    return string.split('').sort().join('');
 }
 
 // Протестируйте решение, вызывая функцию с разными аргументами:
