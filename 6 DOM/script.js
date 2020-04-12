@@ -41,8 +41,19 @@ const initialCards = [
      }
   ];
 const cardsContainer = document.querySelector('.places-list');
+const openFormButton = document.querySelector('.user-info__button');
+const closeFormButton = document.querySelector('.popup__close');
+const popupElement = document.querySelector('.popup');
 
 randomFillPlaces();
+
+openFormButton.addEventListener('click', () => {    
+    popupElement.classList.add('popup_is-opened');
+});
+
+closeFormButton.addEventListener('click', () => {    
+    popupElement.classList.remove('popup_is-opened');
+});
 
 function randomFillPlaces(){
     while (initialCards.length !== 0){
