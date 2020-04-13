@@ -42,35 +42,9 @@ const initialCards = [
   ];
 const cardsContainer = document.querySelector('.places-list');
 const openFormButton = document.querySelector('.user-info__button');
-const closeFormButton = document.querySelector('.popup__close');
 const popupElement = document.querySelector('.popup');
+const closeFormButton = popupElement.querySelector('.popup__close');
 const addCardButton = popupElement.querySelector('.popup__button');
-
-randomFillPlaces();
-
-openFormButton.addEventListener('click', () => {    
-    popupElement.classList.add('popup_is-opened');
-});
-
-closeFormButton.addEventListener('click', closeForm);
-
-cardsContainer.addEventListener('click', (event) => {
-  if (event.target.classList.contains('place-card__like-icon'))
-    event.target.classList.toggle('place-card__like-icon_liked');
-}) 
-
-addCardButton.addEventListener('click', (event) => { 
-  event.preventDefault();
-  const form = document.forms.new;
-  const placeName = form.elements.name.value;
-  const placeLink = form.elements.link.value;
-  if (placeName.length !== 0 && placeLink.length !== 0){    
-    closeForm();
-    const newCard = createCard(placeName, placeLink);
-    cardsContainer.appendChild(newCard);
-    form.reset();
-  }    
-})
 
 function closeForm(){
   popupElement.classList.remove('popup_is-opened');
@@ -109,3 +83,34 @@ function createElement(tag, className){
     element.classList.add(className);
     return element;
 }
+
+openFormButton.addEventListener('click', () => {    
+  popupElement.classList.add('popup_is-opened');
+});
+
+closeFormButton.addEventListener('click', closeForm);
+
+cardsContainer.addEventListener('click', (event) => {
+const targetElement = event.target;
+if (targetElement.classList.contains('place-card__like-icon'))
+  targetElement.classList.toggle('place-card__like-icon_liked');
+if (targetElement.classList.contains('place-card__delete-icon')){
+  const removingCard = targetElement.parentNode.parentNode;
+  cardsContainer.removeChild(removingCard);
+}    
+}) 
+
+addCardButton.addEventListener('click', (event) => { 
+event.preventDefault();
+const form = document.forms.new;
+const placeName = form.elements.name.value;
+const placeLink = form.elements.link.value;
+if (placeName.length !== 0 && placeLink.length !== 0){    
+  closeForm();
+  const newCard = createCard(placeName, placeLink);
+  cardsContainer.appendChild(newCard);
+  form.reset();
+}    
+})
+
+randomFillPlaces();
