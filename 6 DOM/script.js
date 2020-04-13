@@ -44,6 +44,7 @@ const cardsContainer = document.querySelector('.places-list');
 const openFormButton = document.querySelector('.user-info__button');
 const closeFormButton = document.querySelector('.popup__close');
 const popupElement = document.querySelector('.popup');
+// const likeButton = document.querySelector('.place-card__like-icon');
 
 randomFillPlaces();
 
@@ -54,6 +55,11 @@ openFormButton.addEventListener('click', () => {
 closeFormButton.addEventListener('click', () => {    
     popupElement.classList.remove('popup_is-opened');
 });
+
+cardsContainer.addEventListener('click', (event) => {
+  if (event.target.classList.contains('place-card__like-icon'))
+    event.target.classList.toggle('place-card__like-icon_liked');
+}) 
 
 function randomFillPlaces(){
     while (initialCards.length !== 0){
