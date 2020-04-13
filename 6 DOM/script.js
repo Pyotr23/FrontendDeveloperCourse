@@ -44,7 +44,7 @@ const cardsContainer = document.querySelector('.places-list');
 const openFormButton = document.querySelector('.user-info__button');
 const closeFormButton = document.querySelector('.popup__close');
 const popupElement = document.querySelector('.popup');
-// const likeButton = document.querySelector('.place-card__like-icon');
+const addCardButton = popupElement.querySelector('.popup__button');
 
 randomFillPlaces();
 
@@ -52,14 +52,29 @@ openFormButton.addEventListener('click', () => {
     popupElement.classList.add('popup_is-opened');
 });
 
-closeFormButton.addEventListener('click', () => {    
-    popupElement.classList.remove('popup_is-opened');
-});
+closeFormButton.addEventListener('click', closeForm);
 
 cardsContainer.addEventListener('click', (event) => {
   if (event.target.classList.contains('place-card__like-icon'))
     event.target.classList.toggle('place-card__like-icon_liked');
 }) 
+
+addCardButton.addEventListener('click', (event) => { 
+  event.preventDefault();
+  const form = document.forms.new;
+  const placeName = form.elements.name.value;
+  const placeLink = form.elements.link.value;
+  if (placeName.length !== 0 && placeLink.length !== 0){    
+    closeForm();
+    const newCard = createCard(placeName, placeLink);
+    cardsContainer.appendChild(newCard);
+    form.reset();
+  }    
+})
+
+function closeForm(){
+  popupElement.classList.remove('popup_is-opened');
+}
 
 function randomFillPlaces(){
     while (initialCards.length !== 0){
