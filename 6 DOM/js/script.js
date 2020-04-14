@@ -57,7 +57,8 @@ addCardButton.addEventListener('click', (event) => {
   const form = document.forms.new;
   const name = form.elements.name;
   const link = form.elements.link;
-  if (!name.validity.valueMissing && !link.validity.valueMissing){        
+  const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
+  if (areInputsWithText){        
     closeForm();
     const newCard = createCard({ name: name.value, link: link.value });
     cardsContainer.insertAdjacentHTML('beforeend', newCard);
@@ -66,8 +67,6 @@ addCardButton.addEventListener('click', (event) => {
 })
 
 randomFillPlaces();
-
-
 
  /**
  * Здравствуйте.
