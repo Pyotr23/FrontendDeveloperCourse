@@ -44,12 +44,12 @@ closeFormButton.addEventListener('click', closeForm);
 
 cardsContainer.addEventListener('click', (event) => {
 const targetElement = event.target;
-if (targetElement.classList.contains('place-card__like-icon'))
-  targetElement.classList.toggle('place-card__like-icon_liked');
-if (targetElement.classList.contains('place-card__delete-icon')){
-  const removingCard = targetElement.parentNode.parentNode;
-  cardsContainer.removeChild(removingCard);
-}    
+  if (targetElement.classList.contains('place-card__like-icon'))
+    targetElement.classList.toggle('place-card__like-icon_liked');
+  if (targetElement.classList.contains('place-card__delete-icon')){
+    const removingCard = targetElement.closest('.place-card');
+    removingCard.remove();
+  }    
 }) 
 
 addCardButton.addEventListener('click', (event) => { 
