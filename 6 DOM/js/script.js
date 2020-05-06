@@ -1,11 +1,19 @@
 const cardsContainer = document.querySelector('.places-list');
 const openFormButton = document.querySelector('.user-info__button');
 const popupElement = document.querySelector('.popup');
+// const popupStartState = {...popupElement};
 const closeFormButton = popupElement.querySelector('.popup__close');
 const addCardButton = popupElement.querySelector('.popup__button');
+const editUserButton = document.querySelector('.button_place_user-info');
+const userInfo = document.querySelector('.user-info');
+const form = document.forms.new;
+const name = form.elements.name;
+const link = form.elements.link;
 
 function closeForm(){
   popupElement.classList.remove('popup_is-opened');
+  // popupElement = popupStartState;
+  form.reset();
 }
 
 function randomFillPlaces(){
@@ -36,8 +44,37 @@ function createElement(tag, className){
     return element;
 }
 
-openFormButton.addEventListener('click', () => {    
-  popupElement.classList.add('popup_is-opened');
+const showPopup = () => { popupElement.classList.add('popup_is-opened'); };
+
+const modifyPopupForEditingUser = () => {
+  console.log('Петя был здесь!');
+
+  const title = popupElement.querySelector('.popup__title');
+  title.textContent = 'Редактировать профиль';  
+
+  name.setAttribute('placeholder', 'Полное имя');
+  link.setAttribute('placeholder', 'Профессия');  
+  const userName = userInfo.querySelector('.user-info__name').textContent;
+  const userJob = userInfo.querySelector('.user-info__job').textContent;
+  name.value = userName;
+  link.value = userJob;
+
+  const button = popupElement.querySelector('.popup__button');
+  button.classList.add('button_place_popup');
+  button.textContent = 'Сохранить'; 
+  button.addEventListener('submit', () => {
+    userName = name.value;
+    userJob = link.value;
+  });  
+};
+
+openFormButton.addEventListener('click', () => {   
+  showPopup(); 
+});
+
+editUserButton.addEventListener('click', () => {
+  modifyPopupForEditingUser();
+  showPopup();  
 });
 
 closeFormButton.addEventListener('click', closeForm);
@@ -53,10 +90,7 @@ const targetElement = event.target;
 }) 
 
 addCardButton.addEventListener('click', (event) => { 
-  event.preventDefault();
-  const form = document.forms.new;
-  const name = form.elements.name;
-  const link = form.elements.link;
+  event.preventDefault();  
   const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
   if (areInputsWithText){        
     closeForm();

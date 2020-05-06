@@ -1,4 +1,5 @@
 @import url('./_place/_user-info/button_place_user-info.css');
+@import url('./_place/_popup/button_place_popup.css');
 
 .button {
   background-color: transparent;

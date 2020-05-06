@@ -1,0 +1,10 @@
+.button.button_place_popup{
+    color: white;
+    background-color: black;
+    font-size: 28px;
+}
+
+.button.button_place_popup:hover{
+    color: black;
+    background-color: white;
+}
