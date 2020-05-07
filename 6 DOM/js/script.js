@@ -1,15 +1,9 @@
 const cardsContainer = document.querySelector('.places-list');
-const openFormButton = document.querySelector('.user-info__button');
+const openAddCardPopupButton = document.querySelector('.user-info__button');
 const addCardPopup = document.querySelector('#popup_add-card');
 const editUserPopup = document.querySelector('#popup_edit-user');
-// const popupStartState = {...popupElement};
-const closeFormButton = addCardPopup.querySelector('.popup__close');
-const addCardButton = addCardPopup.querySelector('.popup__button');
 const editUserButton = document.querySelector('.button_place_user-info');
 const userInfo = document.querySelector('.user-info');
-const form = document.forms.new;
-const name = form.elements.name;
-const link = form.elements.link;
 
 function randomFillPlaces(){
     while (initialCards.length !== 0){
@@ -33,10 +27,11 @@ function createCard(cardParameters){
   return placeCard; 
 }
 
-function closeForm(){  
-  addCardPopup.classList.remove('popup_is-opened');  
-  form.reset();
-}
+const closePopup = (popup) => {    
+  debugger;
+  popup.classList.remove('popup_is-opened');  
+  popup.querySelector('.popup__form').reset();  
+};
 
 const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
 
@@ -62,15 +57,33 @@ const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
 //   });  
 // };
 
-openFormButton.addEventListener('click', () => {  
+openAddCardPopupButton.addEventListener('click', () => {     
+    const addCardButton = addCardPopup.querySelector('.popup__button');
+    addCardButton.addEventListener('submit', (event) => {
+      console.log('Закрываю!');
+      // event.preventDefault();  
+      // const form = document.forms.add_card;
+      // const name = form.elements.name;
+      // const link = form.elements.link;
+      // const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
+      // if (areInputsWithText){    
+      //   debugger;    
+      //   closePopup(addCardPopup);
+      //   const newCard = createCard({ name: name.value, link: link.value });
+      //   cardsContainer.insertAdjacentHTML('beforeend', newCard);
+      //   form.reset();
+      // };
+    });
+
+    const closeFormButton = addCardPopup.querySelector('.popup__close');
+    closeFormButton.addEventListener('click', () => { closePopup(addCardPopup); });
+
   showPopup(addCardPopup); 
 });
 
-editUserButton.addEventListener('click', () => {  
-  showPopup(editUserPopup); 
-});
-
-closeFormButton.addEventListener('click', closeForm());
+// editUserButton.addEventListener('click', () => {  
+//   showPopup(editUserPopup); 
+// });
 
 cardsContainer.addEventListener('click', (event) => {
 const targetElement = event.target;
@@ -82,16 +95,7 @@ const targetElement = event.target;
   }    
 }) 
 
-addCardButton.addEventListener('click', (event) => { 
-  event.preventDefault();  
-  const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
-  if (areInputsWithText){        
-    closeForm();
-    const newCard = createCard({ name: name.value, link: link.value });
-    cardsContainer.insertAdjacentHTML('beforeend', newCard);
-    form.reset();
-  }    
-})
+
 
 randomFillPlaces();
 
