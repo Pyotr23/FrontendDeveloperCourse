@@ -1,10 +1,10 @@
-.button.button_place_popup{
+.popup__button.popup__button_edit-user{
     color: white;
     background-color: black;
     font-size: 28px;
 }
 
-.button.button_place_popup:hover{
+.popup__button.popup__button_edit-user{
     color: black;
     background-color: white;
 }

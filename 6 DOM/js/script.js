@@ -1,20 +1,15 @@
 const cardsContainer = document.querySelector('.places-list');
 const openFormButton = document.querySelector('.user-info__button');
-const popupElement = document.querySelector('.popup');
+const addCardPopup = document.querySelector('#popup_add-card');
+const editUserPopup = document.querySelector('#popup_edit-user');
 // const popupStartState = {...popupElement};
-const closeFormButton = popupElement.querySelector('.popup__close');
-const addCardButton = popupElement.querySelector('.popup__button');
+const closeFormButton = addCardPopup.querySelector('.popup__close');
+const addCardButton = addCardPopup.querySelector('.popup__button');
 const editUserButton = document.querySelector('.button_place_user-info');
 const userInfo = document.querySelector('.user-info');
 const form = document.forms.new;
 const name = form.elements.name;
 const link = form.elements.link;
-
-function closeForm(){
-  popupElement.classList.remove('popup_is-opened');
-  // popupElement = popupStartState;
-  form.reset();
-}
 
 function randomFillPlaces(){
     while (initialCards.length !== 0){
@@ -38,46 +33,44 @@ function createCard(cardParameters){
   return placeCard; 
 }
 
-function createElement(tag, className){
-    const element = document.createElement(tag);
-    element.classList.add(className);
-    return element;
+function closeForm(){  
+  addCardPopup.classList.remove('popup_is-opened');  
+  form.reset();
 }
 
-const showPopup = () => { popupElement.classList.add('popup_is-opened'); };
+const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
 
-const modifyPopupForEditingUser = () => {
-  console.log('Петя был здесь!');
+// const modifyPopupForEditingUser = () => {
+//   console.log('Петя был здесь!');
 
-  const title = popupElement.querySelector('.popup__title');
-  title.textContent = 'Редактировать профиль';  
+//   const title = addCardPopup.querySelector('.popup__title');
+//   title.textContent = 'Редактировать профиль';  
 
-  name.setAttribute('placeholder', 'Полное имя');
-  link.setAttribute('placeholder', 'Профессия');  
-  const userName = userInfo.querySelector('.user-info__name').textContent;
-  const userJob = userInfo.querySelector('.user-info__job').textContent;
-  name.value = userName;
-  link.value = userJob;
+//   name.setAttribute('placeholder', 'Полное имя');
+//   link.setAttribute('placeholder', 'Профессия');  
+//   const userName = userInfo.querySelector('.user-info__name').textContent;
+//   const userJob = userInfo.querySelector('.user-info__job').textContent;
+//   name.value = userName;
+//   link.value = userJob;
 
-  const button = popupElement.querySelector('.popup__button');
-  button.classList.add('button_place_popup');
-  button.textContent = 'Сохранить'; 
-  button.addEventListener('submit', () => {
-    userName = name.value;
-    userJob = link.value;
-  });  
-};
+//   const button = addCardPopup.querySelector('.popup__button');
+//   button.classList.add('button_place_popup');
+//   button.textContent = 'Сохранить'; 
+//   button.addEventListener('submit', () => {
+//     userName = name.value;
+//     userJob = link.value;
+//   });  
+// };
 
-openFormButton.addEventListener('click', () => {   
-  showPopup(); 
+openFormButton.addEventListener('click', () => {  
+  showPopup(addCardPopup); 
 });
 
-editUserButton.addEventListener('click', () => {
-  modifyPopupForEditingUser();
-  showPopup();  
+editUserButton.addEventListener('click', () => {  
+  showPopup(editUserPopup); 
 });
 
-closeFormButton.addEventListener('click', closeForm);
+closeFormButton.addEventListener('click', closeForm());
 
 cardsContainer.addEventListener('click', (event) => {
 const targetElement = event.target;
