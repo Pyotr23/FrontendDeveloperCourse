@@ -4,7 +4,7 @@
     font-size: 28px;
 }
 
-.popup__button.popup__button_edit-user{
+.popup__button.popup__button_edit-user:hover{
     color: black;
     background-color: white;
 }

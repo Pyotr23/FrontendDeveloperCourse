@@ -3,75 +3,67 @@ const openAddCardPopupButton = document.querySelector('.user-info__button');
 const addCardPopup = document.querySelector('#popup_add-card');
 const editUserPopup = document.querySelector('#popup_edit-user');
 const editUserButton = document.querySelector('.button_place_user-info');
-// const userInfo = document.querySelector('.user-info');
+const userInfo = document.querySelector('.user-info');
 
-function randomFillPlaces(){
+const randomFillPlaces = () => {
     while (initialCards.length !== 0){
         const index = Math.floor(Math.random() * initialCards.length);
-        const card = createCard({ name: initialCards[index].name, link: initialCards[index].link});
+        const card = createCardNode({ name: initialCards[index].name, link: initialCards[index].link});
         cardsContainer.insertAdjacentHTML('afterbegin', card);
         initialCards.splice(index, 1);
     }
 }
 
-function createCard(cardParameters){
-  const placeCard = `<div class="place-card"> 
-                  <div class="place-card__image" style="background: url(${cardParameters.link})"> 
+const createCardNode = (card) => {
+  const cardNode = `<div class="place-card"> 
+                  <div class="place-card__image" style="background: url(${card.link})"> 
                     <button class="place-card__delete-icon"></button>
                   </div>
                   <div class="place-card__description">
-                    <h3 class="place-card__name">${cardParameters.name}</h3>
+                    <h3 class="place-card__name">${card.name}</h3>
                     <button class="place-card__like-icon"></button>
                   </div>
                 </div>`
-  return placeCard; 
+  return cardNode; 
 }
 
-const closePopup = 
-  (popup) => { popup.classList.remove('popup_is-opened'); };
+const closePopup = (popup) => { popup.classList.remove('popup_is-opened'); };
 
 const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
 
 const addCard = (event) => {         
-  event.preventDefault();     
-  const name = event.target.elements.name;
-  const link = event.target.elements.link;
+  event.preventDefault();   
+  const addCardForm = event.target;   
+  const name = addCardForm.elements.name;
+  const link = addCardForm.elements.link;
   const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
   if (areInputsWithText){      
-    const newCard = createCard({ name: name.value, link: link.value });
+    const newCard = createCardNode({ name: name.value, link: link.value });
     cardsContainer.insertAdjacentHTML('beforeend', newCard);      
     closePopup(addCardPopup);
-    event.target.reset();
+    addCardForm.reset();
   };    
 }
 
 const addEventListenerForClosingPopup = (popup) => {
   const closePopupButton = popup.querySelector('.popup__close');
   closePopupButton.addEventListener('click', 
-    () => { closePopup(addCardPopup); });
+    () => { closePopup(popup); });
 }
 
-// const modifyPopupForEditingUser = () => {
-//   console.log('Петя был здесь!');
-
-//   const title = addCardPopup.querySelector('.popup__title');
-//   title.textContent = 'Редактировать профиль';  
-
-//   name.setAttribute('placeholder', 'Полное имя');
-//   link.setAttribute('placeholder', 'Профессия');  
-//   const userName = userInfo.querySelector('.user-info__name').textContent;
-//   const userJob = userInfo.querySelector('.user-info__job').textContent;
-//   name.value = userName;
-//   link.value = userJob;
-
-//   const button = addCardPopup.querySelector('.popup__button');
-//   button.classList.add('button_place_popup');
-//   button.textContent = 'Сохранить'; 
-//   button.addEventListener('submit', () => {
-//     userName = name.value;
-//     userJob = link.value;
-//   });  
-// };
+const editUser = (event) => {
+  event.preventDefault();   
+  const editUserForm = event.target;   
+  const name = editUserForm.elements.name;
+  const job = editUserForm.elements.job;  
+  const areInputsWithText = !name.validity.valueMissing && !job.validity.valueMissing;
+  if (areInputsWithText){      
+    userInfo.querySelector('.user-info__name').textContent = name.value; 
+    userInfo.querySelector('.user-info__job').textContent = job.value;    
+    closePopup(editUserPopup);
+    editUserForm.reset();
+  };   
+}
 
 openAddCardPopupButton.addEventListener('click', () => {     
   const addCardForm = addCardPopup.querySelector('form');
@@ -81,9 +73,20 @@ openAddCardPopupButton.addEventListener('click', () => {
   showPopup(addCardPopup); 
 });
 
-// editUserButton.addEventListener('click', () => {  
-//   showPopup(editUserPopup); 
-// });
+editUserButton.addEventListener('click', () => {    
+  debugger;
+  const editUserForm = editUserPopup.querySelector('form');
+  editUserForm.addEventListener('submit', (event) => { editUser(event); });
+
+  const name = editUserForm.elements.name;
+  const job = editUserForm.elements.job; 
+  
+  name.value = userInfo.querySelector('.user-info__name').textContent;
+  job.value = userInfo.querySelector('.user-info__job').textContent;
+
+  addEventListenerForClosingPopup(editUserPopup);
+  showPopup(editUserPopup); 
+});
 
 cardsContainer.addEventListener('click', (event) => {
 const targetElement = event.target;
