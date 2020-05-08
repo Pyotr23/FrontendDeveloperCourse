@@ -3,7 +3,7 @@ const openAddCardPopupButton = document.querySelector('.user-info__button');
 const addCardPopup = document.querySelector('#popup_add-card');
 const editUserPopup = document.querySelector('#popup_edit-user');
 const editUserButton = document.querySelector('.button_place_user-info');
-const userInfo = document.querySelector('.user-info');
+// const userInfo = document.querySelector('.user-info');
 
 function randomFillPlaces(){
     while (initialCards.length !== 0){
@@ -27,10 +27,8 @@ function createCard(cardParameters){
   return placeCard; 
 }
 
-const closePopup = (popup) => {    
-  debugger;
-  popup.classList.remove('popup_is-opened');  
-  popup.querySelector('.popup__form').reset();  
+const closePopup = (popup) => {     
+  popup.classList.remove('popup_is-opened');   
 };
 
 const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
@@ -57,26 +55,28 @@ const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
 //   });  
 // };
 
-openAddCardPopupButton.addEventListener('click', () => {     
-    const addCardButton = addCardPopup.querySelector('.popup__button');
-    addCardButton.addEventListener('submit', (event) => {
-      console.log('Закрываю!');
-      // event.preventDefault();  
-      // const form = document.forms.add_card;
-      // const name = form.elements.name;
-      // const link = form.elements.link;
-      // const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
-      // if (areInputsWithText){    
-      //   debugger;    
-      //   closePopup(addCardPopup);
-      //   const newCard = createCard({ name: name.value, link: link.value });
-      //   cardsContainer.insertAdjacentHTML('beforeend', newCard);
-      //   form.reset();
-      // };
-    });
+const addEventListenerForAddingCard = () => {  
+  const addCardForm = addCardPopup.querySelector('form');
+  addCardForm.addEventListener('submit', (event) => {     
+    event.preventDefault();     
+    const name = addCardForm.elements.name;
+    const link = addCardForm.elements.link;
+    const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
+    if (areInputsWithText){      
+      const newCard = createCard({ name: name.value, link: link.value });
+      cardsContainer.insertAdjacentHTML('beforeend', newCard);      
+      closePopup(addCardPopup);
+      addCardForm.reset();
+    };    
+  });
+};
 
-    const closeFormButton = addCardPopup.querySelector('.popup__close');
-    closeFormButton.addEventListener('click', () => { closePopup(addCardPopup); });
+openAddCardPopupButton.addEventListener('click', () => {  
+  console.log(addCardPopup.querySelector('form'));  
+  addEventListenerForAddingCard();   
+
+  const closeFormButton = addCardPopup.querySelector('.popup__close');
+  closeFormButton.addEventListener('click', () => { closePopup(addCardPopup); });
 
   showPopup(addCardPopup); 
 });
