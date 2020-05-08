@@ -27,11 +27,29 @@ function createCard(cardParameters){
   return placeCard; 
 }
 
-const closePopup = (popup) => {     
-  popup.classList.remove('popup_is-opened');   
-};
+const closePopup = 
+  (popup) => { popup.classList.remove('popup_is-opened'); };
 
 const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
+
+const addCard = (event) => {         
+  event.preventDefault();     
+  const name = event.target.elements.name;
+  const link = event.target.elements.link;
+  const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
+  if (areInputsWithText){      
+    const newCard = createCard({ name: name.value, link: link.value });
+    cardsContainer.insertAdjacentHTML('beforeend', newCard);      
+    closePopup(addCardPopup);
+    event.target.reset();
+  };    
+}
+
+const addEventListenerForClosingPopup = (popup) => {
+  const closePopupButton = popup.querySelector('.popup__close');
+  closePopupButton.addEventListener('click', 
+    () => { closePopup(addCardPopup); });
+}
 
 // const modifyPopupForEditingUser = () => {
 //   console.log('Петя был здесь!');
@@ -55,29 +73,11 @@ const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
 //   });  
 // };
 
-const addEventListenerForAddingCard = () => {  
+openAddCardPopupButton.addEventListener('click', () => {     
   const addCardForm = addCardPopup.querySelector('form');
-  addCardForm.addEventListener('submit', (event) => {     
-    event.preventDefault();     
-    const name = addCardForm.elements.name;
-    const link = addCardForm.elements.link;
-    const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
-    if (areInputsWithText){      
-      const newCard = createCard({ name: name.value, link: link.value });
-      cardsContainer.insertAdjacentHTML('beforeend', newCard);      
-      closePopup(addCardPopup);
-      addCardForm.reset();
-    };    
-  });
-};
+  addCardForm.addEventListener('submit', (event) => { addCard(event); });  
 
-openAddCardPopupButton.addEventListener('click', () => {  
-  console.log(addCardPopup.querySelector('form'));  
-  addEventListenerForAddingCard();   
-
-  const closeFormButton = addCardPopup.querySelector('.popup__close');
-  closeFormButton.addEventListener('click', () => { closePopup(addCardPopup); });
-
+  addEventListenerForClosingPopup(addCardPopup);
   showPopup(addCardPopup); 
 });
 
@@ -95,28 +95,4 @@ const targetElement = event.target;
   }    
 }) 
 
-
-
-randomFillPlaces();
-
- /**
- * Здравствуйте.
- * --------------------------------------------------------------------
- * Весь функционал работает корректно 
- * Код чистый и хорошо читается 
- * Вы используете логические группировки операций 
- * У вас нет дублирование кода
- *  Вы не используете небезопасный innerHtml
- *  Вы используете делегирование
-    
-  * можно лучше: избегайте сложных условий и большой вложенности в условии. Чем сложнее условие, чем больше
-  * вложенности в условии, тем сложнее анализировать код, сложнее искать ошибки и поддерживать такой код
-  * самый простой вариант это убирать условия или блок в условии в отдельную функцию
- *
- * можно лучше: Старайтесь не объявлять большое количество переменных. Чем больше переменных, тем сложнее понимать за что они 
- * отвечают и какую полезную нагрузку несут в коде. Лучше инкапсулировать(прятать) переменные в функциях. 
- * В будущем вам проще будет искать ошибки и разбираться в сложных взаимосвязях
- *
- * работа принимается
- * 
- */
+randomFillPlaces(); 
