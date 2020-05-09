@@ -80,8 +80,7 @@ openAddCardPopupButton.addEventListener('click', () => {
   showPopup(addCardPopup); 
 });
 
-editUserButton.addEventListener('click', () => {    
-  debugger;
+editUserButton.addEventListener('click', () => {      
   const editUserForm = editUserPopup.querySelector('form');
   editUserForm.addEventListener('submit', (event) => { editUser(event); });
 
