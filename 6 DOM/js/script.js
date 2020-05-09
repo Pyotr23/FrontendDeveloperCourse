@@ -16,7 +16,7 @@ const randomFillPlaces = () => {
 
 const createCardNode = (card) => {
   const cardNode = `<div class="place-card"> 
-                  <div class="place-card__image" style="background: url(${card.link})"> 
+                  <div class="place-card__image" data-url="${card.link}" style="background: url(${card.link})"> 
                     <button class="place-card__delete-icon"></button>
                   </div>
                   <div class="place-card__description">
@@ -65,6 +65,13 @@ const editUser = (event) => {
   };   
 }
 
+const preparePopup = (popup, cardLink) => {
+  addEventListenerForClosingPopup(popup);
+
+  const cardImage = popup.querySelector('.popup__card-image');  
+  cardImage.setAttribute('src', cardLink);
+}
+
 openAddCardPopupButton.addEventListener('click', () => {     
   const addCardForm = addCardPopup.querySelector('form');
   addCardForm.addEventListener('submit', (event) => { addCard(event); });  
@@ -97,18 +104,10 @@ const targetElement = event.target;
     removingCard.remove();
   }  
   else if (targetElement.classList.contains('place-card__image')){
-    const targetElementStyle = targetElement.getAttribute('style');
-    const link = targetElementStyle.match(/\((.*?)\)/)[1];
     const cardImagePopup = document.querySelector('#popup_place-image');
-    const cardImage = cardImagePopup.querySelector('.popup__card-image');
-    cardImage.setAttribute('src', link);
-    addEventListenerForClosingPopup(cardImagePopup);
-    showPopup(cardImagePopup);
-    // if (matches) {
-    //     var submatch = matches[1];
-    // }
-
-    // console.log(link);
+    const cardLink = targetElement.getAttribute('data-url');
+    preparePopup(cardImagePopup, cardLink);
+    showPopup(cardImagePopup);    
   }
 }) 
 
