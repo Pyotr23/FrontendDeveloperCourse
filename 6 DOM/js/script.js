@@ -100,8 +100,8 @@ const targetElement = event.target;
     const targetElementStyle = targetElement.getAttribute('style');
     const link = targetElementStyle.match(/\((.*?)\)/)[1];
     const cardImagePopup = document.querySelector('#popup_place-image');
-    const cardImage = cardImagePopup.querySelector('.popup__content_card-image');
-    cardImage.setAttribute('style', `background: url(${link})`);
+    const cardImage = cardImagePopup.querySelector('.popup__card-image');
+    cardImage.setAttribute('src', link);
     addEventListenerForClosingPopup(cardImagePopup);
     showPopup(cardImagePopup);
     // if (matches) {
