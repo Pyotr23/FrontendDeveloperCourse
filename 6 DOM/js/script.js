@@ -96,25 +96,28 @@ const isValidate = (input) => !input.validity.valueMissing;
 
 openAddCardPopupButton.addEventListener('click', () => {     
   const addCardForm = addCardPopup.querySelector('form');
-  addCardForm.addEventListener('submit', addCard);  
-  
+  addCardForm.addEventListener('submit', addCard);    
   addCardForm.addEventListener('input', handlerInputForm, true);
-
-  
-
   addEventListenerForClosingPopup(addCardPopup);
   showPopup(addCardPopup); 
 });
 
-editUserButton.addEventListener('click', () => {      
+editUserButton.addEventListener('click', () => {  
   const editUserForm = editUserPopup.querySelector('form');
-  editUserForm.addEventListener('submit', (event) => { editUser(event); });
-
-  const name = editUserForm.elements.name;
-  const job = editUserForm.elements.job; 
+  editUserForm.addEventListener('submit', editUser);
+  editUserForm.addEventListener('input', handlerInputForm, true);
   
+  const name = editUserForm.elements.name;
+  const job = editUserForm.elements.job;   
   name.value = userInfo.querySelector('.user-info__name').textContent;
   job.value = userInfo.querySelector('.user-info__job').textContent;
+
+  const submit = editUserForm.querySelector('.button');  
+  const [...inputs] = editUserForm.elements;
+  const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');    
+  setSubmitButtonState(submit, nonSubmitInputs.every(isValidate));   
+
+  
 
   addEventListenerForClosingPopup(editUserPopup);
   showPopup(editUserPopup); 
