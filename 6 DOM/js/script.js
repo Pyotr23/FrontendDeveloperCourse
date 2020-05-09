@@ -55,13 +55,10 @@ const editUser = (event) => {
   event.preventDefault();   
   const editUserForm = event.target;   
   const name = editUserForm.elements.name;
-  const job = editUserForm.elements.job;  
-  const areInputsWithText = !name.validity.valueMissing && !job.validity.valueMissing;
-  if (areInputsWithText){      
-    userInfo.querySelector('.user-info__name').textContent = name.value; 
-    userInfo.querySelector('.user-info__job').textContent = job.value;    
-    closePopup(event);    
-  };   
+  const job = editUserForm.elements.job;      
+  userInfo.querySelector('.user-info__name').textContent = name.value; 
+  userInfo.querySelector('.user-info__job').textContent = job.value;    
+  closePopup(event);         
 }
 
 const preparePopup = (popup, cardLink) => {
@@ -115,9 +112,7 @@ editUserButton.addEventListener('click', () => {
   const submit = editUserForm.querySelector('.button');  
   const [...inputs] = editUserForm.elements;
   const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');    
-  setSubmitButtonState(submit, nonSubmitInputs.every(isValidate));   
-
-  
+  setSubmitButtonState(submit, nonSubmitInputs.every(isValidate));    
 
   addEventListenerForClosingPopup(editUserPopup);
   showPopup(editUserPopup); 
