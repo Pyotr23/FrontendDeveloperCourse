@@ -27,22 +27,22 @@ const createCardNode = (card) => {
   return cardNode; 
 }
 
-const closePopup = (popup) => { popup.classList.remove('popup_is-opened'); };
+const closePopup = (popup) => { 
+  popup.classList.remove('popup_is-opened'); 
+  popup.querySelector('form').reset();
+};
 
 const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
 
-const addCard = (event) => {         
+const addCard = (event) => {  
+  debugger;       
   event.preventDefault();   
   const addCardForm = event.target;   
   const name = addCardForm.elements.name;
   const link = addCardForm.elements.link;
-  const areInputsWithText = !name.validity.valueMissing && !link.validity.valueMissing;
-  if (areInputsWithText){      
-    const newCard = createCardNode({ name: name.value, link: link.value });
-    cardsContainer.insertAdjacentHTML('beforeend', newCard);      
-    closePopup(addCardPopup);
-    addCardForm.reset();
-  };    
+  const newCard = createCardNode({ name: name.value, link: link.value });
+  cardsContainer.insertAdjacentHTML('beforeend', newCard);      
+  closePopup(addCardPopup);   
 }
 
 const addEventListenerForClosingPopup = (popup) => {
@@ -60,8 +60,7 @@ const editUser = (event) => {
   if (areInputsWithText){      
     userInfo.querySelector('.user-info__name').textContent = name.value; 
     userInfo.querySelector('.user-info__job').textContent = job.value;    
-    closePopup(editUserPopup);
-    editUserForm.reset();
+    closePopup(editUserPopup);    
   };   
 }
 
@@ -72,9 +71,36 @@ const preparePopup = (popup, cardLink) => {
   cardImage.setAttribute('src', cardLink);
 }
 
+const handlerInputForm = (event) => {  
+  const submit = event.currentTarget.querySelector('.button');  
+  const [...inputs] = event.currentTarget.elements;
+  const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');  
+  
+  setSubmitButtonState(submit, nonSubmitInputs.every(isValidate));   
+}
+
+const setSubmitButtonState = (button, state) => {
+  if (state) {
+    button.removeAttribute('disabled');
+    button.classList.add('popup__button_is-active');
+  }
+  else {    
+    button.setAttribute('disabled', '');
+    button.classList.remove('popup__button_is-active');
+  }
+}
+
+const isFieldValid = (input) => isValidate(input);
+
+const isValidate = (input) => !input.validity.valueMissing;
+
 openAddCardPopupButton.addEventListener('click', () => {     
   const addCardForm = addCardPopup.querySelector('form');
-  addCardForm.addEventListener('submit', (event) => { addCard(event); });  
+  addCardForm.addEventListener('submit', addCard);  
+  
+  addCardForm.addEventListener('input', handlerInputForm, true);
+
+  
 
   addEventListenerForClosingPopup(addCardPopup);
   showPopup(addCardPopup); 
