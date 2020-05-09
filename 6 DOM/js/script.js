@@ -27,7 +27,8 @@ const createCardNode = (card) => {
   return cardNode; 
 }
 
-const closePopup = (popup) => { 
+const closePopup = (event) => { 
+  const popup = event.currentTarget.closest('.popup');
   popup.classList.remove('popup_is-opened'); 
   popup.querySelector('form').reset();
 };
@@ -42,13 +43,12 @@ const addCard = (event) => {
   const link = addCardForm.elements.link;
   const newCard = createCardNode({ name: name.value, link: link.value });
   cardsContainer.insertAdjacentHTML('beforeend', newCard);      
-  closePopup(addCardPopup);   
+  closePopup(event);   
 }
 
 const addEventListenerForClosingPopup = (popup) => {
   const closePopupButton = popup.querySelector('.popup__close');
-  closePopupButton.addEventListener('click', 
-    () => { closePopup(popup); });
+  closePopupButton.addEventListener('click', closePopup);   
 }
 
 const editUser = (event) => {
@@ -60,7 +60,7 @@ const editUser = (event) => {
   if (areInputsWithText){      
     userInfo.querySelector('.user-info__name').textContent = name.value; 
     userInfo.querySelector('.user-info__job').textContent = job.value;    
-    closePopup(editUserPopup);    
+    closePopup(event);    
   };   
 }
 
