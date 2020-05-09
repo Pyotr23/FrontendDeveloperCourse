@@ -92,10 +92,24 @@ cardsContainer.addEventListener('click', (event) => {
 const targetElement = event.target;
   if (targetElement.classList.contains('place-card__like-icon'))
     targetElement.classList.toggle('place-card__like-icon_liked');
-  if (targetElement.classList.contains('place-card__delete-icon')){
+  else if (targetElement.classList.contains('place-card__delete-icon')){
     const removingCard = targetElement.closest('.place-card');
     removingCard.remove();
-  }    
+  }  
+  else if (targetElement.classList.contains('place-card__image')){
+    const targetElementStyle = targetElement.getAttribute('style');
+    const link = targetElementStyle.match(/\((.*?)\)/)[1];
+    const cardImagePopup = document.querySelector('#popup_place-image');
+    const cardImage = cardImagePopup.querySelector('.popup__content_card-image');
+    cardImage.setAttribute('style', `background: url(${link})`);
+    addEventListenerForClosingPopup(cardImagePopup);
+    showPopup(cardImagePopup);
+    // if (matches) {
+    //     var submatch = matches[1];
+    // }
+
+    // console.log(link);
+  }
 }) 
 
 randomFillPlaces(); 
