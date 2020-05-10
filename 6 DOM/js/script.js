@@ -74,11 +74,10 @@ const preparePopup = (popup, cardLink) => {
   cardImage.setAttribute('src', cardLink);
 }
 
-const handlerInputForm = (event) => {  
+const handlerInputForm = (event) => {    
   const submit = event.currentTarget.querySelector('.button');  
   const [...inputs] = event.currentTarget.elements;
-  const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');  
-  
+  const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');   
   setSubmitButtonState(submit, nonSubmitInputs.every(isFieldValid));   
 }
 
@@ -102,11 +101,29 @@ const isFieldValid = (input) => {
 } 
 
 const isValidate = (input) => {
-  return !input.validity.valueMissing;
+  input.setCustomValidity("");
+
+  if (input.validity.valueMissing) {    
+    input.setCustomValidity(errorMessages.empty);
+    return false
+  } 
+  
+  if (input.validity.tooShort || input.validity.tooLong) {
+    input.setCustomValidity(errorMessages.wrongLength);
+    return false
+  } 
+
+  return input.checkValidity();
 } 
 
 openAddCardPopupButton.addEventListener('click', () => {     
   const addCardForm = addCardPopup.querySelector('form');
+  const [...inputs] = addCardForm.elements;
+  const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');  
+  nonSubmitInputs.forEach(input => {
+    const errorElement = input.parentNode.querySelector(`#${input.name}-error`);
+    errorElement.textContent = "";
+  });  
   addCardForm.addEventListener('submit', addCard);    
   addCardForm.addEventListener('input', handlerInputForm, true);
   addEventListenerForClosingPopup(addCardPopup);
@@ -125,7 +142,11 @@ editUserButton.addEventListener('click', () => {
 
   const submit = editUserForm.querySelector('.button');  
   const [...inputs] = editUserForm.elements;
-  const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');    
+  const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');  
+  nonSubmitInputs.forEach(input => {
+    const errorElement = input.parentNode.querySelector(`#${input.name}-error`);
+    errorElement.textContent = "";
+  });  
   setSubmitButtonState(submit, nonSubmitInputs.every(isValidate));    
 
   addEventListenerForClosingPopup(editUserPopup);
