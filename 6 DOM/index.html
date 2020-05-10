@@ -41,7 +41,9 @@
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form">
             <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Полное имя" required >
+            <span class="error" id="user-name-error"></span>
             <input type="text" name="job" class="popup__input popup__input_type_link-url" placeholder="Профессия" required >
+            <span class="error" id="user-job-error"></span>
             <button type="submit" class="button popup__button" disabled>Сохранить</button>
         </form>
       </div>
