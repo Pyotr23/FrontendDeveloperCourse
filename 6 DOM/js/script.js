@@ -74,11 +74,17 @@ const preparePopup = (popup, cardLink) => {
   cardImage.setAttribute('src', cardLink);
 }
 
-const handlerInputForm = (event) => {    
+const handlerInputForm = (event) => {     
   const submit = event.currentTarget.querySelector('.button');  
   const [...inputs] = event.currentTarget.elements;
-  const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');   
-  setSubmitButtonState(submit, nonSubmitInputs.every(isFieldValid));   
+  const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');  
+  
+  let submitState = false;
+  nonSubmitInputs.forEach(input => {
+    submitState = submitState || isFieldValid(input);
+  });
+
+  setSubmitButtonState(submit, submitState);   
 }
 
 const setSubmitButtonState = (button, state) => {
@@ -92,7 +98,7 @@ const setSubmitButtonState = (button, state) => {
   }
 }
 
-const isFieldValid = (input) => {
+const isFieldValid = (input) => {  
   debugger;
   const errorElement = input.parentNode.querySelector(`#${input.name}-error`);
   const isValid = isValidate(input);
