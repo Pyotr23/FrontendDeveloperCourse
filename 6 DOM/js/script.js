@@ -8,7 +8,7 @@ const errorMessages = {
   empty: 'Это обязательное поле',
   wrongLength: 'Должно быть от 2 до 30 символов',
   wrongUrl: 'Здесь должна быть ссылка',
-  wrongPattern: 'Введите данные в верном формате',  
+  wrongPattern: 'Введите данные в верном формате'  
 }
 
 const randomFillPlaces = () => {
@@ -41,8 +41,7 @@ const closePopup = (event) => {
 
 const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
 
-const addCard = (event) => {  
-  debugger;       
+const addCard = (event) => {           
   event.preventDefault();   
   const addCardForm = event.target;   
   const name = addCardForm.elements.name;
@@ -119,6 +118,11 @@ const isValidate = (input) => {
     input.setCustomValidity(errorMessages.wrongLength);
     return false
   } 
+
+  if (input.validity.typeMismatch && input.type === 'url') {
+    input.setCustomValidity('Здесь должна быть ссылка');
+    return false
+  }
 
   return input.checkValidity();
 } 
