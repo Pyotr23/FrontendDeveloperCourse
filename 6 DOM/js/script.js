@@ -73,20 +73,21 @@ const preparePopup = (popup, cardLink) => {
   cardImage.setAttribute('src', cardLink);
 }
 
-const handlerInputForm = (event) => {   
-  const popup = event.currentTarget.closest('.popup'); 
-  setSubmitButtonStateInPopup(popup);   
+const handlerInputForm = (event) => {    
+  const input = event.target; 
+  const submit = event.currentTarget.querySelector('.button');  
+  setSubmitButtonState(submit, isFieldValid(input));   
 }
 
-const setSubmitButtonStateInPopup = (popup) => {
-  const submit = popup.querySelector('.button');   
-  const nonSubmitInputs = getDataInputs(popup.querySelector('form'));
-  setSubmitButtonState(submit, getSubmitState(nonSubmitInputs)); 
-}
+// const setSubmitButtonStateInPopup = (popup) => {
+//   const submit = popup.querySelector('.button');   
+//   const nonSubmitInputs = getDataInputs(popup.querySelector('form'));
+//   setSubmitButtonState(submit, getSubmitState(nonSubmitInputs)); 
+// }
 
-const setDisabledButtonState = (popup) => {
+const setButtonState = (popup, state) => {
   const submit = popup.querySelector('.button');    
-  setSubmitButtonState(submit, false); 
+  setSubmitButtonState(submit, state); 
 }
 
 const getDataInputs = (form) => {      
@@ -143,13 +144,16 @@ const isValidate = (input) => {
 
 const setEventListeners = (popup) => {
   const form = popup.querySelector('form');
-  form.addEventListener('submit', addCard);    
+  if (popup === addCardPopup)
+    form.addEventListener('submit', addCard); 
+  else if (popup === editUserPopup)
+  form.addEventListener('submit', editUser);
   form.addEventListener('input', handlerInputForm, true);
   addEventListenerForClosingPopup(popup);
 }
 
 const clearValidityError = (popup) => {
-  const [...inputs] = popup. форма .elements;
+  const [...inputs] = popup.querySelector('form').elements;
   const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');  
   nonSubmitInputs.forEach(input => {
     const errorElement = input.parentNode.querySelector(`#${input.name}-error`);
@@ -158,29 +162,35 @@ const clearValidityError = (popup) => {
 }
 
 openAddCardPopupButton.addEventListener('click', () => {      
-  setDisabledButtonState(addCardPopup); 
+  setButtonState(addCardPopup, false);
+  clearValidityError(addCardPopup);
   setEventListeners(addCardPopup);  
   showPopup(addCardPopup); 
 });
 
 editUserButton.addEventListener('click', () => {  
-  const editUserForm = editUserPopup.querySelector('form');
-  editUserForm.addEventListener('submit', editUser);
-  editUserForm.addEventListener('input', handlerInputForm, true);
+  setButtonState(editUserPopup, true);
+  clearValidityError(editUserPopup);
+  setEventListeners(editUserPopup);  
+  showPopup(editUserPopup); 
+  // const editUserForm = editUserPopup.querySelector('form');
+  // editUserForm.addEventListener('submit', editUser);
+  // editUserForm.addEventListener('input', handlerInputForm, true);
   
-  const name = editUserForm.elements.name;
-  const job = editUserForm.elements.job;   
+  const form = editUserPopup.querySelector('form');
+  const name = form.elements.name;
+  const job = form.elements.job;   
   name.value = userInfo.querySelector('.user-info__name').textContent;
   job.value = userInfo.querySelector('.user-info__job').textContent;
 
-  const submit = editUserForm.querySelector('.button');  
+  // const submit = editUserForm.querySelector('.button');  
 
+  // clearValidityError(editUserPopup);
   
-  
-  setSubmitButtonState(submit, nonSubmitInputs.every(isValidate));    
+  // setSubmitButtonState(submit, nonSubmitInputs.every(isValidate));    
 
-  addEventListenerForClosingPopup(editUserPopup);
-  showPopup(editUserPopup); 
+  // addEventListenerForClosingPopup(editUserPopup);
+  // showPopup(editUserPopup); 
 });
 
 cardsContainer.addEventListener('click', (event) => {
