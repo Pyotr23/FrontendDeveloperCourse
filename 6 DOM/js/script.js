@@ -79,15 +79,16 @@ const handlerInputForm = (event) => {
   const [...inputs] = event.currentTarget.elements;
   const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');  
   
-  let submitState = false;
+  let submitState = true;
   nonSubmitInputs.forEach(input => {
-    submitState = submitState || isFieldValid(input);
+    submitState = isFieldValid(input) && submitState;
   });
 
   setSubmitButtonState(submit, submitState);   
 }
 
 const setSubmitButtonState = (button, state) => {
+  debugger;
   if (state) {
     button.removeAttribute('disabled');
     button.classList.add('popup__button_is-active');
@@ -122,7 +123,8 @@ const isValidate = (input) => {
   return input.checkValidity();
 } 
 
-openAddCardPopupButton.addEventListener('click', () => {     
+openAddCardPopupButton.addEventListener('click', () => {   
+  debugger;  
   const addCardForm = addCardPopup.querySelector('form');
   const [...inputs] = addCardForm.elements;
   const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');  
