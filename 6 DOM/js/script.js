@@ -79,20 +79,9 @@ const handlerInputForm = (event) => {
   setSubmitButtonState(submit, isFieldValid(input));   
 }
 
-// const setSubmitButtonStateInPopup = (popup) => {
-//   const submit = popup.querySelector('.button');   
-//   const nonSubmitInputs = getDataInputs(popup.querySelector('form'));
-//   setSubmitButtonState(submit, getSubmitState(nonSubmitInputs)); 
-// }
-
 const setButtonState = (popup, state) => {
   const submit = popup.querySelector('.button');    
   setSubmitButtonState(submit, state); 
-}
-
-const getDataInputs = (form) => {      
-  const inputs = [...form.elements];
-  return inputs.filter(i => i.type !== 'submit' && i.type !== 'button');
 }
 
 const getSubmitState = (inputs) => {
@@ -161,6 +150,14 @@ const clearValidityError = (popup) => {
   });  
 }
 
+const setUserInfo = () => {
+  const form = editUserPopup.querySelector('form');
+  const name = form.elements.name;
+  const job = form.elements.job;   
+  name.value = userInfo.querySelector('.user-info__name').textContent;
+  job.value = userInfo.querySelector('.user-info__job').textContent;
+}
+
 openAddCardPopupButton.addEventListener('click', () => {      
   setButtonState(addCardPopup, false);
   clearValidityError(addCardPopup);
@@ -173,24 +170,7 @@ editUserButton.addEventListener('click', () => {
   clearValidityError(editUserPopup);
   setEventListeners(editUserPopup);  
   showPopup(editUserPopup); 
-  // const editUserForm = editUserPopup.querySelector('form');
-  // editUserForm.addEventListener('submit', editUser);
-  // editUserForm.addEventListener('input', handlerInputForm, true);
-  
-  const form = editUserPopup.querySelector('form');
-  const name = form.elements.name;
-  const job = form.elements.job;   
-  name.value = userInfo.querySelector('.user-info__name').textContent;
-  job.value = userInfo.querySelector('.user-info__job').textContent;
-
-  // const submit = editUserForm.querySelector('.button');  
-
-  // clearValidityError(editUserPopup);
-  
-  // setSubmitButtonState(submit, nonSubmitInputs.every(isValidate));    
-
-  // addEventListenerForClosingPopup(editUserPopup);
-  // showPopup(editUserPopup); 
+  setUserInfo();  
 });
 
 cardsContainer.addEventListener('click', (event) => {
