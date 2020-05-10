@@ -4,6 +4,12 @@ const addCardPopup = document.querySelector('#popup_add-card');
 const editUserPopup = document.querySelector('#popup_edit-user');
 const editUserButton = document.querySelector('.button_place_user-info');
 const userInfo = document.querySelector('.user-info');
+const errorMessages = {
+  empty: 'Это обязательное поле',
+  wrongLength: 'Должно быть от 2 до 30 символов',
+  wrongUrl: 'Здесь должна быть ссылка',
+  wrongPattern: 'Введите данные в верном формате',  
+}
 
 const randomFillPlaces = () => {
     while (initialCards.length !== 0){
@@ -73,7 +79,7 @@ const handlerInputForm = (event) => {
   const [...inputs] = event.currentTarget.elements;
   const nonSubmitInputs = inputs.filter(i => i.type !== 'submit');  
   
-  setSubmitButtonState(submit, nonSubmitInputs.every(isValidate));   
+  setSubmitButtonState(submit, nonSubmitInputs.every(isFieldValid));   
 }
 
 const setSubmitButtonState = (button, state) => {
@@ -87,9 +93,17 @@ const setSubmitButtonState = (button, state) => {
   }
 }
 
-const isFieldValid = (input) => isValidate(input);
+const isFieldValid = (input) => {
+  debugger;
+  const errorElement = input.parentNode.querySelector(`#${input.name}-error`);
+  const isValid = isValidate(input);
+  errorElement.textContent = input.validationMessage;
+  return isValid;
+} 
 
-const isValidate = (input) => !input.validity.valueMissing;
+const isValidate = (input) => {
+  return !input.validity.valueMissing;
+} 
 
 openAddCardPopupButton.addEventListener('click', () => {     
   const addCardForm = addCardPopup.querySelector('form');
