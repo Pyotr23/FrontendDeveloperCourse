@@ -14,8 +14,8 @@ const errorMessages = {
 const randomFillPlaces = () => {
     while (initialCards.length !== 0){
         const index = Math.floor(Math.random() * initialCards.length);
-        const card = createCardNode({ name: initialCards[index].name, link: initialCards[index].link});
-        cardsContainer.insertAdjacentHTML('afterbegin', card);
+        const cardNode = createCardNode({ name: initialCards[index].name, link: initialCards[index].link});
+        cardsContainer.appendChild(cardNode);        
         initialCards.splice(index, 1);
     }
 }
@@ -26,15 +26,22 @@ const randomFillPlaces = () => {
 а в свойство textContent элемента h3 и в свойство style.backgroundImage элемента div уже после вставки строки размётки через insertAdjacentHTML.
 Тогда вставка этих значений будет безопасной, потому что будет вставляться как текст, а не как размётка.*/
 const createCardNode = (card) => {
-  const cardNode = `<div class="place-card">
-                  <div class="place-card__image" data-url="${card.link}" style="background: url(${card.link})">
+  const cardNodeTemplate = `<div class="place-card">
+                  <div class="place-card__image">
                     <button class="place-card__delete-icon"></button>
                   </div>
                   <div class="place-card__description">
-                    <h3 class="place-card__name">${card.name}</h3>
+                    <h3 class="place-card__name"></h3>
                     <button class="place-card__like-icon"></button>
                   </div>
                 </div>`
+  const cardNode = document.createElement('div');
+  cardNode.innerHTML = cardNodeTemplate;  
+  const placeCardImage = cardNode.querySelector('.place-card__image');
+  placeCardImage.setAttribute('data-url', card.link);
+  placeCardImage.style.backgroundImage = `url(${card.link})`;
+  const placeCardName = cardNode.querySelector('.place-card__name');
+  placeCardName.textContent = card.name;
   return cardNode;
 }
 
@@ -52,7 +59,7 @@ const addCard = (event) => {
   const name = addCardForm.elements.name;
   const link = addCardForm.elements.link;
   const newCard = createCardNode({ name: name.value, link: link.value });
-  cardsContainer.insertAdjacentHTML('beforeend', newCard);
+  cardsContainer.appendChild(newCard);
   closePopup(event);
 }
 
