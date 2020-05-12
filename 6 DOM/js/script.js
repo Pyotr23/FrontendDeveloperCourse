@@ -20,22 +20,23 @@ const randomFillPlaces = () => {
     }
 }
 
+// Большое спасибо за ревью. Очень ценные советы!
+
 /* !!!DONE!!!  REVIEW. Можно лучше. Вставка значений card.link и card.name в интерполяционной строке может привести к угрозе компьютерной безопасности (к уязвимости XSS),
 так как, если данные приходят с сервера, в этих переменных вместо названия и адреса могут содержаться вредоносные скрипты, которые могут выполниться
 на странице при вставке интерполяционной строки через insertAdjacentHTML. Поэтому лучше вставлять значения card.link и card.name  не в строке cardNode,
 а в свойство textContent элемента h3 и в свойство style.backgroundImage элемента div уже после вставки строки размётки через insertAdjacentHTML.
 Тогда вставка этих значений будет безопасной, потому что будет вставляться как текст, а не как размётка.*/
 const createCardNode = (card) => {
-  const cardNodeTemplate = `<div class="place-card">
-                  <div class="place-card__image">
+  const cardNodeTemplate = `<div class="place-card__image">
                     <button class="place-card__delete-icon"></button>
                   </div>
                   <div class="place-card__description">
                     <h3 class="place-card__name"></h3>
                     <button class="place-card__like-icon"></button>
-                  </div>
-                </div>`
+                  </div>`
   const cardNode = document.createElement('div');
+  cardNode.classList.add('place-card');
   cardNode.innerHTML = cardNodeTemplate;  
   const placeCardImage = cardNode.querySelector('.place-card__image');
   placeCardImage.setAttribute('data-url', card.link);
@@ -88,20 +89,18 @@ const preparePopup = (popup, cardLink) => {
 const handlerInputForm = (event) => {
   const input = event.target;
   const submit = event.currentTarget.querySelector('.button');
-  setSubmitButtonState(submit, isFieldValid(input));
+  isFieldValid(input);
+  setSubmitButtonState(submit, isFormValid(input.closest('form')));
+}
+
+const isFormValid = (form) => {
+  const [...inputs] = form.elements;
+  return inputs.every(isValidate);
 }
 
 const setButtonState = (popup, state) => {
   const submit = popup.querySelector('.button');
   setSubmitButtonState(submit, state);
-}
-
-const getSubmitState = (inputs) => {
-  let submitState = true;
-  inputs.forEach(input => {
-    submitState = isFieldValid(input) && submitState;
-  });
-  return submitState;
 }
 
 const setSubmitButtonState = (button, state) => {
@@ -189,7 +188,7 @@ cardsContainer.addEventListener('click', (event) => {
 const targetElement = event.target;
   if (targetElement.classList.contains('place-card__like-icon'))
     targetElement.classList.toggle('place-card__like-icon_liked');
-  else if (targetElement.classList.contains('place-card__delete-icon')){
+  else if (targetElement.classList.contains('place-card__delete-icon')){    
     const removingCard = targetElement.closest('.place-card');
     removingCard.remove();
   }
