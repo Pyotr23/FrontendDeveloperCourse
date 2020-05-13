@@ -15,18 +15,13 @@ const randomFillPlaces = () => {
     while (initialCards.length !== 0){
         const index = Math.floor(Math.random() * initialCards.length);
         const cardNode = createCardNode({ name: initialCards[index].name, link: initialCards[index].link});
-        cardsContainer.appendChild(cardNode);        
+        cardsContainer.appendChild(cardNode);
         initialCards.splice(index, 1);
     }
 }
 
 // Большое спасибо за ревью. Очень ценные советы!
 
-/* !!!DONE!!!  REVIEW. Можно лучше. Вставка значений card.link и card.name в интерполяционной строке может привести к угрозе компьютерной безопасности (к уязвимости XSS),
-так как, если данные приходят с сервера, в этих переменных вместо названия и адреса могут содержаться вредоносные скрипты, которые могут выполниться
-на странице при вставке интерполяционной строки через insertAdjacentHTML. Поэтому лучше вставлять значения card.link и card.name  не в строке cardNode,
-а в свойство textContent элемента h3 и в свойство style.backgroundImage элемента div уже после вставки строки размётки через insertAdjacentHTML.
-Тогда вставка этих значений будет безопасной, потому что будет вставляться как текст, а не как размётка.*/
 const createCardNode = (card) => {
   const cardNodeTemplate = `<div class="place-card__image">
                     <button class="place-card__delete-icon"></button>
@@ -37,7 +32,7 @@ const createCardNode = (card) => {
                   </div>`
   const cardNode = document.createElement('div');
   cardNode.classList.add('place-card');
-  cardNode.innerHTML = cardNodeTemplate;  
+  cardNode.innerHTML = cardNodeTemplate;
   const placeCardImage = cardNode.querySelector('.place-card__image');
   placeCardImage.setAttribute('data-url', card.link);
   placeCardImage.style.backgroundImage = `url(${card.link})`;
@@ -188,7 +183,7 @@ cardsContainer.addEventListener('click', (event) => {
 const targetElement = event.target;
   if (targetElement.classList.contains('place-card__like-icon'))
     targetElement.classList.toggle('place-card__like-icon_liked');
-  else if (targetElement.classList.contains('place-card__delete-icon')){    
+  else if (targetElement.classList.contains('place-card__delete-icon')){
     const removingCard = targetElement.closest('.place-card');
     removingCard.remove();
   }
@@ -233,5 +228,19 @@ REVIEW. Резюме.
 протестировать правильную валидацию формы карточки.
 
 
+________________________________________________________________________________________________________________________________________________________________________
+
+REVIEW2. Резюме2.
+
+Критическое замечание исправлено, валидация формы карточки сделана в полном объёме, как требуется по дополнительному заданию.
+Выполнены рекомендации.
+Прочитайте про свойство innerHTML, оно также небезопасно, через него нельзя вставлять данные, пришедшие извне в Ваш код, и пользовательский ввод,
+так как и это свойство вставляет данные как размётку, а не как текст
+https://developer.mozilla.org/ru/docs/Web/API/Element/innerHTML.
+
+
+Работа принята.
+
+Желаю дальнейших успехов в обучении!
 
 */
