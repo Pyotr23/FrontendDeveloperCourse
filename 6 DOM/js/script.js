@@ -3,7 +3,7 @@ const openAddCardPopupButton = document.querySelector('.user-info__button');
 const addCardPopup = document.querySelector('#popup_add-card');
 const editUserPopup = document.querySelector('#popup_edit-user');
 const editUserButton = document.querySelector('.button_place_user-info');
-const userInfo = document.querySelector('.user-info');
+const userInfo = new UserInfo(document.querySelector('.user-info'));
 const errorMessages = {
   empty: 'Это обязательное поле',
   wrongLength: 'Должно быть от 2 до 30 символов',
@@ -44,12 +44,11 @@ const addEventListenerForClosingPopup = (popup) => {
 }
 
 const editUser = (event) => {
-  event.preventDefault();
-  const editUserForm = event.target;
-  const name = editUserForm.elements.name;
-  const job = editUserForm.elements.job;
-  userInfo.querySelector('.user-info__name').textContent = name.value;
-  userInfo.querySelector('.user-info__job').textContent = job.value;
+  event.preventDefault();   
+  const newName = event.target.elements.name.value;
+  const newJob = event.target.elements.job.value;
+  userInfo.set(newName, newJob);  
+  userInfo.update();  
   closePopup(event);
 }
 
@@ -135,12 +134,12 @@ const clearValidityError = (popup) => {
   });
 }
 
-const setUserInfo = () => {
+const setUserInfoInputValues = () => {
   const form = editUserPopup.querySelector('form');
   const name = form.elements.name;
   const job = form.elements.job;
-  name.value = userInfo.querySelector('.user-info__name').textContent;
-  job.value = userInfo.querySelector('.user-info__job').textContent;
+  name.value = userInfo.name;
+  job.value = userInfo.job;
 }
 
 openAddCardPopupButton.addEventListener('click', () => {
@@ -155,7 +154,7 @@ editUserButton.addEventListener('click', () => {
   clearValidityError(editUserPopup);
   setEventListeners(editUserPopup);
   showPopup(editUserPopup);
-  setUserInfo();
+  setUserInfoInputValues();
 });
 
 document.querySelector('.places-list').addEventListener('click', (event) => {
