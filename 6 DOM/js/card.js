@@ -1,0 +1,26 @@
+class Card {
+    constructor (name, link) {
+        this.name = name;
+        this.link = link;
+    }
+
+    create() {
+        const cardNodeTemplate = `<div class="place-card__image">
+                    <button class="place-card__delete-icon"></button>
+                  </div>
+                  <div class="place-card__description">
+                    <h3 class="place-card__name"></h3>
+                    <button class="place-card__like-icon"></button>
+                  </div>`
+        const cardNode = document.createElement('div');
+        cardNode.classList.add('place-card');
+        cardNode.innerHTML = cardNodeTemplate;
+        const placeCardImage = cardNode.querySelector('.place-card__image');
+        placeCardImage.setAttribute('data-url', this.link);
+        placeCardImage.style.backgroundImage = `url(${this.link})`;
+        const placeCardName = cardNode.querySelector('.place-card__name');
+        placeCardName.textContent = this.name;
+        this.cardElement = cardNode;
+        return cardNode;
+    }
+}

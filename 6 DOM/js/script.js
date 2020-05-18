@@ -1,4 +1,4 @@
-const cardsContainer = document.querySelector('.places-list');
+const cardList = new CardList(document.querySelector('.places-list'));
 const openAddCardPopupButton = document.querySelector('.user-info__button');
 const addCardPopup = document.querySelector('#popup_add-card');
 const editUserPopup = document.querySelector('#popup_edit-user');
@@ -14,31 +14,10 @@ const errorMessages = {
 const randomFillPlaces = () => {
     while (initialCards.length !== 0){
         const index = Math.floor(Math.random() * initialCards.length);
-        const cardNode = createCardNode({ name: initialCards[index].name, link: initialCards[index].link});
-        cardsContainer.appendChild(cardNode);
+        const card = new Card(initialCards[index].name, initialCards[index].link);        
+        cardList.addCard(card.create());
         initialCards.splice(index, 1);
     }
-}
-
-// Большое спасибо за ревью. Очень ценные советы!
-
-const createCardNode = (card) => {
-  const cardNodeTemplate = `<div class="place-card__image">
-                    <button class="place-card__delete-icon"></button>
-                  </div>
-                  <div class="place-card__description">
-                    <h3 class="place-card__name"></h3>
-                    <button class="place-card__like-icon"></button>
-                  </div>`
-  const cardNode = document.createElement('div');
-  cardNode.classList.add('place-card');
-  cardNode.innerHTML = cardNodeTemplate;
-  const placeCardImage = cardNode.querySelector('.place-card__image');
-  placeCardImage.setAttribute('data-url', card.link);
-  placeCardImage.style.backgroundImage = `url(${card.link})`;
-  const placeCardName = cardNode.querySelector('.place-card__name');
-  placeCardName.textContent = card.name;
-  return cardNode;
 }
 
 const closePopup = (event) => {
@@ -50,12 +29,12 @@ const closePopup = (event) => {
 const showPopup = (popup) => { popup.classList.add('popup_is-opened'); };
 
 const addCard = (event) => {
-  event.preventDefault();
+  event.preventDefault();  
   const addCardForm = event.target;
-  const name = addCardForm.elements.name;
-  const link = addCardForm.elements.link;
-  const newCard = createCardNode({ name: name.value, link: link.value });
-  cardsContainer.appendChild(newCard);
+  const name = addCardForm.elements.name.value;
+  const link = addCardForm.elements.link.value;
+  const newCard = new Card(name, link);  
+  cardList.addCard(newCard.create());
   closePopup(event);
 }
 
@@ -179,13 +158,12 @@ editUserButton.addEventListener('click', () => {
   setUserInfo();
 });
 
-cardsContainer.addEventListener('click', (event) => {
+document.querySelector('.places-list').addEventListener('click', (event) => {
 const targetElement = event.target;
   if (targetElement.classList.contains('place-card__like-icon'))
-    targetElement.classList.toggle('place-card__like-icon_liked');
+    cardList.likeCard(event);
   else if (targetElement.classList.contains('place-card__delete-icon')){
-    const removingCard = targetElement.closest('.place-card');
-    removingCard.remove();
+    cardList.removeCard(event);
   }
   else if (targetElement.classList.contains('place-card__image')){
     const cardImagePopup = document.querySelector('#popup_place-image');
@@ -196,51 +174,3 @@ const targetElement = event.target;
 })
 
 randomFillPlaces();
-
-
-/*
-REVIEW. Резюме.
-Хорошая работа.
-Функционал, требуемый по заданию, работает, кроме правильной валидации формы карточки.
-
-Используется синтаксис ES6.
-Соблюдён принцип единственной ответственности функции createCardNode - она только создаёт и возвращает шаблон карточки, вставка шаблона на страницу
-происходит в другой функции.
-
-
-Что можно улучшить.
-!!!DONE!!! 1. Лучше вставлять значения card.link и card.name  не в строке cardNode,
-а в свойство textContent элемента h3 и в свойство style.backgroundImage элемента div уже после вставки строки
-размётки через insertAdjacentHTML (подробности в ревью перед кодом createCardNode).
-!!!DONE!!! 2. Лучше обеим формам задать параметр novalidate, чтобы невалидные поля не обводились красной рамкой, потому что встроенная валидация
-форм Вам не нужна, так как Вы делаете свою валидацию из js.
-
-
-Что надо исправить.
-
-1. По заданию требуется, чтобы кнопка сабмита формы была неактивна, если хотя бы в одном из полей информация невалидна. Сейчас в форме
-карточки кнопка сразу становится активной и чёрного цвета, если только в каком-либо одном поле валидная информация. Надо это исправить.
-
- Валидация формы карточки должна работать правильно, либо в варианте минимальной валидации, либо должна быть полностью отлажена и
- работать правильно в варианте полной валидации по дополнительному заданию.
-
-2. При внесении изменений необходимо тестировать работоспособность всех функций проекта, в частности Вы должны сами
-протестировать правильную валидацию формы карточки.
-
-
-________________________________________________________________________________________________________________________________________________________________________
-
-REVIEW2. Резюме2.
-
-Критическое замечание исправлено, валидация формы карточки сделана в полном объёме, как требуется по дополнительному заданию.
-Выполнены рекомендации.
-Прочитайте про свойство innerHTML, оно также небезопасно, через него нельзя вставлять данные, пришедшие извне в Ваш код, и пользовательский ввод,
-так как и это свойство вставляет данные как размётку, а не как текст
-https://developer.mozilla.org/ru/docs/Web/API/Element/innerHTML.
-
-
-Работа принята.
-
-Желаю дальнейших успехов в обучении!
-
-*/
