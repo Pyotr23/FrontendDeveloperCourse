@@ -3,7 +3,8 @@ class Popup {
         this.id = id;  
         const emptyPopup = document.querySelector('.popup');
         this.emptyPopup = emptyPopup.cloneNode(true);         
-        this.container = emptyPopup;                           
+        this.container = emptyPopup; 
+        this.content = emptyPopup.querySelector('.popup__content');                          
     }
 
     open() {           
@@ -20,5 +21,7 @@ class Popup {
     setCloseEventListener() {
         const closeButton = this.container.querySelector('.popup__close');
         closeButton.addEventListener('click', this.close.bind(this));
-    }    
+    }
+    
+    fillContent() {}
 }

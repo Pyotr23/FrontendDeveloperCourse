@@ -1,7 +1,7 @@
 class ImagePopup extends Popup {
     constructor(id, link) {              
         super(id);        
-        this.link = link;              
+        this.link = link;                       
         this.fillContent();               
     }
 
@@ -13,9 +13,8 @@ class ImagePopup extends Popup {
         return image;
     }
 
-    fillContent() {           
-        const content = this.container.querySelector('.popup__content'); 
-        content.appendChild(this.createImage());
-        content.classList.add('popup__content_card-image');   
+    fillContent() {         
+        this.content.appendChild(this.createImage());
+        this.content.classList.add('popup__content_card-image');   
     }
 }

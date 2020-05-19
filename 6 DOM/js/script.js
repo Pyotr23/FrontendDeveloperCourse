@@ -158,9 +158,11 @@ const targetElement = event.target;
     cardList.removeCard(event);
   }
   else if (targetElement.classList.contains('place-card__image')){    
-    const link = targetElement.getAttribute('data-url');
-    const imagePopup = new ImagePopup('popup_place-image', link);
-    imagePopup.open();    
+    // const link = targetElement.getAttribute('data-url');
+    // const imagePopup = new ImagePopup('popup_place-image', link);
+    // imagePopup.open(); 
+    const formPopup = new FormPopup('hy', 'HYYYY');
+    formPopup.open();   
   }
 })
 
