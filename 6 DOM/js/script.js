@@ -164,12 +164,15 @@ const targetElement = event.target;
   else if (targetElement.classList.contains('place-card__delete-icon')){
     cardList.removeCard(event);
   }
-  else if (targetElement.classList.contains('place-card__image')){
-    const imagePopup = new ImagePopup('popup_place-image', targetElement.getAttribute('data-url'));
-    const cardImagePopup = document.querySelector('#popup_place-image');
-    const cardLink = targetElement.getAttribute('data-url');
-    preparePopup(cardImagePopup, cardLink);
-    showPopup(cardImagePopup);
+  else if (targetElement.classList.contains('place-card__image')){    
+    const link = targetElement.getAttribute('data-url');
+    const imagePopup = new ImagePopup('popup_place-image', link);
+    imagePopup.open();
+    // const imagePopup = new ImagePopup('popup_place-image', targetElement.getAttribute('data-url'));
+    // const cardImagePopup = document.querySelector('#popup_place-image');
+    // const cardLink = targetElement.getAttribute('data-url');
+    // preparePopup(cardImagePopup, cardLink);
+    // showPopup(cardImagePopup);
   }
 })
 

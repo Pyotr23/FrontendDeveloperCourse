@@ -1,21 +1,24 @@
 class Popup {
-    constructor(id) {
-        this.id = id;        
-        const container = document.createElement('div');
-        container.classList.add('popup');
-        container.setAttribute('id', id);
-        const popupContentHtml = `<div class="popup__content">
-                                    <img src="./images/close.svg" alt="" class="popup__close">                              
-                                  </div>`;
-        container.innerHTML = popupContentHtml;
-        this.container = container;
-    }
-        
-    open() {
-        this.classList.add('popup_is-opened');
+    constructor(id) {        
+        this.id = id;  
+        const emptyPopup = document.querySelector('.popup');
+        this.emptyPopup = emptyPopup.cloneNode(true);         
+        this.container = emptyPopup;                           
     }
 
-    close() {
-        this.classList.remove('popup_is-opened');
+    open() {           
+        this.container.classList.add('popup_is-opened');         
+        this.setCloseEventListener();             
     }
+
+    close() {        
+        const parentNode = this.container.parentNode;
+        parentNode.removeChild(this.container);    
+        parentNode.appendChild(this.emptyPopup);            
+    }   
+
+    setCloseEventListener() {
+        const closeButton = this.container.querySelector('.popup__close');
+        closeButton.addEventListener('click', this.close.bind(this));
+    }    
 }
