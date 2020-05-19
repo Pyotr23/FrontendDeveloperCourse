@@ -165,6 +165,7 @@ const targetElement = event.target;
     cardList.removeCard(event);
   }
   else if (targetElement.classList.contains('place-card__image')){
+    const imagePopup = new ImagePopup('popup_place-image', targetElement.getAttribute('data-url'));
     const cardImagePopup = document.querySelector('#popup_place-image');
     const cardLink = targetElement.getAttribute('data-url');
     preparePopup(cardImagePopup, cardLink);
