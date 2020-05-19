@@ -52,13 +52,6 @@ const editUser = (event) => {
   closePopup(event);
 }
 
-const preparePopup = (popup, cardLink) => {
-  addEventListenerForClosingPopup(popup);
-
-  const cardImage = popup.querySelector('.popup__card-image');
-  cardImage.setAttribute('src', cardLink);
-}
-
 const handlerInputForm = (event) => {
   const input = event.target;
   const submit = event.currentTarget.querySelector('.button');
@@ -167,12 +160,7 @@ const targetElement = event.target;
   else if (targetElement.classList.contains('place-card__image')){    
     const link = targetElement.getAttribute('data-url');
     const imagePopup = new ImagePopup('popup_place-image', link);
-    imagePopup.open();
-    // const imagePopup = new ImagePopup('popup_place-image', targetElement.getAttribute('data-url'));
-    // const cardImagePopup = document.querySelector('#popup_place-image');
-    // const cardLink = targetElement.getAttribute('data-url');
-    // preparePopup(cardImagePopup, cardLink);
-    // showPopup(cardImagePopup);
+    imagePopup.open();    
   }
 })
 
