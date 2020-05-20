@@ -9,27 +9,13 @@ class Popup {
         this.container.classList.add('popup_is-opened');                    
     }
 
-    close() {    
-        debugger;    
+    close() {             
         this.container.parentNode.removeChild(this.container);                         
+    }    
+
+    addTitle(title) {
+        const titleElement = document.createElement
     }  
-    
-    addImage(link) {
-        this.content.appendChild(this.createImage(link));
-        this.content.classList.add('popup__content_card-image');
-    }
-
-    createImage(link) {
-        const image = document.createElement('img');
-        image.classList.add('popup__card-image');
-        image.setAttribute('alt', '');
-        image.setAttribute('src', link);
-        return image;
-    }
-
-    fillContent() {         
-           
-    }
 
     createPopup() {
         const popup = document.createElement('div');
