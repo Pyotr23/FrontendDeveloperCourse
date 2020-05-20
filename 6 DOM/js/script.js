@@ -157,12 +157,17 @@ const targetElement = event.target;
   else if (targetElement.classList.contains('place-card__delete-icon')){
     cardList.removeCard(event);
   }
-  else if (targetElement.classList.contains('place-card__image')){    
-    // const link = targetElement.getAttribute('data-url');
+  else if (targetElement.classList.contains('place-card__image')){ 
+    
+    const link = targetElement.getAttribute('data-url'); 
+    const popupBuilder = new ImagePopupBuilder();    
+    popupBuilder.addImage(link); 
+    console.log(popupBuilder);    
+    popupBuilder.renderPopup(); 
     // const imagePopup = new ImagePopup('popup_place-image', link);
     // imagePopup.open(); 
-    const formPopup = new FormPopup('hy', 'HYYYY');
-    formPopup.open();   
+    // const formPopup = new FormPopup('hy', 'HYYYY');
+    // formPopup.open();   
   }
 })
 
