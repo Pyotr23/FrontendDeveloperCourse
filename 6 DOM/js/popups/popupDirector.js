@@ -4,4 +4,10 @@ class PopupDirector {
         popupBuilder.addImage(link);        
         popupBuilder.renderPopup(); 
     }
+
+    renderFormPopup(title) {
+        const popupBuilder = new FormPopupBuilder(); 
+        popupBuilder.addTitle(title);        
+        popupBuilder.renderPopup(); 
+    }
 }

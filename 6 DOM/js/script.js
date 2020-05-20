@@ -159,7 +159,8 @@ const targetElement = event.target;
   }
   else if (targetElement.classList.contains('place-card__image')){     
     const link = targetElement.getAttribute('data-url'); 
-    new PopupDirector().renderImagePopup(link);
+    // new PopupDirector().renderImagePopup(link);
+    new PopupDirector().renderFormPopup('УРА!!!');
     
     // const popupBuilder = new ImagePopupBuilder();    
     // popupBuilder.addImage(link);        
