@@ -19,8 +19,7 @@ class Popup {
     }
 
     createImage(link) {
-        const image = document.createElement('img');
-        image.classList.add('popup__card-image');
+        const image = this.createElement('img', 'popup__card-image');        
         image.setAttribute('alt', '');
         image.setAttribute('src', link);
         return image;
@@ -31,20 +30,29 @@ class Popup {
     }  
 
     createTitle(title) {
-        const titleElement = document.createElement('h3');
-        titleElement.classList.add('popup__title');
+        const titleElement = this.createElement('h3', 'popup__title');        
         titleElement.textContent = title;
         return titleElement;
     }
 
+    addCardForm(textInput, urlInput, buttonText) {        
+       const form = new FormDirector().getAddCardFormNode(textInput, urlInput, buttonText);
+       this.content.appendChild(form);
+    }   
+
     createPopup() {
-        const popup = document.createElement('div');
-        popup.classList.add('popup');
+        const popup = this.createElement('div', 'popup');        
         popup.classList.add('popup_is-opened');    
         popup.innerHTML = `<div class="popup__content">
                              <img src="./images/close.svg" alt="" class="popup__close">        
                            </div>`;
         return popup;
+    }
+
+    createElement(htmlTag, className) {
+        const element = document.createElement(htmlTag);
+        element.classList.add(className);
+        return element;
     }
 
     setCloseEventListener() {

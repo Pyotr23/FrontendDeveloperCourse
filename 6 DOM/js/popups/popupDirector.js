@@ -5,9 +5,10 @@ class PopupDirector {
         popupBuilder.renderPopup(); 
     }
 
-    renderFormPopup(title) {
+    renderCardFormPopup(title, textInput, urlInput, buttonText) {
         const popupBuilder = new FormPopupBuilder(); 
-        popupBuilder.addTitle(title);        
+        popupBuilder.addTitle(title); 
+        popupBuilder.addCardForm(textInput, urlInput, buttonText);       
         popupBuilder.renderPopup(); 
     }
 }

@@ -160,7 +160,9 @@ const targetElement = event.target;
   else if (targetElement.classList.contains('place-card__image')){     
     const link = targetElement.getAttribute('data-url'); 
     // new PopupDirector().renderImagePopup(link);
-    new PopupDirector().renderFormPopup('УРА!!!');
+        
+    new PopupDirector().renderCardFormPopup('УРА!!!', new TextInput('tanya', 'Дратути'), 
+      new UrlInput('petya', 'placpetr'), 'Применить');
     
     // const popupBuilder = new ImagePopupBuilder();    
     // popupBuilder.addImage(link);        
