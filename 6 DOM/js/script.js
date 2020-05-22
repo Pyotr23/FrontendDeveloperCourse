@@ -1,3 +1,8 @@
+
+// Приветствую Вас! Очень хотел попробовать сделать данную работу с помощью шаблона проектирования "Строитель". Я понимаю, 
+// что для конкретной работы это избыточная сложность. Но тем не менее я надеюсь, что Вы оцените и поможете
+// довести желаемое до конца. Буду рад любым советам и ссылкам! 
+
 const cardList = new CardList(document.querySelector('.places-list'));
 const openAddCardPopupButton = document.querySelector('.user-info__button');
 const editUserButton = document.querySelector('.button_place_user-info');

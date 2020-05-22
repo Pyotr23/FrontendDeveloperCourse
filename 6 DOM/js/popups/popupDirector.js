@@ -2,6 +2,7 @@ class PopupDirector {
     renderImagePopup(link) {
         const popupBuilder = new ImagePopupBuilder();
         this.popupBuilder = popupBuilder; 
+        
         popupBuilder.withImage(link);        
         popupBuilder.renderImage(); 
         popupBuilder.renderPopup();
@@ -9,14 +10,16 @@ class PopupDirector {
 
     renderAddCardPopup(title, name, link, buttonText) {
         const popupBuilder = new FormPopupBuilder();
-        this.popupBuilder = popupBuilder;         
-        popupBuilder.withTitle(title); 
-        const formContainer = new FormDirector().getAddCardFormNode(name, link, buttonText);
+        this.popupBuilder = popupBuilder; 
+        const formContainer = new FormDirector().getAddCardFormNode(name, link, buttonText); 
+
+        popupBuilder.withTitle(title);         
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
         popupBuilder.renderPopup(); 
         popupBuilder.setSubmitEventListener(this.addCard.bind(this));
         popupBuilder.setInputEventListener(formValidator.handlerInput.bind(formValidator));
+
         formValidator.setSubmitButtonState();
     }
 
@@ -32,13 +35,15 @@ class PopupDirector {
     renderEditUserPopup(title, userInfo, buttonText) {
         const popupBuilder = new FormPopupBuilder();
         this.popupBuilder = popupBuilder; 
-        popupBuilder.withTitle(title); 
         const formContainer = new FormDirector().getEditUserFormNode(userInfo, buttonText);
+
+        popupBuilder.withTitle(title);         
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
         popupBuilder.renderPopup(); 
         popupBuilder.setSubmitEventListener(this.editUserInfo.bind(this));
         popupBuilder.setInputEventListener(formValidator.handlerInput.bind(formValidator));
+
         formValidator.setSubmitButtonState();        
     }  
     
@@ -47,6 +52,7 @@ class PopupDirector {
         const newJob = this.popupBuilder.popup.form.elements.job.value;
         userInfo.set(newName, newJob);
         userInfo.update();
+
         this.popupBuilder.popup.close();        
     }
 }
