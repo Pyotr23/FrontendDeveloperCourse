@@ -1,13 +1,12 @@
 class FormValidator {
-    // static errorMessages = {
-    //     empty: 'Это обязательное поле',
-    //     wrongLength: 'Должно быть от 2 до 30 символов',
-    //     wrongUrl: 'Здесь должна быть ссылка',
-    //     wrongPattern: 'Введите данные в верном формате'
-    //   }
-
     constructor(form) {
         this.form = form;
+        this.errorMessages = {
+            empty: 'Это обязательное поле',
+            wrongLength: 'Должно быть от 2 до 30 символов',
+            wrongUrl: 'Здесь должна быть ссылка',
+            wrongPattern: 'Введите данные в верном формате'
+        } 
     }
 
     checkInputsValidity() {             
@@ -19,17 +18,17 @@ class FormValidator {
         input.setCustomValidity("");
       
         if (input.validity.valueMissing) {
-          input.setCustomValidity(errorMessages.empty);
+          input.setCustomValidity(this.errorMessages.empty);
           return false
         }
       
         if (input.validity.tooShort || input.validity.tooLong) {
-          input.setCustomValidity(errorMessages.wrongLength);
+          input.setCustomValidity(this.errorMessages.wrongLength);
           return false
         }
       
         if (input.validity.typeMismatch && input.type === 'url') {
-          input.setCustomValidity('Здесь должна быть ссылка');
+          input.setCustomValidity(this.errorMessages.wrongUrl);
           return false
         }
       
@@ -42,8 +41,8 @@ class FormValidator {
     }
 
     isFieldValid(input) {        
-        const errorElement = input.parentNode.querySelector(`#${input.name}-error`);
         this.isValidate(input);
+        const errorElement = this.form.querySelector(`#${input.name}-error`);
         errorElement.textContent = input.validationMessage;                
     }
 
@@ -54,8 +53,8 @@ class FormValidator {
             button.classList.add('popup__button_is-active');
         }
         else {
-        button.setAttribute('disabled', '');
-        button.classList.remove('popup__button_is-active');
+            button.setAttribute('disabled', '');
+            button.classList.remove('popup__button_is-active');
         }
     }
 }
