@@ -14,4 +14,13 @@ class PopupDirector {
         popupBuilder.renderForm();
         popupBuilder.renderPopup(); 
     }
+
+    renderEditUserPopup(title, userInfo, buttonText) {
+        const popupBuilder = new FormPopupBuilder(); 
+        popupBuilder.withTitle(title); 
+        const formContainer = new FormDirector().getEditUserFormNode(userInfo, buttonText);
+        popupBuilder.withForm(formContainer);
+        popupBuilder.renderForm();
+        popupBuilder.renderPopup(); 
+    }
 }

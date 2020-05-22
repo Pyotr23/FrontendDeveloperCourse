@@ -6,4 +6,12 @@ class FormDirector {
         builder.render();
         return builder.form.container;        
     }
+
+    getEditUserFormNode(userInfo, buttonText) {        
+        const builder = new AddCardFormBuilder();
+        builder.withStringInputs(userInfo);
+        builder.withSubmitButton(buttonText);
+        builder.render();
+        return builder.form.container;        
+    }
 }

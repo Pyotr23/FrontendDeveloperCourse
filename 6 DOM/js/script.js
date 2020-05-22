@@ -139,10 +139,8 @@ openAddCardPopupButton.addEventListener('click', () => {
   // setButtonState(addCardPopup, false);
   // clearValidityError(addCardPopup);
   // setEventListeners(addCardPopup);
-  // showPopup(addCardPopup);
-  const nameInput = new StringInput('name', 'Название');
-  const linkInput = new StringInput('link', 'Ссылка на картинку');
-  // new PopupDirector().renderCardFormPopup('Новое место', nameInput, linkInput, '+');
+  // showPopup(addCardPopup);  
+  new PopupDirector().renderAddCardPopup('Новое место', '', '', '+');
 });
 
 editUserButton.addEventListener('click', () => {
@@ -150,10 +148,8 @@ editUserButton.addEventListener('click', () => {
   // clearValidityError(editUserPopup);
   // setEventListeners(editUserPopup);
   // showPopup(editUserPopup);
-  // setUserInfoInputValues();
-  const nameInput = new StringInput('name', 'Полное имя');
-  const jobInput = new StringInput('job', 'Профессия');
-  // new PopupDirector().renderCardFormPopup('Редактировать профиль', nameInput, jobInput, 'Сохранить');
+  // setUserInfoInputValues();  
+  new PopupDirector().renderEditUserPopup('Редактировать профиль', userInfo, 'Сохранить');
 });
 
 document.querySelector('.places-list').addEventListener('click', (event) => {
@@ -165,10 +161,7 @@ const targetElement = event.target;
   }
   else if (targetElement.classList.contains('place-card__image')){     
     const link = targetElement.getAttribute('data-url');     
-    // new PopupDirector().renderImagePopup(link);
-    new PopupDirector().renderAddCardPopup('Новое место', 'Петя', 'Таня', '+');
-        
-    
+    new PopupDirector().renderImagePopup(link);   
     
     // const popupBuilder = new ImagePopupBuilder();    
     // popupBuilder.addImage(link);        

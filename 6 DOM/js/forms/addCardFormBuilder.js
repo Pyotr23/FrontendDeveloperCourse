@@ -3,8 +3,9 @@ class AddCardFormBuilder extends FormBuilder {
         this.form.withSubmitButton(buttonText);
     }
 
-    withStringInputs(name, url) {        
-        const stringInputs = [new TextInput('name', 'Название', name), new UrlInput('link', 'Ссылка на картинку', url)];        
+    withStringInputs(userInfo) {        
+        const stringInputs = 
+            [new TextInput('name', 'Название', userInfo.name), new UrlInput('link', 'Ссылка на картинку', userInfo.job)];        
         this.form.stringInputs = stringInputs;
     }
 
