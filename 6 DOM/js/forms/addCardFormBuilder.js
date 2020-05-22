@@ -1,6 +1,6 @@
 class AddCardFormBuilder extends FormBuilder {
     withSubmitButton(buttonText) {        
-        this.form.withSubmitButton(buttonText);
+        this.form.withSubmitButton(buttonText);        
     }
 
     withStringInputs(name, link) {        

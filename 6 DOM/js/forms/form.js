@@ -27,7 +27,7 @@ class Form {
 
     withStringInputs(stringInputs) {
         this.stringInputs = stringInputs;        
-    }
+    }   
     
     render() {        
         this.stringInputs.forEach(si => {

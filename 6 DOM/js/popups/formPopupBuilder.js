@@ -4,7 +4,15 @@ class FormPopupBuilder extends PopupBuilder {
     }
 
     withForm(formContainer) {        
-        this.popup.withForm(formContainer);
+        this.popup.withForm(formContainer);        
+    }
+
+    setSubmitEventListener(action) {
+        this.popup.setSubmitEventlistener(action);
+    }
+
+    setInputEventListener(action) {
+        this.popup.setInputEventListener(action);
     }
 
     renderForm() { 

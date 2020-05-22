@@ -11,6 +11,7 @@ const errorMessages = {
   wrongPattern: 'Введите данные в верном формате'
 }
 const popupDirector = new PopupDirector();
+let formValidator = null;
 
 const randomFillPlaces = () => {
     while (initialCards.length !== 0){
@@ -142,6 +143,7 @@ openAddCardPopupButton.addEventListener('click', () => {
   // setEventListeners(addCardPopup);
   // showPopup(addCardPopup);  
   popupDirector.renderAddCardPopup('Новое место', '', '', '+');
+  // formValidator = new 
   console.log(new FormValidator(popupDirector.popupBuilder.popup.form).checkInputsValidity());
   console.log(new FormValidator(document.forms[0]).checkInputsValidity());
 });

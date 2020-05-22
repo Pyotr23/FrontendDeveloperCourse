@@ -57,5 +57,13 @@ class Popup {
     setCloseEventListener() {
         const closeButton = this.container.querySelector('.popup__close');
         closeButton.addEventListener('click', this.close.bind(this));
-    }     
+    }  
+    
+    setSubmitEventlistener(action) {
+        this.form.addEventListener('submit', action);
+    }
+
+    setInputEventListener(action) {
+        this.form.addEventListener('input', action);
+    }
 }

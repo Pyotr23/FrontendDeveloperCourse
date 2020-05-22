@@ -1,10 +1,10 @@
 class FormValidator {
-    static errorMessages = {
-        empty: 'Это обязательное поле',
-        wrongLength: 'Должно быть от 2 до 30 символов',
-        wrongUrl: 'Здесь должна быть ссылка',
-        wrongPattern: 'Введите данные в верном формате'
-      }
+    // static errorMessages = {
+    //     empty: 'Это обязательное поле',
+    //     wrongLength: 'Должно быть от 2 до 30 символов',
+    //     wrongUrl: 'Здесь должна быть ссылка',
+    //     wrongPattern: 'Введите данные в верном формате'
+    //   }
 
     constructor(form) {
         this.form = form;
@@ -34,5 +34,28 @@ class FormValidator {
         }
       
         return input.checkValidity();
-      }
+    }
+
+    handlerInput(event) {        
+        this.isFieldValid(event.target);
+        this.setSubmitButtonState();    
+    }
+
+    isFieldValid(input) {        
+        const errorElement = input.parentNode.querySelector(`#${input.name}-error`);
+        isValidate(input);
+        errorElement.textContent = input.validationMessage;                
+    }
+
+    setSubmitButtonState() {
+        const button = popupDirector.popupBuilder.popup.form.querySelector('.button');
+        if (this.checkInputsValidity()) {
+            button.removeAttribute('disabled');
+            button.classList.add('popup__button_is-active');
+        }
+        else {
+        button.setAttribute('disabled', '');
+        button.classList.remove('popup__button_is-active');
+        }
+    }
 }
