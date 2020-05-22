@@ -36,7 +36,8 @@ class Popup {
     }
 
     withForm(formContainer) {     
-        this.form = formContainer;        
+        this.form = formContainer;
+        formValidator = new FormValidator(formContainer);        
     }   
 
     createPopup() {

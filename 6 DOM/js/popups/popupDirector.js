@@ -16,7 +16,6 @@ class PopupDirector {
         popupBuilder.renderForm();
         popupBuilder.renderPopup(); 
         popupBuilder.setSubmitEventListener(this.addCard.bind(this));
-        formValidator = new FormValidator(popupBuilder.popup.form);
         popupBuilder.setInputEventListener(formValidator.handlerInput.bind(formValidator));
         formValidator.setSubmitButtonState();
     }
@@ -39,7 +38,6 @@ class PopupDirector {
         popupBuilder.renderForm();
         popupBuilder.renderPopup(); 
         popupBuilder.setSubmitEventListener(this.editUserInfo.bind(this));
-        formValidator = new FormValidator(popupBuilder.popup.form);
         popupBuilder.setInputEventListener(formValidator.handlerInput.bind(formValidator));
         formValidator.setSubmitButtonState();        
     }  
