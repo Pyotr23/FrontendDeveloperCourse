@@ -12,7 +12,7 @@ class FormValidator {
 
     checkInputsValidity() {             
         const [...inputs] = this.form.elements;
-        return inputs.every(isValidate);
+        return inputs.every(this.isValidate);
     }
 
     isValidate = (input) => {
@@ -43,7 +43,7 @@ class FormValidator {
 
     isFieldValid(input) {        
         const errorElement = input.parentNode.querySelector(`#${input.name}-error`);
-        isValidate(input);
+        this.isValidate(input);
         errorElement.textContent = input.validationMessage;                
     }
 
