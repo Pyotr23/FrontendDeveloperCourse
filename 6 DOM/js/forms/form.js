@@ -29,7 +29,7 @@ class Form {
         this.stringInputs = stringInputs;        
     }
     
-    render() {
+    render() {        
         this.stringInputs.forEach(si => {
             this.container.appendChild(si.input);
             this.container.appendChild(si.error);

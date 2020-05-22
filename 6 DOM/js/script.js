@@ -10,6 +10,7 @@ const errorMessages = {
   wrongUrl: 'Здесь должна быть ссылка',
   wrongPattern: 'Введите данные в верном формате'
 }
+const popupDirector = new PopupDirector();
 
 const randomFillPlaces = () => {
     while (initialCards.length !== 0){
@@ -140,7 +141,9 @@ openAddCardPopupButton.addEventListener('click', () => {
   // clearValidityError(addCardPopup);
   // setEventListeners(addCardPopup);
   // showPopup(addCardPopup);  
-  new PopupDirector().renderAddCardPopup('Новое место', '', '', '+');
+  popupDirector.renderAddCardPopup('Новое место', '', '', '+');
+  console.log(new FormValidator(popupDirector.popupBuilder.popup.form).checkInputsValidity());
+  console.log(new FormValidator(document.forms[0]).checkInputsValidity());
 });
 
 editUserButton.addEventListener('click', () => {
@@ -149,7 +152,9 @@ editUserButton.addEventListener('click', () => {
   // setEventListeners(editUserPopup);
   // showPopup(editUserPopup);
   // setUserInfoInputValues();  
-  new PopupDirector().renderEditUserPopup('Редактировать профиль', userInfo, 'Сохранить');
+  popupDirector.renderEditUserPopup('Редактировать профиль', userInfo, 'Сохранить');
+  console.log(new FormValidator(popupDirector.popupBuilder.popup.form).checkInputsValidity());
+  console.log(new FormValidator(document.forms[0]).checkInputsValidity());
 });
 
 document.querySelector('.places-list').addEventListener('click', (event) => {
@@ -161,7 +166,7 @@ const targetElement = event.target;
   }
   else if (targetElement.classList.contains('place-card__image')){     
     const link = targetElement.getAttribute('data-url');     
-    new PopupDirector().renderImagePopup(link);   
+    popupDirector.renderImagePopup(link);   
     
     // const popupBuilder = new ImagePopupBuilder();    
     // popupBuilder.addImage(link);        

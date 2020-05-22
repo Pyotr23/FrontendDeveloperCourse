@@ -3,8 +3,9 @@ class EditUserFormBuilder extends FormBuilder {
         this.form.withSubmitButton(buttonText);
     }
 
-    withStringInputs(name, job) {        
-        const stringInputs = [new TextInput('name', 'Название', name), new TextInput('link', 'Ссылка на картинку', url)];        
+    withStringInputs(userInfo) {                
+        const stringInputs = 
+            [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('job', 'Профессия', userInfo.job)];        
         this.form.stringInputs = stringInputs;
     }
 

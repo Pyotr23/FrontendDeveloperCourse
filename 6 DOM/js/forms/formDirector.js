@@ -7,8 +7,8 @@ class FormDirector {
         return builder.form.container;        
     }
 
-    getEditUserFormNode(userInfo, buttonText) {        
-        const builder = new AddCardFormBuilder();
+    getEditUserFormNode(userInfo, buttonText) {                
+        const builder = new EditUserFormBuilder();
         builder.withStringInputs(userInfo);
         builder.withSubmitButton(buttonText);
         builder.render();
