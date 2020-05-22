@@ -1,14 +1,17 @@
 class PopupDirector {
     renderImagePopup(link) {
         const popupBuilder = new ImagePopupBuilder(); 
-        popupBuilder.addImage(link);        
-        popupBuilder.renderPopup(); 
+        popupBuilder.withImage(link);        
+        popupBuilder.renderImage(); 
+        popupBuilder.renderPopup();
     }
 
-    renderCardFormPopup(title, textInput, urlInput, buttonText) {
+    renderAddCardPopup(title, name, link, buttonText) {
         const popupBuilder = new FormPopupBuilder(); 
-        popupBuilder.addTitle(title); 
-        popupBuilder.addCardForm(textInput, urlInput, buttonText);       
+        popupBuilder.withTitle(title); 
+        const formContainer = new FormDirector().getAddCardFormNode(name, link, buttonText);
+        popupBuilder.withForm(formContainer);
+        popupBuilder.renderForm();
         popupBuilder.renderPopup(); 
     }
 }

@@ -1,9 +1,14 @@
 class FormPopupBuilder extends PopupBuilder {
-    addTitle(title) {
-        this.popup.addTitle(title);
+    withTitle(title) {
+        this.popup.withTitle(title);
     }
 
-    addCardForm(textInput, urlInput, buttonText) {        
-        this.popup.addCardForm(textInput, urlInput, buttonText);
+    withForm(formContainer) {        
+        this.popup.withForm(formContainer);
+    }
+
+    renderForm() { 
+        this.popup.content.appendChild(this.popup.title);       
+        this.popup.content.appendChild(this.popup.form);
     }
 }

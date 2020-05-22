@@ -13,31 +13,30 @@ class Popup {
         this.container.parentNode.removeChild(this.container);                         
     }    
 
-    addImage(link) {
-        this.content.appendChild(this.createImage(link));
-        this.content.classList.add('popup__content_card-image');
+    withImage(link) {
+        this.image = this.createImage(link); 
+        this.content.classList.add('popup__content_card-image');      
     }
 
     createImage(link) {
         const image = this.createElement('img', 'popup__card-image');        
         image.setAttribute('alt', '');
-        image.setAttribute('src', link);
+        image.setAttribute('src', link);        
         return image;
     }
 
-    addTitle(title) {        
-        this.content.appendChild(this.createTitle(title));
+    withTitle(titleName) {        
+        this.title = this.createTitle(titleName);
     }  
 
-    createTitle(title) {
+    createTitle(titleName) {
         const titleElement = this.createElement('h3', 'popup__title');        
-        titleElement.textContent = title;
+        titleElement.textContent = titleName;
         return titleElement;
     }
 
-    addCardForm(textInput, urlInput, buttonText) {        
-       const form = new FormDirector().getAddCardFormNode(textInput, urlInput, buttonText);
-       this.content.appendChild(form);
+    withForm(formContainer) {     
+        this.form = formContainer;        
     }   
 
     createPopup() {
@@ -58,5 +57,5 @@ class Popup {
     setCloseEventListener() {
         const closeButton = this.container.querySelector('.popup__close');
         closeButton.addEventListener('click', this.close.bind(this));
-    }  
+    }     
 }

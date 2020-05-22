@@ -1,13 +1,14 @@
 class AddCardFormBuilder extends FormBuilder {
-    addSubmitButton(buttonText) {        
-        this.form.addSubmitButton(buttonText);
+    withSubmitButton(buttonText) {        
+        this.form.withSubmitButton(buttonText);
     }
 
-    addTextInputWithErrorSpan(textInput) {
-        this.form.addTextInputWithErrorSpan(textInput);
+    withStringInputs(name, url) {        
+        const stringInputs = [new TextInput('name', 'Название', name), new UrlInput('link', 'Ссылка на картинку', url)];        
+        this.form.stringInputs = stringInputs;
     }
 
-    addUrlInputWithErrorSpan(urlInput) {
-        this.form.addUrlInputWithErrorSpan(urlInput);
+    render() {
+        this.form.render();
     }
 }

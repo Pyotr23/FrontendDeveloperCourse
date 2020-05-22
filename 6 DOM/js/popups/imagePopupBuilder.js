@@ -1,5 +1,9 @@
 class ImagePopupBuilder extends PopupBuilder {
-    addImage(link) {
-        this.popup.addImage(link);
+    withImage(link) {
+        this.popup.withImage(link);
+    }
+
+    renderImage() {        
+        this.popup.content.appendChild(this.popup.image);
     }
 }

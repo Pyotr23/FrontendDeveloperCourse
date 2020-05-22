@@ -142,7 +142,7 @@ openAddCardPopupButton.addEventListener('click', () => {
   // showPopup(addCardPopup);
   const nameInput = new StringInput('name', 'Название');
   const linkInput = new StringInput('link', 'Ссылка на картинку');
-  new PopupDirector().renderCardFormPopup('Новое место', nameInput, linkInput, '+');
+  // new PopupDirector().renderCardFormPopup('Новое место', nameInput, linkInput, '+');
 });
 
 editUserButton.addEventListener('click', () => {
@@ -153,7 +153,7 @@ editUserButton.addEventListener('click', () => {
   // setUserInfoInputValues();
   const nameInput = new StringInput('name', 'Полное имя');
   const jobInput = new StringInput('job', 'Профессия');
-  new PopupDirector().renderCardFormPopup('Редактировать профиль', nameInput, jobInput, 'Сохранить');
+  // new PopupDirector().renderCardFormPopup('Редактировать профиль', nameInput, jobInput, 'Сохранить');
 });
 
 document.querySelector('.places-list').addEventListener('click', (event) => {
@@ -164,8 +164,9 @@ const targetElement = event.target;
     cardList.removeCard(event);
   }
   else if (targetElement.classList.contains('place-card__image')){     
-    const link = targetElement.getAttribute('data-url'); 
-    new PopupDirector().renderImagePopup(link);
+    const link = targetElement.getAttribute('data-url');     
+    // new PopupDirector().renderImagePopup(link);
+    new PopupDirector().renderAddCardPopup('Новое место', 'Петя', 'Таня', '+');
         
     
     
