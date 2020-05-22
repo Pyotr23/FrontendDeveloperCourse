@@ -136,18 +136,24 @@ const setUserInfoInputValues = () => {
 }
 
 openAddCardPopupButton.addEventListener('click', () => {
-  setButtonState(addCardPopup, false);
-  clearValidityError(addCardPopup);
-  setEventListeners(addCardPopup);
-  showPopup(addCardPopup);
+  // setButtonState(addCardPopup, false);
+  // clearValidityError(addCardPopup);
+  // setEventListeners(addCardPopup);
+  // showPopup(addCardPopup);
+  const nameInput = new StringInput('name', 'Название');
+  const linkInput = new StringInput('link', 'Ссылка на картинку');
+  new PopupDirector().renderCardFormPopup('Новое место', nameInput, linkInput, '+');
 });
 
 editUserButton.addEventListener('click', () => {
-  setButtonState(editUserPopup, true);
-  clearValidityError(editUserPopup);
-  setEventListeners(editUserPopup);
-  showPopup(editUserPopup);
-  setUserInfoInputValues();
+  // setButtonState(editUserPopup, true);
+  // clearValidityError(editUserPopup);
+  // setEventListeners(editUserPopup);
+  // showPopup(editUserPopup);
+  // setUserInfoInputValues();
+  const nameInput = new StringInput('name', 'Полное имя');
+  const jobInput = new StringInput('job', 'Профессия');
+  new PopupDirector().renderCardFormPopup('Редактировать профиль', nameInput, jobInput, 'Сохранить');
 });
 
 document.querySelector('.places-list').addEventListener('click', (event) => {
@@ -159,10 +165,9 @@ const targetElement = event.target;
   }
   else if (targetElement.classList.contains('place-card__image')){     
     const link = targetElement.getAttribute('data-url'); 
-    // new PopupDirector().renderImagePopup(link);
+    new PopupDirector().renderImagePopup(link);
         
-    new PopupDirector().renderCardFormPopup('УРА!!!', new TextInput('tanya', 'Дратути'), 
-      new UrlInput('petya', 'placpetr'), 'Применить');
+    
     
     // const popupBuilder = new ImagePopupBuilder();    
     // popupBuilder.addImage(link);        
