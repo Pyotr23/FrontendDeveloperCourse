@@ -15,7 +15,7 @@ class PopupDirector {
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
         popupBuilder.renderPopup(); 
-        popupBuilder.setSubmitEventListener(this.addCard);
+        popupBuilder.setSubmitEventListener(this.addCard.bind(this));
         formValidator = new FormValidator(popupBuilder.popup.form);
         popupBuilder.setInputEventListener(formValidator.handlerInput.bind(formValidator));
         formValidator.setSubmitButtonState();
@@ -38,17 +38,17 @@ class PopupDirector {
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
         popupBuilder.renderPopup(); 
-        popupBuilder.setSubmitEventListener(this.editUserInfo);
+        popupBuilder.setSubmitEventListener(this.editUserInfo.bind(this));
         formValidator = new FormValidator(popupBuilder.popup.form);
         popupBuilder.setInputEventListener(formValidator.handlerInput.bind(formValidator));
-        formValidator.setSubmitButtonState();
+        formValidator.setSubmitButtonState();        
     }  
     
-    editUserInfo() {   
-        debugger;     
-        const newName = this.elements.name.value;
-        const newJob = this.elements.job.value;
+    editUserInfo() {           
+        const newName = this.popupBuilder.popup.form.elements.name.value;
+        const newJob = this.popupBuilder.popup.form.elements.job.value;
         userInfo.set(newName, newJob);
-        userInfo.update();        
+        userInfo.update();
+        this.popupBuilder.popup.close();        
     }
 }
