@@ -13,11 +13,11 @@ class Card {
             так как он не перезаписывает все содержимое целиком и поэтому работает быстрее.
             https://developer.mozilla.org/ru/docs/Web/API/Element/insertAdjacentHTML
          */ 
-        this._container = this._createCardNodeTemplate();        
+        this._view = this._createCardNodeTemplate();        
         this._addLink();
         this._addName();  
-        console.log(this._container);      
-        return this._container;
+        this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);          
+        return this._view;
     }
 
     _createCardNodeTemplate = () => {        
@@ -34,14 +34,17 @@ class Card {
         return cardNode;
     }
 
-    _addLink = () => {
-        console.log(this._container);
-        const placeCardImage = this._container.querySelector('.place-card__image');
+    _addLink = () => {        
+        const placeCardImage = this._view.querySelector('.place-card__image');
         placeCardImage.setAttribute('data-url', this._link);
         placeCardImage.style.backgroundImage = `url(${this._link})`;
     }
 
     _addName = () => {
-        this._container.querySelector('.place-card__name').textContent = this._name;
+        this._view.querySelector('.place-card__name').textContent = this._name;
     } 
+
+    _remove = () => {
+        this._view.remove();
+    }
 }
