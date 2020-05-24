@@ -1,3 +1,6 @@
+/*
+    Надо исправить: По условиям задачи, в классе должны быть методы like и remove.
+ */
 class Card {
     constructor (name, link) {
         this.name = name;
@@ -14,6 +17,11 @@ class Card {
                   </div>`
         const cardNode = document.createElement('div');
         cardNode.classList.add('place-card');
+        /*
+            Можно лучше: Эффективней использовать insertAdjacentHTML,
+            так как он не перезаписывает все содержимое целиком и поэтому работает быстрее.
+            https://developer.mozilla.org/ru/docs/Web/API/Element/insertAdjacentHTML
+         */
         cardNode.innerHTML = cardNodeTemplate;
         const placeCardImage = cardNode.querySelector('.place-card__image');
         placeCardImage.setAttribute('data-url', this.link);

@@ -6,47 +6,67 @@ class FormValidator {
             wrongLength: 'Должно быть от 2 до 30 символов',
             wrongUrl: 'Здесь должна быть ссылка',
             wrongPattern: 'Введите данные в верном формате'
-        } 
+        }
     }
 
-    checkInputsValidity() {             
+    checkInputsValidity() {
         const [...inputs] = this.form.elements;
         return inputs.every(this.isValidate);
     }
 
     isValidate = (input) => {
         input.setCustomValidity("");
-      
+
         if (input.validity.valueMissing) {
           input.setCustomValidity(this.errorMessages.empty);
           return false
         }
-      
+
         if (input.validity.tooShort || input.validity.tooLong) {
           input.setCustomValidity(this.errorMessages.wrongLength);
           return false
         }
-      
+
         if (input.validity.typeMismatch && input.type === 'url') {
           input.setCustomValidity(this.errorMessages.wrongUrl);
           return false
         }
-      
+
         return input.checkValidity();
     }
 
-    handlerInput(event) {        
+    /*
+        Можно лучше: Корректней будет назвать handleInput или inputHandler.
+     */
+    handlerInput(event) {
         this.isFieldValid(event.target);
-        this.setSubmitButtonState();    
+        this.setSubmitButtonState();
     }
 
-    isFieldValid(input) {        
+    /*
+        Можно лучше: Название метода подразумевает возврат boolean-значения, указывающего на валидность поля.
+        Но и возвращаемого значения нет и не по коду это не требуется,
+        так что уместней будет переименовать метод исходя из того, что он делает.
+     */
+    isFieldValid(input) {
         this.isValidate(input);
         const errorElement = this.form.querySelector(`#${input.name}-error`);
-        errorElement.textContent = input.validationMessage;                
+        errorElement.textContent = input.validationMessage;
     }
 
     setSubmitButtonState() {
+        /*
+            Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
+            то есть, мы уже не сможем использовать его в разрыве от этой переменной.
+            Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
+            либо использовать коллбэк-функцию, передавая обработку события наружу.
+         */
+        /*
+            Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
+            Вместо этого можно реализовать отдельные геттеры и сеттеры:
+            https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
+         */
         const button = popupDirector.popupBuilder.popup.form.querySelector('.button');
         if (this.checkInputsValidity()) {
             button.removeAttribute('disabled');

@@ -3,8 +3,8 @@ class FormPopupBuilder extends PopupBuilder {
         this.popup.withTitle(title);
     }
 
-    withForm(formContainer) {        
-        this.popup.withForm(formContainer);        
+    withForm(formContainer) {
+        this.popup.withForm(formContainer);
     }
 
     setSubmitEventListener(action) {
@@ -15,8 +15,14 @@ class FormPopupBuilder extends PopupBuilder {
         this.popup.setInputEventListener(action);
     }
 
-    renderForm() { 
-        this.popup.content.appendChild(this.popup.title);       
+    renderForm() {
+        /*
+            Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
+            Вместо этого можно реализовать отдельные геттеры и сеттеры:
+            https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
+         */
+        this.popup.content.appendChild(this.popup.title);
         this.popup.content.appendChild(this.popup.form);
     }
 }
