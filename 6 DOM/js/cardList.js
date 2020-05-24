@@ -1,12 +1,13 @@
-/*
+/*  !!! DONE !!!
     Надо исправить: По условиям задачи, конструктор должен принимать два аргумента:
         DOM-элемент — контейнер, куда нужно складывать карточки;
         массив карточек, которые будут на странице при загрузке.
     Также должен быть метод render, отвечающий за отрисовку начального списка.
  */
-class CardList {
-    constructor (container){
+class CardList {     
+    constructor (container, cards) {        
         this.container = container;
+        this.cards = cards;
         /*
             Надо исправить: Делегирование больше не стоит использовать.
             События должны быть добавлены на конкретные элементы (кнопка лайка, кнопка удаления, изображение карточки).
@@ -28,15 +29,7 @@ class CardList {
         })
     }
 
-    addCard(card) {
-        this.container.appendChild(card);
-    }
-
-    removeCard(event) {
-        event.target.closest('.place-card').remove();
-    }
-
-    likeCard(event) {
-        event.target.classList.toggle('place-card__like-icon_liked');
+    render() {        
+        this.cards.forEach(card => { this.container.appendChild(card) });
     }
 }
