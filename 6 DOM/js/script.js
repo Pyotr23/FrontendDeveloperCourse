@@ -1,7 +1,8 @@
-
-// Приветствую Вас! Очень хотел попробовать сделать данную работу с помощью шаблона проектирования "Строитель". Я понимаю,
-// что для конкретной работы это избыточная сложность. Но тем не менее я надеюсь, что Вы оцените и поможете
-// довести желаемое до конца. Буду рад любым советам и ссылкам!
+/*
+    Приветствую Вас! Очень хотел попробовать сделать данную работу с помощью шаблона проектирования "Строитель". Я понимаю,
+    что для конкретной работы это избыточная сложность. Но тем не менее я надеюсь, что Вы оцените и поможете
+    довести желаемое до конца. Буду рад любым советам и ссылкам!
+*/
 
 /*
     Здравствуйте! Похвально, что осваиваете новые знания. Со своей стороны постараюсь помочь чем смогу.
@@ -14,10 +15,13 @@
     тогда они будут переопределять друг друга. Модуль должен предоставлять наружу только минимально необходимый api.
     https://developer.mozilla.org/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/IIFE
  */
-/*
+
+/*  !!! DONE !!!  
     Можно лучше: Рекомендуется использовать строгий режим, в котором меньше вероятность допустить синтаксические ошибки.
     https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Strict_mode
  */
+
+'use strict';
 const cardList = new CardList(document.querySelector('.places-list'));
 const openAddCardPopupButton = document.querySelector('.user-info__button');
 const editUserButton = document.querySelector('.button_place_user-info');
@@ -28,7 +32,7 @@ let formValidator = null;
 const randomFillPlaces = () => {
     while (initialCards.length !== 0){
         const index = Math.floor(Math.random() * initialCards.length);
-        const card = new Card(initialCards[index].name, initialCards[index].link);
+        const card = new Card(initialCards[index].name, initialCards[index].link);        
         cardList.addCard(card.create());
         initialCards.splice(index, 1);
     }
