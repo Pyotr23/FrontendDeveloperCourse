@@ -14,10 +14,8 @@ class CardList {
             а текущий класс только за отрисовку на странице.
          */
         this.container.addEventListener('click', (event) => {
-            const target = event.target;
-            if (target.classList.contains('place-card__like-icon'))
-                this.likeCard(event);            
-            else if (target.classList.contains('place-card__image')) {
+            const target = event.target;            
+            if (target.classList.contains('place-card__image')) {
                 const link = target.getAttribute('data-url');
                 /*
                     Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,

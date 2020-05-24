@@ -16,7 +16,8 @@ class Card {
         this._view = this._createCardNodeTemplate();        
         this._addLink();
         this._addName();  
-        this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);          
+        this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);  
+        this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);       
         return this._view;
     }
 
@@ -46,5 +47,9 @@ class Card {
 
     _remove = () => {
         this._view.remove();
+    }
+
+    _like = (event) => {
+        event.target.classList.toggle('place-card__like-icon_liked');
     }
 }
