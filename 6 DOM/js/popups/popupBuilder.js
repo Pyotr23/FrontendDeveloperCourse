@@ -1,7 +1,7 @@
 class PopupBuilder {
-    constructor() {
-        this.popup = new Popup();
-    }
+    // constructor() {
+    //     this.popup = new Popup();
+    // }
 
     renderPopup() {
         /*

@@ -1,4 +1,9 @@
 class ImagePopupBuilder extends PopupBuilder {
+    constructor() {   
+        super();     
+        this.popup = new ImagePopup();
+    }
+
     withImage(link) {
         this.popup.withImage(link);
     }

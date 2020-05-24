@@ -16,19 +16,7 @@ class Popup {
 
     close() {
         this.container.parentNode.removeChild(this.container);
-    }
-
-    withImage(link) {
-        this.image = this.createImage(link);
-        this.content.classList.add('popup__content_card-image');
-    }
-
-    createImage(link) {
-        const image = this.createElement('img', 'popup__card-image');
-        image.setAttribute('alt', '');
-        image.setAttribute('src', link);
-        return image;
-    }
+    }    
 
     withTitle(titleName) {
         this.title = this.createTitle(titleName);
