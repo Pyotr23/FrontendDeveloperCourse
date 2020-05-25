@@ -5,7 +5,7 @@
  */
 class Popup {
     constructor() {
-        this._container = this.createPopup();
+        this._container = this._createPopup();
         this._content = this._container.querySelector('.popup__content');
         this._setCloseEventListener();
     }
@@ -23,11 +23,11 @@ class Popup {
     }    
 
     withTitle(titleName) {
-        this.title = this.createTitle(titleName);
+        this.title = this._createTitle(titleName);
     }
 
-    createTitle(titleName) {
-        const titleElement = this.createElement('h3', 'popup__title');
+    _createTitle(titleName) {
+        const titleElement = this._createElement('h3', 'popup__title');
         titleElement.textContent = titleName;
         return titleElement;
     }
@@ -43,21 +43,22 @@ class Popup {
         formValidator = new FormValidator(formContainer);
     }
 
-    createPopup() {
-        const popup = this.createElement('div', 'popup');
+    _createPopup() {
+        const popup = this._createElement('div', 'popup');
         popup.classList.add('popup_is-opened');
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Эффективней использовать insertAdjacentHTML,
             так как он не перезаписывает все содержимое целиком и поэтому работает быстрее.
             https://developer.mozilla.org/ru/docs/Web/API/Element/insertAdjacentHTML
          */
-        popup.innerHTML = `<div class="popup__content">
-                             <img src="./images/close.svg" alt="" class="popup__close">        
-                           </div>`;
+        const innerHtml =  `<div class="popup__content">
+                                <img src="./images/close.svg" alt="" class="popup__close">
+                            </div>`;
+        popup.insertAdjacentHTML('afterbegin', innerHtml);
         return popup;
     }
 
-    createElement(htmlTag, className) {
+    _createElement(htmlTag, className) {
         const element = document.createElement(htmlTag);
         element.classList.add(className);
         return element;
