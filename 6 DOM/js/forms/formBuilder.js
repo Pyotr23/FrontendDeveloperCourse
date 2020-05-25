@@ -1,5 +1,5 @@
 class FormBuilder {
     constructor() {
-        this.form = new Form();
+        this._form = new Form();
     }
 }

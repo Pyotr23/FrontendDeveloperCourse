@@ -1,9 +1,9 @@
 class Form {
     constructor() {
-        this.container = this.createForm();
+        this.container = this._createForm();
     }
 
-    createForm() {
+    _createForm() {
         const form = document.createElement('form');
         form.classList.add('popup__form');
         form.setAttribute('novalidate', '');
@@ -11,12 +11,12 @@ class Form {
     }
 
     withSubmitButton(buttonText) {
-        const button = this.createButton();
+        const button = this._createButton();
         button.textContent = buttonText;
         this.submitButton = button;
     }
 
-    createButton() {
+    _createButton() {
         const button = document.createElement('button');
         button.classList.add('button');
         button.classList.add('popup__button');
@@ -26,19 +26,27 @@ class Form {
     }
 
     withStringInputs(stringInputs) {
-        this.stringInputs = stringInputs;
+        this._stringInputs = stringInputs;
+    }
+
+    get stringInputs() {
+        return this._stringInputs;
+    }
+
+    set stringInputs(inputs) {
+        this._stringInputs = inputs;
     }
 
     render() {
-        this.stringInputs.forEach(si => {
-            /*
+        this._stringInputs.forEach(si => {
+            /*  !!! DONE !!!
                 Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
                 Вместо этого можно реализовать отдельные геттеры и сеттеры:
                 https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
                 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
              */
             this.container.appendChild(si.input);
-            /*
+            /*  !!! DONE !!!
                 Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
                 Вместо этого можно реализовать отдельные геттеры и сеттеры:
                 https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get

@@ -1,4 +1,4 @@
-/*
+/*  !!! DONE !!!
     Можно лучше: В данный момент класс Popup представляет собой смесь helper'ов на все случаи жизни.
     Тут находится и логика добавления разметки для форм, и для просмотра изображения, и общая.
     Можно оставить в данном классе только общую логику, а специфичную вынести в отдельные классы, наследуемые от Popup.
@@ -18,31 +18,24 @@ class Popup {
         return this._content;
     }
 
+    get title() {
+        return this._title;
+    }
+
+    withTitle(titleName) {
+        this._title = this._createTitle(titleName);
+    }
+
     _close = () => {
         this._container.parentNode.removeChild(this._container);
     }    
-
-    withTitle(titleName) {
-        this.title = this._createTitle(titleName);
-    }
 
     _createTitle(titleName) {
         const titleElement = this._createElement('h3', 'popup__title');
         titleElement.textContent = titleName;
         return titleElement;
     }
-
-    withForm(formContainer) {
-        this.form = formContainer;
-        /*
-            Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
-            то есть, мы уже не сможем использовать его в разрыве от этой переменной.
-            Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
-            либо использовать коллбэк-функцию, передавая обработку события наружу.
-         */
-        formValidator = new FormValidator(formContainer);
-    }
-
+    
     _createPopup() {
         const popup = this._createElement('div', 'popup');
         popup.classList.add('popup_is-opened');
@@ -67,16 +60,5 @@ class Popup {
     _setCloseEventListener() {
         const closeButton = this._container.querySelector('.popup__close');
         closeButton.addEventListener('click', this._close);
-    }
-
-    /*  !!! DONE !!!
-        Можно лучше: Опечатка в названии, listener с маленькой буквы.
-     */
-    setSubmitEventListener(action) {
-        this.form.addEventListener('submit', action);
-    }
-
-    setInputEventListener(action) {
-        this.form.addEventListener('input', action);
     }
 }

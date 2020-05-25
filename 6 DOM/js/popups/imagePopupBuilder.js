@@ -9,7 +9,7 @@ class ImagePopupBuilder extends PopupBuilder {
     } 
 
     renderImage() {
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get

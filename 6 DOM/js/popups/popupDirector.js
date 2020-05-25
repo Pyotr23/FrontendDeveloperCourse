@@ -18,14 +18,14 @@ class PopupDirector {
     }
 
     renderAddCardPopup(title, name, link, buttonText) {
-        const popupBuilder = new FormPopupBuilder();
+        const popupBuilder = new FormPopupBuilder(this._parentNode);
         this.popupBuilder = popupBuilder;
         const formContainer = new FormDirector().getAddCardFormNode(name, link, buttonText);
 
         popupBuilder.withTitle(title);
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
-        popupBuilder.renderPopup();
+        popupBuilder.renderPopup();        
         popupBuilder.setSubmitEventListener(this.addCard.bind(this));
         /*
 		   Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
@@ -72,7 +72,7 @@ class PopupDirector {
     }
 
     renderEditUserPopup(title, userInfo, buttonText) {
-        const popupBuilder = new FormPopupBuilder();
+        const popupBuilder = new FormPopupBuilder(this._parentNode);
         this.popupBuilder = popupBuilder;
         const formContainer = new FormDirector().getEditUserFormNode(userInfo, buttonText);
 
