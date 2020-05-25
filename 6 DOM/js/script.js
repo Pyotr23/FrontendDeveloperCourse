@@ -39,7 +39,7 @@ cardList.render();
 const openAddCardPopupButton = document.querySelector('.user-info__button');
 const editUserButton = document.querySelector('.button_place_user-info');
 const userInfo = new UserInfo(document.querySelector('.user-info'));
-const popupDirector = new PopupDirector();
+const popupDirector = new PopupDirector(document.querySelector('.root'));
 let formValidator = null;
 
 openAddCardPopupButton.addEventListener('click', () => {

@@ -1,12 +1,12 @@
 class ImagePopupBuilder extends PopupBuilder {
-    constructor() {   
-        super();     
-        this.popup = new ImagePopup();
+    constructor(parentNode) {         
+        super(parentNode);     
+        this._popup = new ImagePopup();        
     }
 
     withImage(link) {
-        this.popup.withImage(link);
-    }
+        this._popup.withImage(link);
+    } 
 
     renderImage() {
         /*
@@ -14,7 +14,7 @@ class ImagePopupBuilder extends PopupBuilder {
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
-         */
-        this.popup.content.appendChild(this.popup.image);
+         */        
+        this._popup.content.appendChild(this._popup.image);
     }
 }

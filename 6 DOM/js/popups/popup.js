@@ -5,17 +5,21 @@
  */
 class Popup {
     constructor() {
-        this.container = this.createPopup();
-        this.content = this.container.querySelector('.popup__content');
-        this.setCloseEventListener();
+        this._container = this.createPopup();
+        this._content = this._container.querySelector('.popup__content');
+        this._setCloseEventListener();
     }
 
-    open() {
-        this.container.classList.add('popup_is-opened');
+    get container() {
+        return this._container;
     }
 
-    close() {
-        this.container.parentNode.removeChild(this.container);
+    get content() {
+        return this._content;
+    }
+
+    _close = () => {
+        this._container.parentNode.removeChild(this._container);
     }    
 
     withTitle(titleName) {
@@ -59,15 +63,15 @@ class Popup {
         return element;
     }
 
-    setCloseEventListener() {
-        const closeButton = this.container.querySelector('.popup__close');
-        closeButton.addEventListener('click', this.close.bind(this));
+    _setCloseEventListener() {
+        const closeButton = this._container.querySelector('.popup__close');
+        closeButton.addEventListener('click', this._close);
     }
 
-    /*
+    /*  !!! DONE !!!
         Можно лучше: Опечатка в названии, listener с маленькой буквы.
      */
-    setSubmitEventlistener(action) {
+    setSubmitEventListener(action) {
         this.form.addEventListener('submit', action);
     }
 

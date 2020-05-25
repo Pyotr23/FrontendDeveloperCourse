@@ -5,10 +5,13 @@
     то данная реализация уже не будет работать корректно.
  */
 class PopupDirector {
-    renderImagePopup(link) {
-        const popupBuilder = new ImagePopupBuilder();
-        this.popupBuilder = popupBuilder;
+    constructor(parentNode) {
+        this._parentNode = parentNode;
+    }
 
+    renderImagePopup(link) {
+        const popupBuilder = new ImagePopupBuilder(this._parentNode);
+        
         popupBuilder.withImage(link);
         popupBuilder.renderImage();
         popupBuilder.renderPopup();

@@ -1,7 +1,11 @@
 class ImagePopup extends Popup {
     withImage(link) {
-        this.image = this.createImage(link);
-        this.content.classList.add('popup__content_card-image');
+        this._image = this.createImage(link);
+        this._content.classList.add('popup__content_card-image');
+    }
+
+    get image() {
+        return this._image;
     }
 
     createImage(link) {
