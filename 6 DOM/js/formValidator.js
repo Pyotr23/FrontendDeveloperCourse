@@ -1,16 +1,16 @@
 class FormValidator {
     constructor(form) {
-        this.form = form;
-        this.errorMessages = {
+        this._form = form; 
+        this._errorMessages = {
             empty: 'Это обязательное поле',
             wrongLength: 'Должно быть от 2 до 30 символов',
             wrongUrl: 'Здесь должна быть ссылка',
             wrongPattern: 'Введите данные в верном формате'
-        }
+        }       
     }
 
     checkInputsValidity() {
-        const [...inputs] = this.form.elements;
+        const [...inputs] = this._form.elements;
         return inputs.every(this.isValidate);
     }
 
@@ -18,17 +18,17 @@ class FormValidator {
         input.setCustomValidity("");
 
         if (input.validity.valueMissing) {
-          input.setCustomValidity(this.errorMessages.empty);
+          input.setCustomValidity(this._errorMessages.empty);
           return false
         }
 
         if (input.validity.tooShort || input.validity.tooLong) {
-          input.setCustomValidity(this.errorMessages.wrongLength);
+          input.setCustomValidity(this._errorMessages.wrongLength);
           return false
         }
 
         if (input.validity.typeMismatch && input.type === 'url') {
-          input.setCustomValidity(this.errorMessages.wrongUrl);
+          input.setCustomValidity(this._errorMessages.wrongUrl);
           return false
         }
 
@@ -38,7 +38,7 @@ class FormValidator {
     /*
         Можно лучше: Корректней будет назвать handleInput или inputHandler.
      */
-    handlerInput(event) {
+    handleInput(event) {
         this.isFieldValid(event.target);
         this.setSubmitButtonState();
     }
@@ -50,7 +50,7 @@ class FormValidator {
      */
     isFieldValid(input) {
         this.isValidate(input);
-        const errorElement = this.form.querySelector(`#${input.name}-error`);
+        const errorElement = this._form.querySelector(`#${input.name}-error`);
         errorElement.textContent = input.validationMessage;
     }
 

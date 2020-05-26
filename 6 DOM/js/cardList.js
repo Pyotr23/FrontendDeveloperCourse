@@ -6,15 +6,15 @@
  */
 class CardList {     
     constructor (container, cards) {        
-        this.container = container;
-        this.cards = cards;
+        this._container = container;
+        this._cards = cards;
         /*
             Надо исправить: Делегирование больше не стоит использовать.
             События должны быть добавлены на конкретные элементы (кнопка лайка, кнопка удаления, изображение карточки).
             И добавлять эти события нужно в классе Card, так как он отвечает за создание карточки,
             а текущий класс только за отрисовку на странице.
          */
-        this.container.addEventListener('click', (event) => {
+        this._container.addEventListener('click', (event) => {
             const target = event.target;            
             if (target.classList.contains('place-card__image')) {
                 const link = target.getAttribute('data-url');
@@ -30,6 +30,10 @@ class CardList {
     }
 
     render() {        
-        this.cards.forEach(card => { this.container.appendChild(card) });
+        this._cards.forEach(card => { this.addCard(card) });
+    }
+
+    addCard(card) {
+        this._container.appendChild(card);
     }
 }

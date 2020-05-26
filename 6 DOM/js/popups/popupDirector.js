@@ -5,8 +5,9 @@
     то данная реализация уже не будет работать корректно.
  */
 class PopupDirector {
-    constructor(parentNode) {
+    constructor(parentNode, appendCard) {
         this._parentNode = parentNode;
+        this._appendCard = appendCard
     }
 
     renderImagePopup(link) {
@@ -17,7 +18,7 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup(title, name, link, buttonText) {
+    renderAddCardPopup(title, name, link, buttonText, cardList) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);
         this.popupBuilder = popupBuilder;
         const formContainer = new FormDirector().getAddCardFormNode(name, link, buttonText);
@@ -26,7 +27,7 @@ class PopupDirector {
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();        
-        popupBuilder.setSubmitEventListener(this.addCard.bind(this));
+        popupBuilder.setSubmitEventListener(this._addCard);
         /*
 		   Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
 		   то есть, мы уже не сможем использовать его в разрыве от этой переменной.
@@ -34,7 +35,6 @@ class PopupDirector {
 		   либо использовать коллбэк-функцию, передавая обработку события наружу.
 		*/
         popupBuilder.setInputEventListener(formValidator.handlerInput.bind(formValidator));
-
         /*
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
             то есть, мы уже не сможем использовать его в разрыве от этой переменной.
@@ -44,7 +44,7 @@ class PopupDirector {
         formValidator.setSubmitButtonState();
     }
 
-    addCard(event) {
+    _addCard = (event) => {
         event.preventDefault();
         /*
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
@@ -55,13 +55,13 @@ class PopupDirector {
         const name = this.popupBuilder.popup.form.elements.name.value;
         const link = this.popupBuilder.popup.form.elements.link.value;
         const newCard = new Card(name, link);
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
             то есть, мы уже не сможем использовать его в разрыве от этой переменной.
             Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
             либо использовать коллбэк-функцию, передавая обработку события наружу.
          */
-        cardList.addCard(newCard.create());
+        this.cardList.addCard(newCard.create());
         /*
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
