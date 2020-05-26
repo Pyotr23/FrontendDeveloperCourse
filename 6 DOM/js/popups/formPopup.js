@@ -13,6 +13,11 @@ class FormPopup extends Popup {
     get form() {
         return this._form;
     }
+
+    get inputs() {
+        const [...inputs] = this._form.elements;
+        return inputs;
+    }
     
     /*  !!! DONE !!!
         Можно лучше: Опечатка в названии, listener с маленькой буквы.

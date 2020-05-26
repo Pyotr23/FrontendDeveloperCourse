@@ -1,4 +1,4 @@
-class AddCardFormBuilder extends FormBuilder {
+class AddCardFormBuilder extends FormBuilder {    
     withSubmitButton(buttonText) {
         this._form.withSubmitButton(buttonText);
     }
@@ -15,5 +15,5 @@ class AddCardFormBuilder extends FormBuilder {
 
     render() {
         this._form.render();
-    }
+    }    
 }

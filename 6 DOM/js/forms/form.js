@@ -1,6 +1,10 @@
 class Form {
     constructor() {
-        this.container = this._createForm();
+        this._container = this._createForm();        
+    }
+
+    get container() {
+        return this._container;
     }
 
     _createForm() {
@@ -33,8 +37,8 @@ class Form {
         return this._stringInputs;
     }
 
-    set stringInputs(inputs) {
-        this._stringInputs = inputs;
+    set stringInputs(stringInputs) {
+        this._stringInputs = stringInputs;
     }
 
     render() {

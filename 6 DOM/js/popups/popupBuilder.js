@@ -4,6 +4,10 @@ class PopupBuilder {
         this._popup = undefined;
     }
 
+    get popup() {
+        return this._popup;
+    }
+
     renderPopup() {
         /*  !!! DONE !!!
             Надо исправить: Не следует использовать поиск по document внутри методов класса.

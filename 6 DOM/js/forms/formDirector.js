@@ -10,7 +10,7 @@ class FormDirector {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        return builder._form.container;
+        return builder.view;
     }
 
     getEditUserFormNode(userInfo, buttonText) {
@@ -24,6 +24,6 @@ class FormDirector {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        return builder._form.container;
+        return builder.view;
     }
 }

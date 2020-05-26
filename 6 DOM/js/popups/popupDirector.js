@@ -18,9 +18,8 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup( name, link, buttonText, cardList) {
-        const popupBuilder = new FormPopupBuilder(this._parentNode);
-        this.popupBuilder = popupBuilder;
+    renderAddCardPopup(cardList) {        
+        const popupBuilder = new FormPopupBuilder(this._parentNode);        
         const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
         const submitButtonText = '+';
         const formContainer = new FormDirector().getAddCardFormNode(stringInputs, submitButtonText);
@@ -48,15 +47,14 @@ class PopupDirector {
 
     _addCard = (event) => {
         event.preventDefault();
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        const name = this.popupBuilder.popup.form.elements.name.value;
-        const link = this.popupBuilder.popup.form.elements.link.value;
-        const newCard = new Card(name, link);
+        const inputs = this.popupBuilder.popup.inputs;        
+        const newCard = new Card(inputs[0].value, inputs[1].value);
         /*  !!! DONE !!!
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
             то есть, мы уже не сможем использовать его в разрыве от этой переменной.
@@ -70,12 +68,12 @@ class PopupDirector {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        this.popupBuilder.popup.close();
+        this._popupBuilder.popup.close();
     }
 
     renderEditUserPopup(title, userInfo, buttonText) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);
-        this.popupBuilder = popupBuilder;
+        this._popupBuilder = popupBuilder;
         const formContainer = new FormDirector().getEditUserFormNode(userInfo, buttonText);
 
         popupBuilder.withTitle(title);
@@ -107,8 +105,8 @@ class PopupDirector {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        const newName = this.popupBuilder.popup.form.elements.name.value;
-        const newJob = this.popupBuilder.popup.form.elements.job.value;
+        const newName = this._popupBuilder.popup.form.elements.name.value;
+        const newJob = this._popupBuilder.popup.form.elements.job.value;
         /*
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
             то есть, мы уже не сможем использовать его в разрыве от этой переменной.
@@ -124,6 +122,6 @@ class PopupDirector {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        this.popupBuilder.popup.close();
+        this._popupBuilder.popup.close();
     }
 }

@@ -35,7 +35,7 @@ class FormValidator {
         return input.checkValidity();
     }
 
-    /*
+    /*  !!! DONE !!!
         Можно лучше: Корректней будет назвать handleInput или inputHandler.
      */
     handleInput(event) {
@@ -67,7 +67,7 @@ class FormValidator {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        const button = popupDirector.popupBuilder.popup.form.querySelector('.button');
+        const button = popupDirector._popupBuilder.popup.form.querySelector('.button');
         if (this.checkInputsValidity()) {
             button.removeAttribute('disabled');
             button.classList.add('popup__button_is-active');
