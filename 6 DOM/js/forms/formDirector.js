@@ -1,7 +1,7 @@
 class FormDirector {
-    getAddCardFormNode(name, url, buttonText) {
+    getAddCardFormNode(stringInputs, buttonText) {
         const builder = new AddCardFormBuilder();
-        builder.withStringInputs(name, url);
+        builder.withStringInputs(stringInputs);
         builder.withSubmitButton(buttonText);
         builder.render();
         /*  !!! DONE !!!

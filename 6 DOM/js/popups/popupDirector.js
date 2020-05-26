@@ -18,12 +18,14 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup(title, name, link, buttonText, cardList) {
+    renderAddCardPopup( name, link, buttonText, cardList) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);
         this.popupBuilder = popupBuilder;
-        const formContainer = new FormDirector().getAddCardFormNode(name, link, buttonText);
+        const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
+        const submitButtonText = '+';
+        const formContainer = new FormDirector().getAddCardFormNode(stringInputs, submitButtonText);
 
-        popupBuilder.withTitle(title);
+        popupBuilder.withTitle('Новое место');
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();        

@@ -43,7 +43,7 @@ const popupDirector = new PopupDirector(document.querySelector('.root'));
 let formValidator = null;
 
 openAddCardPopupButton.addEventListener('click', () => {
-  popupDirector.renderAddCardPopup('Новое место', '', '', '+', cardList);
+  popupDirector.renderAddCardPopup(cardList);
 });
 
 editUserButton.addEventListener('click', () => {

@@ -3,9 +3,7 @@ class AddCardFormBuilder extends FormBuilder {
         this._form.withSubmitButton(buttonText);
     }
 
-    withStringInputs(name, link) {
-        const stringInputs =
-            [new TextInput('name', 'Название', name), new UrlInput('link', 'Ссылка на картинку', link)];
+    withStringInputs(stringInputs) {               
         /*  !!! DONE !!!
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
