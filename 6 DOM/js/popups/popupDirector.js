@@ -18,12 +18,12 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup(cardList) {        
+    renderAddCardPopup(formValidator, cardList) {        
         const popupBuilder = new FormPopupBuilder(this._parentNode);        
         const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
         const submitButtonText = '+';
         const formContainer = new FormDirector().getAddCardFormNode(stringInputs, submitButtonText);
-
+        formValidator = new FormValidator(formContainer);
         popupBuilder.withTitle('Новое место');
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
@@ -35,7 +35,7 @@ class PopupDirector {
 		   Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
 		   либо использовать коллбэк-функцию, передавая обработку события наружу.
 		*/
-        popupBuilder.setInputEventListener(formValidator.handlerInput.bind(formValidator));
+        popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
         /*
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
             то есть, мы уже не сможем использовать его в разрыве от этой переменной.

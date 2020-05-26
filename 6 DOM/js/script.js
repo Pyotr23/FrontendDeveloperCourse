@@ -43,7 +43,7 @@ const popupDirector = new PopupDirector(document.querySelector('.root'));
 let formValidator = null;
 
 openAddCardPopupButton.addEventListener('click', () => {
-  popupDirector.renderAddCardPopup(cardList);
+  popupDirector.renderAddCardPopup(formValidator, cardList);
 });
 
 editUserButton.addEventListener('click', () => {
