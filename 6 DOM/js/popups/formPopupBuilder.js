@@ -12,8 +12,7 @@ class FormPopupBuilder extends PopupBuilder {
         this._popup.withForm(formContainer);
     }
 
-    setSubmitEventListener(action) {
-        console.log(this._popup);
+    setSubmitEventListener(action) {        
         this._popup.setSubmitEventListener(action);
     }
 

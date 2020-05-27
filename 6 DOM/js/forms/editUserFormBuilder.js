@@ -3,9 +3,7 @@ class EditUserFormBuilder extends FormBuilder {
         this._form.withSubmitButton(buttonText);
     }
 
-    withStringInputs(userInfo) {
-        const stringInputs =
-            [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('job', 'Профессия', userInfo.job)];
+    withStringInputs(stringInputs) {        
         /*  !!! DONE !!!
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
             Вместо этого можно реализовать отдельные геттеры и сеттеры:

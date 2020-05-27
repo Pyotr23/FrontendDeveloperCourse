@@ -13,9 +13,9 @@ class FormDirector {
         return builder.view;
     }
 
-    getEditUserFormNode(userInfo, buttonText) {
+    getEditUserFormNode(stringInputs, buttonText) {
         const builder = new EditUserFormBuilder();
-        builder.withStringInputs(userInfo);
+        builder.withStringInputs(stringInputs);
         builder.withSubmitButton(buttonText);
         builder.render();
         /*  !!! DONE !!!

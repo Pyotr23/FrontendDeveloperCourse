@@ -18,10 +18,8 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup(formValidator, cardList) {  
-        this._cardList = cardList;      
-        const popupBuilder = new FormPopupBuilder(this._parentNode); 
-        this._popupBuilder = popupBuilder;       
+    renderAddCardPopup(formValidator, cardList) {           
+        const popupBuilder = new FormPopupBuilder(this._parentNode);              
         const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
         const submitButtonText = '+';
         const formContainer = new FormDirector().getAddCardFormNode(stringInputs, submitButtonText);
@@ -31,7 +29,7 @@ class PopupDirector {
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();        
-        popupBuilder.setSubmitEventListener(this._addCard);
+        popupBuilder.setSubmitEventListener((event) => this._addCard(event, cardList, popupBuilder));
         /*
 		   Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
 		   то есть, мы уже не сможем использовать его в разрыве от этой переменной.
@@ -48,7 +46,7 @@ class PopupDirector {
         formValidator.setSubmitButtonState();
     }
 
-    _addCard = (event) => {
+    _addCard = (event, cardList, popupBuilder) => {
         event.preventDefault();
         /*  !!! DONE !!!
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
@@ -56,7 +54,7 @@ class PopupDirector {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        const inputs = this._popupBuilder.popup.inputs;        
+        const inputs = popupBuilder.popup.inputs;        
         const newCard = new Card(inputs[0].value, inputs[1].value);
         /*  !!! DONE !!!
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
@@ -64,35 +62,39 @@ class PopupDirector {
             Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
             либо использовать коллбэк-функцию, передавая обработку события наружу.
          */
-        this._cardList.addCard(newCard.create());
+        cardList.addCard(newCard.create());
         /*
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        this._popupBuilder.popup.close();
+        popupBuilder.popup.close();
     }
 
-    renderEditUserPopup(title, userInfo, buttonText) {
+    // renderEditUserPopup(title, userInfo, buttonText) {
+    renderEditUserPopup(formValidator, userInfo) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);
         this._popupBuilder = popupBuilder;
-        const formContainer = new FormDirector().getEditUserFormNode(userInfo, buttonText);
-
-        popupBuilder.withTitle(title);
+        const stringInputs = [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('job', 'Профессия', userInfo.job)];
+        const submitButtonText = 'Сохранить';
+        const formContainer = new FormDirector().getEditUserFormNode(stringInputs, submitButtonText);
+        const submitButton = formContainer.querySelector('.popup__button');
+        formValidator = new FormValidator(formContainer, submitButton);
+        popupBuilder.withTitle('Редактировать профиль');
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();
-        popupBuilder.setSubmitEventListener(this.editUserInfo.bind(this));
-        /*
+        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, userInfo, popupBuilder));
+        /*  !!! DONE !!!
 		   Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
 		   то есть, мы уже не сможем использовать его в разрыве от этой переменной.
 		   Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
 		   либо использовать коллбэк-функцию, передавая обработку события наружу.
 		*/
-        popupBuilder.setInputEventListener(formValidator.handlerInput.bind(formValidator));
+        popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
 
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
             то есть, мы уже не сможем использовать его в разрыве от этой переменной.
             Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
@@ -101,22 +103,22 @@ class PopupDirector {
         formValidator.setSubmitButtonState();
     }
 
-    editUserInfo() {
-        /*
+    _editUserInfo(event, userInfo, popupBuilder) {
+        /*  !!! DONE !!!
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        const newName = this._popupBuilder.popup.form.elements.name.value;
-        const newJob = this._popupBuilder.popup.form.elements.job.value;
+        
+        const inputs = popupBuilder.popup.inputs;         
         /*
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
             то есть, мы уже не сможем использовать его в разрыве от этой переменной.
             Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
             либо использовать коллбэк-функцию, передавая обработку события наружу.
          */
-        userInfo.set(newName, newJob);
+        userInfo.set(inputs[0].value, inputs[1].value);
         userInfo.update();
 
         /*
@@ -125,6 +127,6 @@ class PopupDirector {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        this._popupBuilder.popup.close();
+        popupBuilder.popup.close();
     }
 }

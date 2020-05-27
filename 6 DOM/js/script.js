@@ -47,7 +47,7 @@ openAddCardPopupButton.addEventListener('click', () => {
 });
 
 editUserButton.addEventListener('click', () => {
-  popupDirector.renderEditUserPopup('Редактировать профиль', userInfo, 'Сохранить');
+  popupDirector.renderEditUserPopup(formValidator, userInfo);
 });
 
 /*
