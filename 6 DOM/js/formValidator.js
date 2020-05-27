@@ -1,7 +1,7 @@
 class FormValidator {
-    constructor(form, submitButton) {        
-        this._form = form; 
-        this._submitButton = submitButton;
+    constructor(form) {        
+        this._formView = form.view; 
+        this._button = form.submitButton;        
         this._errorMessages = {
             empty: 'Это обязательное поле',
             wrongLength: 'Должно быть от 2 до 30 символов',
@@ -11,7 +11,7 @@ class FormValidator {
     }
 
     _checkInputsValidity() {
-        const [...inputs] = this._form.elements;
+        const [...inputs] = this._formView.elements;
         return inputs.every(this._isValidate);
     }
 
@@ -51,7 +51,7 @@ class FormValidator {
      */
     _setErrorContent(input) {
         this._isValidate(input);
-        const errorElement = this._form.querySelector(`#${input.name}-error`);
+        const errorElement = this._formView.querySelector(`#${input.name}-error`);
         errorElement.textContent = input.validationMessage;
     }
 
@@ -69,12 +69,12 @@ class FormValidator {
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */         
         if (this._checkInputsValidity()) {
-            this._submitButton.removeAttribute('disabled');
-            this._submitButton.classList.add('popup__button_is-active');
+            this._button.removeAttribute('disabled');
+            this._button.classList.add('popup__button_is-active');
         }
         else {
-            this._submitButton.setAttribute('disabled', '');
-            this._submitButton.classList.remove('popup__button_is-active');
+            this._button.setAttribute('disabled', '');
+            this._button.classList.remove('popup__button_is-active');
         }
     }
 }

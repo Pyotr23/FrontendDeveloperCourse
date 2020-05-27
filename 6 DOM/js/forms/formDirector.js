@@ -10,6 +10,6 @@ class FormDirector {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        return builder.view;
+        return builder.form;
     }    
 }

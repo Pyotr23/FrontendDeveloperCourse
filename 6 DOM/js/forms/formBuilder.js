@@ -21,7 +21,7 @@ class FormBuilder {
         this._form.render();
     }    
 
-    get view() {
-        return this._form.container;
+    get form() {
+        return this._form;
     }
 }
