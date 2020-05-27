@@ -21,8 +21,9 @@
     https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Strict_mode
  */
 
-'use strict';
-const randomCards = (function () {
+(function () {
+  'use strict';
+  const randomCards = (function () {
   const cards = [];
   while (initialCards.length !== 0) {
     const index = Math.floor(Math.random() * initialCards.length);
@@ -33,22 +34,24 @@ const randomCards = (function () {
   return cards;
 })();
 
-const cardList = new CardList(document.querySelector('.places-list'), randomCards);
-cardList.render();
+  const cardList = new CardList(document.querySelector('.places-list'), randomCards);
+  cardList.render();
 
-const openAddCardPopupButton = document.querySelector('.user-info__button');
-const editUserButton = document.querySelector('.button_place_user-info');
-const userInfo = new UserInfo(document.querySelector('.user-info'));
-const popupDirector = new PopupDirector(document.querySelector('.root'));
-let formValidator = null;
+  const openAddCardPopupButton = document.querySelector('.user-info__button');
+  const editUserButton = document.querySelector('.button_place_user-info');
+  const userInfo = new UserInfo(document.querySelector('.user-info'));
+  const popupDirector = new PopupDirector(document.querySelector('.root'));
+  let formValidator = null;
 
-openAddCardPopupButton.addEventListener('click', () => {
-  popupDirector.renderAddCardPopup(formValidator, cardList);
-});
+  openAddCardPopupButton.addEventListener('click', () => {
+    popupDirector.renderAddCardPopup(formValidator, cardList);
+  });
 
-editUserButton.addEventListener('click', () => {
-  popupDirector.renderEditUserPopup(formValidator, userInfo);
-});
+  editUserButton.addEventListener('click', () => {
+    popupDirector.renderEditUserPopup(formValidator, userInfo);
+  });
+})();
+
 
 /*
     Резюме по работе:
