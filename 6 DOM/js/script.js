@@ -3,6 +3,9 @@
     что для конкретной работы это избыточная сложность. Но тем не менее я надеюсь, что Вы оцените и поможете
     довести желаемое до конца. Буду рад любым советам и ссылкам!
 */
+/*
+    Часть 2. Огромное спасибо за прекрасное ревью!
+*/
 
 /*
     Здравствуйте! Похвально, что осваиваете новые знания. Со своей стороны постараюсь помочь чем смогу.
@@ -24,15 +27,15 @@
 (function () {
   'use strict';
   const randomCards = (function () {
-  const cards = [];
-  while (initialCards.length !== 0) {
-    const index = Math.floor(Math.random() * initialCards.length);
-    const card = new Card(initialCards[index].name, initialCards[index].link);
-    cards.push(card.create());    
-    initialCards.splice(index, 1);
-  }  
-  return cards;
-})();
+    const cards = [];
+    while (initialCards.length !== 0) {
+      const index = Math.floor(Math.random() * initialCards.length);
+      const card = new Card(initialCards[index].name, initialCards[index].link);
+      cards.push(card.create());    
+      initialCards.splice(index, 1);
+    }  
+    return cards;
+  })();
 
   const cardList = new CardList(document.querySelector('.places-list'), randomCards);
   cardList.render();
