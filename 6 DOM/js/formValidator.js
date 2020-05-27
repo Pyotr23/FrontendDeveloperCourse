@@ -1,6 +1,7 @@
 class FormValidator {
-    constructor(form) {
+    constructor(form, submitButton) {        
         this._form = form; 
+        this._submitButton = submitButton;
         this._errorMessages = {
             empty: 'Это обязательное поле',
             wrongLength: 'Должно быть от 2 до 30 символов',
@@ -66,15 +67,14 @@ class FormValidator {
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
-         */
-        const button = popupDirector._popupBuilder.popup.form.querySelector('.button');
+         */         
         if (this.checkInputsValidity()) {
-            button.removeAttribute('disabled');
-            button.classList.add('popup__button_is-active');
+            this._submitButton.removeAttribute('disabled');
+            this._submitButton.classList.add('popup__button_is-active');
         }
         else {
-            button.setAttribute('disabled', '');
-            button.classList.remove('popup__button_is-active');
+            this._submitButton.setAttribute('disabled', '');
+            this._submitButton.classList.remove('popup__button_is-active');
         }
     }
 }

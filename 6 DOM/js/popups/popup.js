@@ -26,7 +26,7 @@ class Popup {
         this._title = this._createTitle(titleName);
     }
 
-    _close = () => {
+    close = () => {
         this._container.parentNode.removeChild(this._container);
     }    
 
@@ -59,6 +59,6 @@ class Popup {
 
     _setCloseEventListener() {
         const closeButton = this._container.querySelector('.popup__close');
-        closeButton.addEventListener('click', this._close);
+        closeButton.addEventListener('click', this.close);
     }
 }

@@ -18,12 +18,15 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup(formValidator, cardList) {        
-        const popupBuilder = new FormPopupBuilder(this._parentNode);        
+    renderAddCardPopup(formValidator, cardList) {  
+        this._cardList = cardList;      
+        const popupBuilder = new FormPopupBuilder(this._parentNode); 
+        this._popupBuilder = popupBuilder;       
         const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
         const submitButtonText = '+';
         const formContainer = new FormDirector().getAddCardFormNode(stringInputs, submitButtonText);
-        formValidator = new FormValidator(formContainer);
+        const submitButton = formContainer.querySelector('.popup__button');
+        formValidator = new FormValidator(formContainer, submitButton);
         popupBuilder.withTitle('Новое место');
         popupBuilder.withForm(formContainer);
         popupBuilder.renderForm();
@@ -53,7 +56,7 @@ class PopupDirector {
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */
-        const inputs = this.popupBuilder.popup.inputs;        
+        const inputs = this._popupBuilder.popup.inputs;        
         const newCard = new Card(inputs[0].value, inputs[1].value);
         /*  !!! DONE !!!
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
@@ -61,7 +64,7 @@ class PopupDirector {
             Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
             либо использовать коллбэк-функцию, передавая обработку события наружу.
          */
-        this.cardList.addCard(newCard.create());
+        this._cardList.addCard(newCard.create());
         /*
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
