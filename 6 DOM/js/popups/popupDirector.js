@@ -22,7 +22,7 @@ class PopupDirector {
         const popupBuilder = new FormPopupBuilder(this._parentNode);              
         const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
         const submitButtonText = '+';
-        const formContainer = new FormDirector().getAddCardFormNode(stringInputs, submitButtonText);
+        const formContainer = new FormDirector().getForm(stringInputs, submitButtonText);
         const submitButton = formContainer.querySelector('.popup__button');
         formValidator = new FormValidator(formContainer, submitButton);
         popupBuilder.withTitle('Новое место');
@@ -77,7 +77,7 @@ class PopupDirector {
         const popupBuilder = new FormPopupBuilder(this._parentNode);        
         const stringInputs = [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('job', 'Профессия', userInfo.job)];
         const submitButtonText = 'Сохранить';
-        const formContainer = new FormDirector().getEditUserFormNode(stringInputs, submitButtonText);
+        const formContainer = new FormDirector().getForm(stringInputs, submitButtonText);
         const submitButton = formContainer.querySelector('.popup__button');
         formValidator = new FormValidator(formContainer, submitButton);
         popupBuilder.withTitle('Редактировать профиль');
