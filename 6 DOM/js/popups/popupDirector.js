@@ -1,4 +1,4 @@
-/*
+/*  !!! DONE !!!
     Можно лучше: В реализации класса ставится на то, что в один момент времени может отображаться только один попап,
     в следствие чего в this.popupBuilder заносится необходимый экземпляр класса Builder.
     Но если появится необходимость, например, открыть попап в попапе (такое бывает),
@@ -30,14 +30,14 @@ class PopupDirector {
         popupBuilder.renderForm();
         popupBuilder.renderPopup();        
         popupBuilder.setSubmitEventListener((event) => this._addCard(event, cardList, popupBuilder));
-        /*
-		   Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
-		   то есть, мы уже не сможем использовать его в разрыве от этой переменной.
-		   Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
-		   либо использовать коллбэк-функцию, передавая обработку события наружу.
+        /*  !!! DONE !!!
+            Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
+            то есть, мы уже не сможем использовать его в разрыве от этой переменной.
+            Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
+            либо использовать коллбэк-функцию, передавая обработку события наружу.
 		*/
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
             то есть, мы уже не сможем использовать его в разрыве от этой переменной.
             Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
@@ -74,8 +74,7 @@ class PopupDirector {
 
     // renderEditUserPopup(title, userInfo, buttonText) {
     renderEditUserPopup(formValidator, userInfo) {
-        const popupBuilder = new FormPopupBuilder(this._parentNode);
-        this._popupBuilder = popupBuilder;
+        const popupBuilder = new FormPopupBuilder(this._parentNode);        
         const stringInputs = [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('job', 'Профессия', userInfo.job)];
         const submitButtonText = 'Сохранить';
         const formContainer = new FormDirector().getEditUserFormNode(stringInputs, submitButtonText);
