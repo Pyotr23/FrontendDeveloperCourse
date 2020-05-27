@@ -10,12 +10,12 @@ class FormValidator {
         }       
     }
 
-    checkInputsValidity() {
+    _checkInputsValidity() {
         const [...inputs] = this._form.elements;
-        return inputs.every(this.isValidate);
+        return inputs.every(this._isValidate);
     }
 
-    isValidate = (input) => {
+    _isValidate = (input) => {
         input.setCustomValidity("");
 
         if (input.validity.valueMissing) {
@@ -40,35 +40,35 @@ class FormValidator {
         Можно лучше: Корректней будет назвать handleInput или inputHandler.
      */
     handleInput(event) {
-        this.isFieldValid(event.target);
+        this._setErrorContent(event.target);
         this.setSubmitButtonState();
     }
 
-    /*
+    /*  !!! DONE !!!
         Можно лучше: Название метода подразумевает возврат boolean-значения, указывающего на валидность поля.
         Но и возвращаемого значения нет и не по коду это не требуется,
         так что уместней будет переименовать метод исходя из того, что он делает.
      */
-    isFieldValid(input) {
-        this.isValidate(input);
+    _setErrorContent(input) {
+        this._isValidate(input);
         const errorElement = this._form.querySelector(`#${input.name}-error`);
         errorElement.textContent = input.validationMessage;
     }
 
     setSubmitButtonState() {
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Прямое использование глобальной переменной снижает переиспользование текущего класса,
             то есть, мы уже не сможем использовать его в разрыве от этой переменной.
             Чтобы избегать такой привязки можно либо передавать переменную при создании текущего экземпляра класса,
             либо использовать коллбэк-функцию, передавая обработку события наружу.
          */
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
             Вместо этого можно реализовать отдельные геттеры и сеттеры:
             https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
          */         
-        if (this.checkInputsValidity()) {
+        if (this._checkInputsValidity()) {
             this._submitButton.removeAttribute('disabled');
             this._submitButton.classList.add('popup__button_is-active');
         }
