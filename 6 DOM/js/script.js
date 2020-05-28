@@ -34,10 +34,9 @@
   const editUserButton = document.querySelector('.button_place_user-info');
   const userInfo = new UserInfo(document.querySelector('.user-info'));
   const popupDirector = new PopupDirector(document.querySelector('.root'));
-  /*
+  /*  !!! DONE !!!
     Можно лучше: Не ясно предназначение этой переменной и для чего её передавать в методы.
-   */
-  let formValidator = null;
+  */  
 
   /*
     Можно лучше: В качестве второго параметра метода addEventListener лучше использовать ранее объявленную функцию.
@@ -47,14 +46,14 @@
     так и его повторное использование в рамках данного или другого проекта.
    */
   openAddCardPopupButton.addEventListener('click', () => {
-    popupDirector.renderAddCardPopup(formValidator, cardList);
+    popupDirector.renderAddCardPopup(cardList);
   });
 
   /*
     Можно лучше: В качестве второго параметра метода addEventListener лучше использовать ранее объявленную функцию.
    */
   editUserButton.addEventListener('click', () => {
-    popupDirector.renderEditUserPopup(formValidator, userInfo);
+    popupDirector.renderEditUserPopup(userInfo);
   });
 })();
 
