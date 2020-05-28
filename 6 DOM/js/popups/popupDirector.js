@@ -18,12 +18,12 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup(formValidator, cardList) {
+    renderAddCardPopup(cardList) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);
         const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
         const submitButtonText = '+';
         const form = new FormDirector().getForm(stringInputs, submitButtonText);
-        formValidator = new FormValidator(form);
+        const formValidator = new FormValidator(form);
         popupBuilder.withTitle('Новое место');
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();
@@ -50,13 +50,12 @@ class PopupDirector {
         popupBuilder.popup.close();
     }
 
-    // renderEditUserPopup(title, userInfo, buttonText) {
-    renderEditUserPopup(formValidator, userInfo) {
+    renderEditUserPopup(userInfo) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);
         const stringInputs = [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('job', 'Профессия', userInfo.job)];
         const submitButtonText = 'Сохранить';
         const form = new FormDirector().getForm(stringInputs, submitButtonText);
-        formValidator = new FormValidator(form);
+        const formValidator = new FormValidator(form);
         popupBuilder.withTitle('Редактировать профиль');
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();

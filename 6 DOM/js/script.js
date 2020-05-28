@@ -34,28 +34,27 @@
   const editUserButton = document.querySelector('.button_place_user-info');
   const userInfo = new UserInfo(document.querySelector('.user-info'));
   const popupDirector = new PopupDirector(document.querySelector('.root'));
+
+  const openAddCardPopup = () => { popupDirector.renderAddCardPopup(cardList); }
+  const openEditUserPopup = () => { popupDirector.renderEditUserPopup(userInfo); }
   /*  !!! DONE !!!
     Можно лучше: Не ясно предназначение этой переменной и для чего её передавать в методы.
   */  
 
-  /*
+  /*  !!! DONE !!!
     Можно лучше: В качестве второго параметра метода addEventListener лучше использовать ранее объявленную функцию.
     Код имеет свойство расширяться и повторно использоваться.
     Поэтому функцию из второго параметра слушателя следует вынести и декларировать отдельно.
     А в методе addEventListener только ее вызывать. Это облегчает как читаемость кода,
     так и его повторное использование в рамках данного или другого проекта.
    */
-  openAddCardPopupButton.addEventListener('click', () => {
-    popupDirector.renderAddCardPopup(cardList);
-  });
+  openAddCardPopupButton.addEventListener('click', openAddCardPopup);
 
-  /*
+  /*  !!! DONE !!!
     Можно лучше: В качестве второго параметра метода addEventListener лучше использовать ранее объявленную функцию.
    */
-  editUserButton.addEventListener('click', () => {
-    popupDirector.renderEditUserPopup(userInfo);
-  });
-})();
+  editUserButton.addEventListener('click', openEditUserPopup);
+})()
 
 
 /*
