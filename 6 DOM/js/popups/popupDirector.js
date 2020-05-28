@@ -7,6 +7,7 @@ class PopupDirector {
     }
 
     /*
+        !!! DONE !!!
         Можно лучше: Метод нигде не используется.
      */
     renderImagePopup(link) {
@@ -62,7 +63,7 @@ class PopupDirector {
         formValidator.setSubmitButtonState();
     }
 
-    /*
+    /*  !!! DONE !!!
         Можно лучше: Аналогично _addCard логику обновления в UserInfo можно вынести в коллбэк.
      */
     _editUserInfo(event, changeUserInfo, popupBuilder) {

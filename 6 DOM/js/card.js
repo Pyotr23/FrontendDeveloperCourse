@@ -1,7 +1,8 @@
 class Card {
-    constructor (name, link) {
+    constructor (name, link, showImage) {
         this._name = name;
         this._link = link;
+        this._showImage = showImage;
         this._innerHtml =  `<div class="place-card__image">
                                 <button class="place-card__delete-icon"></button>
                             </div>
@@ -14,9 +15,8 @@ class Card {
     create = () => {
         this._view = this._createCardNodeTemplate();
         this._addLink();
-        this._addName();
-        this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);
-        this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);
+        this._addName();        
+        this._setEventListeners();
         return this._view;
     }
 
@@ -40,6 +40,15 @@ class Card {
 
     _addName = () => {
         this._view.querySelector('.place-card__name').textContent = this._name;
+    }
+
+    _setEventListeners() {
+        this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);
+        this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);
+        this._view.querySelector('.place-card__image').addEventListener('click', (event) => {             
+            if (!event.target.classList.contains('place-card__delete-icon'))
+                this._showImage(this._link) 
+            });
     }
 
     _remove = () => {

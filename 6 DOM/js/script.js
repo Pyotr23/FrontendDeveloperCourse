@@ -16,11 +16,13 @@
 
 (function () {
   'use strict';
+  const popupDirector = new PopupDirector(document.querySelector('.root'));
+  const showImage = (url) => { popupDirector.renderImagePopup(url); }
   const randomCards = (function () {
     const cards = [];
     while (initialCards.length !== 0) {
       const index = Math.floor(Math.random() * initialCards.length);
-      const card = new Card(initialCards[index].name, initialCards[index].link);
+      const card = new Card(initialCards[index].name, initialCards[index].link, showImage);
       cards.push(card.create());
       initialCards.splice(index, 1);
     }
@@ -32,10 +34,9 @@
 
   const openAddCardPopupButton = document.querySelector('.user-info__button');
   const editUserButton = document.querySelector('.button_place_user-info');
-  const userInfo = new UserInfo(document.querySelector('.user-info'));
-  const popupDirector = new PopupDirector(document.querySelector('.root'));
+  const userInfo = new UserInfo(document.querySelector('.user-info')); 
 
-  const addCard = (...arg) => { cardList.addCard(new Card(...arg).create()) };
+  const addCard = (...arg) => { cardList.addCard(new Card(...arg, showImage).create()) };
   const changeUserInfo = (...arg) => {
     userInfo.set(...arg);
     userInfo.update();
