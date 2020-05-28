@@ -32,7 +32,7 @@ class PopupDirector {
         formValidator.setSubmitButtonState();
     }
 
-    /*
+    /*  !!! DONE !!!
         Можно лучше: Вместо передачи cardList, который используется только для вызова у него метода addCard,
         можно передавать коллбэк, который вызывать вместо
         const newCard = new Card(inputs[0].value, inputs[1].value);
@@ -48,9 +48,8 @@ class PopupDirector {
         popupBuilder.popup.close();
     }
 
-    renderEditUserPopup(userInfo) {
-        const popupBuilder = new FormPopupBuilder(this._parentNode);
-        const stringInputs = [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('job', 'Профессия', userInfo.job)];
+    renderEditUserPopup(stringInputs, changeUserInfo) {
+        const popupBuilder = new FormPopupBuilder(this._parentNode);        
         const submitButtonText = 'Сохранить';
         const form = new FormDirector().getForm(stringInputs, submitButtonText);
         const formValidator = new FormValidator(form);
@@ -58,7 +57,7 @@ class PopupDirector {
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();
-        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, userInfo, popupBuilder));
+        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, changeUserInfo, popupBuilder));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
         formValidator.setSubmitButtonState();
     }
@@ -66,10 +65,9 @@ class PopupDirector {
     /*
         Можно лучше: Аналогично _addCard логику обновления в UserInfo можно вынести в коллбэк.
      */
-    _editUserInfo(event, userInfo, popupBuilder) {
+    _editUserInfo(event, changeUserInfo, popupBuilder) {
         const inputs = popupBuilder.popup.inputs;
-        userInfo.set(inputs[0].value, inputs[1].value);
-        userInfo.update();
+        changeUserInfo(inputs[0].value, inputs[1].value);        
         popupBuilder.popup.close();
     }
 }

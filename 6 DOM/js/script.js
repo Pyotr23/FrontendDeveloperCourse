@@ -36,8 +36,15 @@
   const popupDirector = new PopupDirector(document.querySelector('.root'));
 
   const addCard = (...arg) => { cardList.addCard(new Card(...arg).create()) };
+  const changeUserInfo = (...arg) => {
+    userInfo.set(...arg);
+    userInfo.update();
+  }
   const openAddCardPopup = () => { popupDirector.renderAddCardPopup(addCard); }
-  const openEditUserPopup = () => { popupDirector.renderEditUserPopup(userInfo); }
+  const openEditUserPopup = () => { 
+    const stringInputs = [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('job', 'Профессия', userInfo.job)];
+    popupDirector.renderEditUserPopup(stringInputs, changeUserInfo); 
+  }
   
   /*  !!! DONE !!!
     Можно лучше: Не ясно предназначение этой переменной и для чего её передавать в методы.
