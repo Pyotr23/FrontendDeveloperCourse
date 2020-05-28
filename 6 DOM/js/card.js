@@ -2,6 +2,13 @@ class Card {
     constructor (name, link) {
         this._name = name;
         this._link = link;
+        this._innerHtml =  `<div class="place-card__image">
+                                <button class="place-card__delete-icon"></button>
+                            </div>
+                            <div class="place-card__description">
+                                <h3 class="place-card__name"></h3>
+                                <button class="place-card__like-icon"></button>
+                            </div>`;
     }
 
     create = () => {
@@ -16,19 +23,12 @@ class Card {
     _createCardNodeTemplate = () => {
         const cardNode = document.createElement('div');
         cardNode.classList.add('place-card');
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Большие строковые переменные лучше выносить из методов,
             так они не будут создаваться каждый раз новые.
             Можно вынести в конструктор аналогично this._errorMessages в FormValidator.
-         */
-        const innerHtml =  `<div class="place-card__image">
-                                <button class="place-card__delete-icon"></button>
-                            </div>
-                            <div class="place-card__description">
-                                <h3 class="place-card__name"></h3>
-                                <button class="place-card__like-icon"></button>
-                            </div>`;
-        cardNode.insertAdjacentHTML('afterbegin', innerHtml);
+         */       
+        cardNode.insertAdjacentHTML('afterbegin', this._innerHtml);
         return cardNode;
     }
 
