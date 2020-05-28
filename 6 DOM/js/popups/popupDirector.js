@@ -1,10 +1,9 @@
 class PopupDirector {
-    constructor(parentNode, appendCard) {
+    constructor(parentNode) {
         this._parentNode = parentNode;
-        /*
+        /*  !!! DONE !!!
             Можно лучше: Переменная нигде не используется и поэтому может быть удалена.
-         */
-        this._appendCard = appendCard
+         */        
     }
 
     /*
