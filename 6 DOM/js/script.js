@@ -35,8 +35,10 @@
   const userInfo = new UserInfo(document.querySelector('.user-info'));
   const popupDirector = new PopupDirector(document.querySelector('.root'));
 
-  const openAddCardPopup = () => { popupDirector.renderAddCardPopup(cardList); }
+  const addCard = (...arg) => { cardList.addCard(new Card(...arg).create()) };
+  const openAddCardPopup = () => { popupDirector.renderAddCardPopup(addCard); }
   const openEditUserPopup = () => { popupDirector.renderEditUserPopup(userInfo); }
+  
   /*  !!! DONE !!!
     Можно лучше: Не ясно предназначение этой переменной и для чего её передавать в методы.
   */  

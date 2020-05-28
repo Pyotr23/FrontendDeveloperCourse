@@ -17,7 +17,7 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup(cardList) {
+    renderAddCardPopup(addCard) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);
         const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
         const submitButtonText = '+';
@@ -27,7 +27,7 @@ class PopupDirector {
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();
-        popupBuilder.setSubmitEventListener((event) => this._addCard(event, cardList, popupBuilder));
+        popupBuilder.setSubmitEventListener((event) => this._addCard(event, addCard, popupBuilder));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
         formValidator.setSubmitButtonState();
     }
@@ -41,11 +41,10 @@ class PopupDirector {
         А саму логику добавления карточки перенести в то место, где вызывается renderAddCardPopup.
         Таким образом, мы сделаем классы более независимыми.
      */
-    _addCard = (event, cardList, popupBuilder) => {
+    _addCard = (event, addCard, popupBuilder) => {
         event.preventDefault();
         const inputs = popupBuilder.popup.inputs;
-        const newCard = new Card(inputs[0].value, inputs[1].value);
-        cardList.addCard(newCard.create());
+        addCard(inputs[0].value, inputs[1].value);        
         popupBuilder.popup.close();
     }
 
