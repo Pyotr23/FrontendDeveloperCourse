@@ -1,6 +1,6 @@
 class Form {
     constructor() {
-        this._view = this._createForm();        
+        this._view = this._createForm();
     }
 
     get view() {
@@ -17,7 +17,7 @@ class Form {
     withSubmitButton(buttonText) {
         const button = this._createButton();
         button.textContent = buttonText;
-        this._submitButton = button;        
+        this._submitButton = button;
     }
 
     get submitButton() {
@@ -47,19 +47,7 @@ class Form {
 
     render() {
         this._stringInputs.forEach(si => {
-            /*  !!! DONE !!!
-                Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
-                Вместо этого можно реализовать отдельные геттеры и сеттеры:
-                https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
-                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
-             */
             this._view.appendChild(si.input);
-            /*  !!! DONE !!!
-                Можно лучше: Использование внутренних свойств экземпляров класса считается плохой практикой и нарушает основы ООП (инкапсуляция).
-                Вместо этого можно реализовать отдельные геттеры и сеттеры:
-                https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/get
-                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
-             */
             this._view.appendChild(si.error);
         })
         this._view.appendChild(this._submitButton);

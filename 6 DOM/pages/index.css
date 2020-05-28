@@ -9,10 +9,6 @@
 @import url(../blocks/places-list/places-list.css);
 @import url(../blocks/place-card/place-card.css);
 @import url(../blocks/popup/popup.css);
-/*  !!! DONE !!!
-  Надо исправить: Файла с путем "../blocks/card-popup/card-popup.css" не существует,
-  в консоле браузера падает ошибка из-за этого.
- */
 @import url(../blocks/error/error.css);
 
 body {
