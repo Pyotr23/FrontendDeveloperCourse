@@ -1,3 +1,4 @@
+'use strict'
 class CardList {
     constructor (container, cards) {
         this._container = container;

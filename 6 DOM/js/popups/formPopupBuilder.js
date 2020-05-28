@@ -1,3 +1,4 @@
+'use strict'
 class FormPopupBuilder extends PopupBuilder {
     constructor(parentNode) {
         super(parentNode);

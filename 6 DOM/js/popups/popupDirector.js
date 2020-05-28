@@ -1,3 +1,4 @@
+'use strict'
 class PopupDirector {
     constructor(parentNode) {
         this._parentNode = parentNode;

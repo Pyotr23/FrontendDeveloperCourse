@@ -1,3 +1,4 @@
+'use strict'
 class StringInput {
     constructor(name, placeholder, value) {
         this._name = name;

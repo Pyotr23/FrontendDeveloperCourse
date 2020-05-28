@@ -1,3 +1,4 @@
+'use strict'
 class Card {
     constructor (name, link, showImage) {
         this._name = name;

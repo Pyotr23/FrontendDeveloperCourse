@@ -1,3 +1,4 @@
+'use strict'
 class Form {
     constructor() {
         this._view = this._createForm();

@@ -1,3 +1,4 @@
+'use strict'
 class PopupBuilder {
     constructor(parentNode) {
         this._parentNode = parentNode;

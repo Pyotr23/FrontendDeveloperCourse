@@ -1,3 +1,4 @@
+'use strict'
 class ImagePopup extends Popup {
     withImage(link) {
         this._image = this._createImage(link);

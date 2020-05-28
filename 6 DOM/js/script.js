@@ -16,8 +16,10 @@
 
 (function () {
   'use strict';
+
   const popupDirector = new PopupDirector(document.querySelector('.root'));
   const showImage = (url) => { popupDirector.renderImagePopup(url); }
+
   const randomCards = (function () {
     const cards = [];
     while (initialCards.length !== 0) {
@@ -41,6 +43,7 @@
     userInfo.set(...arg);
     userInfo.update();
   }
+  
   const openAddCardPopup = () => { popupDirector.renderAddCardPopup(addCard); }
   const openEditUserPopup = () => { 
     const stringInputs = [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('job', 'Профессия', userInfo.job)];

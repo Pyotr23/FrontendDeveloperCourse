@@ -1,3 +1,4 @@
+'use strict'
 class FormPopup extends Popup {
     withForm(formContainer) {
         this._form = formContainer;

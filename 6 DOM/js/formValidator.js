@@ -1,3 +1,4 @@
+'use strict'
 class FormValidator {
     constructor(form) {
         this._formView = form.view;

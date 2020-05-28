@@ -1,3 +1,4 @@
+'use strict'
 class FormDirector {
     getForm(stringInputs, buttonText) {
         const builder = new FormBuilder();

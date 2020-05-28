@@ -1,3 +1,4 @@
+'use strict'
 class ImagePopupBuilder extends PopupBuilder {
     constructor(parentNode) {
         super(parentNode);
