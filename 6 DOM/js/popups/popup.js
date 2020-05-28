@@ -43,7 +43,7 @@ class Popup {
 		   так они не будут создаваться каждый раз новые.
 		   Можно вынести в конструктор аналогично this._errorMessages в FormValidator.
 		 */        
-        popup.insertAdjacentHTML('afterbegin', _innerHtml);
+        popup.insertAdjacentHTML('afterbegin', this._innerHtml);
         return popup;
     }
 
