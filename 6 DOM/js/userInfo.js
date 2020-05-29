@@ -1,3 +1,4 @@
+'use strict'
 class UserInfo {
     constructor(container) {
         this._container = container;

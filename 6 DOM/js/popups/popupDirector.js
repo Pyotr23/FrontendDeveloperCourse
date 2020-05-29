@@ -12,9 +12,8 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup(addCard) {
-        const popupBuilder = new FormPopupBuilder(this._parentNode);
-        const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
+    renderAddCardPopup(stringInputs, addCard) {
+        const popupBuilder = new FormPopupBuilder(this._parentNode);        
         const submitButtonText = '+';
         const form = new FormDirector().getForm(stringInputs, submitButtonText);
         const formValidator = new FormValidator(form);

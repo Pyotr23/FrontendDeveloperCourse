@@ -56,9 +56,12 @@
     userInfo.update();
   }
 
-  const openAddCardPopup = () => { popupDirector.renderAddCardPopup(addCard); }
+  const openAddCardPopup = () => { 
+    const stringInputs = [new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '')];
+    popupDirector.renderAddCardPopup(stringInputs, addCard); 
+  }
   const openEditUserPopup = () => {
-    /*
+    /*  !!! DONE !!!
       Можно лучше: Лучше однотипно инициализировать stringInputs, либо в самом методе, либо вне его.
       Каждый способ имеет право на существование и применение зависит от ситуации.
       Это не придирка, а пожелание, так проще будет поддерживать код.
