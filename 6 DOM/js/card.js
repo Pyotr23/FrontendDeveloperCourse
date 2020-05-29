@@ -16,7 +16,7 @@ class Card {
     create = () => {
         this._view = this._createCardNodeTemplate();
         this._addLink();
-        this._addName();        
+        this._addName();
         this._setEventListeners();
         return this._view;
     }
@@ -24,11 +24,6 @@ class Card {
     _createCardNodeTemplate = () => {
         const cardNode = document.createElement('div');
         cardNode.classList.add('place-card');
-        /*  !!! DONE !!!
-            Можно лучше: Большие строковые переменные лучше выносить из методов,
-            так они не будут создаваться каждый раз новые.
-            Можно вынести в конструктор аналогично this._errorMessages в FormValidator.
-         */       
         cardNode.insertAdjacentHTML('afterbegin', this._innerHtml);
         return cardNode;
     }
@@ -46,9 +41,15 @@ class Card {
     _setEventListeners() {
         this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);
         this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);
-        this._view.querySelector('.place-card__image').addEventListener('click', (event) => {             
+        /*
+            Можно лучше: В качестве второго параметра метода addEventListener следует использовать ранее объявленную функцию.
+            Убрать проверку можно если в _remove добавить вызов stopPropagation,
+            тогда при клике на удаление не будет вызываться клик на place-card__image.
+            https://developer.mozilla.org/ru/docs/Web/API/Event/stopPropagation
+         */
+        this._view.querySelector('.place-card__image').addEventListener('click', (event) => {
             if (!event.target.classList.contains('place-card__delete-icon'))
-                this._showImage(this._link) 
+                this._showImage(this._link)
             });
     }
 

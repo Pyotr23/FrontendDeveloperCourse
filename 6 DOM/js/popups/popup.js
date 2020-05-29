@@ -1,6 +1,6 @@
 'use strict'
 class Popup {
-    constructor() {        
+    constructor() {
         this._innerHtml =  `<div class="popup__content">
                                 <img src="./images/close.svg" alt="" class="popup__close">
                             </div>`;
@@ -38,11 +38,6 @@ class Popup {
     _createPopup() {
         const popup = this._createElement('div', 'popup');
         popup.classList.add('popup_is-opened');
-        /*  !!! DONE !!!
-		   Можно лучше: Большие строковые переменные лучше выносить из методов,
-		   так они не будут создаваться каждый раз новые.
-		   Можно вынести в конструктор аналогично this._errorMessages в FormValidator.
-		 */        
         popup.insertAdjacentHTML('afterbegin', this._innerHtml);
         return popup;
     }
