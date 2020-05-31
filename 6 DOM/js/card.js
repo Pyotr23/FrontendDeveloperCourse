@@ -4,12 +4,14 @@ class Card {
         this._name = name;
         this._link = link;
         this._showImage = showImage;
-        this._innerHtml =  `<div class="place-card__image">
-                                <button class="place-card__delete-icon"></button>
-                            </div>
-                            <div class="place-card__description">
-                                <h3 class="place-card__name"></h3>
-                                <button class="place-card__like-icon"></button>
+        this._template =  `<div class="place-card">        
+                                <div class="place-card__image">
+                                    <button class="place-card__delete-icon"></button>
+                                </div>
+                                <div class="place-card__description">
+                                    <h3 class="place-card__name"></h3>
+                                    <button class="place-card__like-icon"></button>
+                                </div>
                             </div>`;
     }
 
@@ -22,10 +24,9 @@ class Card {
     }
 
     _createCardNodeTemplate = () => {
-        const cardNode = document.createElement('div');
-        cardNode.classList.add('place-card');
-        cardNode.insertAdjacentHTML('afterbegin', this._innerHtml);
-        return cardNode;
+        const element = document.createElement('div');
+        element.insertAdjacentHTML('beforeend', this._template.trim());
+        return element.firstChild;       
     }
 
     _addLink = () => {

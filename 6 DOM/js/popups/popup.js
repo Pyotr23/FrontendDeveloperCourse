@@ -1,8 +1,10 @@
 'use strict'
 class Popup {
     constructor() {
-        this._innerHtml =  `<div class="popup__content">
-                                <img src="./images/close.svg" alt="" class="popup__close">
+        this._template =   `<div class="popup popup_is-opened">
+                                <div class="popup__content">
+                                    <img src="./images/close.svg" alt="" class="popup__close">
+                                </div>
                             </div>`;
         this._container = this._createPopup();
         this._content = this._container.querySelector('.popup__content');
@@ -36,10 +38,9 @@ class Popup {
     }
 
     _createPopup() {
-        const popup = this._createElement('div', 'popup');
-        popup.classList.add('popup_is-opened');
-        popup.insertAdjacentHTML('afterbegin', this._innerHtml);
-        return popup;
+        const element = document.createElement('div');        
+        element.insertAdjacentHTML('afterbegin', this._template.trim());
+        return element.firstChild;
     }
 
     _createElement(htmlTag, className) {
