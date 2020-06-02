@@ -12,16 +12,16 @@ class UserInfo {
     }
 
     get name() {
-        return this._name;
+        return this._user.name;
     }
 
-    get job() {
-        return this._job;
-    }
+    get about() {
+        return this._user.about;
+    }    
 
-    update() {
+    update() {        
         this._nameElement.textContent = this._user.name;
-        this._jobElement.textContent = this._user.job;
+        this._jobElement.textContent = this._user.about;
         this._photoElement.style.backgroundImage = `url(${this._user.avatar})`;
     }
 }

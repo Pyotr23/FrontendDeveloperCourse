@@ -22,6 +22,22 @@ class Api {
             return Promise.reject();
         })         
     }
+
+    updateUser(userInfo) {
+        return fetch(`${this._baseUrl}/users/meу`, {
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify({
+                name: userInfo.name,
+                about: userInfo.about
+            })
+        })
+        .then(res => {
+            if (res.ok)
+                return res.json();
+            return Promise.reject();
+        });
+    }
 }
 
     const api = new Api({
