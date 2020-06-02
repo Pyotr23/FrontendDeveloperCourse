@@ -8,18 +8,20 @@
 
   const showImage = (url) => { popupDirector.renderImagePopup(url); }
 
+  const randomCreateCards = (arr) => {
+    const cards = [];    
+    while (arr.length !== 0) {                 
+      const index = Math.floor(Math.random() * arr.length);
+      const card = new Card(arr[index].name, arr[index].link, showImage);
+      cards.push(card.create());
+      arr.splice(index, 1);        
+    }
+    return cards;
+  }
+
   const fillCardList = (cardList) => {    
     api.getInitialCards()
-    .then(res => {  
-      const cards = [];    
-      while (res.length !== 0) {                 
-        const index = Math.floor(Math.random() * res.length);
-        const card = new Card(res[index].name, res[index].link, showImage);
-        cards.push(card.create());
-        res.splice(index, 1);        
-      }  
-      cardList.render(cards);     
-    });
+    .then(res => cardList.render(randomCreateCards(res)));
   }     
 
   const addCard = (...arg) => { 

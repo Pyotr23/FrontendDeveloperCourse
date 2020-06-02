@@ -7,11 +7,12 @@ class Api {
   
     getInitialCards() {
         return fetch(`${this._baseUrl}/cards`, { headers: this._headers })
-            .then(res => res.json());
-            // .then(res => console.log(res));             
-    }
-  
-    // другие методы работы с API
+        .then(res => {
+            if (res.ok)             
+                return res.json();
+            return [];
+        })           
+    }    
 }
 
     const api = new Api({
