@@ -12,7 +12,16 @@ class Api {
                 return res.json();
             return [];
         })           
-    }    
+    }   
+    
+    getUser() {
+        return fetch(`${this._baseUrl}/users/me`, { headers: this._headers })
+        .then(res => {
+            if (res.ok)             
+                return res.json();
+            return Promise.reject();
+        })         
+    }
 }
 
     const api = new Api({
