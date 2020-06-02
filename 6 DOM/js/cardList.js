@@ -1,12 +1,11 @@
 'use strict'
 class CardList {
-    constructor (container, cards) {
-        this._container = container;
-        this._cards = cards;
+    constructor (container) {
+        this._container = container;        
     }
 
-    render() {
-        this._cards.forEach(card => { this.addCard(card) });
+    render(cards) {
+        cards.forEach(card => { this.addCard(card) });
     }
 
     addCard(card) {

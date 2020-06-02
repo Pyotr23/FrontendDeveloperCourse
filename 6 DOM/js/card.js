@@ -41,13 +41,7 @@ class Card {
 
     _setEventListeners() {
         this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);
-        this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);
-        /*  !!! DONE !!!
-            Можно лучше: В качестве второго параметра метода addEventListener следует использовать ранее объявленную функцию.
-            Убрать проверку можно если в _remove добавить вызов stopPropagation,
-            тогда при клике на удаление не будет вызываться клик на place-card__image.
-            https://developer.mozilla.org/ru/docs/Web/API/Event/stopPropagation
-         */
+        this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);        
         this._view.querySelector('.place-card__image').addEventListener('click', () => { this._showImage(this._link) });
     }
 
