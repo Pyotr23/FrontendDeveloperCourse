@@ -26,7 +26,9 @@
   
   const setUserInfo = (userInfo) => {
     api.getUser()
-    .then(user => userInfo.set(user))
+    .then(user => {      
+      userInfo.set(user);
+    }) 
     .catch(() => userInfo.set({ name: '', about: '' }))
     .finally(() => userInfo.update());      
   }  
@@ -35,9 +37,12 @@
     cardList.addCard(new Card(...arg, showImage).create()) 
   };
 
-  const changeUserInfo = (...arg) => {
+  const changeUserInfo = (...arg) => {    
     api.updateUser(...arg)
-    .then(newUserInfo => userInfo.set(newUserInfo))
+    .then(newUserInfo => {
+      console.log(newUserInfo);
+      userInfo.set(newUserInfo);
+    } )
     .finally(() => userInfo.update());   
   }
 
@@ -47,7 +52,10 @@
   }
 
   const openEditUserPopup = () => {    
-    const stringInputs = [new TextInput('name', 'Полное имя', userInfo.name), new TextInput('about', 'Профессия', userInfo.about)];
+    const stringInputs = 
+      [new TextInput('name', 'Полное имя', userInfo.name), 
+      new TextInput('about', 'Профессия', userInfo.about),
+      new UrlInput('avatar', 'Ссылка на фотографию', userInfo.avatar)];
     popupDirector.renderEditUserPopup(stringInputs, changeUserInfo);
   }
 

@@ -48,8 +48,8 @@ class PopupDirector {
     }
 
     _editUserInfo(event, changeUserInfo, popupBuilder) {
-        const inputs = popupBuilder.popup.inputs;
-        changeUserInfo({ name: inputs[0].value, about: inputs[1].value });
+        const inputs = popupBuilder.popup.inputs;        
+        changeUserInfo({ name: inputs[0].value, about: inputs[1].value, avatar: inputs[2].value });
         popupBuilder.popup.close();
     }
 }

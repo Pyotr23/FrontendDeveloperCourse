@@ -7,7 +7,7 @@ class UserInfo {
         this._photoElement = container.querySelector('.user-info__photo');       
     }
 
-    set(user) {
+    set(user) {        
         this._user = user;
     }
 
@@ -17,9 +17,13 @@ class UserInfo {
 
     get about() {
         return this._user.about;
-    }    
+    }   
+    
+    get avatar() {
+        return this._user.avatar;
+    }
 
-    update() {        
+    update() {               
         this._nameElement.textContent = this._user.name;
         this._jobElement.textContent = this._user.about;
         this._photoElement.style.backgroundImage = `url(${this._user.avatar})`;

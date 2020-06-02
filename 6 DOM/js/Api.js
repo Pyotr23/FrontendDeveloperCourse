@@ -24,15 +24,13 @@ class Api {
     }
 
     updateUser(userInfo) {
-        return fetch(`${this._baseUrl}/users/meу`, {
+        return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
-            body: JSON.stringify({
-                name: userInfo.name,
-                about: userInfo.about
-            })
+            body: JSON.stringify(userInfo)
         })
-        .then(res => {
+        .then(res => { 
+            console.log(res);           
             if (res.ok)
                 return res.json();
             return Promise.reject();
