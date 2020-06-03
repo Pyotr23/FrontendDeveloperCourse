@@ -11,6 +11,11 @@ class UserInfo {
         this._user = user;
     }
 
+    setPhoto(link) {
+        debugger;
+        this._user.avatar = link;
+    }
+
     get name() {
         return this._user.name;
     }
@@ -23,7 +28,8 @@ class UserInfo {
         return this._user.avatar;
     }
 
-    update() {               
+    update() {   
+        debugger;            
         this._nameElement.textContent = this._user.name;
         this._jobElement.textContent = this._user.about;
         this._photoElement.style.backgroundImage = `url(${this._user.avatar})`;
