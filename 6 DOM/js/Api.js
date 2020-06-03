@@ -48,6 +48,22 @@ class Api {
             return Promise.reject();
         });
     }
+
+    addCard(card) {
+        return fetch(`${this._baseUrl}/cards`, {
+            method: 'POST',
+            headers: this._headers,
+            body: JSON.stringify({
+                name: card.name,
+                link: card.link
+            })
+        })
+        .then(res => {          
+            if (res.ok)
+                return res.json();
+            return Promise.reject();
+        });
+    }
 }
 
     const api = new Api({

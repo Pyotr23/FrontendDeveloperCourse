@@ -15,6 +15,14 @@ class Card {
                             </div>`;
     }
 
+    get name() {
+        return this._name;
+    }
+
+    get link() {
+        return this._link;
+    }
+
     create = () => {
         this._view = this._createCardNodeTemplate();
         this._addLink();

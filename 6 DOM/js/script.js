@@ -27,15 +27,15 @@
   
   const setUserInfo = (userInfo) => {
     api.getUser()
-    .then(user => {      
-      userInfo.set(user);
-    }) 
+    .then(user => userInfo.set(user)) 
     .catch(() => userInfo.set({ name: '', about: '' }))
     .finally(() => userInfo.update());      
   }  
 
-  const addCard = (...arg) => { 
-    cardList.addCard(new Card(...arg, showImage).create()) 
+  const addCard = (name, link, cardList) => { 
+    api.addCard(new Card(name, link))
+    .then(card => cardList.addCard(new Card(card.name, card.link, showImage).create()));
+    // cardList.addCard(new Card(...arg, showImage).create()) 
   };
 
   const updateUser = (user) => {    
