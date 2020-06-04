@@ -1,9 +1,11 @@
 'use strict'
 class Card {
-    constructor (name, link, showImage) {
+    constructor (id, name, link, showImage, deleteCard) {
+        this._id = id;
         this._name = name;
         this._link = link;
         this._showImage = showImage;
+        this._deleteCard = deleteCard;
         this._template =  `<div class="place-card">        
                                 <div class="place-card__image">
                                     <button class="place-card__delete-icon"></button>
@@ -14,7 +16,7 @@ class Card {
                                 </div>
                             </div>`;
     }
-
+    
     get name() {
         return this._name;
     }
@@ -54,6 +56,7 @@ class Card {
     }
 
     _remove = (event) => {
+        this._deleteCard(this._id);
         this._view.remove();
         event.stopPropagation();
     }

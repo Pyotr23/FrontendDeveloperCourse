@@ -9,11 +9,16 @@
 
   const showImage = (url) => { popupDirector.renderImagePopup(url); }
 
+  const deleteCard = (id) => {
+    api.deleteCard(id)
+    .then(res => console.log(res));
+  }
+
   const randomCreateCards = (cards) => {
     const randomCards = [];    
-    while (cards.length !== 0) {                 
-      const index = Math.floor(Math.random() * cards.length);
-      const card = new Card(cards[index].name, cards[index].link, showImage);
+    while (cards.length !== 0) {                      
+      const index = Math.floor(Math.random() * cards.length);      
+      const card = new Card(cards[index]._id, cards[index].name, cards[index].link, showImage, deleteCard);      
       randomCards.push(card.create());
       cards.splice(index, 1);        
     }
