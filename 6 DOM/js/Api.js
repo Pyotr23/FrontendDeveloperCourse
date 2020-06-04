@@ -49,7 +49,7 @@ class Api {
         });
     }
 
-    addCard(card) {
+    addCard(card) {        
         return fetch(`${this._baseUrl}/cards`, {
             method: 'POST',
             headers: this._headers,
@@ -58,9 +58,10 @@ class Api {
                 link: card.link
             })
         })
-        .then(res => {          
-            if (res.ok)
+        .then(res => {                   
+            if (res.ok){                
                 return res.json();
+            }                
             return Promise.reject();
         });
     }

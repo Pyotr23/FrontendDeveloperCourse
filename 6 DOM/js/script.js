@@ -18,7 +18,7 @@
     const randomCards = [];    
     while (cards.length !== 0) {                      
       const index = Math.floor(Math.random() * cards.length);      
-      const card = new Card(cards[index]._id, cards[index].name, cards[index].link, showImage, deleteCard);      
+      const card = new Card(cards[index].name, cards[index].link, showImage, deleteCard, cards[index]._id);      
       randomCards.push(card.create());
       cards.splice(index, 1);        
     }
@@ -37,9 +37,14 @@
     .finally(() => userInfo.update());      
   }  
 
-  const addCard = (name, link, cardList) => { 
-    api.addCard(new Card(name, link))
-    .then(card => cardList.addCard(new Card(card.name, card.link, showImage).create()));
+  const addCard = (name, link) => {     
+    api.addCard(new Card(name, link, showImage, deleteCard))
+    .then(card => {
+      console.log('Добавляю');
+      console.log(card);
+      cardList.addCard(new Card(card.name, card.link, showImage, deleteCard, card._id).create());
+    })
+    .catch(res => console.log('Фиаско добавления'));
     // cardList.addCard(new Card(...arg, showImage).create()) 
   };
 

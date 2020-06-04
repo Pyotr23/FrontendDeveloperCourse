@@ -1,6 +1,6 @@
 'use strict'
 class Card {
-    constructor (id, name, link, showImage, deleteCard) {
+    constructor (name, link, showImage, deleteCard, id) {
         this._id = id;
         this._name = name;
         this._link = link;
@@ -16,7 +16,11 @@ class Card {
                                 </div>
                             </div>`;
     }
-    
+
+    get id() {
+        return this._id;
+    }
+
     get name() {
         return this._name;
     }
