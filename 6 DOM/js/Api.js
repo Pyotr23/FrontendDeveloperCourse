@@ -34,8 +34,11 @@ class Api {
         return this._getRequestResult('PATCH', '/users/me/avatar', { avatar: link });        
     }
 
-    addCard(card) {  
-        return this._getRequestResult('POST', '/cards', { card });      
+    addCard(name, link) {  
+        return this._getRequestResult('POST', '/cards', { 
+            name: name,
+            link: link
+        });      
     }
 
     deleteCard(cardId) {

@@ -7,18 +7,12 @@
   const editUserButton = document.querySelector('.button_place_user-info');
   const userPhoto = document.querySelector('.user-info__photo');
 
-  const showImage = (url) => { popupDirector.renderImagePopup(url); }
-
-  function createCard(dto) {
-    return new Card(dto, showImage, deleteCard);
-  } 
+  const showImage = url => popupDirector.renderImagePopup(url);
 
   const deleteCard = (id) => {
     api.deleteCard(id)
     .then(res => console.log(res));
-  }
-
-  
+  }  
   
   const setUserInfo = (userInfo) => {
     api.getUserInfo()
@@ -28,13 +22,9 @@
   }  
 
   const addCard = (name, link) => {     
-    api.addCard(new Card(name, link, showImage, deleteCard))
-    .then(card => {
-      console.log('Добавляю');
-      console.log(card);
-      cardList.addCard(new Card(card.name, card.link, showImage, deleteCard, card._id).create());
-    })
-    .catch(res => console.log('Фиаско добавления'));
+    api.addCard(name, link)
+    .then(dto => cardList.addCard(new Card(dto, showImage, deleteCard)))
+    .catch(err => console.log(err))
   };
 
   const updateUser = (user) => {    
@@ -64,10 +54,13 @@
     popupDirector.renderEditUserPhotoPopup(stringInputs, updateUserPhoto);
   }
 
+  function createCard(dto) {
+    return new Card(dto, showImage, deleteCard);
+  } 
+
   openAddCardPopupButton.addEventListener('click', openAddCardPopup);
   editUserButton.addEventListener('click', openEditUserPopup);
   userPhoto.addEventListener('click', openEditUserPhotoPopup);
 
   setUserInfo(userInfo);
-  // fillCardList(cardList);
 })()

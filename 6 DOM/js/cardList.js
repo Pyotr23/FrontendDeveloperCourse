@@ -7,7 +7,7 @@ class CardList {
         this._initCardList();     
     }
 
-    render(cards) {
+    _render(cards) {
         cards.forEach(card => { this.addCard(card) });
     }
 
@@ -17,7 +17,7 @@ class CardList {
 
     _initCardList = () => {    
         this._api.getInitialCards()
-        .then(res => this.render(this._randomCreateCards(res)));
+        .then(cardDtoes => this._render(this._randomCreateCards(cardDtoes)));
     }   
 
     _randomCreateCards = (cardDtoes) => {
