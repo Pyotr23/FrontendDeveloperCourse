@@ -7,7 +7,7 @@ class UserInfo {
         this._photoElement = container.querySelector('.user-info__photo');       
     }
 
-    set(user) {        
+    set(user) {         
         this._user = user;
     }
 
@@ -25,6 +25,10 @@ class UserInfo {
     
     get avatar() {
         return this._user.avatar;
+    }
+
+    get id() {
+        return this._user._id;
     }
 
     update() {                    

@@ -4,78 +4,42 @@ class Api {
         this._baseUrl = options.baseUrl;
         this._headers = options.headers;
     }
-  
-    getInitialCards() {
-        return fetch(`${this._baseUrl}/cards`, { headers: this._headers })
-        .then(res => {
-            if (res.ok)             
-                return res.json();
-            return [];
-        })           
-    }   
-    
-    getUser() {
-        return fetch(`${this._baseUrl}/users/me`, { headers: this._headers })
+   
+    _getRequestResult(method, notBaseUrl, body) {
+        return fetch(this._baseUrl + notBaseUrl, { 
+            method: method,
+            headers: this._headers,
+            body: JSON.stringify(body)
+        })            
         .then(res => {
             if (res.ok)             
                 return res.json();
             return Promise.reject();
-        })         
+        })    
+    }
+  
+    getInitialCards() {
+        return this._getRequestResult('GET', '/cards');              
+    }   
+    
+    getUserInfo() {
+        return this._getRequestResult('GET', '/users/me');             
     }
 
     updateUserInfo(userInfo) {
-        return fetch(`${this._baseUrl}/users/me`, {
-            method: 'PATCH',
-            headers: this._headers,
-            body: JSON.stringify(userInfo)
-        })
-        .then(res => {          
-            if (res.ok)
-                return res.json();
-            return Promise.reject();
-        });
+        return this._getRequestResult('PATCH', '/users/me', userInfo);        
     }
 
     updateUserPhoto(link) {
-        return fetch(`${this._baseUrl}/users/me/avatar`, {
-            method: 'PATCH',
-            headers: this._headers,
-            body: JSON.stringify({ avatar: link })
-        })
-        .then(res => {                   
-            if (res.ok)
-                return res.json();
-            return Promise.reject();
-        });
+        return this._getRequestResult('PATCH', '/users/me/avatar', { avatar: link });        
     }
 
-    addCard(card) {        
-        return fetch(`${this._baseUrl}/cards`, {
-            method: 'POST',
-            headers: this._headers,
-            body: JSON.stringify({
-                name: card.name,
-                link: card.link
-            })
-        })
-        .then(res => {                   
-            if (res.ok){                
-                return res.json();
-            }                
-            return Promise.reject();
-        });
+    addCard(card) {  
+        return this._getRequestResult('POST', '/cards', { name: card.name, link: card.link });      
     }
 
     deleteCard(cardId) {
-        return fetch(`${this._baseUrl}/cards/${cardId}`, {
-            method: 'DELETE',
-            headers: this._headers            
-        })
-        .then(res => {          
-            if (res.ok)
-                return res.json();
-            return Promise.reject();
-        });
+        return this._getRequestResult('DELETE', `/cards/${cardId}`);         
     }
 }
 

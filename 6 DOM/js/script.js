@@ -31,7 +31,7 @@
   }   
   
   const setUserInfo = (userInfo) => {
-    api.getUser()
+    api.getUserInfo()
     .then(user => userInfo.set(user)) 
     .catch(() => userInfo.set({ name: '', about: '' }))
     .finally(() => userInfo.update());      
@@ -45,7 +45,6 @@
       cardList.addCard(new Card(card.name, card.link, showImage, deleteCard, card._id).create());
     })
     .catch(res => console.log('Фиаско добавления'));
-    // cardList.addCard(new Card(...arg, showImage).create()) 
   };
 
   const updateUser = (user) => {    
