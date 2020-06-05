@@ -14,13 +14,13 @@
     .then(res => console.log(res));
   }
 
-  const randomCreateCards = (cards) => {
+  const randomCreateCards = (cardDtoes) => {
     const randomCards = [];    
-    while (cards.length !== 0) {                      
-      const index = Math.floor(Math.random() * cards.length);      
-      const card = new Card(cards[index].name, cards[index].link, showImage, deleteCard, cards[index]._id);      
+    while (cardDtoes.length !== 0) {                      
+      const index = Math.floor(Math.random() * cardDtoes.length);      
+      const card = new Card(cardDtoes[index], showImage, deleteCard);      
       randomCards.push(card.create());
-      cards.splice(index, 1);        
+      cardDtoes.splice(index, 1);        
     }
     return randomCards;
   }

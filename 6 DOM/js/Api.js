@@ -35,7 +35,7 @@ class Api {
     }
 
     addCard(card) {  
-        return this._getRequestResult('POST', '/cards', { name: card.name, link: card.link });      
+        return this._getRequestResult('POST', '/cards', { card });      
     }
 
     deleteCard(cardId) {

@@ -1,9 +1,7 @@
 'use strict'
 class Card {
-    constructor (name, link, showImage, deleteCard, id) {
-        this._id = id;
-        this._name = name;
-        this._link = link;
+    constructor (dto, showImage, deleteCard) {
+        this._dto = dto;       
         this._showImage = showImage;
         this._deleteCard = deleteCard;
         this._template =  `<div class="place-card">        
@@ -17,17 +15,21 @@ class Card {
                             </div>`;
     }
 
-    get id() {
-        return this._id;
+    get dto() {
+        return this._dto;
     }
 
-    get name() {
-        return this._name;
-    }
+    // get id() {
+    //     return this._id;
+    // }
 
-    get link() {
-        return this._link;
-    }
+    // get name() {
+    //     return this._name;
+    // }
+
+    // get link() {
+    //     return this._link;
+    // }
 
     create = () => {
         this._view = this._createCardNodeTemplate();
@@ -45,22 +47,22 @@ class Card {
 
     _addLink = () => {
         const placeCardImage = this._view.querySelector('.place-card__image');
-        placeCardImage.setAttribute('data-url', this._link);
-        placeCardImage.style.backgroundImage = `url(${this._link})`;
+        placeCardImage.setAttribute('data-url', this._dto.link);
+        placeCardImage.style.backgroundImage = `url(${this._dto.link})`;
     }
 
     _addName = () => {
-        this._view.querySelector('.place-card__name').textContent = this._name;
+        this._view.querySelector('.place-card__name').textContent = this._dto.name;
     }
 
     _setEventListeners() {
         this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);
         this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);        
-        this._view.querySelector('.place-card__image').addEventListener('click', () => { this._showImage(this._link) });
+        this._view.querySelector('.place-card__image').addEventListener('click', () => { this._showImage(this._dto.link) });
     }
 
     _remove = (event) => {
-        this._deleteCard(this._id);
+        this._deleteCard(this._dto.classListid);
         this._view.remove();
         event.stopPropagation();
     }
