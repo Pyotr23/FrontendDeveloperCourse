@@ -13,10 +13,15 @@ class Card {
                                     <button class="place-card__like-icon"></button>
                                 </div>
                             </div>`;
+        this._create();
     }
 
     get dto() {
         return this._dto;
+    }
+
+    get view() {
+        return this._view;
     }
 
     // get id() {
@@ -31,7 +36,7 @@ class Card {
     //     return this._link;
     // }
 
-    create = () => {
+    _create = () => {
         this._view = this._createCardNodeTemplate();
         this._addLink();
         this._addName();

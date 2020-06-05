@@ -2,33 +2,23 @@
   'use strict';
   const popupDirector = new PopupDirector(document.querySelector('.root'));  
   const userInfo = new UserInfo(document.querySelector('.user-info')); 
-  const cardList = new CardList(document.querySelector('.places-list'));
+  const cardList = new CardList(document.querySelector('.places-list'), api, createCard);
   const openAddCardPopupButton = document.querySelector('.user-info__button');
   const editUserButton = document.querySelector('.button_place_user-info');
   const userPhoto = document.querySelector('.user-info__photo');
 
   const showImage = (url) => { popupDirector.renderImagePopup(url); }
 
+  function createCard(dto) {
+    return new Card(dto, showImage, deleteCard);
+  } 
+
   const deleteCard = (id) => {
     api.deleteCard(id)
     .then(res => console.log(res));
   }
 
-  const randomCreateCards = (cardDtoes) => {
-    const randomCards = [];    
-    while (cardDtoes.length !== 0) {                      
-      const index = Math.floor(Math.random() * cardDtoes.length);      
-      const card = new Card(cardDtoes[index], showImage, deleteCard);      
-      randomCards.push(card.create());
-      cardDtoes.splice(index, 1);        
-    }
-    return randomCards;
-  }
-
-  const fillCardList = (cardList) => {    
-    api.getInitialCards()
-    .then(res => cardList.render(randomCreateCards(res)));
-  }   
+  
   
   const setUserInfo = (userInfo) => {
     api.getUserInfo()
@@ -79,5 +69,5 @@
   userPhoto.addEventListener('click', openEditUserPhotoPopup);
 
   setUserInfo(userInfo);
-  fillCardList(cardList);
+  // fillCardList(cardList);
 })()
