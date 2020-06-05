@@ -8,11 +8,17 @@ class CardList {
     }
 
     _render(cards) {
-        cards.forEach(card => { this.addCard(card) });
+        cards.forEach(card => this._renderCard(card));
     }
 
-    addCard(card) {
+    _renderCard(card) {
         this._container.appendChild(card.view);
+    }
+
+    addCard(name, link) {        
+        this._api.addCard(name, link)
+        .then(dto => this._renderCard(this._createCard(dto))) 
+        .catch(err => console.log(err))        
     }   
 
     _initCardList = () => {    

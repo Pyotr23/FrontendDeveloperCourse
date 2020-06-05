@@ -67,7 +67,8 @@ class Card {
     }
 
     _remove = (event) => {
-        this._deleteCard(this._dto.classListid);
+        debugger;
+        this._deleteCard(this._dto._id);
         this._view.remove();
         event.stopPropagation();
     }

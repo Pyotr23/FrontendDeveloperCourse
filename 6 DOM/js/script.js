@@ -21,12 +21,6 @@
     .finally(() => userInfo.update());      
   }  
 
-  const addCard = (name, link) => {     
-    api.addCard(name, link)
-    .then(dto => cardList.addCard(new Card(dto, showImage, deleteCard)))
-    .catch(err => console.log(err))
-  };
-
   const updateUser = (user) => {    
     api.updateUserInfo(user)
     .then(newUserInfo => userInfo.set(newUserInfo))
@@ -41,7 +35,7 @@
 
   const openAddCardPopup = () => { 
     const stringInputs = [ new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '') ];
-    popupDirector.renderAddCardPopup(stringInputs, addCard); 
+    popupDirector.renderAddCardPopup(stringInputs, cardList.addCard.bind(cardList)); 
   }
 
   const openEditUserPopup = () => {    
