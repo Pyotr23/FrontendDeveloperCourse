@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   const popupDirector = new PopupDirector(document.querySelector('.root'));  
-  const userInfo = new UserInfo(document.querySelector('.user-info')); 
+  const userInfo = new UserInfo(document.querySelector('.user-info'), api); 
   const cardList = new CardList(document.querySelector('.places-list'), api, createCard);
   const openAddCardPopupButton = document.querySelector('.user-info__button');
   const editUserButton = document.querySelector('.button_place_user-info');
@@ -12,14 +12,7 @@
   const deleteCard = (id) => {
     api.deleteCard(id)
     .then(res => console.log(res));
-  }  
-  
-  const setUserInfo = (userInfo) => {
-    api.getUserInfo()
-    .then(user => userInfo.set(user)) 
-    .catch(() => userInfo.set({ name: '', about: '' }))
-    .finally(() => userInfo.update());      
-  }  
+  }   
 
   const updateUser = (user) => {    
     api.updateUserInfo(user)
@@ -54,7 +47,5 @@
 
   openAddCardPopupButton.addEventListener('click', openAddCardPopup);
   editUserButton.addEventListener('click', openEditUserPopup);
-  userPhoto.addEventListener('click', openEditUserPhotoPopup);
-
-  setUserInfo(userInfo);
+  userPhoto.addEventListener('click', openEditUserPhotoPopup);  
 })()
