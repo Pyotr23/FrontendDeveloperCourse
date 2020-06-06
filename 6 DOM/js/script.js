@@ -5,7 +5,6 @@
   const cardList = new CardList(document.querySelector('.places-list'), api, createCard);
   const openAddCardPopupButton = document.querySelector('.user-info__button');
   const editUserButton = document.querySelector('.button_place_user-info');
-  const userPhoto = document.querySelector('.user-info__photo');
 
   const showImage = url => popupDirector.renderImagePopup(url);
 
@@ -28,16 +27,10 @@
     popupDirector.renderEditUserPopup(stringInputs, userInfo.update.bind(userInfo));
   }
 
-  const openEditUserPhotoPopup = () => {
-    const stringInputs = [ new UrlInput('avatar', 'Ссылка на аватар', userInfo.avatar) ];
-    popupDirector.renderEditUserPhotoPopup(stringInputs, updateUserPhoto);
-  }
-
   function createCard(dto) {
-    return new Card(dto, showImage, deleteCard);
+    return new Card(dto, userInfo.id, showImage, deleteCard);
   } 
 
   openAddCardPopupButton.addEventListener('click', openAddCardPopup);
   editUserButton.addEventListener('click', openEditUserPopup);
-  userPhoto.addEventListener('click', openEditUserPhotoPopup);  
 })()

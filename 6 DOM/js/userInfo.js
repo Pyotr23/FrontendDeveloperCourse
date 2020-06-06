@@ -61,7 +61,11 @@ class UserInfo {
     
     get avatar() {
         return this._dto.avatar;
-    }    
+    }   
+    
+    get id() {
+        return this._dto._id;
+    }
 
     // get id() {
     //     return this._user._id;

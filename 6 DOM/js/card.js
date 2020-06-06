@@ -1,7 +1,8 @@
 'use strict'
 class Card {
-    constructor (dto, showImage, deleteCard) {
-        this._dto = dto;       
+    constructor (dto, currentUserId, showImage, deleteCard) {
+        this._dto = dto;
+        this._currentUserId = currentUserId;       
         this._showImage = showImage;
         this._deleteCard = deleteCard;
         this._template =  `<div class="place-card">        
@@ -61,7 +62,8 @@ class Card {
     }
 
     _setEventListeners() {
-        this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);
+        if (this._dto.owner._id === this._currentUserId)
+            this._view.querySelector('.place-card__delete-icon').addEventListener('click', this._remove);
         this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);        
         this._view.querySelector('.place-card__image').addEventListener('click', () => { this._showImage(this._dto.link) });
     }
