@@ -1,9 +1,10 @@
 'use strict'
 class Card {
-    constructor (dto, showImage, deleteCard) {
-        this._dto = dto;             
-        this._showImage = showImage;
-        this._deleteCard = deleteCard;
+    constructor (dto, api, currentUserId, showImage) {
+        this._dto = dto;      
+        this._api = api;   
+        this._currentUserId = currentUserId;    
+        this._showImage = showImage;        
         this._template =  `<div class="place-card">        
                                 <div class="place-card__image">                                    
                                 </div>
@@ -15,7 +16,8 @@ class Card {
 									</div>  
                                 </div>
                             </div>`;
-        this._create();
+
+        this._create();        
     }
 
     get dto() {
@@ -29,9 +31,20 @@ class Card {
     _create = () => {
         this._view = this._createCardNodeTemplate();        
         this._addLink();
-        this._addName();        
+        this._addName(); 
+        this._setLikeState();       
         this._setEventListeners();
         return this._view;
+    }
+
+    _setLikeState = () => {            
+        const likeCountElement = this._view.querySelector('.place-card__like-count');
+        likeCountElement.textContent = this._dto.likes.length;
+        const likeImage = this._view.querySelector('.place-card__like-icon');
+        if (this._dto.likes.some(user => user._id === this._currentUserId))
+            likeImage.classList.add('place-card__like-icon_liked');
+        else 
+            likeImage.classList.remove('place-card__like-icon_liked');
     }
 
     _createCardNodeTemplate = () => {
@@ -56,12 +69,26 @@ class Card {
     }
 
     _remove = (event) => {        
-        this._deleteCard(this._dto._id);
+        this._api.deleteCard(this._dto._id);
         this._view.remove();
         event.stopPropagation();
     }
 
-    _like = (event) => {
-        event.target.classList.toggle('place-card__like-icon_liked');
+    _like = (event) => {       
+        console.log(this._dto); 
+        if (event.target.classList.contains('place-card__like-icon_liked')) {
+            this._api.removeLike(this._dto._id)
+            .then(dto => {
+                this._dto = dto;
+                this._setLikeState();
+            });
+        }            
+        else {            
+            this._api.setLike(this._dto._id)
+            .then(dto => {
+                this._dto = dto;
+                this._setLikeState();
+            });
+        }           
     }
 }

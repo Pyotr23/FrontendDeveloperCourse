@@ -44,6 +44,14 @@ class Api {
     deleteCard(cardId) {
         return this._getRequestResult('DELETE', `/cards/${cardId}`);         
     }
+
+    setLike(cardId) {
+        return this._getRequestResult('PUT', `/cards/like/${cardId}`);
+    }
+
+    removeLike(cardId) {
+        return this._getRequestResult('DELETE', `/cards/like/${cardId}`);
+    }
 }
 
     const api = new Api({
