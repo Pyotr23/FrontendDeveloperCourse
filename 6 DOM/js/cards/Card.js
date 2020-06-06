@@ -9,7 +9,10 @@ class Card {
                                 </div>
                                 <div class="place-card__description">
                                     <h3 class="place-card__name"></h3>
-                                    <button class="place-card__like-icon"></button>
+                                    <div class="place-card__like-container">
+										<button class="place-card__like-icon"></button>
+										<span class="place-card__like-count">0</span>
+									</div>  
                                 </div>
                             </div>`;
         this._create();
@@ -26,7 +29,7 @@ class Card {
     _create = () => {
         this._view = this._createCardNodeTemplate();        
         this._addLink();
-        this._addName();
+        this._addName();        
         this._setEventListeners();
         return this._view;
     }
@@ -45,9 +48,9 @@ class Card {
 
     _addName = () => {
         this._view.querySelector('.place-card__name').textContent = this._dto.name;
-    }
+    }    
 
-    _setEventListeners() {       
+    _setEventListeners() {           
         this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);        
         this._view.querySelector('.place-card__image').addEventListener('click', () => { this._showImage(this._dto.link) });
     }

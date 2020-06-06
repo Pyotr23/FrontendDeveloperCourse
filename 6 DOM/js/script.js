@@ -30,7 +30,7 @@
   function createCard(dto) {    
     if (!dto.owner._id || userInfo.id === dto.owner._id)
       return new OwnCard(dto, showImage, deleteCard);
-    return new Card(dto, showImage, deleteCard);
+    return new AlienCard(dto, showImage, deleteCard);
   } 
 
   openAddCardPopupButton.addEventListener('click', openAddCardPopup);
