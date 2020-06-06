@@ -32,14 +32,14 @@ class Card {
         this._view = this._createCardNodeTemplate();        
         this._addLink();
         this._addName(); 
+        this._likeCountElement = this._view.querySelector('.place-card__like-count');
         this._setLikeState();       
         this._setEventListeners();
         return this._view;
     }
 
-    _setLikeState = () => {            
-        const likeCountElement = this._view.querySelector('.place-card__like-count');
-        likeCountElement.textContent = this._dto.likes.length;
+    _setLikeState = () => {         
+        this._likeCountElement.textContent = this._dto.likes.length;
         const likeImage = this._view.querySelector('.place-card__like-icon');
         if (this._dto.likes.some(user => user._id === this._currentUserId))
             likeImage.classList.add('place-card__like-icon_liked');
@@ -47,7 +47,7 @@ class Card {
             likeImage.classList.remove('place-card__like-icon_liked');
     }
 
-    _createCardNodeTemplate = () => {
+    _createCardNodeTemplate = () => {        
         const element = document.createElement('div');
         element.insertAdjacentHTML('beforeend', this._template.trim());
         return element.firstChild;       
@@ -82,6 +82,7 @@ class Card {
                 this._dto = dto;
                 this._setLikeState();
             });
+            // this._likeCountElement.textContent--; 
         }            
         else {            
             this._api.setLike(this._dto._id)
@@ -89,6 +90,8 @@ class Card {
                 this._dto = dto;
                 this._setLikeState();
             });
-        }           
+            // this._likeCountElement.textContent++; 
+        }  
+        // event.target.classList.toggle('place-card__like-icon_liked');                
     }
 }
