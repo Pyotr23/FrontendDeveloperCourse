@@ -12,18 +12,12 @@
   const deleteCard = (id) => {
     api.deleteCard(id)
     .then(res => console.log(res));
-  }   
-
-  const updateUser = (user) => {    
-    api.updateUserInfo(user)
-    .then(newUserInfo => userInfo.set(newUserInfo))
-    .finally(() => userInfo.update());     
-  }
+  }  
 
   const updateUserPhoto = (link) => {
     api.updateUserPhoto(link)
     .then(res => userInfo.setPhoto(res.avatar))
-    .finally(() => userInfo.update());  
+    .finally(() => userInfo.render());  
   }
 
   const openAddCardPopup = () => { 
@@ -33,7 +27,7 @@
 
   const openEditUserPopup = () => {    
     const stringInputs = [ new TextInput('name', 'Полное имя', userInfo.name), new TextInput('about', 'Профессия', userInfo.about) ];
-    popupDirector.renderEditUserPopup(stringInputs, updateUser);
+    popupDirector.renderEditUserPopup(stringInputs, userInfo.update.bind(userInfo));
   }
 
   const openEditUserPhotoPopup = () => {

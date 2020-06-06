@@ -66,8 +66,7 @@ class Card {
         this._view.querySelector('.place-card__image').addEventListener('click', () => { this._showImage(this._dto.link) });
     }
 
-    _remove = (event) => {
-        debugger;
+    _remove = (event) => {        
         this._deleteCard(this._dto._id);
         this._view.remove();
         event.stopPropagation();

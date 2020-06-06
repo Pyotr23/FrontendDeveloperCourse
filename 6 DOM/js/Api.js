@@ -26,8 +26,8 @@ class Api {
         return this._getRequestResult('GET', '/users/me');             
     }
 
-    updateUserInfo(userInfo) {
-        return this._getRequestResult('PATCH', '/users/me', userInfo);        
+    updateUserInfo(name, about) {
+        return this._getRequestResult('PATCH', '/users/me', { name: name, about: about });        
     }
 
     updateUserPhoto(link) {
