@@ -24,11 +24,28 @@ class UserInfo {
         this.render();
     }
 
-    update = (name, about) => {    
-        this._api.updateUserInfo(name, about)
-        .then(newUserInfo => this._set(newUserInfo))
-        .catch(err => console.log(err));     
+    update = (dto) => {            
+        if (this._isChangeDescription(dto)) {            
+            this._api.updateUserInfo(dto)
+            .then(newUserInfo => this._set(newUserInfo))
+            .catch(err => console.log(err));
+        } 
+        if (dto.avatar !== this._dto.avatar) {
+            this._api.updateUserPhoto(dto.avatar)
+            .then(newUserInfo => this._set(newUserInfo))
+            .catch(err => console.log(err)); 
+        }
+    }
+
+    updateUserPhoto = (link) => {
+        api.updateUserPhoto(link)
+        .then(res => userInfo.setPhoto(res.avatar))
+        .finally(() => userInfo.render());  
       }
+
+    _isChangeDescription(dto) {
+        return dto.name !== this._dto.name || dto.avatar !== this._dto.avatar
+    }
 
     setPhoto(link) {        
         this._user.avatar = link;
@@ -40,11 +57,11 @@ class UserInfo {
 
     get about() {
         return this._dto.about;
-    }   
+    } 
     
-    // get avatar() {
-    //     return this._user.avatar;
-    // }
+    get avatar() {
+        return this._dto.avatar;
+    }    
 
     // get id() {
     //     return this._user._id;

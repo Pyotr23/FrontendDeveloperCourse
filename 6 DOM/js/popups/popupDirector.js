@@ -49,27 +49,31 @@ class PopupDirector {
 
     _editUserInfo(event, changeUserInfo, popupBuilder) {
         const inputs = popupBuilder.popup.inputs;        
-        changeUserInfo(inputs[0].value, inputs[1].value);
+        changeUserInfo({ 
+            name: inputs[0].value, 
+            about: inputs[1].value,
+            avatar: inputs[2].value 
+        });
         popupBuilder.popup.close();
     }
 
-    renderEditUserPhotoPopup(stringInputs, changeUserPhoto) {
-        const popupBuilder = new FormPopupBuilder(this._parentNode);
-        const submitButtonText = 'Сохранить';
-        const form = new FormDirector().getForm(stringInputs, submitButtonText);
-        const formValidator = new FormValidator(form);
-        popupBuilder.withTitle('Обновить аватар');
-        popupBuilder.withForm(form.view);
-        popupBuilder.renderForm();
-        popupBuilder.renderPopup();
-        popupBuilder.setSubmitEventListener((event) => this._editUserPhoto(event, changeUserPhoto, popupBuilder));
-        popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
-        formValidator.setSubmitButtonState();
-    }
+    // renderEditUserPhotoPopup(stringInputs, changeUserPhoto) {
+    //     const popupBuilder = new FormPopupBuilder(this._parentNode);
+    //     const submitButtonText = 'Сохранить';
+    //     const form = new FormDirector().getForm(stringInputs, submitButtonText);
+    //     const formValidator = new FormValidator(form);
+    //     popupBuilder.withTitle('Обновить аватар');
+    //     popupBuilder.withForm(form.view);
+    //     popupBuilder.renderForm();
+    //     popupBuilder.renderPopup();
+    //     popupBuilder.setSubmitEventListener((event) => this._editUserPhoto(event, changeUserPhoto, popupBuilder));
+    //     popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
+    //     formValidator.setSubmitButtonState();
+    // }
 
-    _editUserPhoto(event, changeUserPhoto, popupBuilder) {
-        const link = popupBuilder.popup.inputs[0].value;        
-        changeUserPhoto(link);
-        popupBuilder.popup.close();
-    }
+    // _editUserPhoto(event, changeUserPhoto, popupBuilder) {
+    //     const link = popupBuilder.popup.inputs[0].value;        
+    //     changeUserPhoto(link);
+    //     popupBuilder.popup.close();
+    // }
 }
