@@ -27,8 +27,10 @@
     popupDirector.renderEditUserPopup(stringInputs, userInfo.update.bind(userInfo));
   }
 
-  function createCard(dto) {
-    return new Card(dto, userInfo.id, showImage, deleteCard);
+  function createCard(dto) {    
+    if (!dto.owner._id || userInfo.id === dto.owner._id)
+      return new OwnCard(dto, showImage, deleteCard);
+    return new Card(dto, showImage, deleteCard);
   } 
 
   openAddCardPopupButton.addEventListener('click', openAddCardPopup);
