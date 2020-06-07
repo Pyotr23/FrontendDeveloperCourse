@@ -44,17 +44,17 @@ class PopupDirector {
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();
-        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, changeUserInfo, popupBuilder, form.submitButton));
+        const closePopup = () => popupBuilder.popup.close(); 
+        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, changeUserInfo, closePopup, form.submitButton));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
         formValidator.setSubmitButtonState();
     }
 
-    _editUserInfo(event, changeUserInfo, popupBuilder, submitButton) {
+    _editUserInfo(event, changeUserInfo, closePopup, submitButton) {
         event.preventDefault();
         const inputs = popupBuilder.popup.inputs;
         submitButton.textContent = 'Загрузка...';
-        submitButton.setAttribute('disable', 'true');
-        const closePopup = () => popupBuilder.popup.close();        
+        submitButton.setAttribute('disable', 'true');               
         changeUserInfo({ 
             name: inputs[0].value, 
             about: inputs[1].value,

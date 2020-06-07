@@ -24,7 +24,8 @@ class CardList {
 
     _initCardList = () => {    
         this._api.getInitialCards()
-        .then(cardDtoes => this._render(this._randomCreateCards(cardDtoes)));
+        .then(cardDtoes => this._render(this._randomCreateCards(cardDtoes)))
+        .catch(err => console.log(err));
     }   
 
     _randomCreateCards = (cardDtoes) => {
