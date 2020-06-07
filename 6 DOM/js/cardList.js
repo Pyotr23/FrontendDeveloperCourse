@@ -28,13 +28,12 @@ class CardList {
     }   
 
     _randomCreateCards = (cardDtoes) => {
-        const randomCards = []; 
-        do {
-            const index = Math.floor(Math.random() * cardDtoes.length);      
-            randomCards.push(this._createCard(cardDtoes[index]));
-            cardDtoes.splice(index, 1); 
-        }  
-        while (cardDtoes.length < 0); 
+        const randomCards = [];    
+        while (cardDtoes.length !== 0) {                      
+          const index = Math.floor(Math.random() * cardDtoes.length);      
+          randomCards.push(this._createCard(cardDtoes[index]));
+          cardDtoes.splice(index, 1);        
+        }
         return randomCards;
     }
 }
