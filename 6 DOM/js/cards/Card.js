@@ -74,24 +74,20 @@ class Card {
         event.stopPropagation();
     }
 
-    _like = (event) => {       
-        console.log(this._dto); 
+    _like = (event) => {        
         if (event.target.classList.contains('place-card__like-icon_liked')) {
             this._api.removeLike(this._dto._id)
             .then(dto => {
                 this._dto = dto;
                 this._setLikeState();
-            });
-            // this._likeCountElement.textContent--; 
+            });             
         }            
         else {            
             this._api.setLike(this._dto._id)
             .then(dto => {
                 this._dto = dto;
                 this._setLikeState();
-            });
-            // this._likeCountElement.textContent++; 
-        }  
-        // event.target.classList.toggle('place-card__like-icon_liked');                
+            });            
+        }                      
     }
 }

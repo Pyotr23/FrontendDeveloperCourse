@@ -19,29 +19,18 @@ class UserInfo {
         .catch(err => console.log(err));        
     }
 
-    _set(dto) {
+    _set(dto) {            
         this._dto = dto;
         this.render();
     }
 
-    update = (dto) => {            
-        if (this._isChangeDescription(dto)) {            
-            this._api.updateUserInfo(dto)
-            .then(newUserInfo => this._set(newUserInfo))
-            .catch(err => console.log(err));
-        } 
-        if (dto.avatar !== this._dto.avatar) {
-            this._api.updateUserPhoto(dto.avatar)
-            .then(newUserInfo => this._set(newUserInfo))
-            .catch(err => console.log(err)); 
-        }
+    update = (dto, closePopup) => {          
+        this._api.updateUserInfo(dto)
+        .then(() => this._api.updateUserPhoto(dto.avatar))
+        .then(newUserInfo => this._set(newUserInfo))         
+        .catch(err => console.log(err))
+        .finally(closePopup);              
     }
-
-    updateUserPhoto = (link) => {
-        api.updateUserPhoto(link)
-        .then(res => userInfo.setPhoto(res.avatar))
-        .finally(() => userInfo.render());  
-      }
 
     _isChangeDescription(dto) {
         return dto.name !== this._dto.name || dto.avatar !== this._dto.avatar
@@ -67,11 +56,7 @@ class UserInfo {
         return this._dto._id;
     }
 
-    // get id() {
-    //     return this._user._id;
-    // }
-
-    render() {                    
+    render() {           
         this._nameElement.textContent = this._dto.name;
         this._jobElement.textContent = this._dto.about;
         this._photoElement.style.backgroundImage = `url(${this._dto.avatar})`;

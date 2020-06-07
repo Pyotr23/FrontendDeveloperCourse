@@ -8,11 +8,6 @@
 
   const showImage = url => popupDirector.renderImagePopup(url);
 
-  const deleteCard = (id) => {
-    api.deleteCard(id)
-    .then(res => console.log(res));
-  } 
-
   const openAddCardPopup = () => { 
     const stringInputs = [ new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '') ];
     popupDirector.renderAddCardPopup(stringInputs, cardList.addCard.bind(cardList)); 

@@ -21,16 +21,18 @@ class PopupDirector {
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();
-        popupBuilder.setSubmitEventListener((event) => this._addCard(event, addCard, popupBuilder));
+        popupBuilder.setSubmitEventListener((event) => this._addCard(event, addCard, popupBuilder, form.submitButton));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
         formValidator.setSubmitButtonState();
     }
 
-    _addCard = (event, addCard, popupBuilder) => {
+    _addCard = (event, addCard, popupBuilder, submitButton) => {
         event.preventDefault();
-        const inputs = popupBuilder.popup.inputs;
-        addCard(inputs[0].value, inputs[1].value);
-        popupBuilder.popup.close();
+        const inputs = popupBuilder.popup.inputs;        
+        submitButton.textContent = 'Загрузка...';
+        submitButton.setAttribute('disable', 'true');
+        const closePopup = () => popupBuilder.popup.close();
+        addCard(inputs[0].value, inputs[1].value, closePopup);              
     }
 
     renderEditUserPopup(stringInputs, changeUserInfo) {
@@ -42,18 +44,21 @@ class PopupDirector {
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();
-        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, changeUserInfo, popupBuilder));
+        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, changeUserInfo, popupBuilder, form.submitButton));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
         formValidator.setSubmitButtonState();
     }
 
-    _editUserInfo(event, changeUserInfo, popupBuilder) {
-        const inputs = popupBuilder.popup.inputs;        
+    _editUserInfo(event, changeUserInfo, popupBuilder, submitButton) {
+        event.preventDefault();
+        const inputs = popupBuilder.popup.inputs;
+        submitButton.textContent = 'Загрузка...';
+        submitButton.setAttribute('disable', 'true');
+        const closePopup = () => popupBuilder.popup.close();        
         changeUserInfo({ 
             name: inputs[0].value, 
             about: inputs[1].value,
             avatar: inputs[2].value 
-        });
-        popupBuilder.popup.close();
+        }, closePopup);                       
     }
 }
