@@ -6,7 +6,6 @@ class PopupDirector {
 
     renderImagePopup(link) {
         const popupBuilder = new ImagePopupBuilder(this._parentNode);
-
         popupBuilder.withImage(link);
         popupBuilder.renderImage();
         popupBuilder.renderPopup();
@@ -20,19 +19,18 @@ class PopupDirector {
         popupBuilder.withTitle('Новое место');
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();
-        popupBuilder.renderPopup();
-        popupBuilder.setSubmitEventListener((event) => this._addCard(event, addCard, popupBuilder, form.submitButton));
+        popupBuilder.renderPopup();         
+        popupBuilder.setSubmitEventListener((event) => this._addCard(event, addCard, popupBuilder));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
         formValidator.setSubmitButtonState();
     }
 
-    _addCard = (event, addCard, popupBuilder, submitButton) => {
+    _addCard = (event, addCard, popupBuilder) => {
         event.preventDefault();
-        const inputs = popupBuilder.popup.inputs;        
-        submitButton.textContent = 'Загрузка...';
-        submitButton.setAttribute('disable', 'true');
-        const closePopup = () => popupBuilder.popup.close();
-        addCard(inputs[0].value, inputs[1].value, closePopup);              
+        const inputs = popupBuilder.popup.inputs;                
+        event.submitter.textContent = 'Загрузка...';
+        event.submitter.setAttribute('disable', 'true');        
+        addCard(inputs[0].value, inputs[1].value, () => popupBuilder.popup.close());              
     }
 
     renderEditUserPopup(stringInputs, changeUserInfo) {
@@ -43,22 +41,21 @@ class PopupDirector {
         popupBuilder.withTitle('Редактировать профиль');
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();
-        popupBuilder.renderPopup();
-        const closePopup = () => popupBuilder.popup.close(); 
-        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, changeUserInfo, closePopup, form.submitButton));
+        popupBuilder.renderPopup();        
+        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, changeUserInfo, popupBuilder));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
         formValidator.setSubmitButtonState();
     }
 
-    _editUserInfo(event, changeUserInfo, closePopup, submitButton) {
-        event.preventDefault();
+    _editUserInfo(event, changeUserInfo, popupBuilder) {
+        event.preventDefault();        
         const inputs = popupBuilder.popup.inputs;
-        submitButton.textContent = 'Загрузка...';
-        submitButton.setAttribute('disable', 'true');               
+        event.submitter.textContent = 'Загрузка...';
+        event.submitter.setAttribute('disable', 'true');               
         changeUserInfo({ 
             name: inputs[0].value, 
             about: inputs[1].value,
             avatar: inputs[2].value 
-        }, closePopup);                       
+        }, () => popupBuilder.popup.close());                       
     }
 }
