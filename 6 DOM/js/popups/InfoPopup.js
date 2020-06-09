@@ -2,9 +2,10 @@
 class InfoPopup extends Popup {
     constructor() {
         super();
-        this._badgeTemplate = `<div class="badge">
-                                <p class="badge__name"></p>
+        this.content.classList.add('popup__content_info');
+        this._badgeTemplate = `<div class="badge">                                
                                 <img class="badge__image"/>
+                                <p class="badge__name"></p>
                                </div>`;
     }
 

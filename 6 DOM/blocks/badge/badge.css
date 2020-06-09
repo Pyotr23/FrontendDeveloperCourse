@@ -1,0 +1,7 @@
+@import url(./__name/badge__name.css);
+@import url(./__image/badge__image.css);
+
+.badge {
+    display: flex;
+    align-items: center;
+}

@@ -4,7 +4,7 @@ class CardList {
         this._container = container; 
         this._api = api;  
         this._createCard = createCard;
-        // this._initCardList();     
+        this._initCardList();     
     }
 
     _render(cards) {

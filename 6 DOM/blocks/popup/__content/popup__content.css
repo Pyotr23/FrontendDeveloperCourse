@@ -1,4 +1,5 @@
 @import url(./_card-image/popup__content_card-image.css);
+@import url(./_info/popup__content_info.css);
 
 .popup__content {
   width: 430px;
