@@ -22,10 +22,12 @@
     popupDirector.renderEditUserPopup(stringInputs, userInfo.update.bind(userInfo));
   }
 
+  const showBadge = (name, photo) => popupDirector.renderBagePopup(name, photo);
+
   function createCard(dto) {    
     if (!dto.owner._id || userInfo.id === dto.owner._id)
-      return new OwnCard(dto, api, userInfo.id, showImage);
-    return new Card(dto, api, userInfo.id, showImage);
+      return new OwnCard(dto, api, userInfo.id, showImage, showBadge);
+    return new Card(dto, api, userInfo.id, showImage, showBadge);
   } 
 
   openAddCardPopupButton.addEventListener('click', openAddCardPopup);

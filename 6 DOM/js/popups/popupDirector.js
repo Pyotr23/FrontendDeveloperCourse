@@ -11,6 +11,13 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
+    renderBagePopup(name, photo) {
+        const popupBuilder = new InfoPopupBuilder(this._parentNode);
+        popupBuilder.withBadge(name, photo);
+        popupBuilder.renderBadge();
+        popupBuilder.renderPopup();
+    }
+
     renderAddCardPopup(stringInputs, addCard) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);        
         const submitButtonText = '+';

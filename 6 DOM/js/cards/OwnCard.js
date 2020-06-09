@@ -1,6 +1,6 @@
 class OwnCard extends Card {
-    constructor (dto, api, currentUserId, showImage) {
-        super(dto, api, currentUserId, showImage);
+    constructor (dto, api, currentUserId, showImage, showBadge) {
+        super(dto, api, currentUserId, showImage, showBadge);
         this._addRemoveButton();
     }
 
