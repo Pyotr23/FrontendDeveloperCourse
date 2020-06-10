@@ -1,10 +1,13 @@
 'use strict'
 class FormDirector {
-    getForm(stringInputs, buttonText) {
-        const builder = new FormBuilder();
-        builder.withStringInputs(stringInputs);
-        builder.withSubmitButton(buttonText);
-        builder.render();
-        return builder.form;
+    constructor(formBuilder) {
+        this._formBuilder = formBuilder;
+    }
+
+    getForm(stringInputs, buttonText) {        
+        this._formBuilder.withStringInputs(stringInputs);
+        this._formBuilder.withSubmitButton(buttonText);
+        this._formBuilder.render();
+        return this._formBuilder.form;
     }
 }

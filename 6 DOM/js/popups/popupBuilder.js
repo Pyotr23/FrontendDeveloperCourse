@@ -1,8 +1,8 @@
 'use strict'
 class PopupBuilder {
-    constructor(parentNode) {
+    constructor(parentNode, popup) {
         this._parentNode = parentNode;
-        this._popup = undefined;
+        this._popup = popup;
     }
 
     get popup() {
