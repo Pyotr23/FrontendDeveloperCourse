@@ -1,7 +1,7 @@
 'use strict'
 class FormBuilder {
-    constructor() {
-        this._form = new Form();
+    constructor(form) {
+        this._form = form;
     }
 
     withSubmitButton(buttonText) {
