@@ -1,7 +1,6 @@
 'use strict'
 class PopupDirector {
-    renderImagePopup(link) {
-        const popupBuilder = new ImagePopupBuilder(this._parentNode);
+    renderImagePopup(link, popupBuilder) {        
         popupBuilder.withImage(link);
         popupBuilder.renderImage();
         popupBuilder.renderPopup();

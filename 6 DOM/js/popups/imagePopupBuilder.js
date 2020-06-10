@@ -1,10 +1,5 @@
 'use strict'
-class ImagePopupBuilder extends PopupBuilder {
-    constructor(parentNode) {
-        super(parentNode);
-        this._popup = new ImagePopup();
-    }
-
+class ImagePopupBuilder extends PopupBuilder {    
     withImage(link) {
         this._popup.withImage(link);
     }

@@ -6,7 +6,13 @@
   const openAddCardPopupButton = document.querySelector('.user-info__button');
   const editUserButton = document.querySelector('.button_place_user-info');
 
-  const showImage = (url) => popupDirector.renderImagePopup(url);
+  const showImage = (url) => {
+    const imagePopup = new ImagePopup();
+    const imagePopupBuilder = new ImagePopupBuilder(rootContainer, imagePopup);
+    const popupDirector = new PopupDirector();
+    popupDirector.renderImagePopup(url, imagePopupBuilder);
+  }
+
   const openAddCardPopup = () => {
     const form = new Form();
     const submitButtonText = '+';
@@ -20,6 +26,7 @@
     const popupDirector = new PopupDirector();
     popupDirector.renderAddCardPopup(cardList.addCard.bind(cardList), filledForm.view, formPopupBuilder, formValidator);
   } 
+
   const openEditUserPopup = () => {    
     const form = new Form();
     const submitButtonText = 'Сохранить';
