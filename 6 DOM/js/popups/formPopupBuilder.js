@@ -1,10 +1,5 @@
 'use strict'
-class FormPopupBuilder extends PopupBuilder {
-    constructor(parentNode) {
-        super(parentNode);
-        this._popup = new FormPopup();
-    }
-
+class FormPopupBuilder extends PopupBuilder {    
     withTitle(title) {
         this._popup.withTitle(title);
     }

@@ -15,7 +15,8 @@
     const formDirector = new FormDirector(formBuilder);
     const filledForm = formDirector.getForm(stringInputs, submitButtonText);
     const formValidator = new FormValidator(filledForm);
-    const formPopupBuilder = new FormPopupBuilder(rootContainer);
+    const formPopup = new FormPopup();
+    const formPopupBuilder = new FormPopupBuilder(rootContainer, formPopup);
     const popupDirector = new PopupDirector();
     popupDirector.renderAddCardPopup(cardList.addCard.bind(cardList), filledForm.view, formPopupBuilder, formValidator);
   } 
@@ -31,7 +32,8 @@
     const formDirector = new FormDirector(formBuilder);
     const filledForm = formDirector.getForm(stringInputs, submitButtonText);
     const formValidator = new FormValidator(filledForm);
-    const formPopupBuilder = new FormPopupBuilder(rootContainer);
+    const formPopup = new FormPopup();
+    const formPopupBuilder = new FormPopupBuilder(rootContainer, formPopup);
     const popupDirector = new PopupDirector();
     popupDirector.renderEditUserPopup(userInfo, filledForm.view, formPopupBuilder, formValidator);
   } 
