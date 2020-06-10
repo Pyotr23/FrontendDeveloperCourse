@@ -11,9 +11,10 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderAddCardPopup(stringInputs, addCard) {
+    renderAddCardPopup(addCard) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);        
         const submitButtonText = '+';
+        const stringInputs = [ new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '') ];
         const form = new FormDirector().getForm(stringInputs, submitButtonText);
         const formValidator = new FormValidator(form);
         popupBuilder.withTitle('Новое место');

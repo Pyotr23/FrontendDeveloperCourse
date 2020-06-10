@@ -6,13 +6,8 @@
   const openAddCardPopupButton = document.querySelector('.user-info__button');
   const editUserButton = document.querySelector('.button_place_user-info');
 
-  const showImage = url => popupDirector.renderImagePopup(url);
-
-  const openAddCardPopup = () => {
-    const stringInputs = [ new TextInput('name', 'Название', ''), new UrlInput('link', 'Ссылка на картинку', '') ];
-    popupDirector.renderAddCardPopup(stringInputs, cardList.addCard.bind(cardList));
-  }
-
+  const showImage = (url) => popupDirector.renderImagePopup(url);
+  const openAddCardPopup = () => popupDirector.renderAddCardPopup(cardList.addCard.bind(cardList))
   const openEditUserPopup = () => popupDirector.renderEditUserPopup(userInfo);
 
   function createCard(dto) {
