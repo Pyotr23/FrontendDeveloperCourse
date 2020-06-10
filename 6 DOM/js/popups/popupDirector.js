@@ -33,16 +33,21 @@ class PopupDirector {
         addCard(inputs[0].value, inputs[1].value, () => popupBuilder.popup.close());              
     }
 
-    renderEditUserPopup(stringInputs, changeUserInfo) {
+    renderEditUserPopup(userInfo) {
         const popupBuilder = new FormPopupBuilder(this._parentNode);
-        const submitButtonText = 'Сохранить';
+        const submitButtonText = 'Сохранить';        
+        const stringInputs = [
+            new TextInput('name', 'Полное имя', userInfo.name),
+            new TextInput('about', 'Профессия', userInfo.about),
+            new UrlInput('avatar', 'Ссылка на аватар', userInfo.avatar)
+          ];
         const form = new FormDirector().getForm(stringInputs, submitButtonText);
         const formValidator = new FormValidator(form);
         popupBuilder.withTitle('Редактировать профиль');
         popupBuilder.withForm(form.view);
         popupBuilder.renderForm();
         popupBuilder.renderPopup();        
-        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, changeUserInfo, popupBuilder));
+        popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, userInfo.update.bind(userInfo), popupBuilder));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
         formValidator.setSubmitButtonState();
     }

@@ -13,14 +13,7 @@
     popupDirector.renderAddCardPopup(stringInputs, cardList.addCard.bind(cardList));
   }
 
-  const openEditUserPopup = () => {
-    const stringInputs = [
-      new TextInput('name', 'Полное имя', userInfo.name),
-      new TextInput('about', 'Профессия', userInfo.about),
-      new UrlInput('avatar', 'Ссылка на аватар', userInfo.avatar)
-    ];
-    popupDirector.renderEditUserPopup(stringInputs, userInfo.update.bind(userInfo));
-  }
+  const openEditUserPopup = () => popupDirector.renderEditUserPopup(userInfo);
 
   function createCard(dto) {
     if (!dto.owner._id || userInfo.id === dto.owner._id)

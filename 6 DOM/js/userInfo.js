@@ -41,19 +41,19 @@ class UserInfo {
     }
 
     get name() {
-        return this._dto.name;
+        return this._dto ? this._dto.name : '';        
     }
 
     get about() {
-        return this._dto.about;
+        return this._dto ? this._dto.about : '';         
     } 
     
     get avatar() {
-        return this._dto.avatar;
+        return this._dto ? this._dto.avatar : '';         
     }   
     
     get id() {
-        return this._dto._id;
+        return this._dto ? this._dto._id : '';       
     }
 
     render() {           
