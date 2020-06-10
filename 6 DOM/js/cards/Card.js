@@ -66,12 +66,9 @@ class Card {
 
     _setEventListeners() {           
         this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);        
-        // this._view.querySelector('.place-card__image').addEventListener('click', () => { this._showImage(this._dto.link) });
-        this._view.querySelector('.place-card__image').addEventListener('click', 
-            () => { 
-                // debugger;
-                this._showBadge(this._dto.owner.name, this._dto.owner.avatar);
-            });
+        this._view.querySelector('.place-card__image').addEventListener('click', () => { this._showImage(this._dto.link) });
+        // this._view.querySelector('.place-card__image').addEventListener('mouseover', 
+        //     () => { this._showBadge(this._dto.owner.name, this._dto.owner.avatar) });
     }
 
     _remove = (event) => {        
