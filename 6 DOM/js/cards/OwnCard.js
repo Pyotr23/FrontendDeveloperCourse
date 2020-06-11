@@ -6,7 +6,8 @@ class OwnCard extends Card {
 
     _addRemoveButton() {
         this._removeButton = document.createElement('button');
-        this._removeButton.classList.add('place-card__delete-icon');
+        this._removeButton.classList.add('place-card__icon');
+        this._removeButton.classList.add('place-card__icon_delete');
         const imageElement = this._view.querySelector('.place-card__image');
         imageElement.appendChild(this._removeButton);
         this._removeButton.addEventListener('click', this._remove);
