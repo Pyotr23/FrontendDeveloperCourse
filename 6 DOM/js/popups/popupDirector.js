@@ -6,10 +6,28 @@ class PopupDirector {
     }
 
     renderInfoPopup(dto, popupBuilder) { 
-        popupBuilder.withTitle(dto.name);       
+        popupBuilder.withTitle(dto.name); 
+        popupBuilder.withInfoRows([ new InfoRow('Дата публикации', this._getDateTime(new Date(dto.createdAt))), 
+            new InfoRow('Лайков', dto.likes.length)]);  
+        popupBuilder.withTitle('Об авторе');   
         popupBuilder.withBadge(dto.owner.name, dto.owner.avatar);
         popupBuilder.withInfoRows([ new InfoRow('Профессия', dto.owner.about)]);        
         popupBuilder.renderPopup();
+    }
+
+    _getDateTime(date) {
+        const hours = this._getTwoSymbolsValue(date.getHours());
+        const minutes = this._getTwoSymbolsValue(date.getMinutes());
+        const day = this._getTwoSymbolsValue(date.getDate());
+        const month = this._getTwoSymbolsValue(parseInt(date.getMonth(), 10) + 1);
+        const year = date.getFullYear();
+        return `${hours}:${minutes} ${day}.${month}.${year}`;
+    }
+
+    _getTwoSymbolsValue(value) {        
+        return value.toString().length === 1 
+            ? 0 + value.toString()
+            : value;
     }
 
     renderAddCardPopup(addCard, formContainer, popupBuilder, formValidator) {        
