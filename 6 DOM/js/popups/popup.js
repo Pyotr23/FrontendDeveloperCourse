@@ -25,6 +25,7 @@ class Popup {
 
     withTitle(titleName) {
         this._title = this._createTitle(titleName);
+        this._content.appendChild(this._title);
     }
 
     close = () => {

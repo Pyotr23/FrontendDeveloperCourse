@@ -15,9 +15,4 @@ class FormPopupBuilder extends PopupBuilder {
     setInputEventListener(action) {
         this._popup.setInputEventListener(action);
     }
-
-    renderForm() {
-        this._popup.content.appendChild(this._popup.title);
-        this._popup.content.appendChild(this._popup.form);
-    }
 }

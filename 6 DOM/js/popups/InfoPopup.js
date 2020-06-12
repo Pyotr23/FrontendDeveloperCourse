@@ -12,10 +12,13 @@ class InfoPopup extends Popup {
 
     withBadge(name, photo) {
         this._badge = this._createBadge(name, photo);
+        this._content.appendChild(this._badge);
+        
     }
 
     withInfoRows(rows) {
         this._rows = rows;
+        this._rows.forEach(row => this._content.appendChild(row.view));
     }
 
     get badge() {

@@ -2,22 +2,19 @@
 class PopupDirector {
     renderImagePopup(link, popupBuilder) {        
         popupBuilder.withImage(link);
-        popupBuilder.renderImage();
         popupBuilder.renderPopup();
     }
 
     renderInfoPopup(dto, popupBuilder) { 
         popupBuilder.withTitle(dto.name);       
         popupBuilder.withBadge(dto.owner.name, dto.owner.avatar);
-        popupBuilder.withInfoRows([ new InfoRow('Профессия', dto.owner.about)]);
-        popupBuilder.renderInfo();
+        popupBuilder.withInfoRows([ new InfoRow('Профессия', dto.owner.about)]);        
         popupBuilder.renderPopup();
     }
 
     renderAddCardPopup(addCard, formContainer, popupBuilder, formValidator) {        
         popupBuilder.withTitle('Новое место');
-        popupBuilder.withForm(formContainer);
-        popupBuilder.renderForm();
+        popupBuilder.withForm(formContainer);        
         popupBuilder.renderPopup();         
         popupBuilder.setSubmitEventListener((event) => this._addCard(event, addCard, popupBuilder));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));
@@ -36,8 +33,7 @@ class PopupDirector {
 
     renderEditUserPopup(userInfo, formContainer, popupBuilder, formValidator) {            
         popupBuilder.withTitle('Редактировать профиль');
-        popupBuilder.withForm(formContainer);
-        popupBuilder.renderForm();
+        popupBuilder.withForm(formContainer);        
         popupBuilder.renderPopup();        
         popupBuilder.setSubmitEventListener((event) => this._editUserInfo(event, userInfo.update.bind(userInfo), popupBuilder));
         popupBuilder.setInputEventListener((event) => formValidator.handleInput(event));

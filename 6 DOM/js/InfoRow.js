@@ -1,6 +1,5 @@
 class InfoRow {
-    constructor(key, value){
-        debugger;
+    constructor(key, value){        
         this._key = key;
         this._value = value;
         this._template = `<div class="info-row">
