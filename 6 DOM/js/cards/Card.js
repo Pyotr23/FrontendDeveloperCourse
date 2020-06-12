@@ -1,6 +1,7 @@
 'use strict'
 class Card {
     constructor (dto, api, currentUserId, showImage, showBadge) {
+        debugger;
         this._dto = dto;      
         this._api = api;   
         this._currentUserId = currentUserId;    
@@ -21,13 +22,14 @@ class Card {
         this._create();        
     }
 
-    _addButton(cssClass) {        
-        this._removeButton = document.createElement('button');
-        this._removeButton.classList.add('place-card__icon');
-        this._removeButton.classList.add(cssClass);
+    _addButton(cssClass) { 
+        debugger;       
+        const button = document.createElement('button');
+        button.classList.add('place-card__icon');
+        button.classList.add(cssClass);
         const imageElement = this._view.querySelector('.place-card__image');
-        imageElement.appendChild(this._removeButton);
-        this._removeButton.addEventListener('click', this._remove);
+        imageElement.appendChild(button);
+        button.addEventListener('click', (event) => this._showBadge(event, this._dto));
     }
 
     get dto() {
@@ -75,7 +77,8 @@ class Card {
 
     _setEventListeners() {           
         this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like);        
-        this._view.querySelector('.place-card__image').addEventListener('click', () => { this._showImage(this._dto.link) });
+        this._view.querySelector('.place-card__image').addEventListener('click', () => this._showImage(this._dto.link));
+        // this.
         // this._view.querySelector('.place-card__image').addEventListener('mouseover', 
         //     () => { this._showBadge(this._dto.owner.name, this._dto.owner.avatar) });
     }

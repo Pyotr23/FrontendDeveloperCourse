@@ -6,6 +6,12 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
+    renderInfoPopup(dto, popupBuilder) {        
+        popupBuilder.withBadge(dto.owner.name, dto.owner.avatar);
+        popupBuilder.renderBadge();
+        popupBuilder.renderPopup();
+    }
+
     renderAddCardPopup(addCard, formContainer, popupBuilder, formValidator) {        
         popupBuilder.withTitle('Новое место');
         popupBuilder.withForm(formContainer);
