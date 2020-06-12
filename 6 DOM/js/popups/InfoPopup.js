@@ -5,12 +5,17 @@ class InfoPopup extends Popup {
         this.content.classList.add('popup__content_info');
         this._badgeTemplate = `<div class="badge">                                
                                 <img class="badge__image"/>
-                                <p class="badge__name"></p>
-                               </div>`;
+                                <span class="badge__name"></span>
+                               </div>                               
+                               `;
     }
 
     withBadge(name, photo) {
         this._badge = this._createBadge(name, photo);
+    }
+
+    withInfoRows(rows) {
+        this._rows = rows;
     }
 
     get badge() {

@@ -11,6 +11,7 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/error/error.css);
 @import url(../blocks/badge/badge.css);
+@import url(../blocks/info-row/info-row.css);
 
 body {
   background-color: #000;

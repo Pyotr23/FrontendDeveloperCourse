@@ -9,6 +9,7 @@ class PopupDirector {
     renderInfoPopup(dto, popupBuilder) { 
         popupBuilder.withTitle(dto.name);       
         popupBuilder.withBadge(dto.owner.name, dto.owner.avatar);
+        popupBuilder.withInfoRows([ new InfoRow('Профессия', dto.owner.about)]);
         popupBuilder.renderInfo();
         popupBuilder.renderPopup();
     }
