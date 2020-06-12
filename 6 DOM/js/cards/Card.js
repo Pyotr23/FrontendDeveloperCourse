@@ -1,7 +1,6 @@
 'use strict'
 class Card {
-    constructor (dto, api, currentUserId, showImage, showBadge) {
-        debugger;
+    constructor (dto, api, currentUserId, showImage, showBadge) {        
         this._dto = dto;      
         this._api = api;   
         this._currentUserId = currentUserId;    
@@ -22,8 +21,7 @@ class Card {
         this._create();        
     }
 
-    _addButton(cssClass) { 
-        debugger;       
+    _addButton(cssClass) {                
         const button = document.createElement('button');
         button.classList.add('place-card__icon');
         button.classList.add(cssClass);

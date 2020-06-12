@@ -6,9 +6,10 @@ class PopupDirector {
         popupBuilder.renderPopup();
     }
 
-    renderInfoPopup(dto, popupBuilder) {        
+    renderInfoPopup(dto, popupBuilder) { 
+        popupBuilder.withTitle(dto.name);       
         popupBuilder.withBadge(dto.owner.name, dto.owner.avatar);
-        popupBuilder.renderBadge();
+        popupBuilder.renderInfo();
         popupBuilder.renderPopup();
     }
 

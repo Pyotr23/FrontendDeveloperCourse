@@ -53,8 +53,7 @@
     popupDirector.renderEditUserPopup(userInfo, filledForm.view, formPopupBuilder, formValidator);
   }   
 
-  function createCard(dto) {
-    debugger;
+  function createCard(dto) {    
     return isOwnCard(dto) 
       ? new OwnCard(dto, api, userInfo.id, showImage)
       : new AlienCard(dto, api, userInfo.id, showImage, openCardInfo);      

@@ -24,8 +24,7 @@ class InfoPopup extends Popup {
         const badgeName = badgeNode.querySelector('.badge__name');
         badgeName.textContent = name;
         const badgePhoto = badgeNode.querySelector('.badge__image');
-        badgePhoto.setAttribute('src', photo);
-        console.log(badgeNode);
+        badgePhoto.setAttribute('src', photo);        
         return badgeNode;
     }
 }
