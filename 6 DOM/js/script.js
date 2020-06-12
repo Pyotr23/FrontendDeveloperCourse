@@ -46,10 +46,12 @@
   } 
 
   function createCard(dto) {
-    if (!dto.owner._id || userInfo.id === dto.owner._id)
-      return new OwnCard(dto, api, userInfo.id, showImage);
-    return new Card(dto, api, userInfo.id, showImage);
+    return isOwnCard(dto) 
+      ? new OwnCard(dto, api, userInfo.id, showImage)
+      : new AlienCard(dto, api, userInfo.id, showImage);      
   }
+
+  const isOwnCard = (dto) => !dto.owner._id || userInfo.id === dto.owner._id;
 
   openAddCardPopupButton.addEventListener('click', openAddCardPopup);
   editUserButton.addEventListener('click', openEditUserPopup);

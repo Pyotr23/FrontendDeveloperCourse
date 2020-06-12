@@ -1,4 +1,5 @@
 @import url(./_delete/place-card__icon_delete.css);
+@import url(./_info/place-card__icon_info.css);
 
 .place-card__icon {
     background-position: center;

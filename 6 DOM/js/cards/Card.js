@@ -21,6 +21,15 @@ class Card {
         this._create();        
     }
 
+    _addButton(cssClass) {        
+        this._removeButton = document.createElement('button');
+        this._removeButton.classList.add('place-card__icon');
+        this._removeButton.classList.add(cssClass);
+        const imageElement = this._view.querySelector('.place-card__image');
+        imageElement.appendChild(this._removeButton);
+        this._removeButton.addEventListener('click', this._remove);
+    }
+
     get dto() {
         return this._dto;
     }
