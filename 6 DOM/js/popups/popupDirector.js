@@ -6,10 +6,12 @@ class PopupDirector {
     }
 
     renderInfoPopup(dto, popupBuilder) { 
+        // dto.likes.forEach(user => popupBuilder.withBadge(user.name, user.avatar));
+        // popupBuilder.renderPopup();
         popupBuilder.withTitle(dto.name); 
         popupBuilder.withInfoRows([ new InfoRow('Дата публикации', this._getDateTime(new Date(dto.createdAt))), 
             new InfoRow('Лайков', dto.likes.length)]);  
-        popupBuilder.withTitle('Об авторе');   
+        popupBuilder.withSubtitle('Об авторе');   
         popupBuilder.withBadge(dto.owner.name, dto.owner.avatar);
         popupBuilder.withInfoRows([ new InfoRow('Профессия', dto.owner.about)]);        
         popupBuilder.renderPopup();

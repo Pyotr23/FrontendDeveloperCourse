@@ -1,9 +1,5 @@
 'use strict'
-class FormPopupBuilder extends PopupBuilder {    
-    withTitle(title) {
-        this._popup.withTitle(title);
-    }
-
+class FormPopupBuilder extends PopupBuilder {   
     withForm(formContainer) {
         this._popup.withForm(formContainer);
     }
