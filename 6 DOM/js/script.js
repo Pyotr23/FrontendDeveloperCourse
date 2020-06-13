@@ -13,6 +13,14 @@
     popupDirector.renderImagePopup(url, imagePopupBuilder);
   }
 
+  const showLikesPopup = (event, dto) => {
+    const infoPopup = new InfoPopup();
+    const infoPopupBuilder = new InfoPopupBuilder(rootContainer, infoPopup);
+    const popupDirector = new PopupDirector();
+    popupDirector.renderLikesPopup(dto, infoPopupBuilder);
+    event.stopPropagation();
+  }
+
   const openCardInfo = (event, dto) => {     
     const infoPopup = new InfoPopup();
     const infoPopupBuilder = new InfoPopupBuilder(rootContainer, infoPopup);
@@ -56,7 +64,7 @@
   function createCard(dto) {    
     return isOwnCard(dto) 
       ? new OwnCard(dto, api, userInfo.id, showImage)
-      : new AlienCard(dto, api, userInfo.id, showImage, openCardInfo);      
+      : new AlienCard(dto, api, userInfo.id, showImage, openCardInfo, showLikesPopup);      
   }
 
   const isOwnCard = (dto) => !dto.owner._id || userInfo.id === dto.owner._id;
