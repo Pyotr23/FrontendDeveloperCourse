@@ -13,6 +13,8 @@
     popupDirector.renderImagePopup(url, imagePopupBuilder);
   }
 
+  const showLikesTimeout = (event, dto) => setTimeout(showLikesPopup, 1500, event, dto); 
+  
   const showLikesPopup = (event, dto) => {
     const infoPopup = new InfoPopup();
     const infoPopupBuilder = new InfoPopupBuilder(rootContainer, infoPopup);
@@ -64,7 +66,7 @@
   function createCard(dto) {    
     return isOwnCard(dto) 
       ? new OwnCard(dto, api, userInfo.id, showImage)
-      : new AlienCard(dto, api, userInfo.id, showImage, openCardInfo, showLikesPopup);      
+      : new AlienCard(dto, api, userInfo.id, showImage, openCardInfo, showLikesTimeout);      
   }
 
   const isOwnCard = (dto) => !dto.owner._id || userInfo.id === dto.owner._id;

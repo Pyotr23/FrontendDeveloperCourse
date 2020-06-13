@@ -1,12 +1,12 @@
 'use strict'
 class Card {
-    constructor (dto, api, currentUserId, showImage, showBadge, showLikes) {        
+    constructor (dto, api, currentUserId, showImage, showBadge, showLikesTimeout) {        
         this._dto = dto;      
         this._api = api;   
         this._currentUserId = currentUserId;    
         this._showImage = showImage; 
         this._showBadge = showBadge;  
-        this._showLikes = showLikes;     
+        this._showLikesTimeout = showLikesTimeout;     
         this._template =  `<div class="place-card">        
                                 <div class="place-card__image">                                    
                                 </div>
@@ -76,11 +76,10 @@ class Card {
 
     _setEventListeners() {           
         this._view.querySelector('.place-card__like-icon').addEventListener('click', this._like); 
-        this._view.querySelector('.place-card__like-icon').addEventListener('mouseenter',(event) => this._showLikes(event, this._dto));         
-        this._view.querySelector('.place-card__image').addEventListener('click', () => this._showImage(this._dto.link));
-        // this.
-        // this._view.querySelector('.place-card__image').addEventListener('mouseover', 
-        //     () => { this._showBadge(this._dto.owner.name, this._dto.owner.avatar) });
+        this._view.querySelector('.place-card__like-icon').addEventListener('mouseenter', 
+            (event) => this._showLikesTimeoutId = this._showLikesTimeout(event, this._dto));   
+        this._view.querySelector('.place-card__like-icon').addEventListener('mouseleave', () => clearTimeout(this._showLikesTimeoutId));         
+        this._view.querySelector('.place-card__image').addEventListener('click', () => this._showImage(this._dto.link));        
     }
 
     _remove = (event) => {        
