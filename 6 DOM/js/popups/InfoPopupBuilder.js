@@ -11,4 +11,8 @@ class InfoPopupBuilder extends PopupBuilder {
     withInfoRows(rows) {
         this._popup.withInfoRows(rows);
     }
+
+    withoutCloseButton() {
+        this._popup.withoutCloseButton();
+    }
 }

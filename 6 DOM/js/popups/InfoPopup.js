@@ -7,7 +7,7 @@ class InfoPopup extends Popup {
                                 <img class="badge__image"/>
                                 <span class="badge__name"></span>
                                </div>                               
-                               `;
+                               `;        
     }
 
     withBadge(name, photo) {
@@ -19,6 +19,15 @@ class InfoPopup extends Popup {
     withInfoRows(rows) {
         this._rows = rows;
         this._rows.forEach(row => this._content.appendChild(row.view));
+    }
+
+    withoutCloseButton() {
+        const closeElement = this.container.querySelector('.popup__close');
+        closeElement.remove();
+        this.container.addEventListener('click', evt => {
+            if (evt.target === this.container)
+                this.close();
+        })
     }
 
     get badge() {

@@ -7,6 +7,7 @@ class PopupDirector {
 
     renderLikesPopup(dto, popupBuilder) {
         dto.likes.forEach(user => popupBuilder.withBadge(user.name, user.avatar));
+        popupBuilder.withoutCloseButton();
         popupBuilder.renderPopup();
     }
 
@@ -16,7 +17,8 @@ class PopupDirector {
             new InfoRow('Лайков', dto.likes.length)]);  
         popupBuilder.withSubtitle('Об авторе');   
         popupBuilder.withBadge(dto.owner.name, dto.owner.avatar);
-        popupBuilder.withInfoRows([ new InfoRow('Профессия', dto.owner.about)]);        
+        popupBuilder.withInfoRows([ new InfoRow('Профессия', dto.owner.about)]); 
+        popupBuilder.withoutCloseButton();       
         popupBuilder.renderPopup();
     }
 
