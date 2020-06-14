@@ -1,11 +1,11 @@
 'use strict'
 class Card {
-    constructor (dto, api, currentUserId, showImage, showBadge, showLikesTimeout) {        
+    constructor (dto, api, currentUserId, showImage, openCardInfo, showLikesTimeout) {        
         this._dto = dto;      
         this._api = api;   
         this._currentUserId = currentUserId;    
         this._showImage = showImage; 
-        this._showBadge = showBadge;  
+        this._openCardInfo = openCardInfo;  
         this._showLikesTimeout = showLikesTimeout;     
         this._template =  `<div class="place-card">        
                                 <div class="place-card__image">                                    
@@ -19,16 +19,17 @@ class Card {
                                 </div>
                             </div>`;
 
-        this._create();        
+        this._create(); 
+        this._addButton('place-card__icon_info', (event) => this._openCardInfo(event, this._dto));       
     }
 
-    _addButton(cssClass) {                
+    _addButton(cssClass, clickAction) {                      
         const button = document.createElement('button');
         button.classList.add('place-card__icon');
         button.classList.add(cssClass);
         const imageElement = this._view.querySelector('.place-card__image');
-        imageElement.appendChild(button);
-        button.addEventListener('click', (event) => this._showBadge(event, this._dto));
+        imageElement.appendChild(button);        
+        button.addEventListener('click', clickAction);
     }
 
     get dto() {
@@ -80,13 +81,7 @@ class Card {
             (event) => this._showLikesTimeoutId = this._showLikesTimeout(event, this._dto));   
         this._view.querySelector('.place-card__like-icon').addEventListener('mouseleave', () => clearTimeout(this._showLikesTimeoutId));         
         this._view.querySelector('.place-card__image').addEventListener('click', () => this._showImage(this._dto.link));        
-    }
-
-    _remove = (event) => {        
-        this._api.deleteCard(this._dto._id);
-        this._view.remove();
-        event.stopPropagation();
-    }
+    }    
 
     _like = (event) => {        
         if (event.target.classList.contains('place-card__like-icon_liked')) {

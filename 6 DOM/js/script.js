@@ -66,7 +66,7 @@
   function createCard(dto) {    
     return isOwnCard(dto) 
       ? new OwnCard(dto, api, userInfo.id, showImage)
-      : new AlienCard(dto, api, userInfo.id, showImage, openCardInfo, showLikesTimeout);      
+      : new Card(dto, api, userInfo.id, showImage, openCardInfo, showLikesTimeout);      
   }
 
   const isOwnCard = (dto) => !dto.owner._id || userInfo.id === dto.owner._id;

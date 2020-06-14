@@ -6,9 +6,7 @@
     background-repeat: no-repeat;  
     background-color: transparent;
     border: none;   
-    position: absolute;
-    top: 18px;
-    right: 15px;
+    position: absolute;    
     cursor: pointer;
     display: block;
     transition: opacity 0.1s linear; 
