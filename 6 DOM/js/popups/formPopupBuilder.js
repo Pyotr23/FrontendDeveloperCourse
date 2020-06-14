@@ -1,9 +1,5 @@
 'use strict'
-class FormPopupBuilder extends PopupBuilder {    
-    withTitle(title) {
-        this._popup.withTitle(title);
-    }
-
+class FormPopupBuilder extends PopupBuilder {   
     withForm(formContainer) {
         this._popup.withForm(formContainer);
     }
@@ -14,10 +10,5 @@ class FormPopupBuilder extends PopupBuilder {
 
     setInputEventListener(action) {
         this._popup.setInputEventListener(action);
-    }
-
-    renderForm() {
-        this._popup.content.appendChild(this._popup.title);
-        this._popup.content.appendChild(this._popup.form);
     }
 }

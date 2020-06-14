@@ -17,14 +17,16 @@ class Popup {
 
     get content() {
         return this._content;
-    }
-
-    get title() {
-        return this._title;
-    }
+    }    
 
     withTitle(titleName) {
-        this._title = this._createTitle(titleName);
+        const title = this._createTitle(titleName);
+        this._content.appendChild(title);
+    }
+
+    withSubtitle(subtitleName) {
+        const subtitle = this._createSubtitle(subtitleName);
+        this._content.appendChild(subtitle);
     }
 
     close = () => {
@@ -34,6 +36,12 @@ class Popup {
     _createTitle(titleName) {
         const titleElement = this._createElement('h3', 'popup__title');
         titleElement.textContent = titleName;
+        return titleElement;
+    }
+
+    _createSubtitle(subtitleName) {
+        const titleElement = this._createElement('h4', 'popup__subtitle');
+        titleElement.textContent = subtitleName;
         return titleElement;
     }
 

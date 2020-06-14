@@ -2,6 +2,7 @@
 class FormPopup extends Popup {
     withForm(formContainer) {
         this._form = formContainer;
+        this._content.appendChild(this._form);
     }
 
     get form() {

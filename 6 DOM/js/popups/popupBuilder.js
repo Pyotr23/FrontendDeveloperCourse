@@ -9,6 +9,14 @@ class PopupBuilder {
         return this._popup;
     }
 
+    withTitle(title) {
+        this._popup.withTitle(title);
+    }
+
+    withSubtitle(subtitle) {
+        this._popup.withSubtitle(subtitle);
+    }
+
     renderPopup() {
         this._parentNode.appendChild(this._popup.container);
     }

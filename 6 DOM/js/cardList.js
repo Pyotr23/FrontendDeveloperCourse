@@ -29,7 +29,12 @@ class CardList {
     }   
 
     _randomCreateCards = (cardDtoes) => {
-        const randomCards = [];    
+        const randomCards = []; 
+        // for (let i = 0; i < 3; i++) {
+        //     const index = Math.floor(Math.random() * cardDtoes.length);      
+        //     randomCards.push(this._createCard(cardDtoes[index]));
+        //     cardDtoes.splice(index, 1);  
+        // }   
         while (cardDtoes.length !== 0) {                      
           const index = Math.floor(Math.random() * cardDtoes.length);      
           randomCards.push(this._createCard(cardDtoes[index]));
