@@ -65,7 +65,7 @@
 
   function createCard(dto) {    
     return isOwnCard(dto) 
-      ? new OwnCard(dto, api, userInfo.id, showImage)
+      ? new OwnCard(dto, api, userInfo.id, showImage, openCardInfo, showLikesTimeout)
       : new Card(dto, api, userInfo.id, showImage, openCardInfo, showLikesTimeout);      
   }
 

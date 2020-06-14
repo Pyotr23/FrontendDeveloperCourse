@@ -1,6 +1,6 @@
 class OwnCard extends Card {
-    constructor (dto, api, currentUserId, showImage, showBadge, showLikesTimeout) {
-        super(dto, api, currentUserId, showImage, showBadge, showLikesTimeout);  
+    constructor (...params) {
+        super(...params);  
         this._addButton('place-card__icon_delete', (event) => this._remove(event));     
     }
 
