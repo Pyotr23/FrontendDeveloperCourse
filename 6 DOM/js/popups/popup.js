@@ -2,8 +2,10 @@
 class Popup {
     constructor() {
         this._template =   `<div class="popup popup_is-opened">
-                                <div class="popup__content">
+                                <div class="popup__content-container">
                                     <img src="./images/close.svg" alt="" class="popup__close">
+                                    <div class="popup__content">                                    
+                                    </div>
                                 </div>
                             </div>`;
         this._container = this._createPopup();
