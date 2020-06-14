@@ -16,11 +16,13 @@
   const showLikesTimeout = (event, dto) => setTimeout(showLikesPopup, 1500, event, dto); 
   
   const showLikesPopup = (event, dto) => {
+    event.stopPropagation();
+    if (dto.likes.length === 0)
+      return;
     const infoPopup = new InfoPopup();
     const infoPopupBuilder = new InfoPopupBuilder(rootContainer, infoPopup);
     const popupDirector = new PopupDirector();
-    popupDirector.renderLikesPopup(dto, infoPopupBuilder);
-    event.stopPropagation();
+    popupDirector.renderLikesPopup(dto, infoPopupBuilder);    
   }
 
   const openCardInfo = (event, dto) => {     
