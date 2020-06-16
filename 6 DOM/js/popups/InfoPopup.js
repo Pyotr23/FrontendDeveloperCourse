@@ -1,7 +1,7 @@
 'use strict'
 class InfoPopup extends Popup {
-    constructor() {
-        super();
+    constructor(parentNode) {
+        super(parentNode);
         this.content.classList.add('popup__content_info');
         this._badgeTemplate = `<div class="badge">                                
                                 <img class="badge__image"/>

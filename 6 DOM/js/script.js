@@ -18,17 +18,15 @@
     event.stopPropagation();
     if (dto.likes.length === 0)
       return;
-    const infoPopup = new InfoPopup();
-    const infoPopupBuilder = new InfoPopupBuilder(rootContainer, infoPopup);
+    const infoPopup = new InfoPopup(rootContainer);    
     const popupDirector = new PopupDirector();
-    popupDirector.renderLikesPopup(dto, infoPopupBuilder);    
+    popupDirector.renderLikesPopup(dto, infoPopup);    
   }
 
-  const openCardInfo = (event, dto) => {     
-    const infoPopup = new InfoPopup();
-    const infoPopupBuilder = new InfoPopupBuilder(rootContainer, infoPopup);
+  const openCardInfo = (event, dto) => {    
+    const infoPopup = new InfoPopup(rootContainer);    
     const popupDirector = new PopupDirector();
-    popupDirector.renderInfoPopup(dto, infoPopupBuilder);
+    popupDirector.renderInfoPopup(dto, infoPopup);
     event.stopPropagation();
   }
 

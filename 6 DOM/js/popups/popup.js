@@ -1,6 +1,6 @@
 'use strict'
 class Popup {
-    constructor(parentNode) {
+    constructor(parentNode) {        
         this._parentNode = parentNode;
         this._template =   `<div class="popup popup_is-opened">
                                 <div class="popup__content-container">
@@ -15,7 +15,7 @@ class Popup {
     }
 
     renderPopup() {
-        this._parentNode.appendChild(this._popup.container);
+        this._parentNode.appendChild(this._container);
     }
 
     get container() {
@@ -37,7 +37,7 @@ class Popup {
     }
 
     close = () => {
-        this._container.parentNode.removeChild(this._container);
+        this._parentNode.removeChild(this._container);
     }
 
     _createTitle(titleName) {

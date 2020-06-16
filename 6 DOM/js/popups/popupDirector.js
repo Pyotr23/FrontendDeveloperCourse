@@ -5,21 +5,21 @@ class PopupDirector {
         popup.renderPopup();
     }
 
-    renderLikesPopup(dto, popupBuilder) {
-        dto.likes.forEach(user => popupBuilder.withBadge(user.name, user.avatar));
-        popupBuilder.withoutCloseButton();
-        popupBuilder.renderPopup();
+    renderLikesPopup(dto, popup) {
+        dto.likes.forEach(user => popup.withBadge(user.name, user.avatar));
+        popup.withoutCloseButton();
+        popup.renderPopup();
     }
 
-    renderInfoPopup(dto, popupBuilder) {         
-        popupBuilder.withTitle(dto.name); 
-        popupBuilder.withInfoRows([ new InfoRow('Дата публикации', this._getDateTime(new Date(dto.createdAt))), 
+    renderInfoPopup(dto, popup) {         
+        popup.withTitle(dto.name); 
+        popup.withInfoRows([ new InfoRow('Дата публикации', this._getDateTime(new Date(dto.createdAt))), 
             new InfoRow('Лайков', dto.likes.length)]);  
-        popupBuilder.withSubtitle('Об авторе');   
-        popupBuilder.withBadge(dto.owner.name, dto.owner.avatar);
-        popupBuilder.withInfoRows([ new InfoRow('Профессия', dto.owner.about)]); 
-        popupBuilder.withoutCloseButton();       
-        popupBuilder.renderPopup();
+        popup.withSubtitle('Об авторе');   
+        popup.withBadge(dto.owner.name, dto.owner.avatar);
+        popup.withInfoRows([ new InfoRow('Профессия', dto.owner.about)]); 
+        popup.withoutCloseButton();       
+        popup.renderPopup();
     }
 
     _getDateTime(date) {
@@ -48,12 +48,12 @@ class PopupDirector {
 
     _addCard = (event, addCard, popup) => {
         event.preventDefault();
-        const [...inputs] = popup.popup.inputs;             
+        const [...inputs] = popup.inputs;             
         event.submitter.textContent = 'Загрузка...';
         event.submitter.setAttribute('disable', 'true');  
         const name = inputs.find(input => input.name === 'name').value; 
         const link = inputs.find(input => input.name === 'link').value;
-        addCard(name, link, () => popup.popup.close());              
+        addCard(name, link, () => popup.close());              
     }
 
     renderEditUserPopup(userInfo, formContainer, popup, formValidator) {            
@@ -67,7 +67,7 @@ class PopupDirector {
 
     _editUserInfo(event, changeUserInfo, popup) {
         event.preventDefault();        
-        const [...inputs] = popup.popup.inputs;
+        const [...inputs] = popup.inputs;
         event.submitter.textContent = 'Загрузка...';
         event.submitter.setAttribute('disable', 'true');
         const name = inputs.find(input => input.name === 'name').value; 
@@ -77,6 +77,6 @@ class PopupDirector {
             name: name, 
             about: about,
             avatar: avatar
-        }, () => popup.popup.close());                       
+        }, () => popup.close());                       
     }
 }
