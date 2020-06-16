@@ -2,10 +2,11 @@
   'use strict';
   const rootContainer = document.querySelector('.root');  
   const userInfo = new UserInfo(document.querySelector('.user-info'), api);
-  const cardList = new CardList(document.querySelector('.places-list'), api, createCard);
+  const selectOwners = document.querySelector('.card-filter__select');
+  const cardList = new CardList(document.querySelector('.places-list'), api, createCard, selectOwners);
   const openAddCardPopupButton = document.querySelector('.user-info__button');
-  const editUserButton = document.querySelector('.button_place_user-info');
-
+  const editUserButton = document.querySelector('.button_place_user-info');  
+  
   const showImage = (url) => {
     const imagePopup = new ImagePopup(rootContainer);    
     const popupDirector = new PopupDirector();
@@ -64,7 +65,7 @@
     return isOwnCard(dto) 
       ? new OwnCard(dto, api, userInfo.id, showImage, openCardInfo, showLikesTimeout)
       : new Card(dto, api, userInfo.id, showImage, openCardInfo, showLikesTimeout);      
-  }
+  }  
 
   const isOwnCard = (dto) => !dto.owner._id || userInfo.id === dto.owner._id;
 

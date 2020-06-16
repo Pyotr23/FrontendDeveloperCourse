@@ -1,9 +1,10 @@
 'use strict'
 class CardList {
-    constructor (container, api, createCard) {
+    constructor (container, api, createCard, selectOwners) {
         this._container = container; 
         this._api = api;  
         this._createCard = createCard;
+        this._selectOwners = selectOwners;
         this._initCardList();     
     }
 
@@ -29,17 +30,31 @@ class CardList {
     }   
 
     _randomCreateCards = (cardDtoes) => {
-        const randomCards = []; 
+        this._cards = [];  
+        this._owners = [];       
+        this._addOwnerName('Все');
+        this._addOwnerName('Мои');
         // for (let i = 0; i < 3; i++) {
         //     const index = Math.floor(Math.random() * cardDtoes.length);      
         //     randomCards.push(this._createCard(cardDtoes[index]));
         //     cardDtoes.splice(index, 1);  
         // }   
-        while (cardDtoes.length !== 0) {                      
-          const index = Math.floor(Math.random() * cardDtoes.length);      
-          randomCards.push(this._createCard(cardDtoes[index]));
-          cardDtoes.splice(index, 1);        
-        }
-        return randomCards;
+        while (cardDtoes.length !== 0) {             
+            const index = Math.floor(Math.random() * cardDtoes.length); 
+            const cardDto = cardDtoes[index];      
+            this._cards.push(this._createCard(cardDto));
+            if (!this._owners.includes(cardDto.owner.name)) 
+                this._addOwnerName(cardDto.owner.name);            
+            cardDtoes.splice(index, 1);                
+        }      
+        console.log(this._owners);  
+        return this._cards;
+    }
+
+    _addOwnerName = (name) => {
+        const option = document.createElement('option');
+        option.textContent = name;
+        this._selectOwners.appendChild(option);
+        this._owners.push(name);
     }
 }
