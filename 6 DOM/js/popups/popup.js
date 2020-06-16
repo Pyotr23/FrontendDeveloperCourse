@@ -1,6 +1,7 @@
 'use strict'
 class Popup {
-    constructor() {
+    constructor(parentNode) {
+        this._parentNode = parentNode;
         this._template =   `<div class="popup popup_is-opened">
                                 <div class="popup__content-container">
                                     <img src="./images/close.svg" alt="" class="popup__close">
@@ -11,6 +12,10 @@ class Popup {
         this._container = this._createPopup();
         this._content = this._container.querySelector('.popup__content');
         this._setCloseEventListener();
+    }
+
+    renderPopup() {
+        this._parentNode.appendChild(this._popup.container);
     }
 
     get container() {
