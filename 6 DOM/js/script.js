@@ -7,10 +7,9 @@
   const editUserButton = document.querySelector('.button_place_user-info');
 
   const showImage = (url) => {
-    const imagePopup = new ImagePopup();
-    const imagePopupBuilder = new ImagePopupBuilder(rootContainer, imagePopup);
+    const imagePopup = new ImagePopup(rootContainer);    
     const popupDirector = new PopupDirector();
-    popupDirector.renderImagePopup(url, imagePopupBuilder);
+    popupDirector.renderImagePopup(url, imagePopup);
   }
 
   const showLikesTimeout = (event, dto) => setTimeout(showLikesPopup, 1500, event, dto); 
@@ -41,10 +40,9 @@
     const formDirector = new FormDirector(formBuilder);
     const filledForm = formDirector.getForm(stringInputs, submitButtonText);
     const formValidator = new FormValidator(filledForm);
-    const formPopup = new FormPopup();
-    const formPopupBuilder = new FormPopupBuilder(rootContainer, formPopup);
+    const formPopup = new FormPopup(rootContainer);    
     const popupDirector = new PopupDirector();
-    popupDirector.renderAddCardPopup(cardList.addCard.bind(cardList), filledForm.view, formPopupBuilder, formValidator);
+    popupDirector.renderAddCardPopup(cardList.addCard.bind(cardList), filledForm.view, formPopup, formValidator);
   } 
 
   const openEditUserPopup = () => {    
@@ -59,10 +57,9 @@
     const formDirector = new FormDirector(formBuilder);
     const filledForm = formDirector.getForm(stringInputs, submitButtonText);
     const formValidator = new FormValidator(filledForm);
-    const formPopup = new FormPopup();
-    const formPopupBuilder = new FormPopupBuilder(rootContainer, formPopup);
+    const formPopup = new FormPopup(rootContainer);    
     const popupDirector = new PopupDirector();
-    popupDirector.renderEditUserPopup(userInfo, filledForm.view, formPopupBuilder, formValidator);
+    popupDirector.renderEditUserPopup(userInfo, filledForm.view, formPopup, formValidator);
   }   
 
   function createCard(dto) {    
